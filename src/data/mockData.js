@@ -4844,7 +4844,7 @@ export const INITIAL_QUESTIONS = [
             "Tumeur du foie",
             "Rapport I_p/I_a"
         ],
-        "statement": "L'atténuation du tissu tumoral hépatique est de 1 dB/cm/MHz et la fréquence de la sonde est de 4 MHz. Question 11 : Calculer le rapport d'intensité Ip / Ia entre l'écho de la paroi postérieure et celui de la paroi antérieure :",
+        "statement": "L'atténuation du tissu tumoral hépatique est de 1 dB/cm/MHz, la fréquence de la sonde est de 4 MHz et la traversée aller-retour est de 5,12 cm. Question 11 : Calculer le rapport d'intensité Ip / Ia entre l'écho de la paroi postérieure et celui de la paroi antérieure :",
         "answers": [
             {
                 "id": "a",
@@ -5902,7 +5902,7 @@ export const INITIAL_QUESTIONS = [
             "Fréquence",
             "Hauteur du son"
         ],
-        "statement": "Au passage de l'onde sonore dans le verre ou le PVC :",
+        "statement": "Au passage de l'onde sonore dans le verre ou le PVC (Polychlorure de vinyle) :",
         "answers": [
             {
                 "id": "a",
@@ -5930,7 +5930,7 @@ export const INITIAL_QUESTIONS = [
                 "correct": true
             }
         ],
-        "explanation": "B, E (Vraies) : La fréquence (hauteur du son) est invariante lors d'un changement de milieu. Comme c_verre et c_PVC > c_air, la longueur d'onde lambda = c / f augmente dans ces milieux."
+        "explanation": "B, E (Vraies) : PVC = Polychlorure de vinyle. La fréquence (hauteur du son) est invariante lors d'un changement de milieu. Comme c_verre et c_PVC > c_air, la longueur d'onde lambda = c / f augmente dans ces milieux."
     },
     {
         "id": "q-ue4-f1-48",
