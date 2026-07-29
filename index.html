@@ -9301,6 +9301,16 @@
                                     )}
                                     <h1 className="text-xl md:text-2xl font-bold text-white">{currentQ.statement}</h1>
 
+                                    {currentQ.imageUrl && (
+                                        <div className="my-5 flex justify-center bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80 shadow-2xl">
+                                            <img 
+                                                src={currentQ.imageUrl} 
+                                                alt="Schéma du QCM" 
+                                                className="max-h-[480px] max-w-full object-contain rounded-xl border border-slate-700 shadow-md"
+                                            />
+                                        </div>
+                                    )}
+
                                     <div className="flex flex-col gap-3.5 w-full">
                                         {currentQ.answers.map((ans, idx) => {
                                             const isChecked = selectedAnswers.includes(idx);
@@ -9972,6 +9982,11 @@
                                                             </div>
 
                                                             <h4 className="text-base font-bold text-white leading-relaxed">{q.statement}</h4>
+                                                            {q.imageUrl && (
+                                                                <div className="my-3 flex justify-center bg-slate-950/70 p-3 rounded-xl border border-slate-800">
+                                                                    <img src={q.imageUrl} alt="Schéma QCM" className="max-h-56 max-w-full object-contain rounded-lg border border-slate-700" />
+                                                                </div>
+                                                            )}
 
                                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
                                                                 {q.answers.map(ans => (
@@ -10074,6 +10089,11 @@
                                         return (
                                             <div key={m.id} className="bg-slate-900/60 border border-slate-800 p-6 rounded-3xl space-y-2">
                                                 <h4 className="font-bold text-white text-base">{q.statement}</h4>
+                                                {q.imageUrl && (
+                                                    <div className="my-3 flex justify-center bg-slate-950/70 p-3 rounded-xl border border-slate-800">
+                                                        <img src={q.imageUrl} alt="Schéma QCM" className="max-h-56 max-w-full object-contain rounded-lg border border-slate-700" />
+                                                    </div>
+                                                )}
                                                 <p className="text-xs text-slate-400">Explication : {q.explanation}</p>
                                             </div>
                                         );
