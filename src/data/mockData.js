@@ -7235,7 +7235,7 @@ export const INITIAL_QUESTIONS = [
             },
             {
                 "id": "d",
-                "text": "Il y a 3 modalités d'administration d'un traceur en médecine nucléaire.",
+                "text": "Il y a 4 modalités d'administration d'un traceur en médecine nucléaire.",
                 "correct": true
             },
             {
@@ -7244,7 +7244,7 @@ export const INITIAL_QUESTIONS = [
                 "correct": true
             }
         ],
-        "explanation": "A, B, D, E (Vraies) : A. Vrai. Le vecteur détermine la cible (os, rein, cœur). B. Vrai. Analogue du potassium pour la perfusion myocardique. C. Faux. Iode 131 spécifique de la thyroïde. D. Vrai. IV, inhalation, voie orale. E. Vrai."
+        "explanation": "A, B, D, E (Vraies) : A. Vrai. Le vecteur détermine la cible. B. Vrai. Analogue du potassium pour la perfusion myocardique. C. Faux. Iode 131 spécifique de la thyroïde. D. Vrai (IV, inhalation, voie orale, sous-cutanée/autre). E. Vrai."
     },
     {
         "id": "q-ue4-f3-6",
@@ -7312,7 +7312,7 @@ export const INITIAL_QUESTIONS = [
             },
             {
                 "id": "c",
-                "text": "Il existe deux types principaux de collimateurs pour la gamma-caméra d'Anger.",
+                "text": "Il existe 3 types principaux de collimateurs pour la gamma-caméra d'Anger.",
                 "correct": true
             },
             {
@@ -7326,7 +7326,7 @@ export const INITIAL_QUESTIONS = [
                 "correct": true
             }
         ],
-        "explanation": "A, B, C, E (Vraies) : A. Vrai. B. Vrai. Hauteur et diamètre règlent les performances géométriques. C. Vrai (trous parallèles, sténopé, etc.). D. Faux. Le collimateur sténopé (pinhole) agrandit l'image des petits organes. E. Vrai. Réseau de 37 à 91 PMs."
+        "explanation": "A, B, C, E (Vraies) : A. Vrai. B. Vrai. Hauteur et diamètre règlent les performances géométriques. C. Vrai (trous parallèles, sténopé, convergents/divergents). D. Faux. Le collimateur sténopé (pinhole) agrandit l'image des petits organes. E. Vrai. Réseau de 37 à 91 PMs."
     },
     {
         "id": "q-ue4-f3-8",
