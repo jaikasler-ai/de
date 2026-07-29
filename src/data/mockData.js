@@ -8160,7 +8160,6 @@ export const INITIAL_QUESTIONS = [
             "Sténopé",
             "Schéma"
         ],
-        "imageUrl": "src/assets/images/qcm_fc2_q11.png",
         "statement": "QCM FC2-11. Concernant les types de collimateurs de la gamma-caméra d'Anger (voir schéma ci-dessous) :",
         "answers": [
             {
@@ -8189,7 +8188,10 @@ export const INITIAL_QUESTIONS = [
                 "correct": true
             }
         ],
-        "explanation": "C, D, E (Vraies) : A. Faux. A est à trous parallèles et conserve la taille (échelle 1:1). B. Faux. C. Vrai. C est le collimateur sténopé (pinhole). D. Vrai. Adapté aux petits organes (ex: thyroïde). E. Vrai. Le sténopé agrandit et inverse l'image."
+        "explanation": "C, D, E (Vraies) : A. Faux. A est à trous parallèles et conserve la taille (échelle 1:1). B. Faux. C. Vrai. C est le collimateur sténopé (pinhole). D. Vrai. Adapté aux petits organes (ex: thyroïde). E. Vrai. Le sténopé agrandit et inverse l'image.",
+        "image": {
+            "url": "src/assets/images/qcm_fc2_q11.png"
+        }
     },
     {
         "id": "q-ue4-f2-pdf-12",
@@ -8325,7 +8327,6 @@ export const INITIAL_QUESTIONS = [
             "Reconstitution",
             "Schéma"
         ],
-        "imageUrl": "src/assets/images/qcm_fc2_q15.png",
         "statement": "QCM FC2-15. Concernant la reconstitution de l'image (voir schéma ci-dessous) :",
         "answers": [
             {
@@ -8354,7 +8355,10 @@ export const INITIAL_QUESTIONS = [
                 "correct": true
             }
         ],
-        "explanation": "B, E (Vraies) : B. Vrai. Le photon B va droit dans les trous du collimateur sans être dévié. E. Vrai. Les photons A, C et D ayant subi des diffusions/déviations parasitaires doivent être éliminés."
+        "explanation": "B, E (Vraies) : B. Vrai. Le photon B va droit dans les trous du collimateur sans être dévié. E. Vrai. Les photons A, C et D ayant subi des diffusions/déviations parasitaires doivent être éliminés.",
+        "image": {
+            "url": "src/assets/images/qcm_fc2_q15.png"
+        }
     },
     {
         "id": "q-ue4-f2-pdf-16",
@@ -8490,7 +8494,6 @@ export const INITIAL_QUESTIONS = [
             "Nodules",
             "Schéma"
         ],
-        "imageUrl": "src/assets/images/qcm_fc2_q19.png",
         "statement": "QCM FC2-19. Voici plusieurs images de scintigraphie thyroïdienne (voir clichés ci-dessous) :",
         "answers": [
             {
@@ -8519,7 +8522,10 @@ export const INITIAL_QUESTIONS = [
                 "correct": true
             }
         ],
-        "explanation": "E (Vraie) : Aucune proposition n'est exacte selon le corrigé du sujet."
+        "explanation": "E (Vraie) : Aucune proposition n'est exacte selon le corrigé du sujet.",
+        "image": {
+            "url": "src/assets/images/qcm_fc2_q19.png"
+        }
     },
     {
         "id": "q-ue4-f2-pdf-20",
@@ -8532,7 +8538,6 @@ export const INITIAL_QUESTIONS = [
             "99mTc-ECD",
             "123I-FP-CIT"
         ],
-        "imageUrl": "src/assets/images/qcm_fc2_q20.png",
         "statement": "QCM FC2-20. Soit les quatre images cérébrales ci-dessous (Perfusion 99mTc-ECD et Neurotransmission 123I-FP-CIT) :",
         "answers": [
             {
@@ -8556,7 +8561,10 @@ export const INITIAL_QUESTIONS = [
                 "correct": false
             }
         ],
-        "explanation": "A, C (Vraies) : A. Vrai. La première image (en haut à gauche) montre une perfusion cérébrale symétrique normale. B. Faux. Le défaut hémi-sphérique de perfusion suggère un AVC ischémique. C. Vrai. Fixation striatale bilatérale symétrique normale. D. Faux. L'asymétrie/déficit dOPA striatal en DaTSCAN suggère un syndrome parkinsonien."
+        "explanation": "A, C (Vraies) : A. Vrai. La première image (en haut à gauche) montre une perfusion cérébrale symétrique normale. B. Faux. Le défaut hémi-sphérique de perfusion suggère un AVC ischémique. C. Vrai. Fixation striatale bilatérale symétrique normale. D. Faux. L'asymétrie/déficit dOPA striatal en DaTSCAN suggère un syndrome parkinsonien.",
+        "image": {
+            "url": "src/assets/images/qcm_fc2_q20.png"
+        }
     }
 ];
 
