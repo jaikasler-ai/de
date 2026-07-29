@@ -7040,6 +7040,704 @@ export const INITIAL_QUESTIONS = [
             }
         ],
         "explanation": "A, B, C, E (Vraies) : A. Vrai. Courbe Intensité-Temps (TIC). B. Vrai. Flash de destruction à haut MI suivi de la ré-entrée du contraste. C. Vrai. D. Faux. Le flux sanguin (débit) correspond à la pente initiale de la courbe à l'origine (et non l'aire sous la courbe). E. Vrai. Le niveau asymptotique maximal (plateau) donne le volume sanguin microvasculaire (MBV)."
+    },
+    {
+        "id": "q-ue4-f3-1",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°3 - La scintigraphie.pdf",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "tags": [
+            "Scintigraphie",
+            "Rayons gamma",
+            "Traceurs"
+        ],
+        "statement": "QCM 1. Concernant la scintigraphie (principes généraux) :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Tout comme la radiologie, la scintigraphie utilise des rayons X.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "La scintigraphie est une technique d'imagerie par émission.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "La scintigraphie est une technique d'imagerie anatomique.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "La scintigraphie nécessite l'usage de traceurs spécifiques.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Les traceurs utilisés en scintigraphie ne sont pas forcément radioactifs.",
+                "correct": false
+            }
+        ],
+        "explanation": "B, D (Vraies) : A. Faux. La radiologie utilise des rayons X externes (transmission), la scintigraphie détecte des rayons gamma émis de l'intérieur de l'organisme (émission). B. Vrai. C. Faux. C'est une imagerie fonctionnelle et métabolique. D. Vrai. Le traceur est ciblé selon l'organe. E. Faux. Le traceur comporte obligatoirement un isotope radioactif émetteur gamma."
+    },
+    {
+        "id": "q-ue4-f3-2",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°3 - La scintigraphie.pdf",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "tags": [
+            "Radio-isotopes",
+            "Demi-vie",
+            "Becquerels"
+        ],
+        "statement": "QCM 2. Concernant les radio-isotopes utilisés en scintigraphie :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Tous les éléments d'une famille d'isotopes ont les mêmes propriétés physiques.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Un radio-isotope est un isotope instable.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "L'activité d'un radio-isotope décroît de moitié sur une durée égale à sa période radioactive T.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "La probabilité de désintégration d'un radio-isotope par unité de temps est proportionnelle à sa période radioactive T.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "L'activité d'un radio-isotope est mesurée en d.p.s. (désintégrations par seconde) ou Becquerels.",
+                "correct": true
+            }
+        ],
+        "explanation": "B, C, E (Vraies) : A. Faux. Les isotopes ont les mêmes propriétés chimiques mais des propriétés physiques différentes (stabilité nucléaire, masse). B. Vrai. C. Vrai. D. Faux. La constante lambda = ln(2)/T est inversement proportionnelle à la période T. E. Vrai. 1 Bq = 1 dps."
+    },
+    {
+        "id": "q-ue4-f3-3",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°3 - La scintigraphie.pdf",
+        "year": 2025,
+        "difficulty": "Difficile",
+        "tags": [
+            "Demi-vie physique",
+            "Demi-vie biologique",
+            "Demi-vie effective"
+        ],
+        "statement": "QCM 3. Concernant le comportement d'un radio-isotope in-vivo et les demi-vies :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La demi-vie physique Tp est la période radioactive propre du radio-isotope.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "La demi-vie biologique Tb est le temps nécessaire pour diviser par deux la quantité de traceur présente dans l'organisme.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "La demi-vie effective Te est le temps nécessaire pour que l'activité in vivo soit divisée par deux.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "La demi-vie effective est la somme de la demi-vie biologique et de la demi-vie physique.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "La demi-vie effective est toujours supérieure à la demi-vie physique.",
+                "correct": false
+            }
+        ],
+        "explanation": "A, B, C (Vraies) : A. Vrai. B. Vrai. C. Vrai. D. Faux. La formule est 1/Te = 1/Tp + 1/Tb, soit Te = (Tp * Tb) / (Tp + Tb). E. Faux. La demi-vie effective Te est toujours strictement inférieure à Tp et Tb."
+    },
+    {
+        "id": "q-ue4-f3-4",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°3 - La scintigraphie.pdf",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "tags": [
+            "Radioisotopes",
+            "Technétium 99m",
+            "Krypton 81m"
+        ],
+        "statement": "QCM 4. Le(s)quel(s) des radio-isotopes suivants peut(vent) être utilisé(s) en scintigraphie conventionnelle ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le carbone 14 (émetteur bêta moins).",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Le Technétium 99m (émetteur gamma pur).",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Le Fluor 18 (émetteur bêta plus).",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Le Krypton 81m (émetteur gamma pur).",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Le Cobalt 60 (émetteur bêta moins).",
+                "correct": false
+            }
+        ],
+        "explanation": "B, D (Vraies) : A. Faux. C-14 est un émetteur beta- pur non utilisé en imagerie. B. Vrai. 99mTc (140 keV) est le traceur roi. C. Faux. F-18 est réservé à la TEP (PET-scan). D. Vrai. Kr-81m est utilisé en scintigraphie pulmonaire gazeuse. E. Faux."
+    },
+    {
+        "id": "q-ue4-f3-5",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°3 - La scintigraphie.pdf",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "tags": [
+            "Traceurs",
+            "Molecule vectrice",
+            "Thallium 201"
+        ],
+        "statement": "QCM 5. Concernant les traceurs et leur usage en scintigraphie :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Un même radio-isotope peut être utilisé pour l'étude de paramètres physiologiques ou métaboliques différents selon la molécule vectrice.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Le Thallium 201 (201Tl) est utilisé en scintigraphie cardiaque.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "L'Iode 131 est utilisé en scintigraphie pulmonaire.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Il y a 3 modalités d'administration d'un traceur en médecine nucléaire.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Un traceur peut comporter le marqueur seul ou être associé à une molécule vectrice.",
+                "correct": true
+            }
+        ],
+        "explanation": "A, B, D, E (Vraies) : A. Vrai. Le vecteur détermine la cible (os, rein, cœur). B. Vrai. Analogue du potassium pour la perfusion myocardique. C. Faux. Iode 131 spécifique de la thyroïde. D. Vrai. IV, inhalation, voie orale. E. Vrai."
+    },
+    {
+        "id": "q-ue4-f3-6",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°3 - La scintigraphie.pdf",
+        "year": 2025,
+        "difficulty": "Difficile",
+        "tags": [
+            "Production radioisotopes",
+            "Cyclotron",
+            "Générateur Mo/Tc"
+        ],
+        "statement": "QCM 6. Concernant la production des radio-isotopes utilisés en scintigraphie :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Ils sont produits exclusivement dans les centrales nucléaires.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Le 201Tl est produit dans un cyclotron à partir du 203Tl.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Le 99mTc est produit par filiation radioactive à partir du Molybdène 99.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Dans le générateur de Molybdène, l'activité du 99mTc décroît avec une période de 6 heures.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Dans le générateur de Molybdène, l'activité du 99mTc est maximale au bout de 24 heures.",
+                "correct": true
+            }
+        ],
+        "explanation": "B, C, D, E (Vraies) : A. Faux. Produits en réacteur, cyclotron ou générateur. B. Vrai. C. Vrai. Filiation 99Mo (66h) -> 99mTc (6h). D. Vrai. Période propre du 99mTc = 6 heures. E. Vrai. Le pic d'activité du 99mTc dans le générateur est atteint en environ 23-24 heures après élution."
+    },
+    {
+        "id": "q-ue4-f3-7",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°3 - La scintigraphie.pdf",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "tags": [
+            "Gamma-caméra",
+            "Collimateur",
+            "Sténopé"
+        ],
+        "statement": "QCM 7. Concernant la gamma-caméra d'Anger et ses collimateurs :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Elle nécessite l'usage d'un collimateur constitué d'une grille plombée.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Le collimateur d'une gamma-caméra comporte des septa dont la hauteur et le diamètre des trous permettent de régler la résolution et la sensibilité.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Il existe deux types principaux de collimateurs pour la gamma-caméra d'Anger.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Le collimateur sténopé conserve les dimensions de l'objet examiné.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "La gamma-caméra comporte un grand nombre de photomultiplicateurs.",
+                "correct": true
+            }
+        ],
+        "explanation": "A, B, C, E (Vraies) : A. Vrai. B. Vrai. Hauteur et diamètre règlent les performances géométriques. C. Vrai (trous parallèles, sténopé, etc.). D. Faux. Le collimateur sténopé (pinhole) agrandit l'image des petits organes. E. Vrai. Réseau de 37 à 91 PMs."
+    },
+    {
+        "id": "q-ue4-f3-8",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°3 - La scintigraphie.pdf",
+        "year": 2025,
+        "difficulty": "Difficile",
+        "tags": [
+            "Cristal NaI(Tl)",
+            "Photomultiplicateur",
+            "Dynodes"
+        ],
+        "statement": "QCM 8. Concernant la détection et l'amplification dans la gamma-caméra d'Anger :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La majorité des photons gamma incidents interagissent au niveau du cristal à scintillation par effet Compton.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Le cristal de NaI(Tl) transforme les photons gamma incidents en photons lumineux.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Un photon gamma de 140 keV donne environ 4500 photons lumineux dont 80% sont récupérés par le guide de lumière.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Les dynodes du photomultiplicateur donnent un facteur d'amplification proche de 10^5 à 10^6.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Seul le photomultiplicateur en face du point d'impact du photon gamma incident participe à la formation du signal.",
+                "correct": false
+            }
+        ],
+        "explanation": "B, C, D (Vraies) : A. Faux. L'effet photoélectrique est recherché pour former le pic d'absorption. B. Vrai. C. Vrai. ~30-40 photons lumineux par keV. D. Vrai. Amplification par avalanche d'électrons sur dynodes (~10^5-10^6). E. Faux. Tous les PMs voisins captent la lumière et leurs signaux pondérés définissent les coordonnées X, Y."
+    },
+    {
+        "id": "q-ue4-f3-9",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°3 - La scintigraphie.pdf",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "tags": [
+            "Spectrométrie",
+            "Photons diffusés",
+            "Localisation X-Y"
+        ],
+        "statement": "QCM 9. Concernant la spectrométrie et la formation de l'image en scintigraphie :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La spectrométrie permet de sélectionner des photons dans une fenêtre d'énergie prédéfinie par l'utilisateur.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Les photons diffusés sont éliminés car ils dégradent la qualité de l'image finale.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Pour constituer l'image, il est nécessaire de localiser les scintillations sur le cristal et de dénombrer les photons qui parviennent en chaque point.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Le nombre de désintégrations en chaque point de la matrice est codé en intensité sur une échelle en couleur ou en niveau de gris.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "L'œil peut distinguer 32 niveaux de gris suffisant pour afficher n'importe quelle image.",
+                "correct": false
+            }
+        ],
+        "explanation": "A, B, C, D (Vraies) : A. Vrai. Fenêtre énergétique. B. Vrai. Le diffusé Compton est rejeté. C. Vrai. D. Vrai. E. Faux. L'œil humain ne perçoit que 30-40 niveaux de gris, d'où l'utilisation de fausses couleurs pour mieux visualiser les contrastes."
+    },
+    {
+        "id": "q-ue4-f3-10",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°3 - La scintigraphie.pdf",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "tags": [
+            "Acquisition",
+            "Tomographie",
+            "Résolution"
+        ],
+        "statement": "QCM 10. Concernant l'image scintigraphique et ses modes d'acquisition :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "L'acquisition de l'image scintigraphique ne peut se faire qu'en mode tomographie.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "En mode tomographie, la gamma-caméra balaye le corps du patient selon l'axe du corps.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "La qualité de l'image est principalement liée à la performance de la caméra.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Les performances d'une gamma-caméra sont décrites par un seul paramètre, la résolution.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Il y a deux types majeurs de résolution que l'on associe à une gamma-caméra (spatiale et énergétique).",
+                "correct": true
+            }
+        ],
+        "explanation": "C, E (Vraies) : A. Faux. Modes plan fixe, balayage et tomographie. B. Faux. La tomographie fait tourner la caméra autour du patient. C. Vrai. D. Faux. Résolution spatiale, en énergie, sensibilité et temps mort. E. Vrai."
+    },
+    {
+        "id": "q-ue4-f3-11",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°3 - La scintigraphie.pdf",
+        "year": 2025,
+        "difficulty": "Difficile",
+        "tags": [
+            "LMH",
+            "Sensibilité",
+            "Flou géométrique",
+            "Flou statistique"
+        ],
+        "statement": "QCM 11. Concernant les performances d'une gamma-caméra :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La résolution en énergie est définie par la largeur à mi-hauteur LMH du pic de l'absorption totale.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "La sensibilité d'une caméra est généralement inférieure à 1/1000.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "La résolution et la sensibilité d'une caméra varient dans le même sens.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Pour améliorer le flou statistique de l'image, il faut augmenter le temps d'acquisition.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Pour améliorer le flou géométrique, il faut rapprocher l'objet étudié de la caméra.",
+                "correct": true
+            }
+        ],
+        "explanation": "A, B, D, E (Vraies) : A. Vrai. LMH / E0. B. Vrai. Moins d'un photon sur 1000 traverse le collimateur. C. Faux. Résolution et sensibilité sont antagonistes. D. Vrai. Augmenter le nombre de photons comptés réduit l'incertitude statistique. E. Vrai. Le flou géométrique diminue quand le patient est proche du collimateur."
+    },
+    {
+        "id": "q-ue4-f3-12",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°3 - La scintigraphie.pdf",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "tags": [
+            "Scintigraphie",
+            "Technétium 99m",
+            "Iode 131"
+        ],
+        "statement": "QCM 12. Concernant la scintigraphie et la sélection des isotopes :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La scintigraphie est une technique d’imagerie utilisant des ultrasons pour observer les tissus mous du corps.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "La scintigraphie repose sur l’enregistrement des impulsions du cœur pour évaluer son fonctionnement.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Le technétium 99m est le radio-isotope le plus utilisé en scintigraphie.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "L’iode 131 est principalement utilisé en scintigraphie pour l’examen de la thyroïde.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "La demi-vie des radioisotopes doit être longue.",
+                "correct": false
+            }
+        ],
+        "explanation": "C, D (Vraies) : A. Faux. Imagerie médicale nucléaire émettrice gamma. B. Faux. C. Vrai. 99mTc est le radioisotope de choix. D. Vrai. Iode 131 spécifique de la thyroïde. E. Faux. La demi-vie doit être courte pour limiter la dose absorbée par le patient."
+    },
+    {
+        "id": "q-ue4-f3-13",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°3 - La scintigraphie.pdf",
+        "year": 2025,
+        "difficulty": "Difficile",
+        "tags": [
+            "Production",
+            "Cyclotron",
+            "99mTc-HMDP"
+        ],
+        "statement": "QCM 13. Concernant la production de radioisotopes en médecine nucléaire :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La méthode la plus courante de production des radioisotopes est par distillation d’éléments radioactifs naturels.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Un réacteur nucléaire utilise des réactions de fusion, tandis que le cyclotron utilise des rayons gamma.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Le réacteur nucléaire produit des radioisotopes par fission de l’uranium 235, tandis que le cyclotron bombarde des cibles avec des particules positivement chargées.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Le technétium est produit sur place dans les services de médecine nucléaire à partir du générateur de molybdène.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Le technétium combiné à la molécule HMDP est utilisé pour évaluer le métabolisme osseux.",
+                "correct": true
+            }
+        ],
+        "explanation": "C, D, E (Vraies) : A. Faux. Irradiation cibles en réacteur ou cyclotron. B. Faux. C. Vrai. Fission U-235 ou capture neutronique vs accélérateur de particules chargées. D. Vrai. Générateur 99Mo/99mTc. E. Vrai. Scintigraphie osseuse au 99mTc-HMDP."
+    },
+    {
+        "id": "q-ue4-f3-14",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°3 - La scintigraphie.pdf",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "tags": [
+            "Collimateur",
+            "Septas",
+            "Résolution"
+        ],
+        "statement": "QCM 14. Concernant la composition du collimateur d'une gamma-caméra :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La scintigraphie d’Anger est un examen utilisant des rayons X pour visualiser les os et les organes.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Le collimateur filtre et sélectionne les rayons gamma entrant selon leur direction.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "L’épaisseur des septas du collimateur est adaptée à l’énergie des photons émis par le radio-isotope.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "La longueur des septas du collimateur détermine la résolution de l’image scintigraphique.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "La sensibilité et la résolution évoluent de façon agoniste.",
+                "correct": false
+            }
+        ],
+        "explanation": "B, C, D (Vraies) : A. Faux. Émission gamma. B. Vrai. C. Vrai. Plus l'énergie est haute, plus l'épaisseur du plomb doit être grande. D. Vrai. Septas plus longs = meilleure résolution spatiale. E. Faux. Évolution en sens opposé (antagonistes)."
+    },
+    {
+        "id": "q-ue4-f3-15",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°3 - La scintigraphie.pdf",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "tags": [
+            "Scintillateur NaI(Tl)",
+            "Photomultiplicateur",
+            "Spectrométrie"
+        ],
+        "statement": "QCM 15. Concernant la chaîne de détection de la caméra-gamma :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le collimateur amplifie les signaux électriques provenant des rayons gamma.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Le cristal scintillateur permet de convertir les photons lumineux en signal électrique.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Le cristal généralement utilisé est composé de plomb.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Le photomultiplicateur amplifie le signal lumineux en multipliant les électrons à travers plusieurs dynodes.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "La spectrométrie d’une gamma-caméra analyse l’énergie des photons gamma détectés.",
+                "correct": true
+            }
+        ],
+        "explanation": "D, E (Vraies) : A. Faux. Le collimateur filtre uniquement la direction. B. Faux. Le cristal scintillateur convertit les gamma en photons visibles. C. Faux. NaI(Tl). D. Vrai. Conversion en électrons puis avalanche sur dynodes. E. Vrai. Élimine les photons diffusés par effet Compton."
+    },
+    {
+        "id": "q-ue4-f3-16",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°3 - La scintigraphie.pdf",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "tags": [
+            "Acquisition statique",
+            "Acquisition dynamique",
+            "Tomographie 3D"
+        ],
+        "statement": "QCM 16. Concernant l’acquisition de l’image en scintigraphie :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "L’acquisition de l’image en scintigraphie peut être statique ou dynamique.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Le balayage du corps entier permet d’acquérir des images d’une région anatomique spécifique.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "En plan fixe, la gamma-caméra reste immobile pendant l’acquisition de l’image.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "L’acquisition en balayage du corps entier nécessite de déplacer la gamma-caméra le long du patient.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "L’acquisition tomographique permet de reconstruire des images en 2D des organes examinés.",
+                "correct": false
+            }
+        ],
+        "explanation": "A, C, D (Vraies) : A. Vrai. B. Faux. Balayage corps entier pour bilan d'extension. C. Vrai. D. Vrai. E. Faux. La tomographie (TEMP) reconstruit des coupes en 3D."
+    },
+    {
+        "id": "q-ue4-f3-17",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°3 - La scintigraphie.pdf",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "tags": [
+            "Résolution spatiale",
+            "Sensibilité",
+            "Flou statistique"
+        ],
+        "statement": "QCM 17. Concernant la performance et la qualité d'image de la gamma-caméra :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La résolution spatiale de la gamma-caméra dépend de la distance entre le patient et le détecteur.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "La sensibilité de la gamma-caméra désigne sa capacité à détecter un grand nombre de photons émis par le radiotraceur en un temps donné.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Le flou géométrique augmente avec la distance entre le patient et le détecteur.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Le flou géométrique est indépendant du type de collimateur utilisé.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Le flou statistique diminue lorsque le temps d’acquisition augmente.",
+                "correct": true
+            }
+        ],
+        "explanation": "A, B, C, E (Vraies) : A. Vrai. B. Vrai. C. Vrai. D. Faux. Le flou géométrique dépend de la géométrie des trous du collimateur. E. Vrai. Un temps d'acquisition plus long augmente les statistiques de comptage et réduit le bruit."
     }
 ];
 
