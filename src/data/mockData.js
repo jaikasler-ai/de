@@ -8772,7 +8772,7 @@ export const INITIAL_QUESTIONS = [
             "Nucléotide",
             "ADN"
         ],
-        "statement": "5. De quoi est composée un nucléotide de l'ADN ? (au moins deux bonnes réponses) :",
+        "statement": "5. De quoi est composée un nucléotide de l'ADN ?:",
         "answers": [
             {
                 "id": "a",
@@ -8842,47 +8842,6 @@ export const INITIAL_QUESTIONS = [
             }
         ],
         "explanation": "C : Faux : la lecture commence par l'extrémité 5'. E : faux : les brins sont antiparallèles."
-    },
-    {
-        "id": "q-ue1-f1-t7",
-        "subjectId": "sub-1",
-        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
-        "year": 2025,
-        "difficulty": "Facile",
-        "tags": [
-            "ADN",
-            "Appariement",
-            "Chargaff"
-        ],
-        "statement": "7. Concernant les règles de l'ADN :",
-        "answers": [
-            {
-                "id": "a",
-                "text": "L'adénine est toujours associée avec la thymine.",
-                "correct": true
-            },
-            {
-                "id": "b",
-                "text": "La guanine est toujours associée avec l'adénine.",
-                "correct": false
-            },
-            {
-                "id": "c",
-                "text": "La cytosine est toujours associée à la guanine.",
-                "correct": true
-            },
-            {
-                "id": "d",
-                "text": "La thymine est toujours associée à la cytosine.",
-                "correct": false
-            },
-            {
-                "id": "e",
-                "text": "Dans une cellule la quantité de guanine doit être égale à la cytosine et la quantité d'adénine doit être égale à la thymine.",
-                "correct": true
-            }
-        ],
-        "explanation": "La thymine est toujours associée avec l'adénine (A-T). La guanine est toujours associée avec la cytosine (G-C)."
     },
     {
         "id": "q-ue1-f1-t8",
@@ -9258,12 +9217,12 @@ export const INITIAL_QUESTIONS = [
         "answers": [
             {
                 "id": "a",
-                "text": "Faux : Un virus n'a pas besoin d'une cellule hôte pour se répliquer.",
+                "text": "Un virus n'a pas besoin d'une cellule hôte pour se répliquer.",
                 "correct": false
             },
             {
                 "id": "b",
-                "text": "Faux : Les protozoaires ne sont pas des organismes unicellulaires eucaryotes.",
+                "text": "Les protozoaires ne sont pas des organismes unicellulaires eucaryotes.",
                 "correct": false
             },
             {
@@ -9273,7 +9232,7 @@ export const INITIAL_QUESTIONS = [
             },
             {
                 "id": "d",
-                "text": "Faux : Le groupe de tête hydrophile des phospholipides n'est pas lié au glycérol via un groupement phosphate.",
+                "text": "Le groupe de tête hydrophile des phospholipides n'est pas lié au glycérol via un groupement phosphate.",
                 "correct": false
             },
             {
@@ -9303,22 +9262,22 @@ export const INITIAL_QUESTIONS = [
             },
             {
                 "id": "b",
-                "text": "Faux : L'expérience d'Avery, MacLeod et McCarty ne montre pas que l'ADN est le support de l'information génétique.",
+                "text": "L'expérience d'Avery, MacLeod et McCarty ne montre pas que l'ADN est le support de l'information génétique.",
                 "correct": false
             },
             {
                 "id": "c",
-                "text": "Faux : Les procaryotes possèdent une enveloppe nucléaire.",
+                "text": "Les procaryotes possèdent une enveloppe nucléaire.",
                 "correct": false
             },
             {
                 "id": "d",
-                "text": "Faux : Les génomes bactériens ne comportent pas de gènes sur un chromosome circulaire.",
+                "text": "Les génomes bactériens ne comportent pas de gènes sur un chromosome circulaire.",
                 "correct": false
             },
             {
                 "id": "e",
-                "text": "Faux : Les bactéries ne sont pas des procaryotes.",
+                "text": "Les bactéries ne sont pas des procaryotes.",
                 "correct": false
             }
         ],
@@ -9338,12 +9297,12 @@ export const INITIAL_QUESTIONS = [
         "answers": [
             {
                 "id": "a",
-                "text": "Faux : Le bactériophage est un organisme qui se nourrit de bactéries.",
+                "text": "Le bactériophage est un organisme qui se nourrit de bactéries.",
                 "correct": false
             },
             {
                 "id": "b",
-                "text": "Faux : Les caractéristiques mendéliennes font référence à la taille physique du gène.",
+                "text": "Les caractéristiques mendéliennes font référence à la taille physique du gène.",
                 "correct": false
             },
             {
@@ -9384,7 +9343,7 @@ export const INITIAL_QUESTIONS = [
             },
             {
                 "id": "b",
-                "text": "Faux : Dans l'ARN, l'uracile ne remplace pas la thymine.",
+                "text": "Dans l'ARN, l'uracile ne remplace pas la thymine.",
                 "correct": false
             },
             {
@@ -9394,12 +9353,12 @@ export const INITIAL_QUESTIONS = [
             },
             {
                 "id": "d",
-                "text": "Faux : Le pentose de l'ADN n'est pas le 2'-désoxyribose.",
+                "text": "Le pentose de l'ADN n'est pas le 2'-désoxyribose.",
                 "correct": false
             },
             {
                 "id": "e",
-                "text": "Faux : Les nucléotides consécutifs du brin d'ADN ne sont pas reliés par des liaisons phosphodiesters.",
+                "text": "Les nucléotides consécutifs du brin d'ADN ne sont pas reliés par des liaisons phosphodiesters.",
                 "correct": false
             }
         ],
@@ -9420,7 +9379,7 @@ export const INITIAL_QUESTIONS = [
         "answers": [
             {
                 "id": "a",
-                "text": "Faux : La liaison phosphodiester ne s'établit pas entre le 5'-phosphate et le 3'-OH.",
+                "text": "La liaison phosphodiester ne s'établit pas entre le 5'-phosphate et le 3'-OH.",
                 "correct": false
             },
             {
@@ -9466,12 +9425,12 @@ export const INITIAL_QUESTIONS = [
             },
             {
                 "id": "b",
-                "text": "Faux : Les structures en ADN-H n'entravent jamais la progression de la réplication ou de la transcription.",
+                "text": "Les structures en ADN-H n'entravent jamais la progression de la réplication ou de la transcription.",
                 "correct": false
             },
             {
                 "id": "c",
-                "text": "Faux : La réplication de l'ADN ne s'effectue pas selon un mode semi-conservatif.",
+                "text": "La réplication de l'ADN ne s'effectue pas selon un mode semi-conservatif.",
                 "correct": false
             },
             {
@@ -9481,7 +9440,7 @@ export const INITIAL_QUESTIONS = [
             },
             {
                 "id": "e",
-                "text": "Faux : Le centromère n'est pas la région de constriction primaire du chromosome.",
+                "text": "Le centromère n'est pas la région de constriction primaire du chromosome.",
                 "correct": false
             }
         ],
@@ -9517,7 +9476,7 @@ export const INITIAL_QUESTIONS = [
             },
             {
                 "id": "d",
-                "text": "Faux : Le caryotype ne désigne pas l'ensemble structuré des chromosomes d'un individu.",
+                "text": "Le caryotype ne désigne pas l'ensemble structuré des chromosomes d'un individu.",
                 "correct": false
             },
             {
