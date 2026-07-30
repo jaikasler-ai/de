@@ -8,16 +8,16 @@ export const INITIAL_SUBJECTS = [
         progress: 78, 
         qcmCount: 240,
         chapters: [
-            'Fiche n°1 - Introduction à la Biologie moléculaire.pdf',
-            'Fiche n°2 - Organisation de l’ADN.pdf',
-            'Fiche n°3 - Extraction des acides nucléiques et leur analyse.pdf',
-            'Fiche n°4 - Réplication de l’ADN et PCR.pdf',
-            'Fiche n°5 - L’expression des gènes.pdf',
-            'Fiche n°6 - Maturation des ARN pré-messagers.pdf',
-            'Fiche n°7 - Méthodes d’étude de l’expression des gènes.pdf',
-            'Fiche n°8 - La synthèse des protéines.pdf',
-            'Fiche n°9 - Le séquençage de l’ADN / Du gène au génome.pdf'
-        ]
+            "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
+            "Fiche n°2 - Organisation de l'ADN.pdf",
+            "Fiche n°3 - Extraction des acides nucléiques et leur analyse.pdf",
+            "Fiche n°4 - Réplication de l'ADN et PCR.pdf",
+            "Fiche n°5 - L'expression des gènes.pdf",
+            "Fiche n°6 - Maturation des ARN pré-messagers.pdf",
+            "Fiche n°7 - Méthodes d'étude de l'expression des gènes.pdf",
+            "Fiche n°8 - La synthèse des protéines.pdf",
+            "Fiche n°9 - Le séquençage de l'ADN / Du gène au génome.pdf"
+]
     },
     { 
         id: 'sub-2', 
@@ -113,7 +113,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-1",
         "subjectId": "sub-1",
-        "chapter": "Fiche n°4 - Réplication de l’ADN et PCR.pdf",
+        "chapter": "Fiche n°4 - Réplication de l'ADN et PCR.pdf",
         "year": 2026,
         "difficulty": "Difficile",
         "tags": [
