@@ -6451,7 +6451,7 @@ export const INITIAL_QUESTIONS = [
             {
                 "id": "c",
                 "text": "L'onde réfléchie par les capsules présentera des harmoniques.",
-                "correct": true
+                "correct": false
             },
             {
                 "id": "d",
@@ -6464,7 +6464,7 @@ export const INITIAL_QUESTIONS = [
                 "correct": true
             }
         ],
-        "explanation": "A, B, C, D, E (Vraies) : A. Vrai. MI = P- / sqrt(f) = 0,4 / sqrt(4) = 0,4 / 2 = 0,2. B. Vrai. À MI = 0,2, le régime reste à prédominance linéaire. C. Vrai. Des harmoniques apparaissent à faible niveau. D. Vrai. Pour 16 MHz, sqrt(16) = 4, donc MI = 0,4 / 4 = 0,1. E. Vrai. Pour P- = 2 MPa et f = 4 MHz, MI = 2 / 2 = 1,0 (> 0,7-0,8), déclenchant le régime stimulé/destruction."
+        "explanation": "A, B, D, E (Vraies) : A. Vrai (MI = 0,4 / sqrt(4) = 0,2). B. Vrai (En dessous d'un certain seuil MI <= 0,2, le régime reste linéaire). C. Faux : En régime linéaire, l'onde réfléchie ne présente pas d'harmoniques (les harmoniques n'apparaissent qu'en régime non-linéaire pour MI > 0,1-0,2). D. Vrai (MI = 0,4 / 4 = 0,1). E. Vrai (MI = 2 / 2 = 1,0 > 0,7-0,8, régime stimulé/destruction)."
     },
     {
         "id": "q-ue4-f2-13",
@@ -6487,7 +6487,7 @@ export const INITIAL_QUESTIONS = [
             {
                 "id": "b",
                 "text": "L'amplitude de l'harmonique utilisée est maximale à la résonance.",
-                "correct": true
+                "correct": false
             },
             {
                 "id": "c",
@@ -6505,7 +6505,7 @@ export const INITIAL_QUESTIONS = [
                 "correct": false
             }
         ],
-        "explanation": "A, B, C (Vraies) : A. Vrai. L'imagerie harmonique capte à 2f0. B. Vrai. C. Vrai. Le chevauchement entre f0 et 2f0 doit être minimal pour filtrer le signal. D. Faux. Une bande passante étroite implique une impulsion longue, dégradant la résolution axiale. E. Faux. Il existe un compromis constant entre résolution spatiale et sensibilité."
+        "explanation": "A, C (Vraies) : A. Vrai. L'imagerie harmonique capte à 2f0. B. Faux : L'amplitude de l'harmonique utilisée n'est pas maximale à la résonance. C. Vrai. Le chevauchement entre f0 et 2f0 doit être minimal pour filtrer le signal. D. Faux. Une bande passante étroite implique une impulsion longue, dégradant la résolution axiale. E. Faux. Il existe un compromis constant entre résolution spatiale et sensibilité."
     },
     {
         "id": "q-ue4-f2-14",
@@ -9768,45 +9768,6 @@ export const INITIAL_QUESTIONS = [
             }
         ],
         "explanation": "A, B, D, E sont vraies. C : L’acétylation des histones régule l'état de la chromatine et donc l'expression des gènes."
-    },
-    {
-        "id": "q-ue1-f2-t8",
-        "subjectId": "sub-1",
-        "chapter": "Fiche n°2 - Organisation de l'ADN.pdf",
-        "year": 2025,
-        "difficulty": "Difficile",
-        "tags": [
-            "Génome humain"
-        ],
-        "statement": "8) Concernant le génome humain, laquelle(lesquelles) de ses proposition(s) est(sont) vraie(s) ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Il y a environ 20 687 gènes codant pour des protéines.",
-                "correct": true
-            },
-            {
-                "id": "b",
-                "text": "Au niveau de l’ADN répété, 47% se trouve être de l’ADN répété dispersé.",
-                "correct": false
-            },
-            {
-                "id": "c",
-                "text": "30% du génome contient environ 29% d’introns et 1% d’exons.",
-                "correct": false
-            },
-            {
-                "id": "d",
-                "text": "Environ 50% du génome est constitué de séquences répétées d’un type ou d’un autre.",
-                "correct": false
-            },
-            {
-                "id": "e",
-                "text": "Au niveau de l’ADN répété, 8% se trouve être de l’ADN répété groupé.",
-                "correct": true
-            }
-        ],
-        "explanation": "A et E sont vraies."
     },
     {
         "id": "q-ue1-f2-t9",
