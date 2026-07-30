@@ -8569,7 +8569,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-img-1",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Moyen",
         "tags": [
@@ -8604,7 +8604,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-t1",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Facile",
         "tags": [
@@ -8645,7 +8645,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-t2",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Moyen",
         "tags": [
@@ -8685,7 +8685,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-t3",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Moyen",
         "tags": [
@@ -8725,7 +8725,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-t4",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Moyen",
         "tags": [
@@ -8765,7 +8765,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-t5",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Facile",
         "tags": [
@@ -8805,7 +8805,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-t6",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Moyen",
         "tags": [
@@ -8846,7 +8846,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-t7",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Facile",
         "tags": [
@@ -8887,7 +8887,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-t8",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Difficile",
         "tags": [
@@ -8927,7 +8927,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-t9",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Moyen",
         "tags": [
@@ -8968,7 +8968,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-t10",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Moyen",
         "tags": [
@@ -9008,7 +9008,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-s2-1",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Moyen",
         "tags": [
@@ -9047,7 +9047,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-s2-2",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Moyen",
         "tags": [
@@ -9086,7 +9086,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-s2-3",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Moyen",
         "tags": [
@@ -9127,7 +9127,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-s2-4",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Moyen",
         "tags": [
@@ -9168,7 +9168,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-s2-5",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Moyen",
         "tags": [
@@ -9207,7 +9207,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-s2-6",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Difficile",
         "tags": [
@@ -9247,7 +9247,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-s3-1",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Difficile",
         "tags": [
@@ -9287,7 +9287,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-s3-2",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Moyen",
         "tags": [
@@ -9327,7 +9327,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-s3-3",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Moyen",
         "tags": [
@@ -9367,7 +9367,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-s3-4",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Facile",
         "tags": [
@@ -9408,7 +9408,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-s3-5",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Difficile",
         "tags": [
@@ -9449,7 +9449,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-s3-6",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Moyen",
         "tags": [
@@ -9490,7 +9490,7 @@ export const INITIAL_QUESTIONS = [
     {
         "id": "q-ue1-f1-s3-7",
         "subjectId": "sub-1",
-        "chapter": "Fiche n1 - Introduction  la Biologie molculaire.pdf",
+        "chapter": "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
         "year": 2025,
         "difficulty": "Moyen",
         "tags": [
