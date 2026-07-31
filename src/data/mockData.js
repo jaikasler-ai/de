@@ -7344,7 +7344,7 @@ export const INITIAL_QUESTIONS = [
             {
                 "id": "a",
                 "text": "La majorité des photons gamma incidents interagissent au niveau du cristal à scintillation par effet Compton.",
-                "correct": false
+                "correct": true
             },
             {
                 "id": "b",
@@ -7367,7 +7367,7 @@ export const INITIAL_QUESTIONS = [
                 "correct": false
             }
         ],
-        "explanation": "B, C, D (Vraies) : A. Faux. L'effet photoélectrique est recherché pour former le pic d'absorption. B. Vrai. C. Vrai. ~30-40 photons lumineux par keV. D. Vrai. Amplification par avalanche d'électrons sur dynodes (~10^5-10^6). E. Faux. Tous les PMs voisins captent la lumière et leurs signaux pondérés définissent les coordonnées X, Y."
+        "explanation": "A, B, C, D (Vraies) : A. Vrai. La majorité des photons gamma de 140 keV interagissent au niveau du cristal par effet Compton. B. Vrai. C. Vrai. D. Vrai. E. Faux. Tous les PMs voisins participent à la localisation X, Y."
     },
     {
         "id": "q-ue4-f3-9",
