@@ -10206,655 +10206,14 @@ export const INITIAL_QUESTIONS = [
         "explanation": "B, D sont exactes. A: Faux, ce sont des désoxyribonucléases (DNases). E: Faux, la migration est inversement proportionnelle à la taille du fragment."
     },
     {
-        "id": "q-ue4-f4-6",
+        "id": "q-ue4-f4-pdf-1",
         "subjectId": "sub-5",
         "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Facile",
-        "tags": [
-            "TEP",
-            "Photons gamma",
-            "Annihilation"
-        ],
-        "statement": "QCM 6. Concernant les photons gamma dans la TEP :",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Ils sont émis directement par le radiopharmaceutique",
-                "correct": false
-            },
-            {
-                "id": "b",
-                "text": "Ils sont générés par des collisions entre électrons et protons",
-                "correct": false
-            },
-            {
-                "id": "c",
-                "text": "Ils sont produits lors de l'annihilation entre un positon et un électron",
-                "correct": true
-            },
-            {
-                "id": "d",
-                "text": "Ils sont capturés pour produire des images en noir et blanc",
-                "correct": false
-            },
-            {
-                "id": "e",
-                "text": "Ils servent uniquement à mesurer la taille des organes",
-                "correct": false
-            }
-        ],
-        "explanation": "C (Vraie) : Les photons gamma en TEP proviennent de l'annihilation d'un positon émis par le traceur avec un électron du milieu."
-    },
-    {
-        "id": "q-ue4-f4-7",
-        "subjectId": "sub-5",
-        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Moyen",
-        "tags": [
-            "Fluor 18",
-            "TEP",
-            "Scintigraphie"
-        ],
-        "statement": "QCM 7. Quel est l'avantage principal du Fluor 18 en TEP par rapport aux isotopes utilisés en scintigraphie, comme le technétium 99m ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Il a une demi-vie beaucoup plus longue",
-                "correct": false
-            },
-            {
-                "id": "b",
-                "text": "Il émet des positons, permettant des images plus précises",
-                "correct": true
-            },
-            {
-                "id": "c",
-                "text": "Il ne nécessite pas d'appareil spécifique pour être détecté",
-                "correct": false
-            },
-            {
-                "id": "d",
-                "text": "Il est moins cher",
-                "correct": false
-            },
-            {
-                "id": "e",
-                "text": "Il est moins radioactif",
-                "correct": false
-            }
-        ],
-        "explanation": "B (Vraie) : Le fluor 18 émet des positons qui produisent deux photons de 511 keV en coïncidence, offrant une meilleure résolution spatiale."
-    },
-    {
-        "id": "q-ue4-f4-8",
-        "subjectId": "sub-5",
-        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Facile",
-        "tags": [
-            "FDG",
-            "Tumeurs",
-            "Glucose"
-        ],
-        "statement": "QCM 8. Pourquoi le FDG marqué au Fluor 18 est-il particulièrement adapté à la détection des tumeurs ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Parce qu'il est absorbé uniquement par les cellules saines",
-                "correct": false
-            },
-            {
-                "id": "b",
-                "text": "Parce qu'il est éliminé très rapidement du corps",
-                "correct": false
-            },
-            {
-                "id": "c",
-                "text": "Parce que les cellules cancéreuses consomment plus de glucose que les cellules normales",
-                "correct": true
-            },
-            {
-                "id": "d",
-                "text": "Parce qu'il se fixe uniquement sur les os",
-                "correct": false
-            },
-            {
-                "id": "e",
-                "text": "Parce qu'il émet des rayons X",
-                "correct": false
-            }
-        ],
-        "explanation": "C (Vraie) : Les cellules tumorales ont une forte activité métabolique et consomment préférentiellement le glucose (effet Warburg)."
-    },
-    {
-        "id": "q-ue4-f4-9",
-        "subjectId": "sub-5",
-        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Moyen",
-        "tags": [
-            "TEP/TDM",
-            "Hybride"
-        ],
-        "statement": "QCM 9. Parmi les propositions suivantes, laquelle (ou lesquelles) est (sont) exacte(s) ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "La gamma-caméra et la caméra hybride TEP/TDM utilisent les mêmes principes.",
-                "correct": false
-            },
-            {
-                "id": "b",
-                "text": "La caméra hybride TEP/TDM combine deux technologies : la TEP et la tomodensitométrie.",
-                "correct": true
-            },
-            {
-                "id": "c",
-                "text": "En fusionnant les images TEP avec les images TDM, la caméra hybride fournit une image à la fois métabolique et anatomique.",
-                "correct": true
-            },
-            {
-                "id": "d",
-                "text": "La caméra hybride détecte directement les rayons gamma émis par le traceur radioactif.",
-                "correct": false
-            },
-            {
-                "id": "e",
-                "text": "La caméra hybride TEP/TDM détecte les photons gamma issus de l'annihilation des positons émis par les isotopes radioactifs.",
-                "correct": true
-            }
-        ],
-        "explanation": "B, C, E (Vraies)."
-    },
-    {
-        "id": "q-ue4-f4-10",
-        "subjectId": "sub-5",
-        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Facile",
-        "tags": [
-            "Annihilation",
-            "Positon"
-        ],
-        "statement": "QCM 10. Que se produit-il lorsque le positon, émis par le traceur radioactif, entre en collision avec un électron dans le tissu corporel ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Il est absorbé par l'électron",
-                "correct": false
-            },
-            {
-                "id": "b",
-                "text": "Il est transformé en un proton",
-                "correct": false
-            },
-            {
-                "id": "c",
-                "text": "Ils s'annihilent et émettent des photons gamma",
-                "correct": true
-            },
-            {
-                "id": "d",
-                "text": "Ils produisent des rayons X",
-                "correct": false
-            },
-            {
-                "id": "e",
-                "text": "Ils fusionnent pour former un neutron",
-                "correct": false
-            }
-        ],
-        "explanation": "C (Vraie) : L'annihilation convertit la masse du positon et de l'électron en deux photons gamma opposés."
-    },
-    {
-        "id": "q-ue4-f4-11",
-        "subjectId": "sub-5",
-        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Facile",
-        "tags": [
-            "Énergie",
-            "Photons gamma"
-        ],
-        "statement": "QCM 11. Quelle est l'énergie des deux photons gamma émis lors de l'annihilation d'un positon avec un électron ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "511 keV chacun",
-                "correct": true
-            },
-            {
-                "id": "b",
-                "text": "1 MeV chacun",
-                "correct": false
-            },
-            {
-                "id": "c",
-                "text": "256 keV chacun",
-                "correct": false
-            },
-            {
-                "id": "d",
-                "text": "100 keV chacun",
-                "correct": false
-            },
-            {
-                "id": "e",
-                "text": "511 MeV chacun",
-                "correct": false
-            }
-        ],
-        "explanation": "A (Vraie) : Chaque photon de l'annihilation possède une énergie égale à la masse au repos de l'électron/positon, soit 511 keV."
-    },
-    {
-        "id": "q-ue4-f4-12",
-        "subjectId": "sub-5",
-        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Facile",
-        "tags": [
-            "Localisation",
-            "LDR"
-        ],
-        "statement": "QCM 12. Lors de l'annihilation entre un positon et un électron, quel phénomène permet la localisation précise de l'origine du signal dans une image TEP ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "La direction aléatoire des photons",
-                "correct": false
-            },
-            {
-                "id": "b",
-                "text": "L'émission des photons à 180° l'un de l'autre",
-                "correct": true
-            },
-            {
-                "id": "c",
-                "text": "La fréquence des photons émis",
-                "correct": false
-            },
-            {
-                "id": "d",
-                "text": "L'énergie variable des photons gamma",
-                "correct": false
-            },
-            {
-                "id": "e",
-                "text": "La vitesse de désintégration du traceur",
-                "correct": false
-            }
-        ],
-        "explanation": "B (Vraie) : La colinéarité des deux photons (émis à 180°) permet de définir une ligne de réponse (LDR)."
-    },
-    {
-        "id": "q-ue4-f4-13",
-        "subjectId": "sub-5",
-        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Facile",
-        "tags": [
-            "Détection",
-            "TEP"
-        ],
-        "statement": "QCM 13. Pourquoi la détection des photons émis lors de l'annihilation est-elle cruciale dans la TEP ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Elle permet de localiser l'origine de l'annihilation",
-                "correct": true
-            },
-            {
-                "id": "b",
-                "text": "Elle mesure l'activité électrique des cellules",
-                "correct": false
-            },
-            {
-                "id": "c",
-                "text": "Elle visualise les os et les tissus durs",
-                "correct": false
-            },
-            {
-                "id": "d",
-                "text": "Elle permet de détecter les rayons X émis par les tissus",
-                "correct": false
-            },
-            {
-                "id": "e",
-                "text": "Elle donne des informations sur la composition chimique du corps",
-                "correct": false
-            }
-        ],
-        "explanation": "A (Vraie)."
-    },
-    {
-        "id": "q-ue4-f4-14",
-        "subjectId": "sub-5",
-        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Facile",
-        "tags": [
-            "Coïncidence",
-            "TEP"
-        ],
-        "statement": "QCM 14. Qu'est-ce que la détection en coïncidence dans le contexte d'une caméra TEP ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "La détection des rayons X à différentes longueurs d'onde",
-                "correct": false
-            },
-            {
-                "id": "b",
-                "text": "La détection simultanée de deux photons gamma émis dans des directions opposées",
-                "correct": true
-            },
-            {
-                "id": "c",
-                "text": "La détection de particules alpha et beta",
-                "correct": false
-            },
-            {
-                "id": "d",
-                "text": "La détection des électrons en mouvement",
-                "correct": false
-            },
-            {
-                "id": "e",
-                "text": "La mesure du temps de réaction d'un tissu",
-                "correct": false
-            }
-        ],
-        "explanation": "B (Vraie) : La détection simultanée dans une courte fenêtre temporelle confirme l'origine commune sur la LDR."
-    },
-    {
-        "id": "q-ue4-f4-15",
-        "subjectId": "sub-5",
-        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Facile",
-        "tags": [
-            "Coïncidence",
-            "Emplacement"
-        ],
-        "statement": "QCM 15. Pourquoi les photons gamma sont-ils détectés en coïncidence dans une caméra TEP ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Pour réduire le bruit de fond",
-                "correct": false
-            },
-            {
-                "id": "b",
-                "text": "Pour augmenter la sensibilité de l'appareil",
-                "correct": false
-            },
-            {
-                "id": "c",
-                "text": "Pour localiser l'emplacement de l'annihilation positon-électron",
-                "correct": true
-            },
-            {
-                "id": "d",
-                "text": "Pour mesurer la vitesse des particules",
-                "correct": false
-            },
-            {
-                "id": "e",
-                "text": "Pour créer des images 3D",
-                "correct": false
-            }
-        ],
-        "explanation": "C (Vraie)."
-    },
-    {
-        "id": "q-ue4-f4-16",
-        "subjectId": "sub-5",
-        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Moyen",
-        "tags": [
-            "Qualité image",
-            "Résolution"
-        ],
-        "statement": "QCM 16. Comment la détection en coïncidence contribue-t-elle à la qualité de l'image en TEP ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Elle permet de réduire la taille de l'image",
-                "correct": false
-            },
-            {
-                "id": "b",
-                "text": "Elle améliore le contraste des tissus",
-                "correct": false
-            },
-            {
-                "id": "c",
-                "text": "Elle réduit le bruit et augmente la résolution spatiale des images",
-                "correct": true
-            },
-            {
-                "id": "d",
-                "text": "Elle diminue le temps d'exposition",
-                "correct": false
-            },
-            {
-                "id": "e",
-                "text": "Elle facilite la détection des électrons",
-                "correct": false
-            }
-        ],
-        "explanation": "C (Vraie) : En ne retenant que les événements en coïncidence temporelle, on élimine le bruit de fond et améliore la résolution."
-    },
-    {
-        "id": "q-ue4-f4-17",
-        "subjectId": "sub-5",
-        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Moyen",
-        "tags": [
-            "Coïncidence fortuite"
-        ],
-        "statement": "QCM 17. Que désigne le terme « coïncidence fortuite » dans le contexte de la TEP ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "La détection simultanée de photons provenant de deux annihilateurs différents",
-                "correct": true
-            },
-            {
-                "id": "b",
-                "text": "La détection d'un seul photon gamma",
-                "correct": false
-            },
-            {
-                "id": "c",
-                "text": "La mesure de la vitesse des positons",
-                "correct": false
-            },
-            {
-                "id": "d",
-                "text": "La capture de rayons X émis par des tissus",
-                "correct": false
-            },
-            {
-                "id": "e",
-                "text": "L'enregistrement d'électrons émis par des isotopes radioactifs",
-                "correct": false
-            }
-        ],
-        "explanation": "A (Vraie) : Deux photons indépendants issus de deux désintégrations différentes sont détectés simultanément par hasard."
-    },
-    {
-        "id": "q-ue4-f4-18",
-        "subjectId": "sub-5",
-        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Moyen",
-        "tags": [
-            "Coïncidence diffusée"
-        ],
-        "statement": "QCM 18. Qu'est-ce qu'une « coïncidence diffusée » en TEP ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "La détection de photons ayant traversé plusieurs tissus avant d'être détectés",
-                "correct": true
-            },
-            {
-                "id": "b",
-                "text": "La capture de photons émis lors d'annihilation dans des zones éloignées du détecteur",
-                "correct": false
-            },
-            {
-                "id": "c",
-                "text": "La mesure des rayons X provenant de structures osseuses",
-                "correct": false
-            },
-            {
-                "id": "d",
-                "text": "La détection de signaux provenant d'autres modalités d'imagerie",
-                "correct": false
-            },
-            {
-                "id": "e",
-                "text": "L'enregistrement de photons à une énergie plus faible que celle prévue",
-                "correct": false
-            }
-        ],
-        "explanation": "A (Vraie) : Au moins un des deux photons subit une diffusion Compton dans les tissus, déviant sa trajectoire initiale."
-    },
-    {
-        "id": "q-ue4-f4-19",
-        "subjectId": "sub-5",
-        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Difficile",
-        "tags": [
-            "Effet Compton",
-            "LDR"
-        ],
-        "statement": "QCM 19. Parmi les propositions suivantes, laquelle (ou lesquelles) est (sont) exacte(s) ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "L'effet Compton est un phénomène de diffusion des photons lors de l'interaction avec des électrons.",
-                "correct": true
-            },
-            {
-                "id": "b",
-                "text": "L'effet Compton se traduit par un transfert d'énergie à l'électron, entraînant une modification de la direction et de l'énergie du photon diffusé.",
-                "correct": true
-            },
-            {
-                "id": "c",
-                "text": "Si un photon d'énergie 511 keV interagit avec un électron par l'effet Compton, le pic Compton pourrait apparaître à une énergie supérieure à 511 keV",
-                "correct": false
-            },
-            {
-                "id": "d",
-                "text": "La ligne de réponse est essentielle pour construire des images en utilisant des algorithmes de reconstruction d'image, comme la méthode de reconstruction par rétroprojection ou la méthode itérative.",
-                "correct": true
-            },
-            {
-                "id": "e",
-                "text": "Les erreurs dues à l'effet Compton peuvent altérer la ligne de réponse.",
-                "correct": true
-            }
-        ],
-        "explanation": "A, B, D, E (Vraies). C est fausse car l'effet Compton diminue toujours l'énergie du photon (l'énergie diffusée est <= 511 keV)."
-    },
-    {
-        "id": "q-ue4-f4-20",
-        "subjectId": "sub-5",
-        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Moyen",
-        "tags": [
-            "SUV",
-            "Mesure"
-        ],
-        "statement": "QCM 20. Qu'est-ce que la SUV (Standardized Uptake Value) mesure dans une image TEP ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "La taille de la tumeur",
-                "correct": false
-            },
-            {
-                "id": "b",
-                "text": "L'activité radioactive dans un tissu par rapport à celle du reste du corps",
-                "correct": true
-            },
-            {
-                "id": "c",
-                "text": "La circulation sanguine dans le cerveau",
-                "correct": false
-            },
-            {
-                "id": "d",
-                "text": "La résistance d'un tissu à la radiothérapie",
-                "correct": false
-            },
-            {
-                "id": "e",
-                "text": "La concentration d'oxygène dans le sang",
-                "correct": false
-            }
-        ],
-        "explanation": "B (Vraie) : Le SUV quantifie la fixation du radiotraceur normalisée par la dose injectée et le poids du patient."
-    },
-    {
-        "id": "q-ue4-f4-21",
-        "subjectId": "sub-5",
-        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Difficile",
-        "tags": [
-            "Analyse compartimentale",
-            "K1"
-        ],
-        "statement": "QCM 21. Lors de l'analyse compartimentale dans une image TEP, quelle est la signification de K1 ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Le taux de dissociation du radiotraceur",
-                "correct": false
-            },
-            {
-                "id": "b",
-                "text": "Le volume de distribution du radiotraceur",
-                "correct": false
-            },
-            {
-                "id": "c",
-                "text": "Le taux de transport du radiotraceur vers le tissu",
-                "correct": true
-            },
-            {
-                "id": "d",
-                "text": "L'activité métabolique de l'organe",
-                "correct": false
-            },
-            {
-                "id": "e",
-                "text": "Le niveau de stress oxydatif",
-                "correct": false
-            }
-        ],
-        "explanation": "C (Vraie) : K1 représente la constante de vitesse d'entrée du plasma vers le compartiment tissulaire."
-    },
-    {
-        "id": "q-ue4-f4-s3-1",
-        "subjectId": "sub-5",
-        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
+        "year": 2022,
         "difficulty": "Moyen",
         "tags": [
             "Radioactivité β+",
-            "Neutrino"
+            "Désintégration"
         ],
         "statement": "QCM 1. Concernant la radioactivité β+ :",
         "answers": [
@@ -10884,38 +10243,38 @@ export const INITIAL_QUESTIONS = [
                 "correct": true
             }
         ],
-        "explanation": "B, C, D, E (Vraies). A est fausse : la désintégration β+ concerne les noyaux avec un excès relatif de protons."
+        "explanation": "B, C, D, E (Vraies). A. Faux : la désintégration β+ concerne les noyaux ayant un excès relatif de protons."
     },
     {
-        "id": "q-ue4-f4-s3-2",
+        "id": "q-ue4-f4-pdf-2",
         "subjectId": "sub-5",
         "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
+        "year": 2022,
         "difficulty": "Difficile",
         "tags": [
-            "Fluor 18",
+            "Fluor-18",
             "Énergie"
         ],
-        "statement": "QCM 2. Concernant la transformation du 18F -> 18O :",
+        "statement": "QCM 2. Concernant la transformation du 18_9 F -> 18_8 O :",
         "answers": [
             {
                 "id": "a",
-                "text": "C'est une transformation β+.",
-                "correct": true
+                "text": "C'est une transformation β-.",
+                "correct": false
             },
             {
                 "id": "b",
-                "text": "L'énergie maximale d'une particule β+ est de 635 keV.",
+                "text": "L'énergie maximale d'une particule est de 635 keV.",
                 "correct": true
             },
             {
                 "id": "c",
-                "text": "L'énergie moyenne d'une particule β+ est d'environ 212 keV.",
+                "text": "L'énergie moyenne d'une particule est de 212 keV.",
                 "correct": true
             },
             {
                 "id": "d",
-                "text": "L'énergie moyenne d'une particule β+ est de 317,5 keV.",
+                "text": "L'énergie moyenne d'une particule est de 317,5 keV.",
                 "correct": false
             },
             {
@@ -10924,13 +10283,13 @@ export const INITIAL_QUESTIONS = [
                 "correct": false
             }
         ],
-        "explanation": "A, B, C (Vraies). Emoy ≈ Emax / 3 = 635 / 3 ≈ 212 keV."
+        "explanation": "B, C (Vraies). A. Faux : C'est une transformation β+. C. Vrai : Emoy ≈ Emax / 3 = 635 / 3 ≈ 212 keV."
     },
     {
-        "id": "q-ue4-f4-s3-3",
+        "id": "q-ue4-f4-pdf-3",
         "subjectId": "sub-5",
         "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
+        "year": 2022,
         "difficulty": "Facile",
         "tags": [
             "Radionucléides",
@@ -10945,12 +10304,12 @@ export const INITIAL_QUESTIONS = [
             },
             {
                 "id": "b",
-                "text": "Il est préférable d'utiliser des noyaux lourds de type 131I car ils se fixent plus facilement.",
+                "text": "Il est préférable d'utiliser des noyaux lourds de type 131I, car ils se fixent plus facilement sur les cibles.",
                 "correct": false
             },
             {
                 "id": "c",
-                "text": "Les noyaux légers (C, O, F) sont utilisés pour ne pas altérer les propriétés biologiques des molécules.",
+                "text": "Les noyaux légers (C, O, F) sont utilisés pour ne pas altérer les propriétés biologiques.",
                 "correct": true
             },
             {
@@ -10964,13 +10323,13 @@ export const INITIAL_QUESTIONS = [
                 "correct": false
             }
         ],
-        "explanation": "C (Vraie). Fluor 18 a une demi-vie de 110 minutes (1,83 heure)."
+        "explanation": "C (Vraie). A. Faux : C'est le Fluor 18. D, E. Faux : La demi-vie du 18F est de 109-110 minutes."
     },
     {
-        "id": "q-ue4-f4-s3-4",
+        "id": "q-ue4-f4-pdf-4",
         "subjectId": "sub-5",
         "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
+        "year": 2022,
         "difficulty": "Facile",
         "tags": [
             "Annihilation",
@@ -10990,8 +10349,8 @@ export const INITIAL_QUESTIONS = [
             },
             {
                 "id": "c",
-                "text": "Il y a émission de deux photons de 511 MeV.",
-                "correct": false
+                "text": "Il y a émission de deux photons de 511 keV.",
+                "correct": true
             },
             {
                 "id": "d",
@@ -11004,17 +10363,17 @@ export const INITIAL_QUESTIONS = [
                 "correct": false
             }
         ],
-        "explanation": "D (Vraie). Annihilation avec un électron -> 2 photons gamma de 511 keV (et non MeV) à 180°."
+        "explanation": "C, D (Vraies). B. Faux : Le positon s'annihile avec un électron. C, D. Vrai : Deux photons gamma opposés à 180° de 511 keV chacun."
     },
     {
-        "id": "q-ue4-f4-s3-5",
+        "id": "q-ue4-f4-pdf-5",
         "subjectId": "sub-5",
         "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
+        "year": 2022,
         "difficulty": "Moyen",
         "tags": [
             "Cyclotron",
-            "Synthèse Fluor-18"
+            "Fluor-18"
         ],
         "statement": "QCM 5. Concernant l'obtention des radioéléments utilisés en β+ :",
         "answers": [
@@ -11025,17 +10384,17 @@ export const INITIAL_QUESTIONS = [
             },
             {
                 "id": "b",
-                "text": "La réaction de synthèse du fluor-18 est (18O(p,n)18F).",
+                "text": "La réaction de synthèse du fluor-18 est (18O (p,n) 18F).",
                 "correct": true
             },
             {
                 "id": "c",
-                "text": "La réaction de synthèse du fluor-18 est (18O(n,p)18F).",
+                "text": "La réaction de synthèse du fluor-18 est (18O (n,p) 18F).",
                 "correct": false
             },
             {
                 "id": "d",
-                "text": "La réaction de synthèse du fluor-18 est (18O(e,n)18F).",
+                "text": "La réaction de synthèse du fluor-18 est (18O (e,n) 18F).",
                 "correct": false
             },
             {
@@ -11044,17 +10403,17 @@ export const INITIAL_QUESTIONS = [
                 "correct": false
             }
         ],
-        "explanation": "A, B (Vraies). Bombardement de l'eau enrichie en 18O par des protons (p,n)."
+        "explanation": "A, B (Vraies). E. Faux : Il existe environ 20 cyclotrons en France."
     },
     {
-        "id": "q-ue4-f4-s3-6",
+        "id": "q-ue4-f4-pdf-6",
         "subjectId": "sub-5",
         "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
+        "year": 2022,
         "difficulty": "Moyen",
         "tags": [
             "18FDG",
-            "Accumulation"
+            "Métabolisme"
         ],
         "statement": "QCM 6. Concernant le 18FDG :",
         "answers": [
@@ -11066,11 +10425,11 @@ export const INITIAL_QUESTIONS = [
             {
                 "id": "b",
                 "text": "Il est utilisé en imagerie des cancers car ceux-ci prolifèrent et demandent une forte énergie.",
-                "correct": true
+                "correct": false
             },
             {
                 "id": "c",
-                "text": "Le 18FDG est un substrat pour l'hexokinase et toutes les réactions suivantes de la glycolyse.",
+                "text": "Le 18FDG est un substrat pour l'hexokinase et toutes les réactions suivantes.",
                 "correct": false
             },
             {
@@ -11084,17 +10443,17 @@ export const INITIAL_QUESTIONS = [
                 "correct": true
             }
         ],
-        "explanation": "B, D, E (Vraies). A: OH en position 2. C/D: Piégeage métabolique sous forme de FDG-6-P."
+        "explanation": "D, E (Vraies). A. Faux : OH en position 2. C. Faux : Il est substrat uniquement pour l'hexokinase puis bloqué sous forme FDG-6P."
     },
     {
-        "id": "q-ue4-f4-s3-7",
+        "id": "q-ue4-f4-pdf-7",
         "subjectId": "sub-5",
         "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Facile",
+        "year": 2022,
+        "difficulty": "Moyen",
         "tags": [
-            "Historique",
-            "Caméra TEP"
+            "Caméra TEP",
+            "Historique"
         ],
         "statement": "QCM 7. Concernant la détection en coïncidence par caméra TEP :",
         "answers": [
@@ -11111,30 +10470,29 @@ export const INITIAL_QUESTIONS = [
             {
                 "id": "c",
                 "text": "Les premières caméras hybrides TEP/TDM apparaissent en 2005.",
-                "correct": false
+                "correct": true
             },
             {
                 "id": "d",
                 "text": "Les caméras hybrides TEP/IRM apparaissent en 2015.",
-                "correct": false
+                "correct": true
             },
             {
                 "id": "e",
                 "text": "Il existe 100 appareils TEP/IRM en France, dont un à Mondor.",
-                "correct": false
+                "correct": true
             }
         ],
-        "explanation": "B (Vraie)."
+        "explanation": "B, C, D, E (Vraies). A. Faux : Premiers détecteurs dans les années 1950."
     },
     {
-        "id": "q-ue4-f4-s3-8",
+        "id": "q-ue4-f4-pdf-8",
         "subjectId": "sub-5",
         "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
+        "year": 2022,
         "difficulty": "Moyen",
         "tags": [
-            "Cristaux scintillateurs",
-            "Propriétés"
+            "Cristaux scintillateurs"
         ],
         "statement": "QCM 8. Concernant les cristaux scintillateurs :",
         "answers": [
@@ -11156,7 +10514,7 @@ export const INITIAL_QUESTIONS = [
             {
                 "id": "d",
                 "text": "Le temps mort est de quelques dizaines de millisecondes.",
-                "correct": false
+                "correct": true
             },
             {
                 "id": "e",
@@ -11164,19 +10522,19 @@ export const INITIAL_QUESTIONS = [
                 "correct": true
             }
         ],
-        "explanation": "B, E (Vraies). A: Lumière visible/UV. C: Temps de décroissance court (rapide). D: Nanosecondes."
+        "explanation": "B, D, E (Vraies). A. Faux : Convertissent en photons ultraviolets/visibles. C. Faux : Le temps de décroissance doit être bas (court) pour un comptage rapide."
     },
     {
-        "id": "q-ue4-f4-s3-9",
+        "id": "q-ue4-f4-pdf-9",
         "subjectId": "sub-5",
         "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
+        "year": 2022,
         "difficulty": "Moyen",
         "tags": [
             "Lignes de réponse",
-            "Fenêtre temporelle"
+            "LDR"
         ],
-        "statement": "QCM 9. Concernant les lignes de réponse (LDR) :",
+        "statement": "QCM 9. Concernant les lignes de réponse :",
         "answers": [
             {
                 "id": "a",
@@ -11204,20 +10562,20 @@ export const INITIAL_QUESTIONS = [
                 "correct": true
             }
         ],
-        "explanation": "A, B, E (Vraies). C: Elle détecte les photons gamma. D: Le positon parcourt une courte distance avant l'annihilation."
+        "explanation": "A, B, E (Vraies). C. Faux : La caméra détecte les photons d'annihilation. D. Faux : Le positon parcourt une courte distance avant d'être capturé."
     },
     {
-        "id": "q-ue4-f4-s3-10",
+        "id": "q-ue4-f4-pdf-10",
         "subjectId": "sub-5",
         "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
+        "year": 2022,
         "difficulty": "Difficile",
         "tags": [
             "Coïncidences",
-            "Diffuses",
-            "Fortuites"
+            "Fortuites",
+            "Diffusées"
         ],
-        "statement": "QCM 10. Concernant les types de coïncidences en TEP :",
+        "statement": "QCM 10. Concernant les coïncidences :",
         "answers": [
             {
                 "id": "a",
@@ -11227,7 +10585,7 @@ export const INITIAL_QUESTIONS = [
             {
                 "id": "b",
                 "text": "La LDR d'une coïncidence fortuite ne passe pas par l'objet.",
-                "correct": false
+                "correct": true
             },
             {
                 "id": "c",
@@ -11236,28 +10594,28 @@ export const INITIAL_QUESTIONS = [
             },
             {
                 "id": "d",
-                "text": "La diffusion dans le cristal provoque un événement Pic-Compton et sa LDR est correcte.",
-                "correct": false
+                "text": "La diffusion dans le cristal provoque un évènement Pic-Compton et sa LDR est correcte.",
+                "correct": true
             },
             {
                 "id": "e",
-                "text": "La diffusion dans le patient provoque un événement Pic-Compton et sa LDR est incorrecte.",
+                "text": "La diffusion dans le patient provoque un évènement Pic-Compton et sa LDR est incorrecte.",
                 "correct": true
             }
         ],
-        "explanation": "A, C, E (Vraies)."
+        "explanation": "A, B, C, D, E (Toutes Vraies). B. Vrai : La LDR d'une coïncidence fortuite ne passe pas par l'emplacement réel de l'objet source."
     },
     {
-        "id": "q-ue4-f4-s3-11",
+        "id": "q-ue4-f4-pdf-11",
         "subjectId": "sub-5",
         "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
+        "year": 2022,
         "difficulty": "Difficile",
         "tags": [
-            "Performance",
-            "Courbe NEC"
+            "Courbe NEC",
+            "Performance"
         ],
-        "statement": "QCM 11. Concernant la performance de la caméra TEP :",
+        "statement": "QCM 11. Concernant la performance de la caméra :",
         "answers": [
             {
                 "id": "a",
@@ -11285,18 +10643,19 @@ export const INITIAL_QUESTIONS = [
                 "correct": true
             }
         ],
-        "explanation": "A, B, E (Vraies). Formule exacte du NEC (Noise Equivalent Count rate) : NEC = V^2 / (V + F + D)."
+        "explanation": "A, B, E (Vraies). Formule du taux de comptage équivalent en bruit : NEC = V^2 / (V + F + D)."
     },
     {
-        "id": "q-ue4-f4-s3-12",
+        "id": "q-ue4-f4-pdf-12",
         "subjectId": "sub-5",
         "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
+        "year": 2022,
         "difficulty": "Moyen",
         "tags": [
-            "Coefficient d'atténuation"
+            "Atténuation",
+            "Correction"
         ],
-        "statement": "QCM 12. Concernant le coefficient d'atténuation en TEP :",
+        "statement": "QCM 12. Concernant le coefficient d'atténuation :",
         "answers": [
             {
                 "id": "a",
@@ -11306,7 +10665,7 @@ export const INITIAL_QUESTIONS = [
             {
                 "id": "b",
                 "text": "L'atténuation fait que l'on surestime la concentration radioactive des foyers les plus profonds.",
-                "correct": false
+                "correct": true
             },
             {
                 "id": "c",
@@ -11316,31 +10675,30 @@ export const INITIAL_QUESTIONS = [
             {
                 "id": "d",
                 "text": "On corrige chaque pixel d'un terme e^(-μx).",
-                "correct": false
+                "correct": true
             },
             {
                 "id": "e",
                 "text": "L'image peut être corrigée par un couplage avec la TDM.",
-                "correct": true
+                "correct": false
             }
         ],
-        "explanation": "A, E (Vraies). B: On sous-estime sans correction. C: Source de 511 keV ou scanner TDM. D: Terme correcteur e^(+μx)."
+        "explanation": "A, B, D (Vraies). C. Faux : Source externe de 511 keV. E. Faux : Correction par image de transmission."
     },
     {
-        "id": "q-ue4-f4-s3-13",
+        "id": "q-ue4-f4-pdf-13",
         "subjectId": "sub-5",
         "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
+        "year": 2022,
         "difficulty": "Moyen",
         "tags": [
-            "Fusion TEP/TDM",
-            "Flou cinétique"
+            "Fusion TEP/TDM"
         ],
         "statement": "QCM 13. Concernant la fusion TEP/TDM :",
         "answers": [
             {
                 "id": "a",
-                "text": "La TEP et la TDM sont réalisées simultanément.",
+                "text": "La TEP et la TDM se réalisées simultanément.",
                 "correct": false
             },
             {
@@ -11350,7 +10708,7 @@ export const INITIAL_QUESTIONS = [
             },
             {
                 "id": "c",
-                "text": "Le décalage temporel porte une difficulté pour la fusion d'image.",
+                "text": "Le décalage temporel crée une difficulté pour la fusion d'image.",
                 "correct": true
             },
             {
@@ -11364,24 +10722,24 @@ export const INITIAL_QUESTIONS = [
                 "correct": true
             }
         ],
-        "explanation": "C, E (Vraies). TDM rapide en apnée (~seconds/1 cycle), TEP lente moyennée sur plusieurs cycles respiratoires."
+        "explanation": "C, E (Vraies). A. Faux : D'abord la TDM puis la TEP. B. Faux : C'est l'inverse."
     },
     {
-        "id": "q-ue4-f4-s3-14",
+        "id": "q-ue4-f4-pdf-14",
         "subjectId": "sub-5",
         "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
+        "year": 2022,
         "difficulty": "Moyen",
         "tags": [
-            "Consommation glucose",
-            "SUV"
+            "SUV",
+            "Glucose"
         ],
         "statement": "QCM 14. Concernant la mesure de la consommation de glucose :",
         "answers": [
             {
                 "id": "a",
                 "text": "Le modèle se fait à trois compartiments : le FDG dans le sang, le FDG dans le tissu et le FDG métabolisé dans le tissu.",
-                "correct": true
+                "correct": false
             },
             {
                 "id": "b",
@@ -11404,24 +10762,23 @@ export const INITIAL_QUESTIONS = [
                 "correct": false
             }
         ],
-        "explanation": "A, C (Vraies). D: Tissus graisseux SUV < 1. E: Cerveau/tumeur hyperfixants SUV > 1."
+        "explanation": "C (Vraie). D. Faux : SUV < 1. E. Faux : SUV > 1."
     },
     {
-        "id": "q-ue4-f4-s3-15",
+        "id": "q-ue4-f4-pdf-15",
         "subjectId": "sub-5",
         "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
+        "year": 2022,
         "difficulty": "Facile",
         "tags": [
-            "Précautions",
-            "Grossesse"
+            "Précautions TEP"
         ],
-        "statement": "QCM 15. Concernant les précautions d'examens en TEP :",
+        "statement": "QCM 15. Concernant les précautions d'examens :",
         "answers": [
             {
                 "id": "a",
                 "text": "L'examen de TEP est une contre-indication absolue lors d'une grossesse.",
-                "correct": true
+                "correct": false
             },
             {
                 "id": "b",
@@ -11430,42 +10787,41 @@ export const INITIAL_QUESTIONS = [
             },
             {
                 "id": "c",
-                "text": "Entre l'injection et les images, il est nécessaire d'attendre 3 jours.",
+                "text": "L'hydratation doit être faible pour éviter toute élimination urinaire.",
                 "correct": false
             },
             {
                 "id": "d",
-                "text": "Aucune proposition précédente n'est exacte.",
+                "text": "Entre l'injection et les images, il est nécessaire d'attendre 3 jours.",
                 "correct": false
             },
             {
                 "id": "e",
-                "text": "Il faut éviter tout effort physique avant l'examen pour éviter la fixation musculaire.",
-                "correct": false
+                "text": "Aucune proposition précédente n'est exacte.",
+                "correct": true
             }
         ],
-        "explanation": "A (Vraie). Jeûne de 6 heures (pas 6 jours), délai de 1 heure post-injection."
+        "explanation": "E (Vraie). A. Faux : Dépend du rapport bénéfice/risque. B. Faux : Jeûne de 6h. C. Faux : Hydratation favorisée. D. Faux : Attente > 45 min."
     },
     {
-        "id": "q-ue4-f4-s3-16",
+        "id": "q-ue4-f4-pdf-16",
         "subjectId": "sub-5",
         "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
-        "difficulty": "Facile",
+        "year": 2022,
+        "difficulty": "Moyen",
         "tags": [
-            "Indications",
-            "TEP-FDG"
+            "Indications TEP-FDG"
         ],
         "statement": "QCM 16. Concernant les principales indications de TEP-FDG et ses limites :",
         "answers": [
             {
                 "id": "a",
-                "text": "Il est très utilisé pour le cancer bronchique.",
+                "text": "Il est très utilisé par le cancer bronchique.",
                 "correct": true
             },
             {
                 "id": "b",
-                "text": "Il est très utilisé pour le lymphome.",
+                "text": "Il est très utilisé par le lymphome.",
                 "correct": true
             },
             {
@@ -11476,7 +10832,7 @@ export const INITIAL_QUESTIONS = [
             {
                 "id": "d",
                 "text": "Il est moins performant pour les tumeurs neurologiques.",
-                "correct": true
+                "correct": false
             },
             {
                 "id": "e",
@@ -11484,28 +10840,27 @@ export const INITIAL_QUESTIONS = [
                 "correct": true
             }
         ],
-        "explanation": "A, B, C, D, E (Toutes vraies)."
+        "explanation": "A, B, C, E (Vraies). D. Faux : Utilisé en oncologie neurologique."
     },
     {
-        "id": "q-ue4-f4-s3-17",
+        "id": "q-ue4-f4-pdf-17",
         "subjectId": "sub-5",
         "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
-        "year": 2025,
+        "year": 2022,
         "difficulty": "Moyen",
         "tags": [
-            "Nouveaux traceurs",
-            "18FDOPA"
+            "Nouveaux traceurs"
         ],
-        "statement": "QCM 17. Concernant les nouveaux traceurs utilisés en TEP :",
+        "statement": "QCM 17. Concernant les traceurs :",
         "answers": [
             {
                 "id": "a",
-                "text": "Les nouveaux traceurs ont pour objectif d'explorer la voie métabolique classique glycolyse.",
+                "text": "Les nouveaux traceurs ont pour objectif d'explorer la voie métabolique glycolyse.",
                 "correct": false
             },
             {
                 "id": "b",
-                "text": "La 18FDOPA permet d'étudier les tumeurs neuro-endocrines.",
+                "text": "La 18FDOPA permet d'étudier les tumeurs neuro endocrines.",
                 "correct": true
             },
             {
@@ -11516,7 +10871,7 @@ export const INITIAL_QUESTIONS = [
             {
                 "id": "d",
                 "text": "Les nouveaux traceurs peuvent explorer les voies des acides gras.",
-                "correct": false
+                "correct": true
             },
             {
                 "id": "e",
@@ -11524,7 +10879,7 @@ export const INITIAL_QUESTIONS = [
                 "correct": true
             }
         ],
-        "explanation": "B, C, E (Vraies)."
+        "explanation": "B, C, D, E (Vraies). A. Faux : Les nouveaux traceurs explorent d'autres voies métaboliques (non glycolytiques)."
     }
 ];
 
