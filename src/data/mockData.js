@@ -11756,7 +11756,10 @@ export const INITIAL_QUESTIONS = [
                 "correct": false
             }
         ],
-        "explanation": "C, D (Vraies)."
+        "explanation": "C, D (Vraies).",
+        "image": {
+            "url": "src/assets/images/qcm_ue4_f5_q15.png"
+        }
     },
     {
         "id": "q-ue4-f5-ann-16",
