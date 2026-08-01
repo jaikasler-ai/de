@@ -10880,6 +10880,1165 @@ export const INITIAL_QUESTIONS = [
             }
         ],
         "explanation": "B, C, D, E (Vraies). A. Faux : Les nouveaux traceurs explorent d'autres voies métaboliques (non glycolytiques)."
+    },
+    {
+        "id": "q-ue4-f5-22",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2025,
+        "difficulty": "Facile",
+        "tags": [
+            "Scanner",
+            "Radiologie"
+        ],
+        "statement": "QCM 22. Parmi les propositions suivantes, laquelle (ou lesquelles) est (sont) exacte(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La radiologie conventionnelle et le scanner sont deux méthodes d’imagerie médicale utilisant des rayons X.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "La radiologie conventionnelle utilise un faisceau de rayons X en rotation autour du patient.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Le scanner offre des images en coupe transversale du corps.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Le scanner permet de prendre plusieurs images à différents angles.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "La radiologie conventionnelle expose moins aux radiations que le scanner.",
+                "correct": true
+            }
+        ],
+        "explanation": "A, C, D, E (Vraies). B. Faux : C'est le scanner qui utilise un faisceau de RX en rotation."
+    },
+    {
+        "id": "q-ue4-f5-23",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2025,
+        "difficulty": "Facile",
+        "tags": [
+            "Produit de contraste",
+            "Contraste"
+        ],
+        "statement": "QCM 23. Quelle technique est souvent utilisée pour améliorer le contraste des images lors d’un examen de scanner ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Radiographie standard",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Imagerie par résonance magnétique",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Utilisation d’un produit de contraste",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Échographie",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Scintigraphie",
+                "correct": false
+            }
+        ],
+        "explanation": "C (Vraie) : L'injection de produits de contraste iodés augmente le contraste entre les structures vasculaires/tissulaires."
+    },
+    {
+        "id": "q-ue4-f5-24",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2025,
+        "difficulty": "Facile",
+        "tags": [
+            "Détecteurs",
+            "Numérisation"
+        ],
+        "statement": "QCM 24. Quelle est la fonction des détecteurs dans un scanner ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Produire des rayons X",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Convertir les rayons X en images numériques",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Ajuster l’intensité des rayons X",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Filtrer les radiations",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Réchauffer le patient",
+                "correct": false
+            }
+        ],
+        "explanation": "B (Vraie) : Les détecteurs mesurent l'atténuation des RX et convertissent le signal physique en données numériques."
+    },
+    {
+        "id": "q-ue4-f5-25",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2025,
+        "difficulty": "Facile",
+        "tags": [
+            "Densité",
+            "Absorption"
+        ],
+        "statement": "QCM 25. Comment le scanner permet-il de distinguer les différents tissus du corps ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "En fonction de leur couleur",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "En utilisant des temps d’exposition différents",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "En mesurant la densité des tissus en fonction de l’absorption des rayons X",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "En utilisant l’imagerie par résonance magnétique",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "En observant les mouvements des organes",
+                "correct": false
+            }
+        ],
+        "explanation": "C (Vraie) : Le scanner mesure l'atténuation (coefficient μ) des rayons X par chaque tissu."
+    },
+    {
+        "id": "q-ue4-f5-26",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "tags": [
+            "Reconstruction d'image"
+        ],
+        "statement": "QCM 26. Parmi les propositions suivantes, laquelle (ou lesquelles) est (sont) exacte(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La rétroprojection filtrée permet de reconstruire des images à partir des données acquises par des détecteurs de rayons X.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "La reconstruction itérative améliore la qualité des images en intégrant les données et en corrigeant les erreurs de manière répétitive.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "La qualité d’une image scanner est généralement évaluée par l’exposition aux rayonnements X.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "La capacité d’un tissu à absorber les rayons X ne dépend pas de sa densité physique.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Les tissus denses, tels que l’os, absorbent moins de rayons X que les tissus mous.",
+                "correct": false
+            }
+        ],
+        "explanation": "A, B (Vraies). C. Faux : Évaluée par la résolution spatiale et le contraste. D, E. Faux : L'absorption augmente directement avec la densité et le numéro atomique Z."
+    },
+    {
+        "id": "q-ue4-f5-27",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2025,
+        "difficulty": "Difficile",
+        "tags": [
+            "Unité Hounsfield",
+            "UH"
+        ],
+        "statement": "QCM 27. Parmi les propositions suivantes, laquelle (ou lesquelles) est (sont) exacte(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Les valeurs de densité des tissus s’expriment en Décibels (dB).",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "La valeur de Hounsfield est une mesure utilisée en scanner pour quantifier la densité des tissus sur les images.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "La valeur de Hounsfield approximative de l’eau est de – 1000 UH.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Une masse ayant une valeur de Hounsfield significativement inférieure à celle des tissus normaux peut indiquer la présence d’une lésion liquidienne ou graisseuse.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Supposons que le coefficient d’atténuation d’un tissu musculaire est de 0.025 cm-1 et celui de l’eau est de 0.02 cm-1, alors la valeur de Hounsfield du tissu musculaire sera égale à 25.",
+                "correct": false
+            }
+        ],
+        "explanation": "B, D (Vraies). C. Faux : Eau = 0 UH (-1000 UH = air). E. Faux : UH = 1000 * (0,025 - 0,02) / 0,02 = 250 UH."
+    },
+    {
+        "id": "q-ue4-f5-28",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "tags": [
+            "Pixel",
+            "Voxel",
+            "Matrice"
+        ],
+        "statement": "QCM 28. Parmi les propositions suivantes, laquelle (ou lesquelles) est (sont) exacte(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La matrice décrit une unité volumique en imagerie par scanner.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Les pixels sont bidimensionnels, alors que les voxels sont tridimensionnels.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Le pixel dans une image scanner représente l’intensité d’un point sur une image bidimensionnelle.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "La taille du détecteur utilisé influence la taille des voxels en imagerie par scanner.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "La taille des pixels et des voxels n’a pas d’impact sur la qualité de l’image.",
+                "correct": false
+            }
+        ],
+        "explanation": "B, C (Vraies). A. Faux : La matrice est une grille 2D. E. Faux : Plus les pixels/voxels sont petits, meilleure est la résolution spatiale."
+    },
+    {
+        "id": "q-ue4-f5-ann-1",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2020,
+        "difficulty": "Moyen",
+        "tags": [
+            "Iode",
+            "PdC"
+        ],
+        "statement": "1. Concernant l’iode, indiquez quelle(s) est (sont) la (les) bonne(s) réponse(s) :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Son numéro atomique est faible.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "L’iode a un effet photoélectrique important.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "L’iode rend les organes radio-transparents en imagerie.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "L’iode est un PdC positif.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "En TDM, l’iode et le gadolinium sont fréquemment utilisés comme PdC.",
+                "correct": false
+            }
+        ],
+        "explanation": "B, D (Vraies). A: Z=53 (élevé). C: Rend radio-opaque. E: Gadolinium est pour l'IRM."
+    },
+    {
+        "id": "q-ue4-f5-ann-2",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2020,
+        "difficulty": "Difficile",
+        "tags": [
+            "Pitch",
+            "Scanner hélicoïdal"
+        ],
+        "statement": "2. Le pitch : (réponses justes)",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Est une des caractéristiques du voxel.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Peut avoir plusieurs définitions différentes.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Commence à être utilisé dans les années 1990.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Apparaît avec la 3ème génération de scanner.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Est le rapport collimation / vitesse de la table.",
+                "correct": false
+            }
+        ],
+        "explanation": "B, C (Vraies). E. Faux : C'est le rapport vitesse de la table / collimation."
+    },
+    {
+        "id": "q-ue4-f5-ann-3",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2020,
+        "difficulty": "Moyen",
+        "tags": [
+            "Imagerie numérique",
+            "Résolution"
+        ],
+        "statement": "3. Concernant l’imagerie numérique, indiquez quelle(s) est (sont) la (les) bonne(s) réponse(s) :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La résolution correspond aux détails d’une image.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "La valeur d’un pixel définit le détail de l’image.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "On parle de voxels en radiologie conventionnelle.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "La taille de la matrice est proportionnelle à la taille d’un pixel.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Pour séparer l’information de chaque voxel, on peut réduire le nombre d’incidences.",
+                "correct": false
+            }
+        ],
+        "explanation": "A (Vraie)."
+    },
+    {
+        "id": "q-ue4-f5-ann-4",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2019,
+        "difficulty": "Moyen",
+        "tags": [
+            "Tomodensitométrie",
+            "Réponses fausses"
+        ],
+        "statement": "4. Concernant la tomodensitométrie, indiquez les réponses FAUSSES :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "L'imagerie radiographique conventionnelle transforme un volume en une série de coupes.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "La tomodensitométrie peut permettre une reconstruction 3D d’une structure.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Les os sont radio-transparents.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Dans un scanner, de nos jours, un détecteur tourne autour d’un patient.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Dans un scanner, de nos jours, la table sur laquelle est le patient avance.",
+                "correct": false
+            }
+        ],
+        "explanation": "A, C, D (Sont les réponses fausses à cocher). A: La radiographie est une projection 2D. C: Les os sont radio-opaques. D: C'est le bloc tube+détecteurs en rotation continue avec l'avancement de la table."
+    },
+    {
+        "id": "q-ue4-f5-ann-5",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2019,
+        "difficulty": "Moyen",
+        "tags": [
+            "Matrice",
+            "Pixel"
+        ],
+        "statement": "5. Indiquez la ou les réponse(s) correcte(s) :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Pour une information en 5 bits il existe 25 possibilités.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "La taille d’un pixel définit la qualité de l’image.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Un voxel est composé d’une matrice.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Plus la matrice est grande plus les pixels sont grands.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Un voxel est caractérisé par son épaisseur, sa localisation et sa taille.",
+                "correct": false
+            }
+        ],
+        "explanation": "B (Vraie). A: 2^5 = 32 possibilités. D: Plus la matrice est grande, plus les pixels sont petits."
+    },
+    {
+        "id": "q-ue4-f5-ann-6",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2019,
+        "difficulty": "Moyen",
+        "tags": [
+            "Hounsfield",
+            "Atténuation"
+        ],
+        "statement": "6. Concernant Hounsfield, indiquez quelle(s) est (sont) la (les) bonne(s) réponse(s) :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "L’unité du UH se base sur le différentiel d’atténuation entre l’objet et l’eau.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Le sang a une valeur d’atténuation de 0 UH par convention.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Une valeur d’atténuation de 1000 UH correspond aux muscles qui apparaissent blancs.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "L'unité d’Hounsfield correspond à l’unité en radiographie conventionnelle.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "La valeur d’atténuation des tissus mous est plus petite que celle des os.",
+                "correct": true
+            }
+        ],
+        "explanation": "A, E (Vraies). B: L'eau pure = 0 UH. C: 1000 UH = Os compact."
+    },
+    {
+        "id": "q-ue4-f5-ann-7",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2019,
+        "difficulty": "Facile",
+        "tags": [
+            "Produits de contraste"
+        ],
+        "statement": "7. À propos des produits de contraste :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Ils permettent d’augmenter le contraste radiologique entre deux structures.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Il n’en existe qu’un seul type.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Ils doivent être inertes.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Ils sont dépourvus d’effets secondaires.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "L’iode est très utilisée.",
+                "correct": true
+            }
+        ],
+        "explanation": "A, C, E (Vraies)."
+    },
+    {
+        "id": "q-ue4-f5-ann-8",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2019,
+        "difficulty": "Facile",
+        "tags": [
+            "Radiographie",
+            "Densités"
+        ],
+        "statement": "8. Que peut-on voir directement sur une radiographie ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le muscle",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Le cartilage",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "La synoviale",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Os médullaire",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Os cortical",
+                "correct": true
+            }
+        ],
+        "explanation": "D, E (Vraies)."
+    },
+    {
+        "id": "q-ue4-f5-ann-9",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2018,
+        "difficulty": "Facile",
+        "tags": [
+            "Densités radiologiques"
+        ],
+        "statement": "9. Quelles sont les 4 densités fondamentales que l’on peut observer en radiographie standard ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Densité osseuse",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Densité hydrique (ou tissulaire)",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Densité aérique",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Densité graisseuse",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Densité musculaire pure distincte de l'eau",
+                "correct": false
+            }
+        ],
+        "explanation": "A, B, C, D (Vraies) : Les 4 densités radiologiques de base sont aérique, graisseuse, hydrique et osseuse (auxquelles s'ajoute la densité métallique)."
+    },
+    {
+        "id": "q-ue4-f5-ann-10",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2018,
+        "difficulty": "Facile",
+        "tags": [
+            "Tonalités radiographiques"
+        ],
+        "statement": "10. Les tonalités que l’on peut distinguer en radiographie standard sont :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Graisseuse",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Hydrique",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Corticale osseuse",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Aérique",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Cérébrale",
+                "correct": false
+            }
+        ],
+        "explanation": "A, B, C, D (Vraies)."
+    },
+    {
+        "id": "q-ue4-f5-ann-11",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2015,
+        "difficulty": "Facile",
+        "tags": [
+            "Densités TDM",
+            "UH"
+        ],
+        "statement": "11. Densités en tomodensitométrie (question à choix SIMPLE) :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "L'air a une densité nulle",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "La graisse a une densité de l'ordre de - 100 UH",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "L’eau a une densité nulle",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "L'os a une densité nulle",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "L'iode a une densité de l'ordre de - 800 UH",
+                "correct": false
+            }
+        ],
+        "explanation": "C (Vraie) : Par convention, la densité Hounsfield de l'eau est égale à 0 UH."
+    },
+    {
+        "id": "q-ue4-f5-ann-12",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2015,
+        "difficulty": "Moyen",
+        "tags": [
+            "Atténuation",
+            "Produits iodés"
+        ],
+        "statement": "12. L’atténuation des rayons X par les produits de contraste à base de dérivés iodés (question à choix MULTIPLE) :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Dépend du numéro atomique Z de l’atome absorbant",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Varie de manière exponentielle avec la concentration du produit de contraste",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Est plus importante pour les hautes énergies",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Est responsable de l’hyperdensité observée en intravasculaire après injection",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Varie de manière linéaire avec la concentration du produit de contraste",
+                "correct": true
+            }
+        ],
+        "explanation": "A, D, E (Vraies) : L'atténuation varie de manière linéaire avec la concentration en iode."
+    },
+    {
+        "id": "q-ue4-f5-ann-13",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2013,
+        "difficulty": "Facile",
+        "tags": [
+            "Densité",
+            "Os compact"
+        ],
+        "statement": "13. Quelle est la structure la plus dense en imagerie tomodensitométrique parmi les substances suivantes ? (Question à choix SIMPLE)",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Os compact",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Os spongieux",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Substance grise",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Hématome",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Cartilage",
+                "correct": false
+            }
+        ],
+        "explanation": "A (Vraie) : L'os compact possède la valeur Hounsfield la plus élevée (jusqu'à +1000 UH)."
+    },
+    {
+        "id": "q-ue4-f5-ann-14",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2013,
+        "difficulty": "Facile",
+        "tags": [
+            "Angiographie",
+            "Vaisseaux"
+        ],
+        "statement": "14. L’examen explorant les vaisseaux est nommé (question à choix SIMPLE) :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Une myélographie",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Une sialographie",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Une arthrographie",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Une angiographie",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Une bronchographie",
+                "correct": false
+            }
+        ],
+        "explanation": "D (Vraie) : L'angiographie explore le réseau vasculaire."
+    },
+    {
+        "id": "q-ue4-f5-ann-15",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2012,
+        "difficulty": "Moyen",
+        "tags": [
+            "IRM",
+            "Coupe hépatique"
+        ],
+        "statement": "15. Concernant une coupe transversale passant par le foie montrant un signal spécifique et une flèche sur du liquide : (question à choix MULTIPLE)",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Il s’agit d’une coupe extraite d’un examen échographique",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Il s’agit d’une coupe extraite d’un examen Tomodensitométrique",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Il s’agit d’une coupe extraite d’un examen IRM",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "La tête de flèche indique un élément liquidien",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Cet examen a été réalisé après injection de produit de contraste",
+                "correct": false
+            }
+        ],
+        "explanation": "C, D (Vraies)."
+    },
+    {
+        "id": "q-ue4-f5-ann-16",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2012,
+        "difficulty": "Moyen",
+        "tags": [
+            "Produits iodés",
+            "Contre-indications"
+        ],
+        "statement": "16. Les produits de contraste iodés (Question à choix MULTIPLES) :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Sont utilisés pour l’imagerie des vaisseaux",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Sont toxiques sur les organes génitaux",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Sont utilisés en IRM",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Sont contre-indiqués en cas d’insuffisance rénale sévère",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Nécessitent une prémédication en cas d’antécédent d’œdème allergique",
+                "correct": true
+            }
+        ],
+        "explanation": "A, D, E (Vraies). C: En IRM, on utilise des complexes à base de Gadolinium."
+    },
+    {
+        "id": "q-ue4-f5-pdf-1",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2022,
+        "difficulty": "Facile",
+        "tags": [
+            "Images numériques",
+            "Bits"
+        ],
+        "statement": "QCM 1. Concernant les images numériques :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Elles sont des produits de luxe.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Elles sont créées à partir de films phosphorescents.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Un système à 8 bits peut encoder 8 informations.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Un système à 8 bits peut encoder 64 informations.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Un système à 8 bits peut encoder 256 informations.",
+                "correct": true
+            }
+        ],
+        "explanation": "E (Vraie) : N = 2^n = 2^8 = 256 niveaux d'information / de gris."
+    },
+    {
+        "id": "q-ue4-f5-pdf-2",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2022,
+        "difficulty": "Facile",
+        "tags": [
+            "Pixel",
+            "Matrice",
+            "FOV"
+        ],
+        "statement": "QCM 2. Concernant le pixel et les caractéristiques de l'image :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le pixel est le plus petit élément d’une image numérique.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Plus les pixels sont petits, plus l’image est pixellisée, plus la résolution est faible.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "La matrice de pixels est le nombre de pixels en lignes et en colonnes.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Le champ de vue (FOV) est le nombre de pixels dans l’image.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "En imagerie médicale, l’origine (0 ; 0) correspond au coin inférieur droit.",
+                "correct": false
+            }
+        ],
+        "explanation": "A, C, D (Vraies). B: Plus les pixels sont petits, meilleure est la résolution spatiale. E: L'origine est en haut à gauche."
+    },
+    {
+        "id": "q-ue4-f5-pdf-3",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2022,
+        "difficulty": "Moyen",
+        "tags": [
+            "Voxel",
+            "UH",
+            "Rétroprojection"
+        ],
+        "statement": "QCM 3. Concernant les voxels et la reconstruction d'image en TDM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Un voxel est un élément de volume d’une coupe.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "La méthode par envoi de rayons dans de multiples directions pour déterminer chaque voxel est rapide et facilement réalisable aux résolutions actuelles.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "La méthode de rétroprojection par épandage permet de reconstruire l’image après filtration.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "La valeur d’atténuation de l’eau est de 0 UH.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Les valeurs d’atténuation de la graisse est d’environ – 100 UH et celle des os est de plusieurs centaines de UH.",
+                "correct": true
+            }
+        ],
+        "explanation": "A, C, D, E (Vraies)."
+    },
+    {
+        "id": "q-ue4-f5-pdf-4",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2022,
+        "difficulty": "Facile",
+        "tags": [
+            "Radiotransparence",
+            "Radio-opacité"
+        ],
+        "statement": "QCM 4. Concernant la transparence aux rayons X :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "L’air est radio-transparent. Il apparaît donc noir.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "La graisse est radio-transparente. Elle apparaît gris foncé.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Les os sont radio-transparents. Ils apparaissent gris clair.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Les métaux sont radio-opaques. Ils apparaissent blancs.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Les muscles et le sang sont radio-transparents. Ils apparaissent gris.",
+                "correct": false
+            }
+        ],
+        "explanation": "A, B, D (Vraies). C: Les os sont radio-opaques (blancs). E: Les muscles et le sang sont de densité hydrique."
+    },
+    {
+        "id": "q-ue4-f5-pdf-5",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2022,
+        "difficulty": "Moyen",
+        "tags": [
+            "Produits de contraste",
+            "Transparence"
+        ],
+        "statement": "QCM 5. Concernant les produits de contraste :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Ils sont inertes.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Ils peuvent être négatifs, c’est-à-dire radio-transparents.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Ils peuvent être positifs, c’est-à-dire radio-transparents.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Ils utilisent classiquement l’iode car cette dernière possède un numéro atomique élevé.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Les atomes d’iode sont fixés sur des cycles benzéniques.",
+                "correct": true
+            }
+        ],
+        "explanation": "A, B, D, E (Vraies). C. Faux : Les produits de contraste positifs sont radio-opaques."
+    },
+    {
+        "id": "q-ue4-f5-pdf-6",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2022,
+        "difficulty": "Moyen",
+        "tags": [
+            "PDC iodés",
+            "Effets indésirables"
+        ],
+        "statement": "QCM 6. Concernant les PDC iodés :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Ils sont injectés en intravasculaire pour réaliser des artériographies.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "La biodistribution est exclusivement intra-cellulaire pure.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "L’élimination est essentiellement salivaire.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Les effets indésirables peuvent être un appel d’eau, une réaction allergique, ou un effet rénal.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Il est nécessaire d’avoir une bonne hydratation.",
+                "correct": true
+            }
+        ],
+        "explanation": "A, D, E (Vraies). B: Biodistribution extra-cellulaire. C: Élimination rénale."
     }
 ];
 
