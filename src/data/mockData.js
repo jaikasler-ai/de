@@ -12486,6 +12486,450 @@ export const INITIAL_QUESTIONS = [
             }
         ],
         "explanation": "A, C, D, E (Vraies). B. Faux : Les photons diffusés parallèlement aux trous traversent aussi le collimateur."
+    },
+    {
+        "id": "q-ue4-f4-29",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "tags": [
+            "TDM",
+            "Atténuation"
+        ],
+        "statement": "QCM 29. À propos de l’image Tomodensitométrique (TDM) :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La TDM permet d’acquérir de manière beaucoup plus rapide les images de transmission par rapport à la source gamma externe.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "La TDM a également une moins bonne résolution spatiale.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "La TDM est une cartographie des coefficients μ à 70 keV.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Lors de l’acquisition TDM on est à un temps respiratoire donné.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "La TDM est une acquisition pas à pas généralement du bas vers le haut.",
+                "correct": false
+            }
+        ],
+        "explanation": "A, C, D (Vraies). B. Faux : La TDM offre une excellente résolution spatiale submillimétrique. E. Faux : Acquisition hélicoïdale continue."
+    },
+    {
+        "id": "q-ue4-f4-30",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "tags": [
+            "Image TEP",
+            "Cristaux",
+            "FDG"
+        ],
+        "statement": "QCM 30. À propos de l’image TEP :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "L’image d’émission en coupe coronale, l’image TEP donne la concentration radioactive au niveau des tissus.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "La caméra détecte le positon en lui-même.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Les cristaux utilisés pour la TEP sont les mêmes que ceux utilisés avec la gamma-caméra.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "L’examen TEP ne dure que quelques secondes.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Le traceur le plus utilisé en TEP est le FDG.",
+                "correct": true
+            }
+        ],
+        "explanation": "A, E (Vraies). B. Faux : Elle détecte les 2 photons gamma de 511 keV émis en coïncidence. C. Faux : Cristaux plus denses (LSO, LYSO). D. Faux : Durée de 10 à 20 min."
+    },
+    {
+        "id": "q-ue4-f4-31",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
+        "year": 2025,
+        "difficulty": "Difficile",
+        "tags": [
+            "SUV",
+            "Quantification",
+            "Modèle compartimentale"
+        ],
+        "statement": "QCM 31. À propos de l’interprétation des images :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Il existe plein de méthodes de quantification absolue.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "L’un des index de fixation standardisé, SUV, est une alternative à la méthode compartimentale.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "La quantification des images est possible grâce à la correction d’atténuation.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Le SUV est inadapté pour l’estimation de l’hypermétabolisme des tumeurs.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Dans l’analyse compartimentale le deuxième compartiment est le FDG dans le sang après injection du traceur.",
+                "correct": false
+            }
+        ],
+        "explanation": "B, C (Vraies). A. Faux : Quantification absolue complexe. D. Faux : SUV est le paramètre principal de routine. E. Faux : Le 1er compartiment est le sang, le 2ème est le FDG libre intracellulaire."
+    },
+    {
+        "id": "q-ue4-f4-32",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
+        "year": 2015,
+        "difficulty": "Difficile",
+        "tags": [
+            "TEP vs Scintigraphie",
+            "511 keV"
+        ],
+        "statement": "QCM 32. Quelles sont les différences entre la TEP et les autres explorations scintigraphiques ? (Question à choix MULTIPLE)",
+        "answers": [
+            {
+                "id": "a",
+                "text": "L'utilisation d'isotopes émetteurs de positons permet de marquer de petites molécules biologiques telles que des analogues du glucose, des nucléotides ou des acides aminés.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Les émetteurs de positons ont une période physique généralement plus courte que les émetteurs gamma habituels (99mTc, 123I, 201Tl).",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "La production des isotopes émetteurs de positons ne pose pas de problème car la plupart des hôpitaux sont équipés d'un cyclotron.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Les photons gamma détectés en TEP ont la même énergie quel que soit le radionucléide utilisé.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Comme en scintigraphie 'classique', la résolution spatiale des images TEP est dégradée par la nécessité d'emploi de collimateurs.",
+                "correct": false
+            }
+        ],
+        "explanation": "A, B, D (Vraies). C. Faux : Installations très coûteuses. D. Vrai : Toujours 511 keV issus de l'annihilation. E. Faux : Collimation électronique par coïncidence."
+    },
+    {
+        "id": "q-ue4-f4-33",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
+        "year": 2015,
+        "difficulty": "Moyen",
+        "tags": [
+            "18FDG",
+            "Tumeurs",
+            "Hexokinase"
+        ],
+        "statement": "QCM 33. Pourquoi le 18F-fluorodésoxyglucose (FDG) est un traceur TEP particulièrement intéressant pour l'imagerie des tumeurs ? (Question à choix MULTIPLE)",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le FDG s'accumule dans les cellules cancéreuses car leur activité en hexokinase est augmentée.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Le FDG s'accumule dans les cellules cancéreuses car elles consomment beaucoup de fluor.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Le FDG est pris au piège dans les cellules cancéreuses car leur activité en glucose-6-phosphatase est faible.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Le FDG est pris au piège dans les cellules cancéreuses car l'expression des transporteurs GLUT est faible.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Le FDG, contrairement au glucose, ne subit pas toutes les réactions enzymatiques de la glycolyse (jusqu’à la production de pyruvate).",
+                "correct": true
+            }
+        ],
+        "explanation": "A, C, E (Vraies). D. Faux : Transporteurs GLUT fortement surexprimés. E. Vrai : Piégeage sous forme FDG-6-P."
+    },
+    {
+        "id": "q-ue4-f4-34",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
+        "year": 2015,
+        "difficulty": "Moyen",
+        "tags": [
+            "Faux-négatifs",
+            "TEP-FDG"
+        ],
+        "statement": "QCM 34. Parmi les propositions suivantes, laquelle N'EST PAS une cause de faux-négatif en imagerie tumorale TEP - FDG ? (Question à choix SIMPLE)",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Bonne différenciation tumorale.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Faible activité de prolifération.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Activation d'une pathologie inflammatoire (sarcoïdose, vascularite).",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Proximité des voies excrétrices urinaires (bassinets, uretères, vessie).",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Histologie à cellules claires, riches en glycogène.",
+                "correct": false
+            }
+        ],
+        "explanation": "C (Vraie) : L'inflammation hyperfixe le FDG et constitue une cause classique de FAUX-POSITIF (et non de faux-négatif)."
+    },
+    {
+        "id": "q-ue4-f4-35",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
+        "year": 2014,
+        "difficulty": "Moyen",
+        "tags": [
+            "Précautions",
+            "Hydratation",
+            "Diabète"
+        ],
+        "statement": "QCM 35. Quelles sont les précautions à respecter avant de réaliser un examen TEP ? (Question à choix MULTIPLE)",
+        "answers": [
+            {
+                "id": "a",
+                "text": "En cas de chirurgie récente, il est nécessaire d'attendre 1 mois avant de réaliser l'examen pour éviter la fixation liée aux processus de cicatrisation.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Chez la femme enceinte, il vaut mieux réaliser l'examen pendant le 1er trimestre de grossesse.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "En cas de diabète, celui-ci doit être équilibré et la glycémie ne doit pas dépasser 11 mmol/L (2 g/L).",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "La consommation de chocolat la veille de l'examen permet d'améliorer la fixation hépatique du traceur.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Il est indispensable de bien hydrater le patient pour faciliter l'élimination urinaire du FDG qui ne s'est pas fixé au niveau des organes.",
+                "correct": true
+            }
+        ],
+        "explanation": "A, C, E (Vraies). B. Faux : Grossesse contre-indiquée surtout au 1er trimestre. C. Vrai : L'hyperglycémie fait compétition au FDG."
+    },
+    {
+        "id": "q-ue4-f4-36",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
+        "year": 2014,
+        "difficulty": "Facile",
+        "tags": [
+            "Fixation physiologique",
+            "Poumons"
+        ],
+        "statement": "QCM 36. Parmi les structures suivantes, laquelle N'EST PAS le siège d'une fixation physiologique habituelle du fluorodésoxyglucose ? (Question à choix SIMPLE)",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le cerveau.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Les poumons.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Le myocarde.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Les cavités pyélocalicielles.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "La vessie.",
+                "correct": false
+            }
+        ],
+        "explanation": "B (Vraie) : Le parenchyme pulmonaire sain consomme très peu de glucose et apparaît clair (très faible bruit de fond)."
+    },
+    {
+        "id": "q-ue4-f4-37",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
+        "year": 2014,
+        "difficulty": "Moyen",
+        "tags": [
+            "Fixation tumorale",
+            "GLUT"
+        ],
+        "statement": "QCM 37. Quels sont les paramètres biologiques responsables de la forte fixation du fluorodésoxyglucose dans les tumeurs ? (Question à choix MULTIPLE)",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Augmentation de la synthèse des phospholipides membranaires.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Augmentation de l'expression des transporteurs GLUT.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Augmentation de l'activité enzymatique en hexokinase.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Augmentation de l'activité enzymatique en glucose-6-phosphatase.",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Augmentation de l'activité enzymatique en DOPA décarboxylase.",
+                "correct": false
+            }
+        ],
+        "explanation": "B, C (Vraies). D. Faux : C'est la diminution de la glucose-6-phosphatase qui piège le FDG-6-P dans la cellule."
+    },
+    {
+        "id": "q-ue4-f4-38",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
+        "year": 2013,
+        "difficulty": "Difficile",
+        "tags": [
+            "Physiopathologie",
+            "FDG"
+        ],
+        "statement": "QCM 38. Quelles sont les particularités physiopathologiques de la fixation du 18F-fluorodésoxyglucose (FDG) dans les cellules ? (Question à choix MULTIPLE)",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le FDG entre dans le cycle de Krebs des mitochondries.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "La fixation du FDG n’est pas spécifique de la prolifération tumorale.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Le FDG s’accumule dans les cellules dont le rapport enzymatique hexokinase/glucose-6-phosphatase est élevé.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Le délai d’attente entre l’injection du FDG et la réalisation des images doit être supérieur à 45 minutes.",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "L’hyperglycémie (diabète) ne modifie pas la fixation du FDG dans les cellules.",
+                "correct": false
+            }
+        ],
+        "explanation": "B, C, D (Vraies). A. Faux : Bloqué au stade FDG-6-P. B. Vrai : Se fixe aussi sur l'inflammation. D. Vrai : Attente 45-60 min."
+    },
+    {
+        "id": "q-ue4-f4-39",
+        "subjectId": "sub-5",
+        "chapter": "Fiche n°4 - La tomographie par émission de positons.pdf",
+        "year": 2013,
+        "difficulty": "Moyen",
+        "tags": [
+            "Faux-négatifs",
+            "Inflammation"
+        ],
+        "statement": "QCM 39. Parmi les propositions suivantes, laquelle N'EST PAS une cause de faux-négatif en imagerie tumorale TEP/FDG ? (Question à choix SIMPLE)",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Une bonne différenciation tumorale.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Une faible activité de prolifération.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "L'activation d'une pathologie inflammatoire (sarcoïdose, vascularite).",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "La proximité des voies excrétrices urinaires (bassinets, uretères, vessie).",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Des cellules claires riches en glycogène.",
+                "correct": false
+            }
+        ],
+        "explanation": "C (Vraie) : L'inflammation cause une hyperfixation du FDG, donc un FAUX-POSITIF (et non un faux-négatif)."
     }
 ];
 
