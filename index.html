@@ -14389,6 +14389,476 @@
             }
         ],
         "explanation": "D (Vraie) : Une position oblique par rapport au faisceau accentue la distorsion de projection géométrique."
+    },
+    {
+        "id": "q-ue4-f5-pdf2-12",
+        "subjectId": "s4",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Imagerie",
+            "Scanner",
+            "TDM"
+        ],
+        "statement": "QCM 12. Lequel (s) des points suivants concerne(nt) la TDM ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Elle utilise des RX comme la radiologie classique",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "C'est une imagerie analogique comme la radiologie classique sur film",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Permet l'usage de produits de contraste comme la radiologie classique",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Elle permet de faire des plans de coupe comme la radiologie classique",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Elle permet de faire une image du corps entier comme la radiologie classique",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, C\nA. Vrai : La TDM et la radiographie utilisent toutes deux les rayons X.\nB. Faux : La TDM est une technique d'imagerie numérique numérisée.\nC. Vrai : Des produits de contraste iodés sont couramment injectés en TDM.\nD. Faux : La radiologie conventionnelle donne des images 2D de projection, pas des coupes tomographiques.\nE. Faux : La radiologie classique produit une vue projetée unique et non une résection tomographique 3D du corps entier."
+    },
+    {
+        "id": "q-ue4-f5-pdf2-13",
+        "subjectId": "s4",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Imagerie",
+            "Numérique",
+            "Pixel",
+            "Voxel"
+        ],
+        "statement": "QCM 13. Concernant l'imagerie numérique :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Un système binaire permet le codage d'une information avec 2^n possibilités",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "En imagerie numérique, un élément de matrice image est nommé pixel (image 2D) ou voxel (image 3D)",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "En imagerie numérique, en plus du contraste, on peut parler de résolution",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "La résolution est liée à la taille et au nombre de pixel/voxel dans une image",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "En imagerie médicale, l'origine pour numéroter les pixels est au centre de l'image",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, C, D\nA. Vrai : Avec n bits, on dispose de 2^n niveaux de gris (ex: 12 bits = 4096 niveaux).\nB. Vrai : Pixel = picture element (2D), Voxel = volume element (3D).\nC. Vrai : La résolution spatiale et en contraste sont deux critères fondamentaux.\nD. Vrai : Plus les voxels sont petits et nombreux pour une matrice donnée, meilleure est la résolution.\nE. Faux : L'origine pour numéroter les pixels est au coin supérieur gauche (0,0)."
+    },
+    {
+        "id": "q-ue4-f5-pdf2-14",
+        "subjectId": "s4",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Imagerie",
+            "TDM",
+            "Atténuation"
+        ],
+        "statement": "QCM 14. En TDM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Une coupe a une épaisseur négligeable et peut être assimilée à un plan",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "À chaque élément de la matrice image on associe une localisation, une valeur de l'atténuation et une épaisseur",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Les atténuations de plusieurs éléments successifs exprimées sur une échelle logarithmique s'additionnent linéairement",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Pour déterminer la valeur individuelle de l'atténuation μ de chaque élément de l'image, on réalise des tirs selon plusieurs directions",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Pour déterminer les valeurs de μ de chaque voxel, on peut être amené à résoudre un système d'équations linéaires",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : B, C, D, E\nA. Faux : Une coupe scanner a une épaisseur réelle (e), ce qui en fait un volume (voxel 3D) et non un plan théorique d'épaisseur nulle.\nB. Vrai : Chaque voxel possède ses coordonnées (x,y,z), son coefficient d'atténuation μ et son épaisseur e.\nC. Vrai : L'atténuation logarithmique ln(I0/I) = sum(μ_i * dx), les atténuations s'additionnent linéairement.\nD. Vrai : C'est le principe fondamental des projections sous plusieurs angles en tomographie.\nE. Vrai : La reconstruction algébrique résout un système d'équations linéaires."
+    },
+    {
+        "id": "q-ue4-f5-pdf2-15",
+        "subjectId": "s4",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2026,
+        "difficulty": "Difficile",
+        "tags": [
+            "UE4",
+            "Imagerie",
+            "Matrice",
+            "Reconstruction"
+        ],
+        "statement": "QCM 15. On considère la matrice 3×3 des μ d'une image ci-dessous. Trouver par la méthode algébrique les valeurs de chaque voxel.",
+        "image": {
+            "url": "src/assets/images/qcm_ue4_f5_q15.png"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "μ_1 = 9",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "μ_7 + μ_5 + μ_3 = 10",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "μ_5 = 4",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "μ_4 + μ_5 + μ_6 = 12",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "μ_8 = 2",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : B, E\nAnalyse du schéma 3×3 :\n- Ligne 1 : μ_1 + μ_2 + μ_3 = 12\n- Ligne 2 : μ_4 + μ_5 + μ_6 = 9\n- Ligne 3 : μ_7 + μ_8 + μ_9 = 9\n- Diagonale secondaire (μ_3 + μ_5 + μ_7) = 10 (Proposition B Vraie).\nPar résolution du système algébrique : μ_5 = 3 et μ_8 = 2 (Proposition E Vraie)."
+    },
+    {
+        "id": "q-ue4-f5-pdf2-16",
+        "subjectId": "s4",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2026,
+        "difficulty": "Difficile",
+        "tags": [
+            "UE4",
+            "Imagerie",
+            "Rétroprojection",
+            "Matrice"
+        ],
+        "statement": "QCM 16. Quelle est la matrice intermédiaire correcte obtenue par la méthode d'épandage-rétroprojection ?",
+        "image": {
+            "url": "src/assets/images/qcm_ue4_f5_q16.png"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "Matrice A (Ligne 1: 6+4, 4+2, 3+3 ; Ligne 2: 3+0, 3+6, 3+4 ; Ligne 3: 3+2, 0+3, 2+3)",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Matrice B (Ligne 1: 4+0, 2+3, 4+3 ; Ligne 2: 3+0, 3+2, 3+3 ; Ligne 3: 3+0, 3+4, 3+2)",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Matrice C (Ligne 1: 4+6, 0+3, 2+3 ; Ligne 2: 3+4, 0+3, 3+3 ; Ligne 3: 2+4, 2+3, 4+3)",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Matrice D (Ligne 1: 6+3, 3+3, 4+2 ; Ligne 2: 3+0, 3+3, 4+3 ; Ligne 3: 3+2, 3+0, 3+4)",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Matrice E (Ligne 1: 4+4, 4+3, 4+3 ; Ligne 2: 3+4, 3+3, 3+3 ; Ligne 3: 3+4, 3+3, 3+3)",
+                "correct": true
+            }
+        ],
+        "explanation": "Proposition exacte : E\nEn méthode d'épandage simple, la valeur projetée est répartie équitablement sur chaque rangée. Pour les projections horizontale et verticale (12, 9, 9 / 3 = 4, 3, 3), l'addition terme à terme produit exactement la matrice E."
+    },
+    {
+        "id": "q-ue4-f5-pdf2-17",
+        "subjectId": "s4",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Imagerie",
+            "Hounsfield",
+            "UH"
+        ],
+        "statement": "QCM 17. Concernant la reconstitution de l'image TDM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "L'échelle Hounsfield prend l'atténuation de l'air comme valeur de référence",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "L'échelle des unités Hounsfield s'écrit CT(H) = 1000 × (μ_tissu - μ_eau) / μ_eau",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Sur l'échelle Hounsfield, la graisse prend des valeurs positives",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Sur l'échelle Hounsfield, les os se voient attribuer des valeurs de plusieurs centaines d'unités Hounsfield",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Sur l'échelle Hounsfield, les tissus mous prennent des valeurs positives de l'ordre de 20-50 UH",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : B, D, E\nA. Faux : C'est l'eau pure qui sert de valeur de référence zéro (0 UH). L'air est à -1000 UH.\nB. Vrai : Formule officielle de la densité Hounsfield.\nC. Faux : La graisse a une densité UH négative (environ -100 UH à -50 UH).\nD. Vrai : Les os très denses ont des valeurs élevées de +300 UH à +1000+ UH.\nE. Vrai : Les tissus mous (foie, reins, muscles) sont compris entre +20 et +50 UH."
+    },
+    {
+        "id": "q-ue4-f5-pdf2-18",
+        "subjectId": "s4",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Imagerie",
+            "Pitch",
+            "Scanner"
+        ],
+        "statement": "QCM 18. Concernant l'imagerie TDM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "L'acquisition de l'image se fait seulement par translation du détecteur le long du corps du patient",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Pour un seul plan de coupe, l'acquisition de l'image se fait seulement par rotation du détecteur autour de la zone examinée",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Le pitch est l'épaisseur de la coupe",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "En TDM hélicoïdale, on définit trois paramètres pour l'acquisition de l'image : le pas, l'épaisseur de coupe et la vitesse de déplacement",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Le pitch (le pas) et la vitesse de déplacement définissent la durée de l'acquisition",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : B, D\nA. Faux : L'acquisition tomographique implique une rotation du système tube-détecteurs autour du patient.\nB. Vrai : En mode axial séquentiel, le détecteur décrit une rotation de 360° autour de la coupe.\nC. Faux : Le pitch est le rapport sans dimension entre le déplacement de la table et l'épaisseur du faisceau.\nD. Vrai : Ce sont les 3 paramètres cardinaux du scanner hélicoïdal.\nE. Faux : La durée d'acquisition dépend de la vitesse de la table et de la longueur totale explorée z."
+    },
+    {
+        "id": "q-ue4-f5-pdf2-19",
+        "subjectId": "s4",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Imagerie",
+            "Densités",
+            "Contraste"
+        ],
+        "statement": "QCM 19. Concernant l'image TDM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "On peut définir deux types de contraste : le contraste naturel et le contraste radiologique",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "En Imagerie TDM, 4 densités naturelles sont définies (air-graisse-eau-os)",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Sur une image, le muscle donne une densité radiologique intermédiaire",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Sur une image, l'os correspond à une densité très radio-opaque",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Sur une image, la graisse apparaît en blanc",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, C, D\nA. Vrai : Le contraste naturel dépend de l'atténuation propre des tissus, le contraste radiologique inclut les paramètres d'acquisition et PDC.\nB. Vrai : Les 4 densités fondamentales sont l'Air (-1000), la Graisse (-100), l'Eau (0) et l'Os (+1000).\nC. Vrai : Le muscle est un tissu mou (~40 UH) de densité intermédiaire (gris moyen).\nD. Vrai : L'os est fortement atténuant et apparaît très radio-opaque (blanc brillant).\nE. Faux : La graisse a une densité négative (~-100 UH) et apparaît en gris sombre/noir."
+    },
+    {
+        "id": "q-ue4-f5-pdf2-20",
+        "subjectId": "s4",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2026,
+        "difficulty": "Facile",
+        "tags": [
+            "UE4",
+            "Imagerie",
+            "PDC",
+            "Produits de contraste"
+        ],
+        "statement": "QCM 20. Concernant les produits de contraste utilisés en TDM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Un pdc dit \"négatif\" rend le tissu examiné radio-opaque",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Un pdc dit \"positif\" a un numéro atomique Z élevé",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "L'iode est utilisé dans les pdc positifs",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Les gaz sont utilisés dans les pdc positifs",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Un produit de contraste se superpose au tissu examiné mais ne prend pas sa place",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : B, C, E\nA. Faux : Un PDC négatif (air, eau) diminue l'atténuation et rend le milieu radiotransparent.\nB. Vrai : Les PDC positifs utilisent des atomes lourds à fort Z (Iode Z=53, Baryum Z=56) pour accroître l'absorption photoélectrique.\nC. Vrai : L'iode est le constituant majeur des PDC positifs intraveineux.\nD. Faux : Les gaz sont des PDC négatifs (faible densité).\nE. Vrai : Le PDC réhausse l'atténuation du secteur circulatoire ou de la cavité sans détruire le tissu récepteur."
+    },
+    {
+        "id": "q-ue4-f5-pdf2-21",
+        "subjectId": "s4",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Imagerie",
+            "Iode",
+            "Baryum",
+            "PDC"
+        ],
+        "statement": "QCM 21. Concernant les PDC utilisés en TDM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Les PDC iodés sont tous ioniques",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Les PDC iodés peuvent être fortement hyperosmolaires",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Les PDC iodés sont utilisés en angiographie (artériographie)",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "La solution barytée (suspension de sulfate de baryum non soluble même dans les milieux acides) est utilisée pour l'imagerie de l'appareil digestif",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Les PDC iodés sont utilisés pour l'imagerie de l'arbre urinaire",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : B, C, D, E\nA. Faux : Il existe des PDC iodés ioniques et non ioniques (mieux tolérés).\nB. Vrai : Les monomères ioniques de première génération possèdent une osmolarité très élevée.\nC. Vrai : Indiqués pour l'opacification des artères et veins (angio-scanner).\nD. Vrai : Le sulfate de baryum est un PDC positif opacifiant non absorbé, dédié au tractus digestif.\nE. Vrai : Éliminés par filtration rénale, les PDC iodés permettent l'étude des voies urinaires (uro-scanner)."
+    },
+    {
+        "id": "q-ue4-f5-pdf2-22",
+        "subjectId": "s4",
+        "chapter": "Fiche n°5 - Scanner.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Imagerie",
+            "Effets indésirables",
+            "PDC"
+        ],
+        "statement": "QCM 22. Contre-indications et effets indésirables des PDC. Parmi les effets suivants, lequel(lesquels) est (sont) attribué(s) aux PDC iodés ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Sensation de chaleur",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Réaction allergique",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Tachycardie",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Baisse de l'appétit",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Choc hypovolémique",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, C\nA. Vrai : La sensation de chaleur diffuse est un effet vasomoteur très fréquent lors de l'injection d'iode.\nB. Vrai : Risque classique d'hypersensibilité anaphylactoïde (urticaire, œdème de Quincke, choc).\nC. Vrai : Réponse hémodynamique réflexe fréquente.\nD. Faux : Effet non spécifique des PDC iodés.\nE. Faux : Les chocs graves sont anaphylactoïdes ou cardiogéniques, pas hypovolémiques purs."
     }
 ];
 
