@@ -11577,7 +11577,7 @@ export const INITIAL_QUESTIONS = [
             },
             {
                 "id": "b",
-                "text": "La graisse a une densité de l'ordre de - 100 UH",
+                "text": "La graisse a une densité de l'ordre de + 100 UH",
                 "correct": false
             },
             {
