@@ -14630,7 +14630,11 @@
                 }
 
                 pool.sort(() => Math.random() - 0.5);
-                setQuizQuestions(pool);
+                const randomizedPool = pool.map(q => ({
+                    ...q,
+                    answers: [...q.answers].sort(() => Math.random() - 0.5)
+                }));
+                setQuizQuestions(randomizedPool);
                 setCurrentQuizIndex(0);
                 setQuizScore(0);
                 setSelectedAnswers([]);
@@ -14660,7 +14664,11 @@
                     pool = [...questions];
                 }
                 pool.sort(() => Math.random() - 0.5);
-                setQuizQuestions(pool);
+                const randomizedPool = pool.map(q => ({
+                    ...q,
+                    answers: [...q.answers].sort(() => Math.random() - 0.5)
+                }));
+                setQuizQuestions(randomizedPool);
                 setCurrentQuizIndex(0);
                 setQuizScore(0);
                 setSelectedAnswers([]); setIsSubmitted(false);
@@ -14691,7 +14699,11 @@
                     return;
                 }
                 pool.sort(() => Math.random() - 0.5);
-                setQuizQuestions(pool);
+                const randomizedPool = pool.map(q => ({
+                    ...q,
+                    answers: [...q.answers].sort(() => Math.random() - 0.5)
+                }));
+                setQuizQuestions(randomizedPool);
                 setCurrentQuizIndex(0);
                 setQuizScore(0);
                 setSelectedAnswers([]); setIsSubmitted(false);
@@ -15475,7 +15487,7 @@
                                                             </span>
                                                             <button 
                                                                 onClick={() => {
-                                                                    const testQ = { ...q, _ancrageEntryId: item.entryId };
+                                                                    const testQ = { ...q, _ancrageEntryId: item.entryId, answers: [...q.answers].sort(() => Math.random() - 0.5) };
                                                                     setQuizQuestions([testQ]);
                                                                     setCurrentQuizIndex(0); setQuizScore(0); setSelectedAnswers([]); setIsSubmitted(false); setQuizFinished(false); setQuizTimerSeconds(0); setUserAnswersHistory([]); setActiveQuizMode('ancrage');
                                                                 }}
@@ -15638,7 +15650,7 @@
                                                                     </button>
                                                                     <button
                                                                         onClick={() => {
-                                                                            const testQ = { ...q, _ancrageEntryId: item.entryId };
+                                                                            const testQ = { ...q, _ancrageEntryId: item.entryId, answers: [...q.answers].sort(() => Math.random() - 0.5) };
                                                                             setQuizQuestions([testQ]);
                                                                             setCurrentQuizIndex(0);
                                                                             setQuizScore(0);
