@@ -133,113 +133,103 @@
 
         const INITIAL_SUBJECTS = [
             { 
-                id: 'sub-1', 
-                name: 'UE 1.1 - Biologie moléculaire', 
-                code: 'UE1.1', 
+                id: 's1', 
+                name: 'UE 1 Biologie Moléculaire & Cellulaire', 
+                code: 'UE1', 
                 icon: '🧬', 
-                color: 'from-red-500 to-orange-500', 
+                color: 'from-blue-600 to-cyan-500', 
                 progress: 78, 
-                qcmCount: 240,
+                qcmCount: 54,
                 chapters: [
-            "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
-            "Fiche n°2 - Organisation de l'ADN.pdf",
-            "Fiche n°3 - Extraction des acides nucléiques et leur analyse.pdf",
-            "Fiche n°4 - Réplication de l'ADN et PCR.pdf",
-            "Fiche n°5 - L'expression des gènes.pdf",
-            "Fiche n°6 - Maturation des ARN pré-messagers.pdf",
-            "Fiche n°7 - Méthodes d'étude de l'expression des gènes.pdf",
-            "Fiche n°8 - La synthèse des protéines.pdf",
-            "Fiche n°9 - Le séquençage de l'ADN / Du gène au génome.pdf"
-]
+                    "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
+                    "Fiche n°2 - Organisation de l'ADN.pdf",
+                    "Fiche n°4 - Réplication de l'ADN et PCR.pdf",
+                    "Immunité innée"
+                ]
             },
             { 
-                id: 'sub-2', 
-                name: 'UE 1.2 - Communication cellulaire et signalisation', 
-                code: 'UE1.2', 
-                icon: '📡', 
-                color: 'from-orange-500 to-amber-500', 
-                progress: 62, 
-                qcmCount: 180, 
-                chapters: ['Récepteurs membranaires', 'Voies de signalisation', 'Second messagers', 'Apoptose'] 
-            },
-            { 
-                id: 'sub-3', 
-                name: 'UE 2 - Immunologie', 
+                id: 's2', 
+                name: 'UE 2 Histologie & Embryologie', 
                 code: 'UE2', 
-                icon: '🛡️', 
-                color: 'from-amber-500 to-yellow-600', 
-                progress: 85, 
-                qcmCount: 210, 
-                chapters: ['Immunité innée', 'Immunité adaptative', 'Complexe majeur d’histocompatibilité (CMH)', 'Anticorps et lymphocytes'] 
+                icon: '🔬', 
+                color: 'from-emerald-600 to-teal-500', 
+                progress: 62, 
+                qcmCount: 0, 
+                chapters: ['Tissus Épithéliaux', 'Tissus Conjonctifs', 'Tissus Musculaires', 'Tissu Nerveux'] 
             },
             { 
-                id: 'sub-4', 
-                name: 'UE 3 - Neurosciences', 
+                id: 's3', 
+                name: 'UE 3 Physiologie', 
                 code: 'UE3', 
-                icon: '🧠', 
-                color: 'from-blue-600 to-indigo-600', 
-                progress: 54, 
-                qcmCount: 310, 
-                chapters: ['Potentiel d’action', 'Synapses et neurotransmetteurs', 'Système nerveux central', 'Neurophysiologie sensorielle'] 
+                icon: '⚡', 
+                color: 'from-purple-600 to-pink-500', 
+                progress: 85, 
+                qcmCount: 0, 
+                chapters: ['Physiologie Cardiaque', 'Physiologie Respiratoire', 'Physiologie Rénale', 'Neurophysiologie'] 
             },
             { 
-                id: 'sub-5', 
-                name: 'UE 4 - Biophysique', 
+                id: 's4', 
+                name: 'UE 4 Imagerie Médicale & Biophysique', 
                 code: 'UE4', 
-                icon: '⚛️', 
-                color: 'from-indigo-500 to-purple-600', 
+                icon: '📻', 
+                color: 'from-red-600 to-orange-500', 
                 progress: 70, 
-                qcmCount: 175, 
+                qcmCount: 224, 
                 chapters: [
-            "Fiche n°1 - Techniques radiologiques, Ultrasons.pdf",
-            "Fiche n°2 - Produits de contraste ultrasonores.pdf",
-            "Fiche n°3 - La scintigraphie.pdf",
-            "Fiche n°4 - La tomographie par émission de positons.pdf",
-            "Fiche n°5 - Scanner.pdf",
-            "Fiche n°6 - IRM.pdf",
-            "Fiche n°7 - Radioprotection.pdf",
-            "Fiche n°8 - Rayons X et Radiographie.pdf",
-            "Fiche n°9 - Radiologie interventionnelle.pdf",
-            "Fiche n°10 - Influx Nerveux.pdf",
-            "Fiche n°11 - Explorations Fonctionnelles Respiratoires.pdf"
-] 
-            },
-            { 
-                id: 'sub-6', 
-                name: 'UE 5 - Biostatistiques', 
-                code: 'UE5', 
-                icon: '📊', 
-                color: 'from-purple-500 to-pink-600', 
-                progress: 45, 
-                qcmCount: 130, 
-                chapters: ['Statistiques descriptives', 'Probabilités et lois', 'Tests d’hypothèse', 'Épidémiologie statistique'] 
-            },
-            { 
-                id: 'sub-7', 
-                name: 'UE 6 - Santé publique', 
-                code: 'UE6', 
-                icon: '🏥', 
-                color: 'from-emerald-500 to-teal-600', 
-                progress: 90, 
-                qcmCount: 260, 
-                chapters: ['Système de santé', 'Économie de la santé', 'Prévention et dépistage', 'Éthique médicale'] 
-            },
-            { 
-                id: 'sub-8', 
-                name: 'UE 8 - Biochimie', 
-                code: 'UE8', 
-                icon: '🧪', 
-                color: 'from-teal-500 to-cyan-600', 
-                progress: 68, 
-                qcmCount: 290, 
-                chapters: [
-                    'Fiche n°1 - Biochimie analytique en médecine.pdf',
-                    'Fiche n°2 - Caractères généraux des enzymes.pdf',
-                    'Fiche n°3 - Cinétique enzymatique.pdf',
-                    'Fiche n°4 - Immunonutrition _ Partie 1.pdf',
-                    'Fiche n°5 - Immunonutrition _ Partie 2.pdf'
+                    "Fiche n°1 - Techniques radiologiques, Ultrasons.pdf",
+                    "Fiche n°2 - Produits de contraste ultrasonores.pdf",
+                    "Fiche n°3 - La scintigraphie.pdf",
+                    "Fiche n°4 - La tomographie par émission de positons.pdf",
+                    "Fiche n°5 - Scanner.pdf",
+                    "Fiche n°8 - Rayons X et Radiographie.pdf"
                 ] 
             },
+            { 
+                id: 's5', 
+                name: 'UE 5 Anatomie', 
+                code: 'UE5', 
+                icon: '🦴', 
+                color: 'from-amber-600 to-yellow-500', 
+                progress: 45, 
+                qcmCount: 0, 
+                chapters: ['Anatomie Membre Supérieur', 'Anatomie Membre Inférieur', 'Anatomie Thorax', 'Anatomie Abdomen'] 
+            },
+            { 
+                id: 's6', 
+                name: 'UE 6 Pharmacologie', 
+                code: 'UE6', 
+                icon: '💊', 
+                color: 'from-indigo-600 to-violet-500', 
+                progress: 90, 
+                qcmCount: 0, 
+                chapters: ['Pharmacocinétique', 'Pharmacodynamie', 'Cibles des Médicaments', 'Effets Indésirables'] 
+            },
+            { 
+                id: 's7', 
+                name: 'UE 7 Santé Publique & Épidémiologie', 
+                code: 'UE7', 
+                icon: '👥', 
+                color: 'from-rose-600 to-orange-400', 
+                progress: 50, 
+                qcmCount: 0, 
+                chapters: ['Épidémiologie', 'Système de Santé', 'Prévention & Éducation', 'Économie de la Santé'] 
+            },
+            { 
+                id: 's8', 
+                name: 'UE 8 Biochimie', 
+                code: 'UE8', 
+                icon: '🧪', 
+                color: 'from-cyan-600 to-blue-500', 
+                progress: 82, 
+                qcmCount: 81, 
+                chapters: [
+                    "Fiche n°1 - Biochimie analytique en médecine.pdf",
+                    "Fiche n°2 - Caractères généraux des enzymes.pdf",
+                    "Fiche n°3 - Cinétique enzymatique.pdf",
+                    "Fiche n°4 - Immunonutrition _ Partie 1.pdf",
+                    "Fiche n°5 - Immunonutrition _ Partie 2.pdf"
+                ] 
+            }
         ];
 
         const INITIAL_QUESTIONS = [
@@ -281,7 +271,7 @@
     },
     {
         "id": "q-2",
-        "subjectId": "sub-3",
+        "subjectId": "s1",
         "chapter": "Immunité innée",
         "year": 2025,
         "difficulty": "Moyen",
@@ -15939,13 +15929,13 @@
                                             <span className="px-3.5 py-1.5 bg-[#EFEAD8] border border-[#DDD5C0] text-[#594F3C] text-xs font-bold rounded-full shadow-sm">
                                                 UE 1 Biologie • {ancrageList.filter(i => {
                                                     const q = questions.find(item => item.id === i.questionId);
-                                                    return q && q.subjectId === 'sub-1';
+                                                    return q && q.subjectId === 's1';
                                                 }).length}
                                             </span>
                                             <span className="px-3.5 py-1.5 bg-[#EFEAD8] border border-[#DDD5C0] text-[#594F3C] text-xs font-bold rounded-full shadow-sm">
                                                 UE 8 Biochimie • {ancrageList.filter(i => {
                                                     const q = questions.find(item => item.id === i.questionId);
-                                                    return q && q.subjectId === 'sub-8';
+                                                    return q && q.subjectId === 's8';
                                                 }).length}
                                             </span>
                                             <span className="px-3.5 py-1.5 bg-[#EFEAD8] border border-[#DDD5C0] text-[#594F3C] text-xs font-bold rounded-full shadow-sm">
@@ -16223,61 +16213,132 @@
                             {currentView === 'bank' && (
                                 <div className="space-y-6">
                                     <div className="flex justify-between items-center flex-wrap gap-4">
-                                        <h3 className="text-xl font-bold text-white">Banque de QCM & Rangement par UE / Fiche</h3>
-                                        <button onClick={() => { setEditingQuestion(null); setShowQuestionModal(true); }} className="px-4 py-2 bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold rounded-xl text-sm">Créer un QCM</button>
+                                        <div>
+                                            <h3 className="text-xl font-bold text-white">Banque de QCM & Rangement par UE / Fiche</h3>
+                                            <p className="text-xs text-slate-400">Recherchez et filtrez vos questions parmi les 8 Unités d'Enseignement.</p>
+                                        </div>
+                                        <button onClick={() => { setEditingQuestion(null); setShowQuestionModal(true); }} className="px-4 py-2 bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold rounded-xl text-sm shadow-md">➕ Créer un QCM</button>
                                     </div>
 
-                                    {/* Tabs for 8 UE */}
-                                    <div className="flex gap-2 overflow-x-auto pb-2">
-                                        <button onClick={() => setSelectedBankSubject('all')} className={`px-4 py-2 rounded-2xl text-xs font-bold ${selectedBankSubject === 'all' ? 'bg-red-600 text-white' : 'bg-slate-900 text-slate-300'}`}>Toutes</button>
-                                        {subjects.map(s => (
-                                            <button key={s.id} onClick={() => setSelectedBankSubject(s.id)} className={`px-4 py-2 rounded-2xl text-xs font-semibold whitespace-nowrap ${selectedBankSubject === s.id ? 'bg-red-600 text-white' : 'bg-slate-900 text-slate-300'}`}>
-                                                {s.icon} {s.code}
+                                    {/* Barre de Recherche et Filtres UE */}
+                                    <div className="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+                                        {/* Champ de recherche mot-clé */}
+                                        <div className="flex items-center gap-3 bg-slate-900 border border-slate-800 rounded-2xl px-4 py-2.5 flex-1 shadow-inner">
+                                            <span className="text-slate-400 text-sm">🔍</span>
+                                            <input 
+                                                type="text" 
+                                                placeholder="Rechercher par mot-clé, énoncé ou chapitre..." 
+                                                value={searchQuery}
+                                                onChange={(e) => setSearchQuery(e.target.value)}
+                                                className="bg-transparent text-sm text-white placeholder-slate-500 focus:outline-none w-full"
+                                            />
+                                            {searchQuery && (
+                                                <button onClick={() => setSearchQuery('')} className="text-slate-400 hover:text-white text-xs font-bold px-2 py-0.5 rounded-full bg-slate-800 transition-all">
+                                                    ✕ Effacer
+                                                </button>
+                                            )}
+                                        </div>
+
+                                        {/* Onglets des 8 UE avec compteurs */}
+                                        <div className="flex gap-2 overflow-x-auto pb-1 max-w-full">
+                                            <button 
+                                                onClick={() => setSelectedBankSubject('all')} 
+                                                className={`px-3.5 py-2 rounded-2xl text-xs font-bold whitespace-nowrap transition-all ${
+                                                    selectedBankSubject === 'all' ? 'bg-red-600 text-white shadow-md' : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'
+                                                }`}
+                                            >
+                                                Toutes ({questions.length})
                                             </button>
-                                        ))}
+                                            {subjects.map(s => {
+                                                const qCount = questions.filter(q => q.subjectId === s.id).length;
+                                                return (
+                                                    <button 
+                                                        key={s.id} 
+                                                        onClick={() => setSelectedBankSubject(s.id)} 
+                                                        className={`px-3.5 py-2 rounded-2xl text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 ${
+                                                            selectedBankSubject === s.id ? 'bg-red-600 text-white shadow-md' : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'
+                                                        }`}
+                                                    >
+                                                        <span>{s.icon}</span>
+                                                        <span>{s.code} ({qCount})</span>
+                                                    </button>
+                                                );
+                                            })}
+                                        </div>
                                     </div>
 
-                                    <div className="space-y-4">
-                                        {questions.filter(q => selectedBankSubject === 'all' || q.subjectId === selectedBankSubject).map(q => {
-                                            const currentSub = subjects.find(s => s.id === q.subjectId) || subjects[0];
+                                    {/* Liste filtrée de QCM */}
+                                    {(() => {
+                                        const filteredList = questions.filter(q => {
+                                            const matchSub = selectedBankSubject === 'all' || q.subjectId === selectedBankSubject;
+                                            const matchSearch = !searchQuery || 
+                                                q.statement.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                                (q.chapter && q.chapter.toLowerCase().includes(searchQuery.toLowerCase())) ||
+                                                (q.tags && q.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase())));
+                                            return matchSub && matchSearch;
+                                        });
+
+                                        if (filteredList.length === 0) {
                                             return (
-                                                <div key={q.id} className="bg-slate-900/60 border border-slate-800 p-6 rounded-3xl space-y-4">
-                                                    <div className="flex justify-between items-center flex-wrap gap-3">
-                                                        <div className="flex items-center gap-2 flex-wrap">
-                                                            {/* UE Selector */}
-                                                            <div className="flex items-center gap-1.5 bg-slate-950 border border-slate-800 rounded-xl px-3 py-1">
-                                                                <span className="text-xs text-slate-400">UE :</span>
-                                                                <select value={q.subjectId} onChange={(e) => changeQuestionSubject(q.id, e.target.value)} className="bg-transparent text-xs text-red-400 font-bold focus:outline-none">
-                                                                    {subjects.map(s => <option key={s.id} value={s.id} className="bg-slate-900">{s.code} - {s.name}</option>)}
-                                                                </select>
-                                                            </div>
-
-                                                            {/* Fiche / Chapitre Selector */}
-                                                            <div className="flex items-center gap-1.5 bg-slate-950 border border-slate-800 rounded-xl px-3 py-1">
-                                                                <span className="text-xs text-slate-400">Fiche :</span>
-                                                                <select value={q.chapter} onChange={(e) => changeQuestionChapter(q.id, e.target.value)} className="bg-transparent text-xs text-orange-400 font-bold focus:outline-none max-w-xs truncate">
-                                                                    {currentSub.chapters.map((chap, idx) => <option key={idx} value={chap} className="bg-slate-900">{chap}</option>)}
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-                                                        <button onClick={() => deleteQuestion(q.id)} className="text-xs text-red-400">Supprimer</button>
-                                                    </div>
-
-                                                    {q.image && <PdfImage imageInfo={q.image} />}
-
-                                                    <h4 className="text-base font-bold text-white">{q.statement}</h4>
-                                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                                        {q.answers.map(a => (
-                                                            <div key={a.id} className={`p-2.5 rounded-xl text-xs ${a.correct ? 'bg-emerald-950/40 border border-emerald-500/40 text-emerald-200' : 'bg-slate-950 text-slate-400'}`}>
-                                                                {a.id.toUpperCase()}. {a.text}
-                                                            </div>
-                                                        ))}
-                                                    </div>
+                                                <div className="bg-slate-900/60 border border-slate-800 p-12 rounded-3xl text-center space-y-3">
+                                                    <div className="text-4xl">🔍</div>
+                                                    <h4 className="text-lg font-bold text-white">Aucun QCM trouvé</h4>
+                                                    <p className="text-xs text-slate-400 max-w-sm mx-auto">
+                                                        {searchQuery ? `Aucune question ne correspond à la recherche "${searchQuery}".` : 'Aucun QCM disponible pour cette UE pour le moment.'}
+                                                    </p>
+                                                    {searchQuery && (
+                                                        <button onClick={() => setSearchQuery('')} className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 rounded-xl">
+                                                            Réinitialiser la recherche
+                                                        </button>
+                                                    )}
                                                 </div>
                                             );
-                                        })}
-                                    </div>
+                                        }
+
+                                        return (
+                                            <div className="space-y-4">
+                                                {filteredList.map(q => {
+                                                    const currentSub = subjects.find(s => s.id === q.subjectId) || subjects[0];
+                                                    return (
+                                                        <div key={q.id} className="bg-slate-900/60 border border-slate-800 p-6 rounded-3xl space-y-4 shadow-sm hover:border-slate-700 transition-all">
+                                                            <div className="flex justify-between items-center flex-wrap gap-3">
+                                                                <div className="flex items-center gap-2 flex-wrap">
+                                                                    {/* UE Selector */}
+                                                                    <div className="flex items-center gap-1.5 bg-slate-950 border border-slate-800 rounded-xl px-3 py-1">
+                                                                        <span className="text-xs text-slate-400">UE :</span>
+                                                                        <select value={q.subjectId} onChange={(e) => changeQuestionSubject(q.id, e.target.value)} className="bg-transparent text-xs text-red-400 font-bold focus:outline-none cursor-pointer">
+                                                                            {subjects.map(s => <option key={s.id} value={s.id} className="bg-slate-900">{s.code} - {s.name}</option>)}
+                                                                        </select>
+                                                                    </div>
+
+                                                                    {/* Fiche / Chapitre Selector */}
+                                                                    <div className="flex items-center gap-1.5 bg-slate-950 border border-slate-800 rounded-xl px-3 py-1">
+                                                                        <span className="text-xs text-slate-400">Fiche :</span>
+                                                                        <select value={q.chapter} onChange={(e) => changeQuestionChapter(q.id, e.target.value)} className="bg-transparent text-xs text-orange-400 font-bold focus:outline-none max-w-xs truncate cursor-pointer">
+                                                                            {currentSub.chapters.map((chap, idx) => <option key={idx} value={chap} className="bg-slate-900">{chap}</option>)}
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <button onClick={() => deleteQuestion(q.id)} className="text-xs text-red-400 hover:text-red-300 font-semibold px-3 py-1 rounded-xl bg-red-950/40 border border-red-900/40 cursor-pointer">🗑️ Supprimer</button>
+                                                            </div>
+
+                                                            {q.image && <PdfImage imageInfo={q.image} />}
+
+                                                            <h4 className="text-base font-bold text-white leading-relaxed">{q.statement}</h4>
+                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                                {q.answers.map(a => (
+                                                                    <div key={a.id} className={`p-2.5 rounded-xl text-xs ${a.correct ? 'bg-emerald-950/40 border border-emerald-500/40 text-emerald-200 font-semibold' : 'bg-slate-950 text-slate-400'}`}>
+                                                                        {a.id.toUpperCase()}. {a.text}
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                })}
+                                            </div>
+                                        );
+                                    })()}
                                 </div>
                             )}
 

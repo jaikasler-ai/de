@@ -37,7 +37,7 @@ export const INITIAL_QUESTIONS = [
     },
     {
         "id": "q-2",
-        "subjectId": "sub-3",
+        "subjectId": "s1",
         "chapter": "Immunité innée",
         "year": 2025,
         "difficulty": "Moyen",
@@ -14619,85 +14619,102 @@ export const INITIAL_QUESTIONS = [
 ];
 
 export const INITIAL_SUBJECTS = [
-    {
-        id: 's1',
-        name: 'UE 1 Biologie',
-        code: 'BIO-101',
-        icon: 'Dna',
-        color: 'from-blue-600 to-cyan-500',
+    { 
+        id: 's1', 
+        name: 'UE 1 Biologie Moléculaire & Cellulaire', 
+        code: 'UE1', 
+        icon: 'Dna', 
+        color: 'from-blue-600 to-cyan-500', 
+        progress: 78, 
+        qcmCount: 54,
         chapters: [
-            'Fiche n°1 - Introduction à la Biologie moléculaire.pdf',
-            'Fiche n°2 - Organisation de l\'ADN.pdf',
-            'Fiche n°4 - Réplication de l\'ADN et PCR.pdf'
+            "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
+            "Fiche n°2 - Organisation de l'ADN.pdf",
+            "Fiche n°4 - Réplication de l'ADN et PCR.pdf",
+            "Immunité innée"
         ]
     },
-    {
-        id: 's2',
-        name: 'UE 2 Histologie',
-        code: 'HIS-101',
-        icon: 'Microscope',
-        color: 'from-emerald-600 to-teal-500',
-        chapters: ['Tissus Épithéliaux', 'Tissus Conjonctifs', 'Tissus Musculaires', 'Tissu Nerveux']
+    { 
+        id: 's2', 
+        name: 'UE 2 Histologie & Embryologie', 
+        code: 'UE2', 
+        icon: 'Microscope', 
+        color: 'from-emerald-600 to-teal-500', 
+        progress: 62, 
+        qcmCount: 0, 
+        chapters: ['Tissus Épithéliaux', 'Tissus Conjonctifs', 'Tissus Musculaires', 'Tissu Nerveux'] 
     },
-    {
-        id: 's3',
-        name: 'UE 3 Physiologie',
-        code: 'PHY-101',
-        icon: 'Activity',
-        color: 'from-purple-600 to-pink-500',
-        chapters: ['Physiologie Cardiaque', 'Physiologie Respiratoire', 'Physiologie Rénale', 'Neurophysiologie']
+    { 
+        id: 's3', 
+        name: 'UE 3 Physiologie', 
+        code: 'UE3', 
+        icon: 'Activity', 
+        color: 'from-purple-600 to-pink-500', 
+        progress: 85, 
+        qcmCount: 0, 
+        chapters: ['Physiologie Cardiaque', 'Physiologie Respiratoire', 'Physiologie Rénale', 'Neurophysiologie'] 
     },
-    {
-        id: 's4',
-        name: 'UE 4 Imagerie Médicale',
-        code: 'IMG-101',
-        icon: 'Radio',
-        color: 'from-red-600 to-orange-500',
+    { 
+        id: 's4', 
+        name: 'UE 4 Imagerie Médicale & Biophysique', 
+        code: 'UE4', 
+        icon: 'Radio', 
+        color: 'from-red-600 to-orange-500', 
+        progress: 70, 
+        qcmCount: 224, 
         chapters: [
-            'Fiche n°1 - Techniques radiologiques, Ultrasons.pdf',
-            'Fiche n°2 - Produits de contraste ultrasonores.pdf',
-            'Fiche n°3 - La scintigraphie.pdf',
-            'Fiche n°4 - La tomographie par émission de positons.pdf',
-            'Fiche n°5 - Scanner.pdf',
-            'Fiche n°8 - Rayons X et Radiographie.pdf'
-        ]
+            "Fiche n°1 - Techniques radiologiques, Ultrasons.pdf",
+            "Fiche n°2 - Produits de contraste ultrasonores.pdf",
+            "Fiche n°3 - La scintigraphie.pdf",
+            "Fiche n°4 - La tomographie par émission de positons.pdf",
+            "Fiche n°5 - Scanner.pdf",
+            "Fiche n°8 - Rayons X et Radiographie.pdf"
+        ] 
     },
-    {
-        id: 's5',
-        name: 'UE 5 Anatomie',
-        code: 'ANA-101',
-        icon: 'Bone',
-        color: 'from-amber-600 to-yellow-500',
-        chapters: ['Anatomie Membre Supérieur', 'Anatomie Membre Inférieur', 'Anatomie Thorax', 'Anatomie Abdomen']
+    { 
+        id: 's5', 
+        name: 'UE 5 Anatomie', 
+        code: 'UE5', 
+        icon: 'Bone', 
+        color: 'from-amber-600 to-yellow-500', 
+        progress: 45, 
+        qcmCount: 0, 
+        chapters: ['Anatomie Membre Supérieur', 'Anatomie Membre Inférieur', 'Anatomie Thorax', 'Anatomie Abdomen'] 
     },
-    {
-        id: 's6',
-        name: 'UE 6 Pharmacologie',
-        code: 'PHA-101',
-        icon: 'Pill',
-        color: 'from-indigo-600 to-violet-500',
-        chapters: ['Pharmacocinétique', 'Pharmacodynamie', 'Cibles des Médicaments', 'Effets Indésirables']
+    { 
+        id: 's6', 
+        name: 'UE 6 Pharmacologie', 
+        code: 'UE6', 
+        icon: 'Pill', 
+        color: 'from-indigo-600 to-violet-500', 
+        progress: 90, 
+        qcmCount: 0, 
+        chapters: ['Pharmacocinétique', 'Pharmacodynamie', 'Cibles des Médicaments', 'Effets Indésirables'] 
     },
-    {
-        id: 's7',
-        name: 'UE 7 Santé Publique',
-        code: 'PUB-101',
-        icon: 'Users',
-        color: 'from-rose-600 to-orange-400',
-        chapters: ['Épidémiologie', 'Système de Santé', 'Prévention & Éducation', 'Économie de la Santé']
+    { 
+        id: 's7', 
+        name: 'UE 7 Santé Publique & Épidémiologie', 
+        code: 'UE7', 
+        icon: 'Users', 
+        color: 'from-rose-600 to-orange-400', 
+        progress: 50, 
+        qcmCount: 0, 
+        chapters: ['Épidémiologie', 'Système de Santé', 'Prévention & Éducation', 'Économie de la Santé'] 
     },
-    {
-        id: 's8',
-        name: 'UE 8 Biochimie',
-        code: 'BCH-101',
-        icon: 'FlaskConical',
-        color: 'from-cyan-600 to-blue-500',
+    { 
+        id: 's8', 
+        name: 'UE 8 Biochimie', 
+        code: 'UE8', 
+        icon: 'FlaskConical', 
+        color: 'from-cyan-600 to-blue-500', 
+        progress: 82, 
+        qcmCount: 81, 
         chapters: [
-            'Fiche n°1 - Biochimie analytique en médecine.pdf',
-            'Fiche n°2 - Caractères généraux des enzymes.pdf',
-            'Fiche n°3 - Cinétique enzymatique.pdf',
-            'Fiche n°4 - Immunonutrition _ Partie 1.pdf',
-            'Fiche n°5 - Immunonutrition _ Partie 2.pdf'
-        ]
+            "Fiche n°1 - Biochimie analytique en médecine.pdf",
+            "Fiche n°2 - Caractères généraux des enzymes.pdf",
+            "Fiche n°3 - Cinétique enzymatique.pdf",
+            "Fiche n°4 - Immunonutrition _ Partie 1.pdf",
+            "Fiche n°5 - Immunonutrition _ Partie 2.pdf"
+        ] 
     }
 ];
