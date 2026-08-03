@@ -6450,8 +6450,8 @@ export const INITIAL_QUESTIONS = [
             },
             {
                 "id": "c",
-                "text": "L'onde réfléchie par les capsules présentera des harmoniques.",
-                "correct": true
+                "text": "L'onde réfléchie ne présente pas d'harmonique.",
+                "correct": false
             },
             {
                 "id": "d",
@@ -6464,7 +6464,7 @@ export const INITIAL_QUESTIONS = [
                 "correct": true
             }
         ],
-        "explanation": "A, C, D, E (Vraies) : A. Vrai (MI = P- / sqrt(f) = 0,4 / 2 = 0,2). B. Faux : À un indice mécanique de 0,2 (MI > 0,1), le régime acoustique est non-linéaire. C. Vrai : En régime non-linéaire, l'oscillation des microbulles génère des harmoniques (2f0). D. Vrai (Pour 16 MHz, MI = 0,4 / 4 = 0,1). E. Vrai (Pour 2 MPa à 4 MHz, MI = 1,0 > 0,7-0,8, régime stimulé/destruction)."
+        "explanation": "A, D, E (Vraies) : A. Vrai (MI = P- / sqrt(f) = 0,4 / 2 = 0,2). B. Faux : À un indice mécanique de 0,2 (MI > 0,1), le régime acoustique est non-linéaire. C. Faux : En régime non-linéaire, l'oscillation des microbulles génère des harmoniques (2f0). D. Vrai (Pour 16 MHz, MI = 0,4 / 4 = 0,1). E. Vrai (Pour 2 MPa à 4 MHz, MI = 1,0 > 0,7-0,8, régime stimulé/destruction)."
     },
     {
         "id": "q-ue4-f2-13",
