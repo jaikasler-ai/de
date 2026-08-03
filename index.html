@@ -14467,11 +14467,49 @@
             // Selected UE detail view for chapters
             const [selectedDetailedSubject, setSelectedDetailedSubject] = useState(null);
 
-            // --- SYSTEME UE ANCRAGE MEMORIEL (Support Doublons, Répétition Espacée J1-J28 & Renforcé J1-J24) ---
+            // --- SYSTEME UE ANCRAGE MEMORIEL (Strictement Sans Doublon, Répétition Espacée J1-J28 & Renforcé J1-J24) ---
+            const deduplicateAncrageData = (raw) => {
+                if (!raw || typeof raw !== 'object') return {};
+                const cleaned = {};
+                Object.values(raw).forEach(item => {
+                    if (!item || !item.questionId) return;
+                    const qId = item.questionId;
+                    const existing = cleaned[qId];
+                    if (!existing) {
+                        cleaned[qId] = {
+                            ...item,
+                            entryId: qId,
+                            instanceNumber: 1
+                        };
+                    } else {
+                        let winner = existing;
+                        if (existing.status !== 'active' && item.status === 'active') {
+                            winner = item;
+                        } else if (item.status === 'active' && existing.status === 'active') {
+                            if ((item.stepIndex || 0) > (existing.stepIndex || 0)) {
+                                winner = item;
+                            } else if ((item.stepIndex || 0) === (existing.stepIndex || 0) && (item.failureCount || 0) > (existing.failureCount || 0)) {
+                                winner = item;
+                            }
+                        } else if (existing.status !== 'active' && item.status !== 'active') {
+                            if ((item.lastReviewTimestamp || 0) > (existing.lastReviewTimestamp || 0)) {
+                                winner = item;
+                            }
+                        }
+                        cleaned[qId] = {
+                            ...winner,
+                            entryId: qId,
+                            instanceNumber: 1
+                        };
+                    }
+                });
+                return cleaned;
+            };
+
             const [ancrageData, setAncrageData] = useState(() => {
                 try {
                     const saved = localStorage.getItem('med_prep_ancrage_data_v1');
-                    return saved ? JSON.parse(saved) : {};
+                    return saved ? deduplicateAncrageData(JSON.parse(saved)) : {};
                 } catch(e) {
                     return {};
                 }
@@ -14480,10 +14518,11 @@
             // Active Ancrage Entry ID during quiz
             const [activeAncrageEntryId, setActiveAncrageEntryId] = useState(null);
 
-            // Sauvegarde automatique dans localStorage
+            // Sauvegarde automatique dans localStorage (dédoublonné)
             React.useEffect(() => {
                 try {
-                    localStorage.setItem('med_prep_ancrage_data_v1', JSON.stringify(ancrageData));
+                    const cleaned = deduplicateAncrageData(ancrageData);
+                    localStorage.setItem('med_prep_ancrage_data_v1', JSON.stringify(cleaned));
                 } catch(e) {
                     console.error("Erreur sauvegarde LocalStorage Ancrage:", e);
                 }
@@ -14496,7 +14535,7 @@
                     .then(data => {
                         if (data && Object.keys(data).length > 0) {
                             setAncrageData(prev => {
-                                const merged = { ...prev, ...data };
+                                const merged = deduplicateAncrageData({ ...prev, ...data });
                                 try {
                                     localStorage.setItem('med_prep_ancrage_data_v1', JSON.stringify(merged));
                                 } catch(e) {}
@@ -14509,10 +14548,11 @@
 
             React.useEffect(() => {
                 if (ancrageData && Object.keys(ancrageData).length > 0) {
+                    const cleaned = deduplicateAncrageData(ancrageData);
                     fetch('/api/save', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(ancrageData)
+                        body: JSON.stringify(cleaned)
                     }).catch(e => {});
                 }
             }, [ancrageData]);
@@ -14553,28 +14593,45 @@
             const ancrageReinforcedCount = ancrageList.filter(item => item.status === 'active' && item.isReinforced).length;
             const ancrageMasteredCount = ancrageList.filter(item => item.status === 'mastered').length;
 
-            // Fonction pour ajouter une instance / doublon de QCM en ancrage
+            // Fonction pour ajouter / réactiver un QCM en Ancrage (Strictement 1 seule instance par QCM)
             const addAncrageEntry = (questionId) => {
                 const todayMs = Date.now();
-                const newEntryId = 'ancrage-' + todayMs + '-' + Math.random().toString(36).substr(2, 6);
-                
-                const existingCount = Object.values(ancrageData).filter(item => item.questionId === questionId).length;
+                setAncrageData(prev => {
+                    const existingKey = Object.keys(prev).find(key => prev[key].questionId === questionId || key === questionId);
+                    const existing = existingKey ? prev[existingKey] : null;
 
-                setAncrageData(prev => ({
-                    ...prev,
-                    [newEntryId]: {
-                        entryId: newEntryId,
-                        questionId: questionId,
-                        instanceNumber: existingCount + 1,
-                        stepIndex: 0,
-                        failureCount: 0,
-                        isReinforced: false,
-                        nextReviewTimestamp: todayMs, // Immédiatement disponible dans Révision du Jour !
-                        lastReviewTimestamp: todayMs,
-                        status: 'active',
-                        addedDate: new Date().toISOString()
+                    if (existing) {
+                        return {
+                            ...prev,
+                            [existingKey]: {
+                                ...existing,
+                                entryId: existingKey,
+                                questionId: questionId,
+                                instanceNumber: 1,
+                                stepIndex: 0,
+                                nextReviewTimestamp: todayMs,
+                                lastReviewTimestamp: todayMs,
+                                status: 'active'
+                            }
+                        };
                     }
-                }));
+
+                    return {
+                        ...prev,
+                        [questionId]: {
+                            entryId: questionId,
+                            questionId: questionId,
+                            instanceNumber: 1,
+                            stepIndex: 0,
+                            failureCount: 0,
+                            isReinforced: false,
+                            nextReviewTimestamp: todayMs,
+                            lastReviewTimestamp: todayMs,
+                            status: 'active',
+                            addedDate: new Date().toISOString()
+                        }
+                    };
+                });
             };
 
             const startAncrageSession = (filter = 'due') => {
@@ -15608,11 +15665,6 @@
                                                                     <span className="px-3 py-1 bg-purple-600 text-white font-bold text-xs rounded-xl shadow-sm">
                                                                         ⚓ {getAncrageStepLabel(item)}
                                                                     </span>
-                                                                    {item.instanceNumber && item.instanceNumber > 1 && (
-                                                                        <span className="px-2.5 py-1 bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 font-bold text-xs rounded-xl">
-                                                                            🏷️ Doublon #{item.instanceNumber}
-                                                                        </span>
-                                                                    )}
                                                                     {item.isReinforced && (
                                                                         <span className="px-3 py-1 bg-amber-500/20 border border-amber-400/40 text-amber-300 font-bold text-xs rounded-xl">
                                                                             🚨 Système Renforcé (J1 - J24)
@@ -15638,16 +15690,6 @@
                                                                         </span>
                                                                     )}
 
-                                                                    <button
-                                                                        onClick={() => {
-                                                                            addAncrageEntry(q.id);
-                                                                            alert("Une nouvelle instance (doublon) de ce QCM a été ajoutée dans votre UE Ancrage !");
-                                                                        }}
-                                                                        className="px-3 py-1.5 bg-indigo-900/60 hover:bg-indigo-800 text-indigo-200 font-semibold rounded-xl text-xs flex items-center gap-1 transition-all cursor-pointer border border-indigo-700/50"
-                                                                        title="Ajouter une instance supplémentaire de ce QCM (Doublon)"
-                                                                    >
-                                                                        ➕ Dupliquer
-                                                                    </button>
                                                                     <button
                                                                         onClick={() => {
                                                                             const testQ = { ...q, _ancrageEntryId: item.entryId, answers: [...q.answers].sort(() => Math.random() - 0.5) };
