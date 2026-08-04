@@ -14615,6 +14615,1170 @@ export const INITIAL_QUESTIONS = [
             }
         ],
         "explanation": "Propositions exactes : A, B, C\nA. Vrai : La sensation de chaleur diffuse est un effet vasomoteur très fréquent lors de l'injection d'iode.\nB. Vrai : Risque classique d'hypersensibilité anaphylactoïde (urticaire, œdème de Quincke, choc).\nC. Vrai : Réponse hémodynamique réflexe fréquente.\nD. Faux : Effet non spécifique des PDC iodés.\nE. Faux : Les chocs graves sont anaphylactoïdes ou cardiogéniques, pas hypovolémiques purs."
+    },
+    {
+        "id": "q-ue4-f7-1",
+        "subjectId": "s4",
+        "chapter": "Fiche n°7 - Radiologie interventionnelle.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Imagerie",
+            "Radiologie interventionnelle",
+            "Histoire"
+        ],
+        "statement": "QCM 1. Concernant l’évolution de la radiologie interventionnelle, lesquelles des affirmations suivantes sont exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Charles Dotter est considéré comme le père de la radiologie interventionnelle en raison de sa première angioplastie périphérique en 1964",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Cette discipline est née du besoin de soigner les patients sans avoir recours à des interventions chirurgicales ouvertes",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Les premières interventions en radiologie interventionnelle utilisaient exclusivement l'IRM pour guider les instruments",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "La radiologie interventionnelle s’est développée principalement pour remplacer la chirurgie ouverte dans tous les domaines",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "La diminution de la morbidité et de la mortalité a été un facteur clé de l’adoption de la radiologie interventionnelle",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, E\nA. Vrai : Charles Dotter a réalisé la première angioplastie transluminale percutanée en 1964.\nB. Vrai : Née pour proposer des alternatives mini-invasives à la chirurgie ouverte.\nC. Faux : Les premières interventions utilisaient la fluoroscopie aux rayons X.\nD. Faux : Elle ne remplace pas la chirurgie dans tous les domaines mais la complète.\nE. Vrai : Réduction des complications, du séjour hospitalier et de la mortalité."
+    },
+    {
+        "id": "q-ue4-f7-2",
+        "subjectId": "s4",
+        "chapter": "Fiche n°7 - Radiologie interventionnelle.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Imagerie",
+            "Radiologie interventionnelle",
+            "Indications"
+        ],
+        "statement": "QCM 2. Dans quelles situations la radiologie interventionnelle est-elle particulièrement avantageuse par rapport à la chirurgie ouverte ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Lorsqu'une intervention nécessite un accès direct à une zone sans incision importante",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Dans le cas de tumeurs proches de structures vasculaires importantes",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Pour le traitement des infections intra-abdominales nécessitant un drainage d’urgence",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Pour les biopsies des ganglions lymphatiques périphériques sans visualisation d’imagerie",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Dans les traitements de fractures complexes nécessitant des fixations métalliques lourdes",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, C\nA. Vrai : Approche mini-invasive percutanée/endovasculaire.\nB. Vrai : Procédures ciblées (ablation, embolisation) au contact des vaisseaux sans abord délabrant.\nC. Vrai : Le drainage percutané sous imagerie est la référence en première intention.\nD. Faux : Le guidage sous imagerie est indispensable.\nE. Faux : Relève de la chirurgie orthopédique ouverte."
+    },
+    {
+        "id": "q-ue4-f7-3",
+        "subjectId": "s4",
+        "chapter": "Fiche n°7 - Radiologie interventionnelle.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Imagerie",
+            "Procédures",
+            "Embolisation"
+        ],
+        "statement": "QCM 3. Parmi les affirmations suivantes, lesquelles décrivent correctement les procédures en radiologie interventionnelle ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La biopsie est une procédure percutanée",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "L’angioplastie est une procédure endovasculaire",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Le drainage implique l’utilisation d’un cathéter dans une artère",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "L’embolisation sert à arrêter une hémorragie",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "La cryoablation est utilisée pour boucher des vaisseaux sanguins",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, D\nA. Vrai : Prélèvement tissulaire guidé par imagerie à travers la peau.\nB. Vrai : Dilatation d'un vaisseau par voie endovasculaire.\nC. Faux : Le drainage s'effectue dans une collection/cavité liquide (abcès) et non une artère.\nD. Vrai : L'embolisation occlut un vaisseau pour stopper un saignement.\nE. Faux : La cryoablation détruit le tissu tumoral par le froid, l'embolisation boucher des vaisseaux."
+    },
+    {
+        "id": "q-ue4-f7-4",
+        "subjectId": "s4",
+        "chapter": "Fiche n°7 - Radiologie interventionnelle.pdf",
+        "year": 2026,
+        "difficulty": "Difficile",
+        "tags": [
+            "UE4",
+            "Imagerie",
+            "Ablation",
+            "Cryoablation"
+        ],
+        "statement": "QCM 4. Concernant les techniques d’ablation, laquelle (ou lesquelles) des affirmations suivantes est (sont) exacte(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La cryoablation utilise des températures très basses pour détruire les tumeurs",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "L’ablation par radiofréquence chauffe les cellules tumorales pour les détruire",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "L’électroporation irréversible crée des pores permanents dans les cellules tumorales",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "La thermoablation par micro-ondes est particulièrement utilisée pour les tumeurs du foie",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "La chirurgie ouverte est nécessaire pour chaque type d'ablation",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, C, D\nA. Vrai : Congélation puis décongélation pour nécroser les cellules tumorales.\nB. Vrai : Ondes RF générant de la chaleur thermique (>60°C).\nC. Vrai : Impulsions électriques créant des micropores irréversibles.\nD. Vrai : Très employée pour la destruction focale des tumeurs hépatiques.\nE. Faux : Ces ablations sont réalisées par voie percutanée sous guidage imagerie."
+    },
+    {
+        "id": "q-ue4-f7-5",
+        "subjectId": "s4",
+        "chapter": "Fiche n°7 - Radiologie interventionnelle.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Imagerie",
+            "Fluoroscopie",
+            "Rayons X"
+        ],
+        "statement": "QCM 5. La fluoroscopie est un outil d’imagerie en temps réel couramment utilisé en radiologie interventionnelle. Quelles sont les propositions exactes concernant la fluoroscopie ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Elle utilise des rayons X pour produire des images en temps réel",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Elle permet une visualisation en trois dimensions des structures internes",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Elle nécessite souvent l’injection de produit de contraste pour visualiser les vaisseaux",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Elle expose les patients à une certaine dose de radiation",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Elle est inefficace pour localiser directement les ganglions lymphatiques sans cartographie spécifique",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, C, D, E\nA. Vrai : Imagerie temps réel par rayons X.\nB. Faux : La fluoroscopie conventionnelle produit des images 2D de projection.\nC. Vrai : Injection d'iode indispensable pour opacifier la lumière vasculaire.\nD. Vrai : Délivre une dose de rayonnements ionisants.\nE. Vrai : Les ganglions ne sont pas spontanément visibles en fluoroscopie."
+    },
+    {
+        "id": "q-ue4-f7-6",
+        "subjectId": "s4",
+        "chapter": "Fiche n°7 - Radiologie interventionnelle.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Imagerie",
+            "Guidage",
+            "Planification"
+        ],
+        "statement": "QCM 6. Quelles sont les fonctions que doit remplir la modalité d’imagerie pour une intervention réussie en radiologie interventionnelle ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Permettre de visualiser la lésion et planifier la trajectoire",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Confirmer le positionnement final de l'aiguille après l'intervention",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Guider le positionnement de l’aiguille ou la navigation pendant l’intervention",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Confirmer l’atteinte de la cible",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Assurer une évaluation de l’efficacité et des complications après le traitement",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, C, D, E\nA. Vrai : Repérage pré-procédural.\nB. Faux : Le contrôle du positionnement se fait pendant le geste.\nC. Vrai : Guidage dynamique en temps réel.\nD. Vrai : Validation de l’atteinte de la cible.\nE. Vrai : Évaluation post-traitement immédiate."
+    },
+    {
+        "id": "q-ue4-f6-1",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Facile",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Définition"
+        ],
+        "statement": "QCM 1. La radioprotection :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Est l'étude des effets des rayonnements ionisants sur la matière vivante",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Vise à protéger l'homme et l'environnement contre les effets délétères des rayonnements ionisants",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Est l'étude de l'atténuation des rayonnements dans des écrans métalliques dans le but de s'en protéger",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Est l'étude et la gestion des risques encourus par les personnes exposées aux rayonnements ionisants",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Utilise les données statistiques et épidémiologiques établies sur des populations exposées",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, D, E\nLa radioprotection englobe la connaissance des effets biologiques, l'évaluation des risques et les mesures de prévention pour protéger la santé humaine et l'environnement."
+    },
+    {
+        "id": "q-ue4-f6-2",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Effets biologiques"
+        ],
+        "statement": "QCM 2. Concernant les rayonnements ionisants (RI) et leurs effets biologiques :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Seuls les rayonnements particulaires type β+/β- sont considérés comme ionisants",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Les RI peuvent léser des molécules importantes telles que l'ADN et les protéines de la membrane cellulaire",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Les effets des RI sur les milieux biologiques dépendent uniquement de la dose délivrée",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "On classe les effets majeurs des RI sur l'organisme en deux catégories, les effets graves et les effets bénins",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "On classe les effets majeurs des RI sur l'organisme en deux catégories : les effets déterministes et stochastiques",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : B, E\nA. Faux : Les rayons X et γ sont également ionisants.\nB. Vrai : Atteinte cellulaire et cassures d'ADN.\nC. Faux : Dépend aussi du débit de dose, du TEL et du tissu.\nD. Faux : Classés en déterministes et stochastiques.\nE. Vrai."
+    },
+    {
+        "id": "q-ue4-f6-3",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Effets déterministes"
+        ],
+        "statement": "QCM 3. Concernant les effets déterministes des RI :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Surviennent sur des générations successives",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Ont une sévérité et une gravité qui augmentent avec la dose au-delà du seuil",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "N'ont pas de seuil reconnu",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Sont irréversibles et n'engagent pas le pronostic vital",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Sont obligatoires au-delà d'un seuil de dose (effets précoces/tissulaires)",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : B, E\nA. Faux : Les effets héréditaires/génétiques sont stochastiques.\nB. Vrai : La sévérité croît avec la dose au-delà du seuil.\nC. Faux : Les effets déterministes possèdent un seuil absolu d'apparition.\nD. Faux : Ils peuvent engager le pronostic vital (ex: syndrome d'irradiation aiguë).\nE. Vrai."
+    },
+    {
+        "id": "q-ue4-f6-4",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Effets stochastiques"
+        ],
+        "statement": "QCM 4. Concernant les effets tardifs / stochastiques des RI :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Ils sont également appelés \"effets stochastiques\"",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "N'ont pas de seuil reconnu et peuvent intervenir aux faibles doses",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Sont liés à des mutations de l'ADN lésé par les rayonnements",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Sont identifiables par des tests biologiques spécifiques",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Sont irréversibles et n'entraînent pas forcément une mort cellulaire immédiate",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, C, E\nA. Vrai.\nB. Vrai : Modèle linéaire sans seuil (LNT).\nC. Vrai : Mutations somatiques (cancers) ou germinales.\nD. Faux : Impossible de distinguer un cancer radio-induit d'un autre cancer.\nE. Vrai."
+    },
+    {
+        "id": "q-ue4-f6-5",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Difficile",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Dosimétrie",
+            "CTDI",
+            "PDL"
+        ],
+        "statement": "QCM 5. En dosimétrie :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La dose absorbée est exprimée en Sievert (Sv)",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Le CDTI (Computed Tomography Dose Index) est utilisé en TDM pour évaluer les doses délivrées par coupe",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Le PDS s'exprime en mGy.cm²",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Le CDTI ne reflète pas la dose totale reçue par le patient",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Le PDS et le PDL s'expriment respectivement en mGy.cm² et mGy.cm",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : B, C, D, E\nA. Faux : La dose absorbée s'exprime en Gray (Gy). Le Sievert (Sv) s'applique aux doses équivalente et efficace.\nB. Vrai : CDTI mesure la dose par tour/coupe.\nC. Vrai.\nD. Vrai : C'est le PDL (PDL = CDTI x longueur) qui intègre le volume total exploré.\nE. Vrai."
+    },
+    {
+        "id": "q-ue4-f6-6",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Difficile",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Dose efficace"
+        ],
+        "statement": "QCM 6. Concernant la dosimétrie et la radioprotection :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "En radioprotection, on utilise la dose efficace car elle tient compte de la nature du rayonnement et de la radiosensibilité du tissu exposé",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "La dose efficace se calcule par la formule E = kDLP × DLP (ou E = k × PDL)",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Le coefficient kDLP utilisé pour le calcul de la dose efficace dépend de la région anatomique examinée",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "La dose efficace a les mêmes dimensions que la dose équivalente et s'exprime en Sievert (Sv)",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "En TDM, les coefficients kDLP sont déterminés pour chaque région tissulaire",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, C, D, E\nToutes les propositions sont exactes. La dose efficace E (en Sv) permet d'évaluer le risque stochastique global."
+    },
+    {
+        "id": "q-ue4-f6-7",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "RLSS",
+            "LNT"
+        ],
+        "statement": "QCM 7. Concernant les effets des RI sur l'organisme :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Les cancers radio-induits sont facilement différenciables des cancers induits par d'autres facteurs comme l'alimentation",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "En dessous de 100 mSv, il est difficile d'établir épidémiologiquement le lien direct entre la dose et les effets des RI",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Pour des doses supérieures à 100 mSv, la fréquence des effets stochastiques est proportionnelle à la dose",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Le modèle RLSS (Relation Linéaire Sans Seuil) est le modèle appliqué en radioprotection",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "L'exposition naturelle aux RI est supérieure à l'exposition artificielle dont fait partie l'exposition médicale",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : B, C, D, E\nA. Faux : Aucune différenciation anatomopathologique.\nB. Vrai : Incertitude épidémiologique aux très faibles doses.\nC. Vrai.\nD. Vrai : Modèle prudent LNT.\nE. Vrai."
+    },
+    {
+        "id": "q-ue4-f6-8",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Facile",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Normes",
+            "Justification"
+        ],
+        "statement": "QCM 8. Normes de radioprotection :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La majorité des examens médicaux de radiologie conventionnelle et scanner ne délivrent pas une dose supérieure à 10 mSv",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "L'optimisation et les progrès techniques permettent de maîtriser les doses délivrées en imagerie médicale",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Les limites de doses s'appliquent aux travailleurs et au public mais pas directement aux patients pour qui la dose dépend de la justification médicale",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Dans le domaine médical, toute exposition aux RI doit être rigoureusement justifiée",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Tout acte médical exposant le patient à des RI doit faire l'objet d'une information préalable du patient",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, C, D, E\nToutes les propositions sont exactes. La justification est le principe cardinal pour le patient."
+    },
+    {
+        "id": "q-ue4-f6-9",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Facile",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Principes",
+            "ALARA"
+        ],
+        "statement": "QCM 9. Principes fondamentaux de la radioprotection des patients dans le domaine médical :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Application du principe ALARA (As Low As Reasonably Achievable)",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Prise en compte des NRD (Niveaux de Référence Diagnostiques)",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Obligation de mentionner les indicateurs de dose (PDS, PDL, CTDI) dans le compte-rendu d'imagerie",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Prise en compte des possibilités de substitution de l'examen irradiant par une technique non irradiante",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Justification individuelle et systématique de chaque acte irradiant",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, C, D, E\nToutes les propositions sont exactes."
+    },
+    {
+        "id": "q-ue4-f6-10",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Scanner",
+            "Pitch"
+        ],
+        "statement": "QCM 10. Concernant les paramètres en scanographie X (TDM) :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Les paramètres contrôlables par l'utilisateur sont la tension, le courant, le pitch et l'épaisseur de coupe",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "En scanographie X, la diminution de la haute tension réduit la dose délivrée",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "En scanographie X, lorsqu'on augmente le pitch, on réduit la dose délivrée",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Lorsqu'on augmente le nombre de coupes ou la longueur explorée, la dose totale délivrée (PDL) augmente",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Pour un examen de l'abdomen, la dose absorbée par unité de volume chez un nouveau-né est plus élevée que chez un adulte à paramètres constants",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, C, D, E\nToutes les propositions sont exactes."
+    },
+    {
+        "id": "q-ue4-f6-11",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Normes",
+            "DLAA"
+        ],
+        "statement": "QCM 11. Concernant les normes de radioprotection et catégories d'exposition :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La dose limite annuelle admissible (DLAA) pour les travailleurs exposés (Catégorie A) est de 20 mSv/an",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "La DLAA pour le grand public est de 1 mSv/an (hors radioactivité naturelle et actes médicaux)",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "La période la plus sensible en cas d'exposition embryofœtale aux RI est l'organogenèse (15 à 60 jours)",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "En radiologie interventionnelle et médecine nucléaire, le port d'équipements de protection plombés et de dosimètres par le personnel est obligatoire",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Pour les travailleurs de catégorie B, la dose maximale admissible est de 6 mSv/an",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, C, D, E\nToutes les propositions sont exactes. Public = 1 mSv/an, Catégorie B = 6 mSv/an, Catégorie A = 20 mSv/an."
+    },
+    {
+        "id": "q-ue4-f6-12",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Facile",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Rayonnements ionisants"
+        ],
+        "statement": "QCM 12. Quels types de rayonnements sont considérés comme des rayonnements ionisants ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Rayons X",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Rayons ultraviolets",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Rayons gamma",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Ondes radio",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Micro-ondes",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, C\nSeuls les photons X et photons gamma (ainsi que les particules α, β) sont des rayonnements ionisants."
+    },
+    {
+        "id": "q-ue4-f6-13",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Effets"
+        ],
+        "statement": "QCM 13. Parmi les propositions suivantes, laquelle (ou lesquelles) est (sont) correcte(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Les rayonnements ionisants possèdent assez d’énergie pour arracher des électrons des atomes",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Les rayonnements ionisants peuvent être liés à des modifications de l’ADN",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Les effets déterministes surviennent lorsque la dose de rayonnement dépasse un certain seuil",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "La gravité d’un effet stochastique augmente avec la dose reçue",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Toute exposition, même faible, peut provoquer un effet stochastique",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, C, E\nA. Vrai : Définition.\nB. Vrai.\nC. Vrai : Seuil obligatoire.\nD. Faux : C'est la probabilité qui augmente avec la dose, pas la gravité.\nE. Vrai : Pas de seuil de dose (LNT)."
+    },
+    {
+        "id": "q-ue4-f6-14",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Becquerel",
+            "Gray"
+        ],
+        "statement": "QCM 14. Parmi les propositions suivantes, laquelle (ou lesquelles) est (sont) correcte(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La dose absorbée mesure la quantité d’énergie déposée par unité de masse de matière",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Si un tissu reçoit une dose absorbée de 2 Gy, cela signifie que le tissu a absorbé 2 joules d’énergie par kilogramme",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "L’activité d’un radionucléide correspond à l’énergie totale émise par un échantillon radioactif",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Un Becquerel correspond à une activité de 1 curie",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Si un échantillon a une activité de 500 Bq, cela signifie qu’il subit 500 désintégrations par seconde",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, E\nA. Vrai : 1 Gy = 1 J/kg.\nB. Vrai.\nC. Faux : L'activité est le nombre de désintégrations par seconde.\nD. Faux : 1 Bq = 1 dps. 1 Curie = 3,7 x 10^10 Bq.\nE. Vrai."
+    },
+    {
+        "id": "q-ue4-f6-15",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "PDS",
+            "PDL"
+        ],
+        "statement": "QCM 15. Parmi les propositions suivantes, laquelle (ou lesquelles) est (sont) correcte(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le produit dose surface (PDS) indique la dose reçue par le patient sans tenir compte de la surface irradiée",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Le PDS s’exprime en mGray.centimètre²",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Le produit dose longueur (PDL) est le produit de la dose absorbée dans une coupe par la longueur de la zone irradiée",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Le PDL est généralement utilisé en radiographie",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Le PDL et le PDS permettent d’estimer la dose efficace en sieverts",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : B, C, E\nA. Faux : Le PDS prend en compte la surface d'exposition.\nB. Vrai.\nC. Vrai.\nD. Faux : Le PDL est utilisé en TDM 3D, le PDS en radiographie 2D.\nE. Vrai : E = k x PDL."
+    },
+    {
+        "id": "q-ue4-f6-16",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Dose efficace"
+        ],
+        "statement": "QCM 16. Parmi les propositions suivantes, laquelle (ou lesquelles) est (sont) correcte(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La dose efficace s’exprime en Joule",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "La dose efficace prend en compte le type de rayonnements et la sensibilité des tissus",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "La dose efficace est calculée à partir de la dose absorbée multipliée par des facteurs de pondération spécifiques à chaque organe",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "La sensibilité des tissus de la poitrine aux rayonnements ionisants est moins importante que celle des tissus du crâne",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Pour minimiser la dose efficace lors des examens par scanner, on utilise des doses de radiation plus élevées pour des images de meilleure qualité",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : B, C\nA. Faux : S'exprime en Sievert (Sv).\nB. Vrai.\nC. Vrai.\nD. Faux : La poitrine est beaucoup plus radiosensible que le crâne.\nE. Faux : Il faut appliquer le principe ALARA."
+    },
+    {
+        "id": "q-ue4-f6-17",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Facile",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "3 Principes"
+        ],
+        "statement": "QCM 17. Quels sont les 3 principes fondamentaux de la radioprotection en milieu médical ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Justification",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Optimisation",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Précaution",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Limitation des doses",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Automatisation",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, D\nLes 3 principes fondamentaux de la CIPR sont : 1. Justification, 2. Optimisation, 3. Limitation des doses."
+    },
+    {
+        "id": "q-ue4-f6-18",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Facile",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Optimisation"
+        ],
+        "statement": "QCM 18. Dans le principe d’optimisation, quelles actions sont recommandées ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Utiliser le niveau le plus bas de radiation possible pour atteindre le résultat médical souhaité",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Répéter l’examen plusieurs fois pour garantir un bon résultat",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "S’assurer de la qualité des matériels",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Minimiser le nombre de personnes exposées pendant une procédure",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Ne pas informer le patient de l’exposition",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, C\nA. Vrai : Principe ALARA.\nB. Faux.\nC. Vrai : Assurance qualité des matériels.\nD. Faux.\nE. Faux."
+    },
+    {
+        "id": "q-ue4-f6-19",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "ALARA",
+            "Scanner"
+        ],
+        "statement": "QCM 19. Afin d’optimiser le principe ALARA lors de l’utilisation d’un scanner, choisir la (ou les) proposition(s) exacte(s) :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Une réduction du kV diminue l’exposition mais doit être ajustée pour maintenir la qualité d’image nécessaire",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Diminuer le pitch permet de réduire la dose",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Augmenter le nombre de coupes lors d’un scanner peut effectivement augmenter la dose de rayonnement reçue par le patient",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Si le volume du patient est plus petit, la dose absorbée par unité de volume est plus petite",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Une adaptation de l’intensité (mA) en fonction de l’épaisseur du patient et de la densité des tissus contribue à la réduction de la dose",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, C, E\nA. Vrai.\nB. Faux : On réduit la dose en augmentant le pitch.\nC. Vrai.\nD. Faux : Si le volume est plus petit, la dose par unité de volume est plus élevée à paramètres égaux.\nE. Vrai."
+    },
+    {
+        "id": "q-ue4-f6-20",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Facile",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Limitation"
+        ],
+        "statement": "QCM 20. Quel(s) est (sont) l’(les) objectif(s) principal(aux) du principe de limitation des doses en radioprotection ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "S’assurer que la dose reçue reste inférieure aux limites réglementaires pour protéger la santé",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Garantir la sécurité des travailleurs exposés aux rayonnements",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Supprimer tous les examens nécessitant des rayons X",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Minimiser l’exposition du public aux rayonnements ionisants",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Établir des limites pour les doses reçues par le personnel et le public",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, D, E\nA. Vrai.\nB. Vrai.\nC. Faux.\nD. Vrai.\nE. Vrai."
+    },
+    {
+        "id": "q-ue4-f6-21",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Limites de dose"
+        ],
+        "statement": "QCM 21. Parmi les valeurs suivantes, lesquelles correspondent aux limites annuelles de dose recommandées en radioprotection ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "1 mSv pour le public",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "100 mSv pour les travailleurs",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "20 mSv pour les travailleurs exposés",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "50 mSv pour le public",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "1 mSv pour les travailleurs",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, C\nGrand public = 1 mSv/an. Travailleurs catégorie A = 20 mSv/an."
+    },
+    {
+        "id": "q-ue4-f6-22",
+        "subjectId": "s4",
+        "chapter": "Fiche n°6 - Radioprotection.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "Radioprotection",
+            "Grossesse"
+        ],
+        "statement": "QCM 22. Quelle(s) approche(s) doit(vent) être privilégiée(s) lors de l’examen irradiant d’une femme enceinte ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Justifier l’examen par un besoin clinique réel",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Utiliser des doses maximales pour garantir la qualité d’image",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Choisir des techniques d’imagerie sans rayonnements ionisants lorsque cela est possible",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Réaliser systématiquement des examens complémentaires pour confirmer le diagnostic",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Appliquer les protocoles standards sans ajustement spécifique",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, C\nA. Vrai : Justification clinique stricte.\nC. Vrai : Privilégier les techniques non irradiantes (Echographie, IRM)."
     }
 ];
 
@@ -14626,7 +15790,7 @@ export const INITIAL_SUBJECTS = [
         icon: 'Dna', 
         color: 'from-blue-600 to-cyan-500', 
         progress: 78, 
-        qcmCount: 54,
+        qcmCount: 55,
         chapters: [
             "Fiche n°1 - Introduction à la Biologie moléculaire.pdf",
             "Fiche n°2 - Organisation de l'ADN.pdf",
@@ -14661,13 +15825,15 @@ export const INITIAL_SUBJECTS = [
         icon: 'Radio', 
         color: 'from-red-600 to-orange-500', 
         progress: 70, 
-        qcmCount: 224, 
+        qcmCount: 252, 
         chapters: [
             "Fiche n°1 - Techniques radiologiques, Ultrasons.pdf",
             "Fiche n°2 - Produits de contraste ultrasonores.pdf",
             "Fiche n°3 - La scintigraphie.pdf",
             "Fiche n°4 - La tomographie par émission de positons.pdf",
             "Fiche n°5 - Scanner.pdf",
+            "Fiche n°6 - Radioprotection.pdf",
+            "Fiche n°7 - Radiologie interventionnelle.pdf",
             "Fiche n°8 - Rayons X et Radiographie.pdf"
         ] 
     },
