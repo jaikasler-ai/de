@@ -15779,6 +15779,2062 @@ export const INITIAL_QUESTIONS = [
             }
         ],
         "explanation": "Propositions exactes : A, C\nA. Vrai : Justification clinique stricte.\nC. Vrai : Privilégier les techniques non irradiantes (Echographie, IRM)."
+    },
+    {
+        "id": "q-ue4-f9-1",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Facile",
+        "tags": [
+            "UE4",
+            "IRM",
+            "B0",
+            "Protons"
+        ],
+        "statement": "QCM 1. Parmi les propositions suivantes concernant le principe de l'IRM, laquelle (ou lesquelles) est (sont) exacte(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "L’IRM utilise un champ magnétique puissant pour aligner les noyaux d’hydrogène dans le corps",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Des impulsions de radiofréquence sont appliquées pour exciter les noyaux d’hydrogène, provoquant un retour à l’équilibre qui émet un signal",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "L’IRM repose sur des rayons X pour obtenir des images détaillées des tissus",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Les différences de temps de relaxation des noyaux d’hydrogène permettent de distinguer différents types de tissus",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "L’IRM utilise des radiations ionisantes pour obtenir une imagerie de haute résolution",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, D\nA. Vrai.\nB. Vrai.\nC. Faux : L'IRM n'utilise pas de rayons X.\nD. Vrai.\nE. Faux : L'IRM est une imagerie non ionisante."
+    },
+    {
+        "id": "q-ue4-f9-2",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Polarisation",
+            "Spin"
+        ],
+        "statement": "QCM 2. Parmi les propositions suivantes concernant la polarisation en IRM, laquelle (ou lesquelles) est (sont) correcte(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "En IRM, le champ magnétique permet d’inverser la polarité des électrons",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "La « polarisation » en IRM correspond à l’alignement des spins des noyaux dans le sens du champ magnétique",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "On utilise des champs magnétiques puissants pour mieux isoler les noyaux d’hydrogène",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Lorsque les protons sont alignés par le champ magnétique principal, on dit qu’ils sont en « résonance »",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "La « polarisation » permet aux protons d’absorber de l’énergie et de la relâcher sous forme de signal",
+                "correct": true
+            }
+        ],
+        "explanation": "Proposition exacte : E\nA. Faux : Aligne les spins des noyaux d'hydrogène (protons).\nB. Faux : Aligne les spins parallèlement ou antiparallèlement à B0.\nC. Faux : Pour augmenter le niveau de polarisation et le signal.\nD. Faux : On parle d'aimantation longitudinale Mz.\nE. Vrai."
+    },
+    {
+        "id": "q-ue4-f9-3",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Résonance",
+            "Précession"
+        ],
+        "statement": "QCM 3. Parmi les propositions suivantes concernant la résonance et la précession, laquelle (ou lesquelles) est (sont) correcte(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La « résonance » fait référence à l’absorption d’énergie par les tissus",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "En IRM, le phénomène de précession de protons fait référence au mouvement de rotation du spin des protons autour de la direction du champ magnétique principal",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "La fréquence de résonance est la fréquence à laquelle les noyaux d’hydrogène absorbent l’énergie du champ radiofréquence",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Lorsqu’une fréquence de résonance est appliquée aux protons dans le corps humain, les protons absorbent l’énergie et changent leur orientation de spin",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "La relaxation T1 et la relaxation T2 sont des processus de dégagement d’énergie thermique par les tissus",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : B, C, D\nA. Faux : C'est la réponse spécifique à une fréquence RF.\nB. Vrai.\nC. Vrai.\nD. Vrai.\nE. Faux : Ce sont des retours à l'équilibre magnétique."
+    },
+    {
+        "id": "q-ue4-f9-4",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Larmor",
+            "Précession"
+        ],
+        "statement": "QCM 4. Parmi les propositions suivantes concernant la fréquence de Larmor, laquelle (ou lesquelles) est (sont) correcte(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La fréquence de résonance est également connue sous le nom de fréquence de Larmor",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "La fréquence de précession est principalement déterminée par la durée de l’impulsion de radiofréquence",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Si le champ magnétique principal B0 augmente, alors la fréquence de précession diminue",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "La résonance est atteinte lorsque la fréquence de l’impulsion radiofréquence correspond exactement à la fréquence de Larmor des protons",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Pendant la phase d’excitation, les protons s’alignent dans le sens du champ magnétique principal",
+                "correct": false
+            }
+        ],
+        "explanation": "Proposition exacte : D\nA. Faux : C'est la fréquence de précession.\nB. Faux : Déterminée par l'intensité de B0 (w = gamma x B0).\nC. Faux : Directement proportionnelle à B0.\nD. Vrai.\nE. Faux : Ils précessionnent et basculent dans le plan transversal."
+    },
+    {
+        "id": "q-ue4-f9-5",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Relaxation",
+            "T1",
+            "T2"
+        ],
+        "statement": "QCM 5. Parmi les propositions suivantes concernant les temps de relaxation, laquelle (ou lesquelles) est (sont) correcte(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La « relaxation » est le processus par lequel les spins des protons se réorganisent après une excitation radiofréquence",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "T2 correspond à la relaxation longitudinal, et T1 à la relaxation transversale",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "La relaxation T1 est le temps nécessaire pour que les spins reviennent à leur état d’équilibre longitudinal à 63%",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Lorsqu’un proton subit une relaxation T1, l’aimantation longitudinale diminue progressivement pour atteindre zéro",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Le temps de relaxation T2 mesure la vitesse d’alignement des spins avec le champ magnétique",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, C\nA. Vrai.\nB. Faux : T1 = longitudinal, T2 = transversal.\nC. Vrai.\nD. Faux : Mz augmente progressivement vers son maximum.\nE. Faux : T2 mesure la perte de cohérence de phase dans le plan transversal."
+    },
+    {
+        "id": "q-ue4-f9-6",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Pondération T1",
+            "Signal"
+        ],
+        "statement": "QCM 6. Parmi les propositions suivantes concernant la pondération T1, laquelle (ou lesquelles) est (sont) correcte(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Les tissus avec des T1 plus courts apparaissent plus clairs (hypersignal)",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Dans une image pondérée en T1, les tissus graisseux apparaissent sombres (hyposignal)",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Les tissus musculaires ont le temps de relaxation T1 le plus court",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Chaque tissu a un temps T1 caractéristique",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Les tissus riches en eau mettent plus de temps à revenir à l’équilibre et apparaissent sombres sur les images T1",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, D, E\nA. Vrai : T1 court = repousse rapide = fort signal (blanc).\nB. Faux : La graisse a un T1 court et apparaît très claire (hypersignal).\nC. Faux : C'est la graisse qui a le T1 le plus court.\nD. Vrai.\nE. Vrai : L'eau a un T1 long et apparaît en hyposignal (noir)."
+    },
+    {
+        "id": "q-ue4-f9-7",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Pondération T2",
+            "Eau"
+        ],
+        "statement": "QCM 7. Parmi les propositions suivantes concernant la relaxation T2, laquelle (ou lesquelles) est (sont) correcte(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La relaxation T2 est le temps nécessaire pour que l’aimantation longitudinale diminue à 37% de sa valeur initiale",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "La précession des spins en phase est principalement responsable de la décroissance de l’aimantation transversale",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "La relaxation T2 dépend des inhomogénéités des champs magnétiques locaux",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "T1 est toujours plus long que T2",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "L’eau a le temps de relaxation T2 le plus court",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : C, D\nA. Faux : C'est l'aimantation transversale Mxy qui chute à 37%.\nB. Faux : C'est le déphasage (désynchronisation).\nC. Vrai.\nD. Vrai.\nE. Faux : L'eau a un T2 très long et apparaît très brillante en T2."
+    },
+    {
+        "id": "q-ue4-f9-12",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Aimantation",
+            "RMN"
+        ],
+        "statement": "QCM 12. Concernant le phénomène de résonance magnétique :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "À l'état naturel, les tissus sont faiblement aimantés",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "En IRM, on s'intéresse principalement à l'aimantation du proton",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "La fréquence de Larmor (ou de résonance) du proton dépend de B0",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "La fréquence de Larmor du proton dépend uniquement de B0",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "En phase de polarisation, le tissu acquiert une aimantation longitudinale non nulle",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, C, E\nA. Vrai.\nB. Vrai.\nC. Vrai : ν0 = (γ / 2π) x B0.\nD. Faux : Dépend du rapport gyromagnétique γ propre à chaque noyau.\nE. Vrai."
+    },
+    {
+        "id": "q-ue4-f9-13",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Champ B1",
+            "Bascule"
+        ],
+        "statement": "QCM 13. Concernant le phénomène de résonance magnétique :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La résonance est réalisée par l'application du champ B0",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "La résonance est réalisée par l'application d'un champ B1 tournant à la fréquence de Larmor et orthogonal à B0",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "La relaxation est contemporaine à l'arrêt du champ B0",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Lors de la phase de relaxation, les composantes longitudinale et transversale de l'aimantation varient dans le même sens",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Lors de la phase de relaxation, les composantes longitudinale et transversale de l'aimantation varient à la même vitesse",
+                "correct": false
+            }
+        ],
+        "explanation": "Proposition exacte : B\nA. Faux : Réalisée par l'onde RF B1.\nB. Vrai.\nC. Faux : La relaxation débute à l'arrêt de l'impulsion B1.\nD. Faux : Mz augmente (repousse) tandis que Mxy diminue (décroissance).\nE. Faux : T1 > T2."
+    },
+    {
+        "id": "q-ue4-f9-14",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Relaxation",
+            "T1",
+            "T2"
+        ],
+        "statement": "QCM 14. Phase de relaxation en IRM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le temps de relaxation spin-réseau est supérieur au temps de relaxation spin-spin",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Le déphasage des spins influe sur le temps de relaxation T1",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "T2 est le temps au bout duquel la composante transversale aura récupéré 37% de sa valeur initiale",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "T2 est lié à l'inhomogénéité des champs magnétiques locaux",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Dans les liquides, T2 est généralement court",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, C, D\nA. Vrai : T1 > T2.\nB. Faux : Le déphasage régit T2.\nC. Vrai : Chute à 37% (1/e).\nD. Vrai.\nE. Faux : Dans les liquides (eau, LCR), T2 est particulièrement long."
+    },
+    {
+        "id": "q-ue4-f9-15",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Pondération T2",
+            "Contraste"
+        ],
+        "statement": "QCM 15. En IRM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "En IRM on retrouve les 4 densités de contraste naturelles de l'imagerie radiologique",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "En pondération T2, l'eau est en hyposignal",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "En pondération T2, l'os est en hyposignal",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "En pondération T2, la graisse est en gris clair",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "En pondération T2, l'air est en blanc",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : C, D\nA. Faux : L'IRM repose sur la résonance des protons et les temps T1/T2, pas les densités X.\nB. Faux : L'eau est très claire (hypersignal) en T2.\nC. Vrai : L'os cortical n'a pas de protons mobiles (noir/hyposignal).\nD. Vrai : La graisse conserve un signal intermédiaire/gris clair en T2.\nE. Faux : L'air ne produit aucun signal (hyposignal/noir)."
+    },
+    {
+        "id": "q-ue4-f9-16",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Pondération T1",
+            "Graisse"
+        ],
+        "statement": "QCM 16. En pondération T1 :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Pour un champ B0 de 1,5 T, T1 est de l'ordre de 0,2-3 secondes",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "T1 est caractéristique des tissus",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Pour la graisse (grosses molécules), T1 est long",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "En pondération T1, la graisse est en hypersignal",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "En pondération T1, l'air est en hyposignal",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, D, E\nA. Vrai : T1 s'étend de 200 ms à 3000 ms.\nB. Vrai.\nC. Faux : La graisse a un T1 court.\nD. Vrai : T1 court = signal fort (blanc).\nE. Vrai : Absence de protons = hyposignal (noir)."
+    },
+    {
+        "id": "q-ue4-f9-17",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Difficile",
+        "tags": [
+            "UE4",
+            "IRM",
+            "TR",
+            "TE",
+            "Pondération"
+        ],
+        "statement": "QCM 17. En IRM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le contraste dépend uniquement du choix des paramètres TR et TE",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "La mesure de T1 se fait de manière directe",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Le choix d'un TR et TE longs pondère l'image en T1",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Le choix d'un TR court et TE court pondère l'image en T1",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Le choix d'un TR long et d'un TE court pondère l'image en densité de proton",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : D, E\nA. Faux : Dépend aussi des caractéristiques du tissu (T1, T2, DP).\nB. Faux : Nécessite une séquence de mesure indirecte.\nC. Faux : TR long + TE long = pondération T2.\nD. Vrai : TR court + TE court = T1.\nE. Vrai : TR long + TE court = Densité Protonique (DP)."
+    },
+    {
+        "id": "q-ue4-f9-18",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Gradients",
+            "Bobines"
+        ],
+        "statement": "QCM 18. Le gradient de champ magnétique et les bobines du gradient :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Permettent de localiser les voxels émetteurs",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Permettent de délimiter la coupe à examiner",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Rendent la fréquence de résonance des protons fonction de leur position",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Remplacent le champ B0 lors de l'acquisition de l'image",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Un gradient selon l'axe Z permet de sélectionner l'épaisseur de la coupe",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, C, E\nA. Vrai : Codage spatial 3D.\nB. Vrai.\nC. Vrai : w(z) = gamma x (B0 + Gz x z).\nD. Faux : Le gradient s'ajoute au champ principal B0.\nE. Vrai : Selection de coupe axiale."
+    },
+    {
+        "id": "q-ue4-f9-19",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Séquence",
+            "Codage"
+        ],
+        "statement": "QCM 19. Concernant la séquence IRM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le temps de répétition TR est le temps séparant deux excitations successives",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Le temps de répétition TR est plus court que le temps d'écho TE",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Le premier gradient à appliquer lors d'une séquence IRM est celui selon l'axe Z",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Le gradient appliqué selon l'axe Z est aussi appelé gradient de codage de phase",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Le gradient de lecture est appliqué selon l'axe OX",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, C, E\nA. Vrai : TR = intervalle entre deux impulsions 90°.\nB. Faux : TR > TE.\nC. Vrai : Gradient de sélection de coupe z au moment de l'impulsion RF.\nD. Faux : Gradient de sélection de coupe.\nE. Vrai : Gradient de lecture/fréquence selon x."
+    },
+    {
+        "id": "q-ue4-f9-20",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Instrumentation",
+            "B0"
+        ],
+        "statement": "QCM 20. Concernant l'installation IRM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Plus le champ principal B0 est intense et plus le rapport signal/bruit est faible",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "La majorité des bobines de champ principal sont de 3-3,5 T",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Le système de radiofréquence RF doit être très fiable et homogène",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Les bobines de gradient sont caractérisées par leur courant maximal et leur temps de montée à amplitude maximale entre autres",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Plus l'intensité du champ de gradient est forte et plus l'épaisseur de coupe que l'on peut choisir est faible",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : C, D, E\nA. Faux : Plus B0 est fort, plus le RSB augmente.\nB. Faux : La majorité des appareils cliniques sont de 1,5 T à 3 T.\nC. Vrai.\nD. Vrai.\nE. Vrai : Δz = Δw / (γ x Gz), un fort gradient permet une coupe plus fine."
+    },
+    {
+        "id": "q-ue4-f9-21",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Bobines",
+            "Gradients"
+        ],
+        "statement": "QCM 21. Concernant les bobines du gradient en IRM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Permettent de contrôler la résolution de l'image",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Permettent d'observer des mouvements de faibles amplitudes pour les intensités < 17 mT/m",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Le temps de montée du gradient contrôle la durée de l'examen",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Le temps de montée du gradient contrôle la précision de la coupe",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Pour des rapports dB/dt importants des bobines du gradient supérieurs au seuil, on peut observer une stimulation nerveuse périphérique",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, C, E\nA. Vrai.\nB. Faux.\nC. Vrai : Temps de montée rapide = séquences plus rapides.\nD. Faux.\nE. Vrai : Effet d'induction électrique stimulant les nerfs."
+    },
+    {
+        "id": "q-ue4-f9-22",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Principes RMN",
+            "Noyaux"
+        ],
+        "statement": "QCM 22. Concernant les principes de la RMN :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La RMN se base sur le moment magnétique de spin des électrons",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Pour être visible en RMN, le nombre de masse A doit être entier non nul",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Le noyau de carbone 12 (Z=6) est visible en RMN",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Le noyau de carbone 13 est visible en RMN",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "L'atome le plus étudié en IRM est le noyau de carbone 13",
+                "correct": false
+            }
+        ],
+        "explanation": "Proposition exacte : D\nA. Faux : Spin des noyaux (protons/neutrons).\nB. Faux : A ou Z doit être impair.\nC. Faux : 12C (A=12, Z=6) a un spin nul.\nD. Vrai : 13C (A=13) a un spin 1/2.\nE. Faux : C'est l'hydrogène 1H."
+    },
+    {
+        "id": "q-ue4-f9-23",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "B0",
+            "Orientation"
+        ],
+        "statement": "QCM 23. Concernant le comportement des spins sous champ B0 :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "En l'absence de champ magnétique extérieur, le moment magnétique u de chaque noyau d'hydrogène est nul",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "En présence du champ magnétique B0, l'aimantation macroscopique M est nulle",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "En présence du champ magnétique B0, les spins s'orientent majoritairement dans le sens de B0, et une minorité s'orientent perpendiculairement à B0",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Les noyaux tournent autour des lignes de champs B0, à une fréquence caractéristique notée fréquence de Larmor",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Les moments magnétiques qui sont alignés dans le sens de B0 ont une énergie plus basse que les autres",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : D, E\nA. Faux : Le moment individuel existe, mais leur somme vectorielle est nulle.\nB. Faux : M devient non nulle.\nC. Faux : S'orientent parallèle (majoritaire) ou anti-parallèle à B0.\nD. Vrai.\nE. Vrai."
+    },
+    {
+        "id": "q-ue4-f9-24",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Larmor",
+            "Calcul"
+        ],
+        "statement": "QCM 24. Le rapport gyromagnétique de l'hydrogène est de 2,7 × 10^8 rad.s^-1.T^-1. Déterminer la fréquence de Larmor de cet hydrogène soumis à un champ de 2 Tesla :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "41 MHz",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "86 MHz",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "123 MHz",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "4,1 MHz",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "12 MHz",
+                "correct": false
+            }
+        ],
+        "explanation": "Proposition exacte : B\nCalcul : ν0 = (γ x B0) / (2π) = (2,7 x 10^8 x 2) / (6,283) = 85,94 MHz ≈ 86 MHz."
+    },
+    {
+        "id": "q-ue4-f9-25",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Champ B1",
+            "Aimantation"
+        ],
+        "statement": "QCM 25. Lors de l'application d'un champ magnétique B1 :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le champ B1 est parallèle au champ B0",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Lors de l'application de B1, les précessions se synchronisent et les spins se répartissent également sur les niveaux d'énergie",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "L'aimantation M bascule dans le plan transversal",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "L'aimantation M devient nulle",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "L'aimantation M se trouve sur l'axe longitudinal",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : B, C\nA. Faux : B1 est perpendiculaire à B0.\nB. Vrai : Mise en phase.\nC. Vrai.\nD. Faux.\nE. Faux."
+    },
+    {
+        "id": "q-ue4-f9-26",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "FID",
+            "Relaxation"
+        ],
+        "statement": "QCM 26. Après l'arrêt du champ B1 :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Les moments magnétiques retournent à l'équilibre",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "L'aimantation M retourne sur l'axe longitudinal",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Les précessions se synchronisent et les spins se répartissent de manière égale entre les deux niveaux d'énergie",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Il y a restitution de l'énergie qui est captée par une antenne",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Il y a émission du FID",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, D, E\nA. Vrai.\nB. Vrai.\nC. Faux : Déphasage des spins et retour à la répartition initiale.\nD. Vrai.\nE. Vrai."
+    },
+    {
+        "id": "q-ue4-f9-27",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Supraconducteur",
+            "Sécurité"
+        ],
+        "statement": "QCM 27. Concernant le système d'IRM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le champ magnétique est produit par une bobine supraconductrice",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Le champ B0 produit est environ 30 fois le champ magnétique terrestre",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "L'antenne est placée dans un axe perpendiculaire à B1",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Le champ magnétique utilisé est sans danger",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "L'appareil peut générer un risque de claustrophobie",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, E\nA. Vrai.\nB. Faux : ~30 000 à 60 000 fois le champ terrestre (1,5 à 3 T vs 50 µT).\nC. Faux.\nD. Faux : Risque d'attraction d'objets ferromagnétiques.\nE. Vrai."
+    },
+    {
+        "id": "q-ue4-f9-28",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "T1",
+            "Spin-réseau"
+        ],
+        "statement": "QCM 28. Concernant le temps de relaxation T1 :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le temps T1 correspond au temps de relaxation transversale",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Le temps T1 représente le temps pour que Mz atteigne 37% de sa valeur totale",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Le temps T1 est lié à l'interaction spin-réseau",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Le temps T1 correspond à la restitution de l'énergie à l'environnement",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "En pondération T1, l'eau apparaît en blanc",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : C, D\nA. Faux : T1 = relaxation longitudinale.\nB. Faux : T1 = temps pour repousser Mz à 63%.\nC. Vrai.\nD. Vrai.\nE. Faux : L'eau apparaît en noir (hyposignal) en T1."
+    },
+    {
+        "id": "q-ue4-f9-29",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "T2",
+            "Spin-spin"
+        ],
+        "statement": "QCM 29. Concernant le temps de relaxation T2 :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le temps T2 correspond au temps de relaxation transversale",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Le temps T2 représente le temps pour que Mxy atteigne 37% de sa valeur initiale",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Le temps T2 est lié à l'interaction spin-spin, c'est-à-dire au déphasage des spins par hétérogénéité du champ dû aux voisins",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "La décroissance de Mxy obéit à une loi exponentielle",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "En pondération T2, l'eau apparaît en blanc",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, C, D, E\nToutes les propositions sont exactes. En T2, l'eau est très brillante (hypersignal)."
+    },
+    {
+        "id": "q-ue4-f9-30",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "T1 vs T2",
+            "Contraste"
+        ],
+        "statement": "QCM 30. Concernant T1 et T2 :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "T2 vaut environ dix fois T1",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Le temps T1 vaut environ 1000 s",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Le contraste correspond à la traduction du signal en niveau de gris",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Un signal en hypersignal apparaîtra en blanc",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Le signal RMN dépend directement de la valeur de T2 et indirectement de la valeur T1",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : C, D, E\nA. Faux : T1 > T2.\nB. Faux : T1 se mesure en millisecondes (ms).\nC. Vrai.\nD. Vrai.\nE. Vrai."
+    },
+    {
+        "id": "q-ue4-f9-31",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Gradients",
+            "Sécurité"
+        ],
+        "statement": "QCM 31. Concernant l'instrumentation :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le codage spatial du signal nécessite 6 bobines",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Les variations de champs sont brusques et génèrent des nuisances sonores",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Les antennes peuvent être de volume ou de surface",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Avant l'installation du patient, il y a un interrogatoire pour déterminer les contre-indications",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "L'instrument d'IRM est asservi aux impulsions cardiaques pour éviter les artefacts liés aux battements cardiovasculaires",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : B, C, D, E\nA. Faux : 3 axes de gradients (x, y, z).\nB. Vrai.\nC. Vrai.\nD. Vrai.\nE. Vrai : Synchronisation ECG."
+    },
+    {
+        "id": "q-ue4-f9-32",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "TR",
+            "TE"
+        ],
+        "statement": "QCM 32. Concernant le TR et le TE :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le TR est inférieur au TE",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Le TR mesure le temps entre l'impulsion à 90° et l'impulsion à 180°",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Le TE correspond au temps entre le FID et l'écho du signal",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "En pondération T1, le TR est court et le TE est long",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "En pondération T2, le TR et le TE sont longs",
+                "correct": true
+            }
+        ],
+        "explanation": "Proposition exacte : E\nA. Faux : TR > TE.\nB. Faux : TR = temps entre deux impulsions 90°.\nC. Faux.\nD. Faux : T1 nécessite TR court + TE court.\nE. Vrai."
+    },
+    {
+        "id": "q-ue4-f9-33",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Gadolinium",
+            "PDC"
+        ],
+        "statement": "QCM 33. Concernant les agents de contraste :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le produit de contraste apparaît sur l'image, ce qui permet de mieux distinguer les zones auxquelles il s'est fixé",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Les produits de contraste ont une action sur les temps de relaxation des protons voisins",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Les chélates de Gadolinium sont des produits de contraste",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "À faible concentration de Gadolinium, il y a un raccourcissement du T1, et donc une augmentation du signal",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "À forte concentration de Gadolinium, il y a un raccourcissement du T2, et donc une augmentation du signal",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : B, C, D\nA. Faux : Le PDC modifie le temps de relaxation des protons d'eau voisins.\nB. Vrai.\nC. Vrai.\nD. Vrai.\nE. Faux : Le raccourcissement de T2 détruit le signal et provoque un hyposignal."
+    },
+    {
+        "id": "q-ue4-f9-34",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Fourier",
+            "FID"
+        ],
+        "statement": "QCM 34. Concernant la transformation de Fourier :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le FID a une forme de sinusoïde, ce qui permet l'analyse de Fourier de la fonction",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "La vitesse de décroissance est liée à T1 (ou plutôt T1*)",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Une double transformation de Fourier est effectuée pour obtenir un plan de Fourier",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "L'analyse de Fourier permet de déterminer les fréquences de résonance",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "L'analyse de Fourier permet de déterminer l'amplitude du signal",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : C, D, E\nA. Faux : C'est une sinusoïde amortie exponentiellement.\nB. Faux : Régie par T2*.\nC. Vrai.\nD. Vrai.\nE. Vrai."
+    },
+    {
+        "id": "q-ue4-f9-35",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Difficile",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Codage",
+            "k-space"
+        ],
+        "statement": "QCM 35. Concernant la séquence IRM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le codage en z permet de sélectionner la coupe effectuée",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Le codage par phase permet de déterminer le codage suivant y",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Le codage par fréquence permet de déterminer x",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "L'addition x,y,z permet d'obtenir le k-space",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "L'application d'une transformation de Fourier inverse permet d'obtenir l'image",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, B, C, D, E\nToutes les propositions sont exactes."
+    },
+    {
+        "id": "q-ue4-f9-40",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Facile",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "Bascule"
+        ],
+        "statement": "QCM 40. Quelle(s) est (sont) la ou les réponse(s) vraie(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le champ B0 est 3000 fois plus grand que le champ terrestre",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "La relaxation longitudinale spin-spin est selon l’axe B0",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Lors de la relaxation il y a une synchronisation des protons",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "La bascule est l’application d’une onde de radiofréquence à 90°",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "T1 correspond au temps au bout duquel 63% de Mxy est obtenu",
+                "correct": false
+            }
+        ],
+        "explanation": "Proposition exacte : D\nLa bascule d'aimantation Mz vers le plan transversal s'obtient par l'onde de radiofréquence (impulsion à 90°)."
+    },
+    {
+        "id": "q-ue4-f9-41",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "Graisse"
+        ],
+        "statement": "QCM 41. Quelle(s) est (sont) la ou les réponse(s) vraie(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "T1 sert à étudier des processus pathologiques",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Dans les tissus graisseux il y a une relaxation T1 rapide",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Dans l’eau on a un T1 long et un fort signal",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Plus le T2 est court plus la croissance est rapide",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Plus il y a de protons, plus l’image sera blanche",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : B, E\nB. Vrai : La graisse a un T1 très court.\nE. Vrai : La densité protonique augmente l'intensité du signal."
+    },
+    {
+        "id": "q-ue4-f9-42",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "Pratique"
+        ],
+        "statement": "QCM 42. Concernant la pratique de l’IRM, quelle(s) est (sont) la ou les réponses vraie(s) ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Si l’antenne est trop grande il y a une baisse de rapport signal/bruit",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Les arythmies ne posent pas de problèmes pour l’IRM",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "On peut porter des colliers dans les salles d’IRM",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Les antennes de volume produisent un signal inhomogène",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Un interrogatoire du patient est nécessaire avant tout IRM",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, E\nA. Vrai : Antenne surdimensionnée = bruit de fond accru.\nE. Vrai : Interrogatoire indispensable pour écarter les objets ferromagnétiques."
+    },
+    {
+        "id": "q-ue4-f9-43",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2020,
+        "difficulty": "Facile",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "Œdème"
+        ],
+        "statement": "QCM 43. Un œdème osseux se voit :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "En hyposignal en T1",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "En hypersignal en T1",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "En hypersignal en T2",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "En hyposignal en T2",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Isosignal T1",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, C\nL'œdème (accumulation d'eau) apparaît sombre (hyposignal) en T1 et très brillant (hypersignal) en T2."
+    },
+    {
+        "id": "q-ue4-f9-44",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2020,
+        "difficulty": "Facile",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "Sécurité"
+        ],
+        "statement": "QCM 44. Concernant la salle de l’IRM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Elle est protégée par des plaques en plomb",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Le champ B0 est inactivé avant l’arrivée des patients",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "B1 est plus intense que B0",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Il faut un dosimètre avant de rentrer dans la salle",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Un patient avec un pacemaker ne peut pas rentrer",
+                "correct": true
+            }
+        ],
+        "explanation": "Proposition exacte : E\nLe champ principal B0 est permanent. Les pacemakers ferromagnétiques non compatibles constituent une contre-indication absolue."
+    },
+    {
+        "id": "q-ue4-f9-45",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2020,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "T2"
+        ],
+        "statement": "QCM 45. Concernant les paramètres d'acquisition T2 :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Maximalisation de son signal avec TR long",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Signal important avec TE long",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Signal maximal avec un TR court et TE long",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Signal maximal avec TE court et TR court",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "TE est choisi de façon arbitraire",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, B\nLa pondération T2 nécessite un TR long et un TE long."
+    },
+    {
+        "id": "q-ue4-f9-46",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2020,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "T1"
+        ],
+        "statement": "QCM 46. Concernant les paramètres d'acquisition T1 :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Maximalisation de son signal avec TR long",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Signal important avec TE long",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Signal maximal avec un TR court et TE long",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Signal maximal avec TE court et TR court",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "TE est choisi de façon arbitraire",
+                "correct": false
+            }
+        ],
+        "explanation": "Proposition exacte : D\nLa pondération T1 nécessite un TR court et un TE court."
+    },
+    {
+        "id": "q-ue4-f9-47",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2020,
+        "difficulty": "Facile",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "B0"
+        ],
+        "statement": "QCM 47. Sous l’effet de B0 :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le moment magnétique devient nul",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Les protons s’alignent dans le sens de B0 et dans la direction parallèle à B0 (niveau fondamental)",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Les protons s’alignent dans le sens de B0 et dans la direction perpendiculaire à B0",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Les protons s’alignent tous dans le sens de B0 et dans la direction anti-parallèle à B0",
+                "correct": false
+            }
+        ],
+        "explanation": "Proposition exacte : B\nLa majorité des spins s'alignent parallèlement à B0."
+    },
+    {
+        "id": "q-ue4-f9-48",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2015,
+        "difficulty": "Facile",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "Gadolinium"
+        ],
+        "statement": "QCM 48. L’utilisation de produits de contraste appelés chélates de gadolinium :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Est interdite à cause de ses dangers",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Est permise dans certaines indications très limitées du fait des risques du gadolinium",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Est d’usage courant",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Permet de diminuer le temps appelé T1",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Permet d’augmenter le signal en densité de protons",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : C, D\nLe gadolinium est un agent paramagnétique d'usage courant qui raccourcit le T1 et rehausse le signal."
+    },
+    {
+        "id": "q-ue4-f9-49",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2015,
+        "difficulty": "Difficile",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "Fourier"
+        ],
+        "statement": "QCM 49. Comment construit-on les images IRM à partir du signal d'induction libre ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le signal d'induction libre doit faire l'objet d'une double transformation de Fourier",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "L'application de gradients de champ induit de petites variations linéaires de fréquence et de phase de précession selon la distance",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "L'application de gradients de champ B0 doit être faite simultanément dans les trois directions de l'espace pour pouvoir localiser le signal",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "L'application de gradients de champ B0 est recommandée mais pas indispensable, surtout chez les patients porteurs de pacemaker",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Il n'existe qu'un seul mode de remplissage du plan de Fourier, c'est-à-dire ligne par ligne",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, B\nA. Vrai : TF 2D pour convertir l'espace k.\nB. Vrai : Codage spatial par gradients."
+    },
+    {
+        "id": "q-ue4-f9-50",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2015,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "Écho de spin"
+        ],
+        "statement": "QCM 50. Quels sont les paramètres influençant le contraste des images en écho de spin ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Un hypersignal apparaît en blanc sur une image d'IRM",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Les temps de relaxation de l'eau sont plus courts que ceux de la graisse",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Un temps de répétition (TR) court va favoriser une pondération des images en T1",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Un temps d'écho (TE) long va favoriser une pondération des images en T2",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "L'association d'un TR court et d'un TE long va favoriser une pondération en densité protonique",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, C, D\nA. Vrai.\nB. Faux : L'eau a des T1/T2 plus longs que la graisse.\nC. Vrai.\nD. Vrai."
+    },
+    {
+        "id": "q-ue4-f9-51",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2013,
+        "difficulty": "Facile",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "T2"
+        ],
+        "statement": "QCM 51. En IRM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Sur des images pondérées en T2, le liquide céphalo-rachidien apparaît en hypersignal",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Sur des images pondérées en T1, la graisse apparaît en hyposignal",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Sur des images pondérées en T2, la corticale osseuse apparaît en hypersignal",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Sur des images pondérées en T1, la lumière des vaisseaux est toujours en hypersignal",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Sur des images pondérées en T2, un kyste simple du foie apparaît en hypersignal",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, E\nL'eau et les liquides (LCR, kystes) apparaissent brillants (hypersignal) en pondération T2."
+    },
+    {
+        "id": "q-ue4-f9-52",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2012,
+        "difficulty": "Difficile",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "Lois de relaxation"
+        ],
+        "statement": "QCM 52. Lors de la relaxation de l'aimantation après une bascule de 90°, quels mécanismes sont à l'origine du contraste des images ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Les phénomènes de relaxation transversale et longitudinale se font selon une loi exponentielle",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "Le T1 des tissus biologiques est généralement plus court que le T2",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Le signal d'induction libre dépend directement du T1 et indirectement du T2 car il est mesuré dans l'axe du champ magnétique principal B0",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "À l'échelle microscopique, les déphasages des spins se font plus rapidement que les transitions de niveau d'énergie quantique",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Les inhomogénéités du champ B0 accélèrent la décroissance de l'aimantation transversale, en T2*",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : A, D, E\nA. Vrai : Équations de Bloch (lois exponentielles).\nD. Vrai : T2 est plus rapide que T1.\nE. Vrai : Décroissance accélérée en T2*."
+    },
+    {
+        "id": "q-ue4-f9-53",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2012,
+        "difficulty": "Facile",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "PDC IV"
+        ],
+        "statement": "QCM 53. Quels produits de contrastes sont injectables par voie intraveineuse ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le monoxyde de Carbone",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Les chélates de Gadolinium",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Le sulfate de Baryum",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Les molécules iodées hydrosolubles",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "L’air",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : B, D\nSeuls les chélates de Gadolinium (IRM) et les produits iodés hydrosolubles (Rayons X/Scanner) sont injectés par voie IV."
+    },
+    {
+        "id": "q-ue4-f9-54",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2012,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "Séquences"
+        ],
+        "statement": "QCM 54. Pour distinguer les séquences d’IRM en pondération T1 et T2, on peut utiliser les éléments suivants :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le signal du muscle",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Le signal de la corticale osseuse",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "Le signal de l’eau",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Les paramètres d’acquisition des séquences",
+                "correct": true
+            },
+            {
+                "id": "e",
+                "text": "Aucun des éléments précédents",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : C, D\nLe signal de l'eau (noir en T1, blanc en T2) et les paramètres TR/TE permettent de distinguer T1 et T2."
+    },
+    {
+        "id": "q-ue4-f9-55",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2012,
+        "difficulty": "Facile",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "Onde RF"
+        ],
+        "statement": "QCM 55. Une onde de radiofréquence en IRM :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Ne permet un transfert d’énergie qu’au proton H+",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "Est reçue par une antenne",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Est envoyée par une antenne",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Est constituée par des particules photoniques",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Est indispensable à la genèse d’un signal",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : B, C, E\nL'onde RF est émise et reçue par des antennes et permet le basculement d'aimantation nécessaire au signal."
+    },
+    {
+        "id": "q-ue4-f9-56",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2012,
+        "difficulty": "Moyen",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "Composants"
+        ],
+        "statement": "QCM 56. Quels sont les caractéristiques des différents composants d’un appareil d’IRM ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "L'aimant principal est composé d'une multitude de petits aimants en magnétite déposés en couronne",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "text": "L'aimant principal génère un champ magnétique B0 environ 10 fois plus intense que le champ magnétique terrestre",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "text": "L'examen IRM est contre-indiqué chez les patients porteurs de matériel ferromagnétique",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "text": "Les bobines de gradient servent à corriger les inhomogénéités du champ magnétique principal B0",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Les antennes destinées à capter le signal d'induction libre sont classées en antennes de volume et en antennes de surface",
+                "correct": true
+            }
+        ],
+        "explanation": "Propositions exactes : C, E\nC. Vrai : Matériel ferromagnétique contre-indiqué.\nE. Vrai : Antennes de volume (ex: tête) et de surface (ex: genou)."
+    },
+    {
+        "id": "q-ue4-f9-57",
+        "subjectId": "s4",
+        "chapter": "Fiche n°9 - IRM.pdf",
+        "year": 2012,
+        "difficulty": "Difficile",
+        "tags": [
+            "UE4",
+            "IRM",
+            "Annale",
+            "Voxel"
+        ],
+        "statement": "QCM 57. La taille d’un voxel en IRM dépend :",
+        "answers": [
+            {
+                "id": "a",
+                "text": "De l'intensité du gradient du champ magnétique",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "text": "De la largeur de la bande passante de l'onde RF",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "text": "Du champ magnétique principal B0",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "text": "Du type d'antenne",
+                "correct": false
+            },
+            {
+                "id": "e",
+                "text": "Du temps de relaxation de l'organe étudié",
+                "correct": false
+            }
+        ],
+        "explanation": "Propositions exactes : A, B\nLa résolution spatiale (taille du voxel) dépend directement de l'intensité du gradient G et de la bande passante de l'impulsion RF."
     }
 ];
 
@@ -15825,7 +17881,7 @@ export const INITIAL_SUBJECTS = [
         icon: 'Radio', 
         color: 'from-red-600 to-orange-500', 
         progress: 70, 
-        qcmCount: 252, 
+        qcmCount: 297, 
         chapters: [
             "Fiche n°1 - Techniques radiologiques, Ultrasons.pdf",
             "Fiche n°2 - Produits de contraste ultrasonores.pdf",
@@ -15834,7 +17890,8 @@ export const INITIAL_SUBJECTS = [
             "Fiche n°5 - Scanner.pdf",
             "Fiche n°6 - Radioprotection.pdf",
             "Fiche n°7 - Radiologie interventionnelle.pdf",
-            "Fiche n°8 - Rayons X et Radiographie.pdf"
+            "Fiche n°8 - Rayons X et Radiographie.pdf",
+            "Fiche n°9 - IRM.pdf"
         ] 
     },
     { 
