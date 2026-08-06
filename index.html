@@ -19225,22 +19225,46 @@
                 setIsSubmitted(true);
                 const currentQ = quizQuestions[currentQuizIndex];
                 
-                // Perfect match check (medical PASS/LAS scoring)
-                const isCorrect = currentQ.answers.every((ans, idx) => ans.correct === selectedAnswers.includes(idx));
+                // Medical PASS/LAS Bareme:
+                // 0 errors -> 1.0 pt
+                // 1 error (1 false positive or 1 false negative) -> 0.5 pt
+                // >= 2 errors -> 0.0 pt
+                let errorsCount = 0;
+                currentQ.answers.forEach((ans, idx) => {
+                    const isChecked = selectedAnswers.includes(idx);
+                    if ((ans.correct && !isChecked) || (!ans.correct && isChecked)) {
+                        errorsCount++;
+                    }
+                });
+
+                let questionPoints = 0;
+                if (errorsCount === 0) {
+                    questionPoints = 1.0;
+                } else if (errorsCount === 1) {
+                    questionPoints = 0.5;
+                } else {
+                    questionPoints = 0.0;
+                }
+
+                const isCorrect = (errorsCount === 0);
 
                 setUserAnswersHistory(prev => [...prev, {
                     question: currentQ,
                     selectedAnswerIndices: selectedAnswers,
-                    isCorrect
+                    isCorrect,
+                    errorsCount,
+                    points: questionPoints
                 }]);
 
                 const todayMs = Date.now();
                 const oneDayMs = 24 * 3600 * 1000;
                 const questionId = currentQ.id;
 
-                if (isCorrect) {
-                    setQuizScore(prev => prev + 1);
+                if (questionPoints > 0) {
+                    setQuizScore(prev => parseFloat((prev + questionPoints).toFixed(1)));
+                }
 
+                if (isCorrect) {
                     if (activeQuizMode === 'ancrage') {
                         const targetEntryId = currentQ._ancrageEntryId;
                         setAncrageData(prev => {
@@ -19256,7 +19280,6 @@
                             const nextStep = existing.stepIndex + 1;
 
                             if (nextStep >= intervals.length) {
-                                // Validation Ultime : Ancré et libéré !
                                 return {
                                     ...prev,
                                     [entryKey]: {
@@ -19306,7 +19329,7 @@
                                 ...prev,
                                 [entryKey]: {
                                     ...existing,
-                                    stepIndex: 0, // Repart à J0 (Aujourd'hui)
+                                    stepIndex: 0,
                                     failureCount: newFailCount,
                                     isReinforced: isReinforced,
                                     nextReviewTimestamp: todayMs,
@@ -19316,7 +19339,6 @@
                             };
                         });
                     } else {
-                        // En mode normal/crashtest -> Création d'une instance immédiate pour aujourd'hui !
                         addAncrageEntry(questionId);
                     }
 
@@ -19592,16 +19614,24 @@
                                             </button>
                                         </div>
                                     ) : (
-                                        <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4 mt-6">
-                                            <div className="font-semibold text-lg">
-                                                {currentQ.answers.every((ans, idx) => ans.correct === selectedAnswers.includes(idx)) ? (
-                                                    <span className="text-emerald-400 flex items-center gap-2">✓ Tout est juste ! Réponse parfaite (+1 pt)</span>
-                                                ) : (
-                                                    <span className="text-red-400 flex items-center gap-2">✕ Réponses incorrectes ou incomplètes. {activeQuizMode === 'crashtest' && remainingHearts <= 0 && '(Game Over)'}</span>
-                                                )}
+                                        <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4 mt-6 shadow-xl">
+                                            <div className="font-semibold text-base md:text-lg">
+                                                {(() => {
+                                                    const lastHist = userAnswersHistory[userAnswersHistory.length - 1];
+                                                    const pts = lastHist ? lastHist.points : 0;
+                                                    const errs = lastHist ? lastHist.errorsCount : 0;
+
+                                                    if (pts === 1.0) {
+                                                        return <span className="text-emerald-400 flex items-center gap-2 font-bold">✓ Sans faute ! Réponse parfaite (+1 pt)</span>;
+                                                    } else if (pts === 0.5) {
+                                                        return <span className="text-amber-400 flex items-center gap-2 font-bold">⚠️ 1 erreur commise (-0,5 pt) ➔ Note attribuée : +0,5 pt</span>;
+                                                    } else {
+                                                        return <span className="text-red-400 flex items-center gap-2 font-bold">✕ {errs} erreurs commises (≥ 2 erreurs) ➔ Note attribuée : 0 pt {activeQuizMode === 'crashtest' && remainingHearts <= 0 && '(Game Over)'}</span>;
+                                                    }
+                                                })()}
                                             </div>
-                                            <p className="text-sm text-slate-300"><strong>Explication :</strong> {currentQ.explanation}</p>
-                                            <button onClick={nextQuizQuestion} className="w-full py-3.5 bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold rounded-xl text-center">
+                                            <p className="text-sm text-slate-300 leading-relaxed"><strong>Explication :</strong> {currentQ.explanation}</p>
+                                            <button onClick={nextQuizQuestion} className="w-full py-3.5 bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold rounded-xl text-center shadow-lg hover:from-red-500 hover:to-orange-400 transition-all">
                                                 {currentQuizIndex + 1 < quizQuestions.length && (activeQuizMode !== 'crashtest' || remainingHearts > 0) ? 'Question suivante →' : 'Voir le bilan et correction complète →'}
                                             </button>
                                         </div>
@@ -19629,11 +19659,24 @@
                                             const historyItem = userAnswersHistory.find(h => h.question.id === q.id);
                                             const isCorrect = historyItem ? historyItem.isCorrect : false;
                                             return (
-                                                <div key={q.id || qIdx} className={`p-4 rounded-2xl border space-y-2 ${isCorrect ? 'bg-emerald-950/20 border-emerald-500/30' : 'bg-red-950/20 border-red-500/30'}`}>
-                                                    <div className="flex justify-between text-xs font-bold text-white">
-                                                        <span>Q{qIdx + 1} : {q.chapter}</span>
-                                                        <span>{isCorrect ? '✓ Correct' : '✕ Incorrect'}</span>
-                                                    </div>
+                                                {(() => {
+                                                    const historyItem = userAnswersHistory.find(h => h.question.id === q.id);
+                                                    const pts = historyItem ? (historyItem.points ?? (historyItem.isCorrect ? 1 : 0)) : 0;
+                                                    const errs = historyItem ? (historyItem.errorsCount ?? 0) : 0;
+
+                                                    let badge = <span className="text-red-400 bg-red-950/80 px-2 py-0.5 rounded-lg border border-red-800/80 text-[11px]">✕ 0 pt ({historyItem ? `${errs} erreur${errs > 1 ? 's' : ''}` : 'Non traité'})</span>;
+                                                    if (pts === 1.0) {
+                                                        badge = <span className="text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded-lg border border-emerald-800/80 text-[11px]">✓ +1 pt (Parfait)</span>;
+                                                    } else if (pts === 0.5) {
+                                                        badge = <span className="text-amber-400 bg-amber-950/80 px-2 py-0.5 rounded-lg border border-amber-800/80 text-[11px]">⚠️ +0,5 pt (1 erreur)</span>;
+                                                    }
+
+                                                    return (
+                                                        <div key={q.id || qIdx} className={`p-4 rounded-2xl border space-y-2 ${pts === 1 ? 'bg-emerald-950/20 border-emerald-500/30' : pts === 0.5 ? 'bg-amber-950/20 border-amber-500/30' : 'bg-red-950/20 border-red-500/30'}`}>
+                                                            <div className="flex justify-between items-center text-xs font-bold text-white">
+                                                                <span>Q{qIdx + 1} : {q.chapter}</span>
+                                                                {badge}
+                                                            </div>
                                                     <p className="text-xs text-slate-200">{q.statement}</p>
                                                     <div className="space-y-1">
                                                         {q.answers.map(ans => (
@@ -19644,7 +19687,9 @@
                                                     </div>
                                                     <p className="text-[11px] text-slate-300 mt-1"><strong>Explication :</strong> {q.explanation}</p>
                                                 </div>
-                                            );
+                                                        </div>
+                                                    );
+                                                })()
                                         })}
                                     </div>
 
@@ -19654,6 +19699,20 @@
                                 </div>
                             )}
                         </main>
+
+                        {!quizFinished && (
+                            <button
+                                onClick={() => {
+                                    if (confirm("Voulez-vous vraiment terminer ce QCM maintenant et obtenir votre note finale ?")) {
+                                        setQuizFinished(true);
+                                    }
+                                }}
+                                className="fixed bottom-6 left-6 z-50 px-4 py-2.5 bg-slate-900/90 hover:bg-red-950/90 border-2 border-red-500/80 hover:border-red-400 text-slate-100 hover:text-white text-xs font-bold rounded-2xl shadow-2xl backdrop-blur-md transition-all flex items-center gap-2 group cursor-pointer"
+                            >
+                                <span className="text-base group-hover:scale-110 transition-transform">🏁</span>
+                                <span>Terminer le QCM & Voir la note</span>
+                            </button>
+                        )}
                     </div>
                 );
             }
