@@ -19155,6 +19155,348 @@ export const INITIAL_QUESTIONS = [
                 }
         ],
         "explanation": "Réponse E : V = - p * dV / dp = (patm / (patm/2)) * Vc * (dpC/patm) = 2 * 1 m³ * 2,5.10⁻³ = 5.10⁻³ m³ = 5 Litres."
+},
+{
+        "id": "q-ue4-f11-17",
+        "subjectId": "s4",
+        "chapter": "Fiche n°11 - Exploration fonctionnelle respiratoire.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+                "UE4",
+                "Volumes pulmonaires",
+                "Spirométrie",
+                "Biophysique"
+        ],
+        "statement": "QCM 17. Les volumes pulmonaires mesurés par spirométrie sont :",
+        "answers": [
+                {
+                        "id": "a",
+                        "text": "Le volume courant (VC).",
+                        "correct": true
+                },
+                {
+                        "id": "b",
+                        "text": "Le volume résiduel (VR).",
+                        "correct": false
+                },
+                {
+                        "id": "c",
+                        "text": "Le volume de réserve inspiratoire (VRI).",
+                        "correct": true
+                },
+                {
+                        "id": "d",
+                        "text": "La capacité résiduelle fonctionnelle (CRF).",
+                        "correct": false
+                },
+                {
+                        "id": "e",
+                        "text": "La capacité vitale (CV).",
+                        "correct": true
+                }
+        ],
+        "explanation": "La spirométrie ne mesure que les volumes et capacités mobilisables (VC, VRI, VRE, CV). Le volume résiduel (VR) et la capacité résiduelle fonctionnelle (CRF) sont non mobilisables et nécessitent la pléthysmographie ou la dilution de gaz. Réponses A, C, E."
+},
+{
+        "id": "q-ue4-f11-18",
+        "subjectId": "s4",
+        "chapter": "Fiche n°11 - Exploration fonctionnelle respiratoire.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+                "UE4",
+                "Débits ventilatoires",
+                "VEMS",
+                "CVF",
+                "DEP"
+        ],
+        "statement": "QCM 18. Lors de l’évaluation des débits ventilatoires, les mesures comprennent :",
+        "answers": [
+                {
+                        "id": "a",
+                        "text": "Le volume expiratoire maximal par seconde (VEMS).",
+                        "correct": true
+                },
+                {
+                        "id": "b",
+                        "text": "Le volume de réserve inspiratoire (VRI).",
+                        "correct": false
+                },
+                {
+                        "id": "c",
+                        "text": "La capacité vitale forcée (CVF).",
+                        "correct": true
+                },
+                {
+                        "id": "d",
+                        "text": "La capacité pulmonaire totale (CPT).",
+                        "correct": false
+                },
+                {
+                        "id": "e",
+                        "text": "Le débit expiratoire de pointe (DEP).",
+                        "correct": true
+                }
+        ],
+        "explanation": "L'évaluation des débits ventilatoires (dynamiques) comprend le VEMS, la CVF et le DEP (débit expiratoire de pointe). VRI et CPT sont des volumes/capacités statiques. Réponses A, C, E."
+},
+{
+        "id": "q-ue4-f11-19",
+        "subjectId": "s4",
+        "chapter": "Fiche n°11 - Exploration fonctionnelle respiratoire.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+                "UE4",
+                "Syndrome restrictif",
+                "CPT",
+                "VEMS/CV"
+        ],
+        "statement": "QCM 19. Un syndrome restrictif est caractérisé par :",
+        "answers": [
+                {
+                        "id": "a",
+                        "text": "Une réduction de la capacité pulmonaire totale (CPT) sous 80 % de la valeur théorique.",
+                        "correct": true
+                },
+                {
+                        "id": "b",
+                        "text": "Un rapport VEMS/CV normal.",
+                        "correct": true
+                },
+                {
+                        "id": "c",
+                        "text": "Une augmentation de la capacité résiduelle fonctionnelle (CRF).",
+                        "correct": false
+                },
+                {
+                        "id": "d",
+                        "text": "Une augmentation du volume résiduel (VR).",
+                        "correct": false
+                },
+                {
+                        "id": "e",
+                        "text": "Une réduction de la diffusion du CO.",
+                        "correct": false
+                }
+        ],
+        "explanation": "Un syndrome restrictif se définit par une réduction globale des volumes pulmonaires avec CPT < 80% de la valeur théorique et un rapport VEMS/CV normal ou augmenté. Réponses A, B."
+},
+{
+        "id": "q-ue4-f11-20",
+        "subjectId": "s4",
+        "chapter": "Fiche n°11 - Exploration fonctionnelle respiratoire.pdf",
+        "year": 2026,
+        "difficulty": "Difficile",
+        "tags": [
+                "UE4",
+                "DLCO",
+                "Diffusion CO",
+                "Hémoglobine",
+                "Anémie"
+        ],
+        "statement": "QCM 20. Quelles sont les causes de réduction de la capacité de diffusion du monoxyde de carbone (DLCO) dans les poumons ?",
+        "answers": [
+                {
+                        "id": "a",
+                        "text": "L’augmentation de la surface de la membrane alvéolo-capillaire.",
+                        "correct": false
+                },
+                {
+                        "id": "b",
+                        "text": "L’épaississement de la barrière alvéolo-capillaire.",
+                        "correct": true
+                },
+                {
+                        "id": "c",
+                        "text": "La réduction du volume capillaire pulmonaire.",
+                        "correct": true
+                },
+                {
+                        "id": "d",
+                        "text": "Une anémie importante.",
+                        "correct": true
+                },
+                {
+                        "id": "e",
+                        "text": "Une augmentation de la concentration en hémoglobine.",
+                        "correct": false
+                }
+        ],
+        "explanation": "L’épaississement de la barrière, la baisse du volume capillaire et l'anémie réduisent la DLCO. L'augmentation de surface ou d'hémoglobine augmente la diffusion. Réponses B, C, D."
+},
+{
+        "id": "q-ue4-f11-21",
+        "subjectId": "s4",
+        "chapter": "Fiche n°11 - Exploration fonctionnelle respiratoire.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+                "UE4",
+                "Syndrome obstructif",
+                "BPCO",
+                "Asthme",
+                "VR"
+        ],
+        "statement": "QCM 21. Parmi les propositions suivantes, laquelle (ou lesquelles) est (sont) exacte(s) ?",
+        "answers": [
+                {
+                        "id": "a",
+                        "text": "Un syndrome obstructif est caractérisé par une diminution du rapport VEMS/CVF.",
+                        "correct": true
+                },
+                {
+                        "id": "b",
+                        "text": "Dans un syndrome restrictif, le rapport VEMS/CVF est diminué.",
+                        "correct": false
+                },
+                {
+                        "id": "c",
+                        "text": "La BPCO est un syndrome obstructif généralement non réversible après l'administration de bronchodilatateurs.",
+                        "correct": true
+                },
+                {
+                        "id": "d",
+                        "text": "La présence d’un piégeage gazeux est caractérisée par une augmentation du volume résiduel (VR).",
+                        "correct": true
+                },
+                {
+                        "id": "e",
+                        "text": "Dans l’asthme, une amélioration du VEMS après administration de bronchodilatateurs indique une réversibilité.",
+                        "correct": true
+                }
+        ],
+        "explanation": "A est vrai (VEMS/CVF < 70%). B est faux (normal ou augmenté dans le restrictif). C est vrai (BPCO non réversible). D est vrai (piégeage -> hausse VR). E est vrai (asthme réversible). Réponses A, C, D, E."
+},
+{
+        "id": "q-ue4-f11-22",
+        "subjectId": "s4",
+        "chapter": "Fiche n°11 - Exploration fonctionnelle respiratoire.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+                "UE4",
+                "Pléthysmographie",
+                "CRF",
+                "CPT",
+                "Hélium"
+        ],
+        "statement": "QCM 22. Parmi les propositions suivantes, laquelle (ou lesquelles) est (sont) exacte(s) ?",
+        "answers": [
+                {
+                        "id": "a",
+                        "text": "La spirométrie permet de mesurer directement le volume résiduel (VR).",
+                        "correct": false
+                },
+                {
+                        "id": "b",
+                        "text": "La capacité résiduelle fonctionnelle (CRF) inclut le volume de réserve expiratoire (VRE) et le volume résiduel (VR).",
+                        "correct": true
+                },
+                {
+                        "id": "c",
+                        "text": "La capacité pulmonaire totale (CPT) représente la somme de tous les volumes pulmonaires mobilisables et non mobilisables.",
+                        "correct": true
+                },
+                {
+                        "id": "d",
+                        "text": "La méthode de dilution de l’hélium est utilisée pour évaluer les volumes non mobilisables.",
+                        "correct": true
+                },
+                {
+                        "id": "e",
+                        "text": "La pléthysmographie mesure les changements de pression et de volume dans une cabine fermée.",
+                        "correct": true
+                }
+        ],
+        "explanation": "A est faux (mesuré par pléthysmographie). B est vrai (CRF = VRE + VR). C est vrai (CPT = somme de tous les volumes). D est vrai (dilution d'hélium). E est vrai. Réponses B, C, D, E."
+},
+{
+        "id": "q-ue4-f11-23",
+        "subjectId": "s4",
+        "chapter": "Fiche n°11 - Exploration fonctionnelle respiratoire.pdf",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "tags": [
+                "UE4",
+                "Spirométrie",
+                "Pléthysmographie",
+                "Hélium",
+                "VGT"
+        ],
+        "statement": "QCM 23. Parmi les propositions suivantes, laquelle (ou lesquelles) est (sont) exacte(s) ?",
+        "answers": [
+                {
+                        "id": "a",
+                        "text": "La spirométrie permet de mesurer tous les volumes pulmonaires, y compris le volume résiduel (VR).",
+                        "correct": false
+                },
+                {
+                        "id": "b",
+                        "text": "La pléthysmographie est considérée comme une méthode de référence pour mesurer le volume gazeux thoracique.",
+                        "correct": true
+                },
+                {
+                        "id": "c",
+                        "text": "La méthode de dilution d’hélium est limitée en présence d'obstructions bronchiques.",
+                        "correct": true
+                },
+                {
+                        "id": "d",
+                        "text": "La CRF est mesurée uniquement par pléthysmographie.",
+                        "correct": false
+                },
+                {
+                        "id": "e",
+                        "text": "L’augmentation du VR est souvent observée dans les syndromes obstructifs avec piégeage gazeux.",
+                        "correct": true
+                }
+        ],
+        "explanation": "A est faux (spirométrie ne mesure que mobilisables). B est vrai (méthode de référence). C est vrai (hélium n'atteint pas l'air piégé). D est faux (dilution possible). E est vrai (piégeage -> VR augmenté). Réponses B, C, E."
+},
+{
+        "id": "q-ue4-f11-24",
+        "subjectId": "s4",
+        "chapter": "Fiche n°11 - Exploration fonctionnelle respiratoire.pdf",
+        "year": 2026,
+        "difficulty": "Difficile",
+        "tags": [
+                "UE4",
+                "DLCO",
+                "Diffusion alvéolaire",
+                "Hémoglobine",
+                "Apnée 10s"
+        ],
+        "statement": "QCM 24. Parmi les propositions suivantes, laquelle (ou lesquelles) est (sont) exacte(s) ?",
+        "answers": [
+                {
+                        "id": "a",
+                        "text": "La capacité de diffusion du monoxyde de carbone (DLCO) est utilisée pour mesurer la capacité d'échange gazeux au niveau des alvéoles.",
+                        "correct": true
+                },
+                {
+                        "id": "b",
+                        "text": "Un épaississement de la barrière alvéolo-capillaire entraîne une augmentation de la DLCO.",
+                        "correct": false
+                },
+                {
+                        "id": "c",
+                        "text": "La DLCO est influencée par la quantité d'hémoglobine présente dans le sang.",
+                        "correct": true
+                },
+                {
+                        "id": "d",
+                        "text": "Une diminution de la surface alvéolaire réduit la capacité de diffusion.",
+                        "correct": true
+                },
+                {
+                        "id": "e",
+                        "text": "La DLCO est généralement mesurée en demandant au patient de retenir son souffle pendant 10 secondes.",
+                        "correct": true
+                }
+        ],
+        "explanation": "A est vrai (mesure échanges alvéolo-capillaires). B est faux (l'épaississement diminue la DLCO). C est vrai (dépendant de Hb). D est vrai (surface réduite -> baisse DLCO). E est vrai (apnée de 10s). Réponses A, C, D, E."
 }];
 
 export const INITIAL_SUBJECTS = [
