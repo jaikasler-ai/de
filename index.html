@@ -19256,6 +19256,7 @@
                     setQuizScore(prev => parseFloat((prev + questionPoints).toFixed(1)));
                 }
 
+                if (isCorrect) {
                     if (activeQuizMode === 'ancrage') {
                         const targetEntryId = currentQ._ancrageEntryId;
                         setAncrageData(prev => {
