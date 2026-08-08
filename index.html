@@ -20377,6 +20377,27 @@
                 const currentPts = currentHistItem ? currentHistItem.points : 0;
                 const currentErrs = currentHistItem ? currentHistItem.errorsCount : 0;
 
+                const totalQCount = quizQuestions.length || 1;
+                let count0 = 0;
+                let countPartialLow = 0;
+                let countHigh = 0;
+
+                quizQuestions.forEach(q => {
+                    const h = userAnswersHistory.find(item => item.question && item.question.id === q.id);
+                    const pts = h ? (h.points ?? (h.isCorrect ? 1.0 : 0)) : 0;
+                    if (pts === 0) {
+                        count0++;
+                    } else if (pts > 0 && pts < 0.5) {
+                        countPartialLow++;
+                    } else if (pts >= 0.5) {
+                        countHigh++;
+                    }
+                });
+
+                const pct0 = ((count0 / totalQCount) * 100).toFixed(1).replace('.0', '');
+                const pctPartialLow = ((countPartialLow / totalQCount) * 100).toFixed(1).replace('.0', '');
+                const pctHigh = ((countHigh / totalQCount) * 100).toFixed(1).replace('.0', '');
+
                 return (
                     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
                         <header className="border-b border-slate-800 bg-slate-900/60 px-6 py-4 flex items-center justify-between sticky top-0 z-50">
@@ -20547,8 +20568,47 @@
                                                 <span>⏱️</span>
                                                 <span>{formatQuizTime(quizTimerSeconds)}</span>
                                             </div>
+                                            <div className="grid grid-cols-3 gap-3 pt-2">
+                                                <div className="bg-emerald-950/40 border border-emerald-500/40 rounded-2xl p-3 text-center space-y-1">
+                                                    <div className="text-[11px] text-emerald-400 font-bold uppercase tracking-wider flex items-center justify-center gap-1">
+                                                        <span>🟢</span>
+                                                        <span>0.5 à 1 pt</span>
+                                                    </div>
+                                                    <div className="text-xl font-extrabold text-emerald-300">
+                                                        {pctHigh}%
+                                                    </div>
+                                                    <div className="text-[10px] text-emerald-400/80 font-medium">
+                                                        {countHigh} / {totalQCount} QCM
+                                                    </div>
+                                                </div>
+
+                                                <div className="bg-amber-950/40 border border-amber-500/40 rounded-2xl p-3 text-center space-y-1">
+                                                    <div className="text-[11px] text-amber-400 font-bold uppercase tracking-wider flex items-center justify-center gap-1">
+                                                        <span>🟡</span>
+                                                        <span>0.1 à 0.49 pt</span>
+                                                    </div>
+                                                    <div className="text-xl font-extrabold text-amber-300">
+                                                        {pctPartialLow}%
+                                                    </div>
+                                                    <div className="text-[10px] text-amber-400/80 font-medium">
+                                                        {countPartialLow} / {totalQCount} QCM
+                                                    </div>
+                                                </div>
+
+                                                <div className="bg-red-950/40 border border-red-500/40 rounded-2xl p-3 text-center space-y-1">
+                                                    <div className="text-[11px] text-red-400 font-bold uppercase tracking-wider flex items-center justify-center gap-1">
+                                                        <span>🔴</span>
+                                                        <span>0 pt</span>
+                                                    </div>
+                                                    <div className="text-xl font-extrabold text-red-300">
+                                                        {pct0}%
+                                                    </div>
+                                                    <div className="text-[10px] text-red-400/80 font-medium">
+                                                        {count0} / {totalQCount} QCM
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
 
                                     <div className="space-y-4 max-h-96 overflow-y-auto pr-2">
                                         <h3 className="text-sm font-bold text-white uppercase">Correction détaillée & Tout QCM</h3>
