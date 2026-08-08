@@ -20573,7 +20573,7 @@
                                                 onClick={handleMultiAnswerSubmit}
                                                 className="w-full md:w-auto px-8 py-3.5 bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 text-white font-bold rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center justify-center gap-2"
                                             >
-                                                <span>Valider mes réponses ({selectedAnswers.length} propositon{selectedAnswers.length > 1 ? 's' : ''} choisie{selectedAnswers.length > 1 ? 's' : ''})</span>
+                                                <span>Valider mes réponses ({selectedAnswers.length} propositon{selectedAnswers.length !== 1 ? 's' : ''} choisie{selectedAnswers.length !== 1 ? 's' : ''})</span>
                                                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
                                             </button>
                                         </div>
@@ -20657,7 +20657,7 @@
                                             const pts = historyItem ? (historyItem.points ?? (historyItem.isCorrect ? 1 : 0)) : 0;
                                             const errs = historyItem ? (historyItem.errorsCount ?? 0) : 0;
 
-                                            let badge = <span className="text-red-400 bg-red-950/80 px-2 py-0.5 rounded-lg border border-red-800/80 text-[11px]">✕ 0 pt ({historyItem ? `${errs} erreur${errs > 1 ? 's' : ''}` : 'Non traité'})</span>;
+                                            let badge = <span className="text-red-400 bg-red-950/80 px-2 py-0.5 rounded-lg border border-red-800/80 text-[11px]">✕ 0 pt ({historyItem ? `${errs} erreur${errs !== 1 ? 's' : ''}` : 'Non traité'})</span>;
                                             if (pts === 1.0) {
                                                 badge = <span className="text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded-lg border border-emerald-800/80 text-[11px]">✓ +1 pt (Parfait)</span>;
                                             } else if (pts === 0.5) {
