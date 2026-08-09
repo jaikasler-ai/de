@@ -116,7 +116,7 @@
 
             if (!imageInfo) return null;
 
-            if (imageInfo.url && (imageInfo.url.endsWith('.png') || imageInfo.url.startsWith('src/assets/'))) {
+            if (imageInfo.url && (imageInfo.url.startsWith('data:image/') || imageInfo.url.endsWith('.png') || imageInfo.url.endsWith('.jpg') || imageInfo.url.endsWith('.jpeg') || imageInfo.url.startsWith('src/assets/'))) {
                 return (
                     <div className="w-full bg-white p-3 rounded-xl mb-4 shadow-sm border border-slate-700/50 flex justify-center overflow-hidden">
                         <img src={imageInfo.url} alt="Schéma QCM" className="max-w-full h-auto rounded-lg shadow-md" style={{ maxHeight: '380px', objectFit: 'contain' }} />
