@@ -21542,6 +21542,18 @@
             const [quizLaunchMode, setQuizLaunchMode] = useState('training'); // 'training' or 'crashtest'
             const [crashTestHearts, setCrashTestHearts] = useState(3); // 1, 3, or 5 hearts
             const [remainingHearts, setRemainingHearts] = useState(3);
+
+            const availableQuizCount = useMemo(() => {
+                if (!selectedSubjectForQuiz) return questions.length;
+                let pool = questions.filter(q => q.subjectId === selectedSubjectForQuiz.id);
+                if (selectedChapterForQuiz) {
+                    const chapPool = pool.filter(q => q.chapter === selectedChapterForQuiz);
+                    if (chapPool.length > 0) return chapPool.length;
+                }
+                return pool.length || questions.length;
+            }, [selectedSubjectForQuiz, selectedChapterForQuiz, questions]);
+            const [quizQuestionLimit, setQuizQuestionLimit] = useState('all'); // '5', '10', '20', '50', or 'all', 'custom'
+            const [customQuestionCount, setCustomQuestionCount] = useState('');
             const [quizTimerSeconds, setQuizTimerSeconds] = useState(0);
 
             // Chronometer timer effect
@@ -21791,7 +21803,18 @@
                 }
 
                 pool.sort(() => Math.random() - 0.5);
-                const randomizedPool = pool.map(q => ({
+                let finalLimit = pool.length;
+                if (quizQuestionLimit === 'custom' && customQuestionCount) {
+                    const parsed = parseInt(customQuestionCount, 10);
+                    if (!isNaN(parsed) && parsed > 0) finalLimit = parsed;
+                } else if (quizQuestionLimit !== 'all') {
+                    const parsed = parseInt(quizQuestionLimit, 10);
+                    if (!isNaN(parsed) && parsed > 0) finalLimit = parsed;
+                }
+                finalLimit = Math.max(1, Math.min(finalLimit, pool.length));
+                const slicedPool = pool.slice(0, finalLimit);
+
+                const randomizedPool = slicedPool.map(q => ({
                     ...q,
                     answers: [...q.answers].sort(() => Math.random() - 0.5)
                 }));
@@ -21809,6 +21832,8 @@
             const openUEConfig = (subject, chapter = null) => {
                 setSelectedSubjectForQuiz(subject);
                 setSelectedChapterForQuiz(chapter);
+                setQuizQuestionLimit('all');
+                setCustomQuestionCount('');
                 setShowUEConfigModal(true);
             };
 
@@ -21825,7 +21850,18 @@
                     pool = [...questions];
                 }
                 pool.sort(() => Math.random() - 0.5);
-                const randomizedPool = pool.map(q => ({
+                let finalLimit = pool.length;
+                if (quizQuestionLimit === 'custom' && customQuestionCount) {
+                    const parsed = parseInt(customQuestionCount, 10);
+                    if (!isNaN(parsed) && parsed > 0) finalLimit = parsed;
+                } else if (quizQuestionLimit !== 'all') {
+                    const parsed = parseInt(quizQuestionLimit, 10);
+                    if (!isNaN(parsed) && parsed > 0) finalLimit = parsed;
+                }
+                finalLimit = Math.max(1, Math.min(finalLimit, pool.length));
+                const slicedPool = pool.slice(0, finalLimit);
+
+                const randomizedPool = slicedPool.map(q => ({
                     ...q,
                     answers: [...q.answers].sort(() => Math.random() - 0.5)
                 }));
@@ -21860,7 +21896,18 @@
                     return;
                 }
                 pool.sort(() => Math.random() - 0.5);
-                const randomizedPool = pool.map(q => ({
+                let finalLimit = pool.length;
+                if (quizQuestionLimit === 'custom' && customQuestionCount) {
+                    const parsed = parseInt(customQuestionCount, 10);
+                    if (!isNaN(parsed) && parsed > 0) finalLimit = parsed;
+                } else if (quizQuestionLimit !== 'all') {
+                    const parsed = parseInt(quizQuestionLimit, 10);
+                    if (!isNaN(parsed) && parsed > 0) finalLimit = parsed;
+                }
+                finalLimit = Math.max(1, Math.min(finalLimit, pool.length));
+                const slicedPool = pool.slice(0, finalLimit);
+
+                const randomizedPool = slicedPool.map(q => ({
                     ...q,
                     answers: [...q.answers].sort(() => Math.random() - 0.5)
                 }));
@@ -23166,37 +23213,39 @@
                         </main>
                     </div>
 
-                    {/* UE LAUNCH CONFIGURATION MODAL (Série QCM vs Crash Test avec Cœurs : 1, 3, 5) */}
+                    {/* UE LAUNCH CONFIGURATION MODAL (Série QCM vs Crash Test avec Cœurs & Sélection du nombre de QCM) */}
                     {showUEConfigModal && selectedSubjectForQuiz && (
                         <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
-                            <div className="bg-slate-900 border border-slate-800 p-6 rounded-3xl max-w-md w-full space-y-6">
-                                <div className="flex justify-between items-center">
+                            <div className="bg-slate-900 border border-slate-800 p-6 rounded-3xl max-w-md w-full space-y-6 shadow-2xl">
+                                <div className="flex justify-between items-start">
                                     <div>
                                         <h3 className="text-base font-bold text-white">{selectedSubjectForQuiz.name}</h3>
-                                        <p className="text-xs text-red-400">{selectedChapterForQuiz ? `Fiche : ${selectedChapterForQuiz}` : selectedSubjectForQuiz.code}</p>
+                                        <p className="text-xs text-red-400 font-semibold mt-0.5">{selectedChapterForQuiz ? `Fiche : ${selectedChapterForQuiz}` : selectedSubjectForQuiz.code}</p>
                                     </div>
-                                    <button onClick={() => setShowUEConfigModal(false)} className="text-slate-400">✕</button>
+                                    <button onClick={() => setShowUEConfigModal(false)} className="text-slate-400 hover:text-white p-1 font-bold">✕</button>
                                 </div>
 
-                                <div className="space-y-4">
+                                <div className="space-y-5">
+                                    {/* 1. Mode de révision */}
                                     <div>
                                         <label className="block text-xs font-semibold text-slate-400 mb-2">Mode de révision</label>
                                         <div className="grid grid-cols-2 gap-3">
-                                            <button onClick={() => setQuizLaunchMode('training')} className={`p-3 rounded-2xl border text-xs font-bold ${quizLaunchMode === 'training' ? 'bg-red-600 border-red-500 text-white' : 'bg-slate-950 border-slate-800 text-slate-300'}`}>
+                                            <button onClick={() => setQuizLaunchMode('training')} className={`p-3 rounded-2xl border text-xs font-bold transition-all ${quizLaunchMode === 'training' ? 'bg-red-600 border-red-500 text-white shadow-lg ring-2 ring-red-500/30' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'}`}>
                                                 ⚡ Série QCM
                                             </button>
-                                            <button onClick={() => setQuizLaunchMode('crashtest')} className={`p-3 rounded-2xl border text-xs font-bold ${quizLaunchMode === 'crashtest' ? 'bg-gradient-to-r from-red-600 to-orange-600 border-orange-500 text-white' : 'bg-slate-950 border-slate-800 text-slate-300'}`}>
+                                            <button onClick={() => setQuizLaunchMode('crashtest')} className={`p-3 rounded-2xl border text-xs font-bold transition-all ${quizLaunchMode === 'crashtest' ? 'bg-gradient-to-r from-red-600 to-orange-600 border-orange-500 text-white shadow-lg ring-2 ring-orange-500/30' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'}`}>
                                                 🔥 Crash Test
                                             </button>
                                         </div>
                                     </div>
 
+                                    {/* 2. Mode Crash Test Hearts (Vies) */}
                                     {quizLaunchMode === 'crashtest' && (
                                         <div className="space-y-2">
                                             <label className="block text-xs font-semibold text-slate-400">Nombre de cœurs (Vies)</label>
                                             <div className="grid grid-cols-3 gap-3">
                                                 {[1, 3, 5].map(hearts => (
-                                                    <button key={hearts} onClick={() => setCrashTestHearts(hearts)} className={`py-2 rounded-xl border text-xs font-bold ${crashTestHearts === hearts ? 'bg-red-950 border-red-500 text-red-300' : 'bg-slate-950 border-slate-800 text-slate-400'}`}>
+                                                    <button key={hearts} onClick={() => setCrashTestHearts(hearts)} className={`py-2.5 rounded-xl border text-xs font-bold transition-all ${crashTestHearts === hearts ? 'bg-red-950 border-red-500 text-red-300 ring-2 ring-red-500/40' : 'bg-slate-950 border-slate-800 text-slate-400 hover:bg-slate-800'}`}>
                                                         {Array.from({length: hearts}).map(() => '❤️').join('')} ({hearts})
                                                     </button>
                                                 ))}
@@ -23204,11 +23253,64 @@
                                             <p className="text-[11px] text-slate-500">Mort subite : chaque erreur retire un cœur. À 0, le test se termine avec la correction complète.</p>
                                         </div>
                                     )}
+
+                                    {/* 3. Nombre de QCM à inclure */}
+                                    <div className="space-y-2.5">
+                                        <div className="flex justify-between items-center">
+                                            <label className="block text-xs font-semibold text-slate-400">Nombre de QCM dans la session</label>
+                                            <span className="text-[11px] text-orange-400 font-bold bg-slate-800 px-2.5 py-0.5 rounded-full border border-slate-700">
+                                                {availableQuizCount} QCM disponible{availableQuizCount !== 1 ? 's' : ''}
+                                            </span>
+                                        </div>
+
+                                        <div className="flex flex-wrap gap-2">
+                                            {[5, 10, 20, 50].map(cnt => {
+                                                if (cnt > availableQuizCount && availableQuizCount <= 5) return null;
+                                                const isSelected = quizQuestionLimit === String(cnt);
+                                                return (
+                                                    <button
+                                                        key={cnt}
+                                                        onClick={() => { setQuizQuestionLimit(String(cnt)); setCustomQuestionCount(''); }}
+                                                        className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all ${isSelected ? 'bg-orange-600 border-orange-500 text-white shadow-md ring-2 ring-orange-500/30' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'}`}
+                                                    >
+                                                        {cnt} QCM
+                                                    </button>
+                                                );
+                                            })}
+                                            <button
+                                                onClick={() => { setQuizQuestionLimit('all'); setCustomQuestionCount(''); }}
+                                                className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all ${quizQuestionLimit === 'all' ? 'bg-orange-600 border-orange-500 text-white shadow-md ring-2 ring-orange-500/30' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'}`}
+                                            >
+                                                Tous ({availableQuizCount})
+                                            </button>
+                                        </div>
+
+                                        {/* Champ Personnalisé */}
+                                        <div className="flex items-center gap-2 pt-1">
+                                            <span className="text-xs text-slate-400 font-medium">Ou personnaliser :</span>
+                                            <input
+                                                type="number"
+                                                min="1"
+                                                max={availableQuizCount}
+                                                placeholder="ex: 15"
+                                                value={customQuestionCount}
+                                                onChange={(e) => {
+                                                    setCustomQuestionCount(e.target.value);
+                                                    setQuizQuestionLimit('custom');
+                                                }}
+                                                className={`w-24 px-3 py-1.5 bg-slate-950 border text-xs font-bold text-white rounded-xl focus:outline-none transition-all ${quizQuestionLimit === 'custom' ? 'border-orange-500 ring-2 ring-orange-500/30' : 'border-slate-800'}`}
+                                            />
+                                            <span className="text-xs text-slate-500 font-semibold">QCM</span>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div className="flex gap-3 pt-2">
-                                    <button onClick={() => setShowUEConfigModal(false)} className="flex-1 py-3 bg-slate-800 text-slate-300 rounded-xl text-xs font-semibold">Annuler</button>
-                                    <button onClick={launchConfiguredQuiz} className="flex-1 py-3 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-xl text-xs font-bold">Lancer</button>
+                                    <button onClick={() => setShowUEConfigModal(false)} className="flex-1 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-semibold">Annuler</button>
+                                    <button onClick={launchConfiguredQuiz} className="flex-1 py-3 bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 text-white rounded-xl text-xs font-bold shadow-lg transition-transform active:scale-95 flex items-center justify-center gap-1.5">
+                                        <span>Lancer le Test</span>
+                                        <span>🚀</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
