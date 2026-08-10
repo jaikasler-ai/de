@@ -22135,12 +22135,13 @@
                 const currentPts = currentHistItem ? currentHistItem.points : 0;
                 const currentErrs = currentHistItem ? currentHistItem.errorsCount : 0;
 
-                const totalQCount = quizQuestions.length || 1;
+                const treatedQuestions = quizQuestions.filter(q => userAnswersHistory.some(h => h.question && h.question.id === q.id));
+                const totalQCount = treatedQuestions.length || 1;
                 let count0 = 0;
                 let countPartialLow = 0;
                 let countHigh = 0;
 
-                quizQuestions.forEach(q => {
+                treatedQuestions.forEach(q => {
                     const h = userAnswersHistory.find(item => item.question && item.question.id === q.id);
                     const pts = h ? (h.points ?? (h.isCorrect ? 1.0 : 0)) : 0;
                     if (pts === 0) {
@@ -22335,7 +22336,7 @@
                                         <h2 className="text-2xl font-bold text-white">Session Terminée !</h2>
                                         <div className="flex justify-center items-center gap-4 py-2">
                                             <div className="bg-slate-800 border border-slate-700 px-4 py-2 rounded-2xl text-orange-400 font-bold text-lg">
-                                                Score : {quizScore} / {quizQuestions.length}
+                                                Score : {quizScore} / {treatedQuestions.length}
                                             </div>
                                             <div className="bg-slate-800 border border-slate-700 px-4 py-2 rounded-2xl text-slate-300 font-mono font-bold text-lg flex items-center gap-2">
                                                 <span>⏱️</span>
@@ -22384,8 +22385,8 @@
                                         </div>
 
                                     <div className="space-y-4 max-h-96 overflow-y-auto pr-2">
-                                        <h3 className="text-sm font-bold text-white uppercase">Correction détaillée & Tout QCM</h3>
-                                        {quizQuestions.map((q, qIdx) => {
+                                        <h3 className="text-sm font-bold text-white uppercase">Correction détaillée ({treatedQuestions.length} QCM traité{treatedQuestions.length !== 1 ? 's' : ''})</h3>
+                                        {treatedQuestions.map((q, qIdx) => {
                                             const historyItem = userAnswersHistory.find(h => h.question.id === q.id);
                                             const pts = historyItem ? (historyItem.points ?? (historyItem.isCorrect ? 1 : 0)) : 0;
                                             const errs = historyItem ? (historyItem.errorsCount ?? 0) : 0;
