@@ -38341,15 +38341,7 @@
                     }
 
                     if (activeQuizMode === 'crashtest') {
-                        setRemainingHearts(prev => {
-                            const nextHearts = prev - 1;
-                            if (nextHearts <= 0) {
-                                setTimeout(() => {
-                                    setQuizFinished(true);
-                                }, 1200);
-                            }
-                            return nextHearts;
-                        });
+                        setRemainingHearts(prev => Math.max(0, prev - 1));
                     }
                 }
             };
@@ -38474,6 +38466,7 @@
                 const currentHistItem = userAnswersHistory.find(h => h.question && h.question.id === currentQ?.id);
                 const currentPts = currentHistItem ? currentHistItem.points : 0;
                 const currentErrs = currentHistItem ? currentHistItem.errorsCount : 0;
+                const isCurrentInAncrage = Boolean(currentQ && Object.values(ancrageData).some(item => (item.questionId === currentQ.id || item.entryId === currentQ.id) && item.status === 'active'));
 
                 const treatedQuestions = quizQuestions.filter(q => userAnswersHistory.some(h => h.question && h.question.id === q.id));
                 const totalQCount = treatedQuestions.length || 1;
@@ -38659,12 +38652,33 @@
                                                 ) : currentPts === 0.5 ? (
                                                     <span className="text-amber-400 flex items-center gap-2 font-bold">⚠️ 1 erreur commise (-0,5 pt) ➔ Note attribuée : +0,5 pt</span>
                                                 ) : (
-                                                    <span className="text-red-400 flex items-center gap-2 font-bold">✕ {currentErrs} erreurs commises (≥ 2 erreurs) ➔ Note attribuée : 0 pt {activeQuizMode === 'crashtest' && remainingHearts <= 0 && '(Game Over)'}</span>
+                                                    <span className="text-red-400 flex items-center gap-2 font-bold">✕ {currentErrs} erreurs commises (≥ 2 erreurs) ➔ Note attribuée : 0 pt {activeQuizMode === 'crashtest' && remainingHearts <= 0 && '(Game Over - 0 cœur restant)'}</span>
                                                 )}
                                             </div>
                                             <p className="text-sm text-slate-300"><strong>Explication :</strong> {currentQ.explanation}</p>
-                                            <button onClick={nextQuizQuestion} className="w-full py-3.5 bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold rounded-xl text-center">
-                                                {currentQuizIndex + 1 < quizQuestions.length && (activeQuizMode !== 'crashtest' || remainingHearts > 0) ? 'Question suivante →' : 'Voir le bilan et correction complète →'}
+
+                                            {(currentErrs > 0 || currentPts < 1.0) && (
+                                                <div className="flex justify-end pt-1">
+                                                    <button
+                                                        onClick={() => addAncrageEntry(currentQ.id)}
+                                                        disabled={isCurrentInAncrage}
+                                                        className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 shadow-lg ${
+                                                            isCurrentInAncrage
+                                                                ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-500/40 cursor-default'
+                                                                : 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-purple-900/30 hover:scale-[1.02] active:scale-95 cursor-pointer'
+                                                        }`}
+                                                    >
+                                                        <span>⚓</span>
+                                                        <span>{isCurrentInAncrage ? "✓ Déjà dans l'UE Ancrage" : "Mettre dans l'UE Ancrage"}</span>
+                                                    </button>
+                                                </div>
+                                            )}
+
+                                            <button onClick={nextQuizQuestion} className="w-full py-3.5 bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold rounded-xl text-center shadow-lg transition-all hover:brightness-110">
+                                                {activeQuizMode === 'crashtest' && remainingHearts <= 0
+                                                    ? 'Fermer le Crash Test et voir le bilan →'
+                                                    : (currentQuizIndex + 1 < quizQuestions.length ? 'Question suivante →' : 'Voir le bilan et correction complète →')
+                                                }
                                             </button>
                                         </div>
                                     )}
@@ -38814,6 +38828,23 @@
                                 <span className="text-base group-hover:scale-110 transition-transform">🏁</span>
                                 <span>Terminer le QCM & Voir la note</span>
                             </button>
+                        )}
+
+                        {!quizFinished && isSubmitted && (currentErrs > 0 || currentPts < 1.0) && (
+                            <div className="fixed bottom-6 right-6 z-50">
+                                <button
+                                    onClick={() => addAncrageEntry(currentQ.id)}
+                                    disabled={isCurrentInAncrage}
+                                    className={`px-5 py-3 rounded-2xl font-bold text-xs shadow-2xl transition-all transform hover:scale-105 active:scale-95 flex items-center gap-2 backdrop-blur-md border ${
+                                        isCurrentInAncrage
+                                            ? 'bg-emerald-900/90 text-emerald-300 border-emerald-500/60 cursor-default shadow-emerald-950/50'
+                                            : 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white border-purple-400/40 shadow-purple-950/70 hover:from-purple-500 hover:to-indigo-500 cursor-pointer animate-pulse hover:animate-none'
+                                    }`}
+                                >
+                                    <span className="text-base">⚓</span>
+                                    <span>{isCurrentInAncrage ? "✓ Déjà dans l'UE Ancrage" : "Mettre dans l'UE Ancrage"}</span>
+                                </button>
+                            </div>
                         )}
                     </div>
                 );
