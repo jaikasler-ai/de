@@ -69976,6 +69976,7 @@
             const [flaggedQuestions, setFlaggedQuestions] = useState({}); // { [qIdx]: boolean }
             const [quizFinished, setQuizFinished] = useState(false);
             const [userAnswersHistory, setUserAnswersHistory] = useState([]);
+            const [validatedQuestions, setValidatedQuestions] = useState({}); // { [qIdx]: boolean }
 
             // UE Config Modal State (Série QCM vs Crash Test avec Cœurs : 1, 3, 5 vs Mode Examen PASS)
             const [showUEConfigModal, setShowUEConfigModal] = useState(false);
@@ -70309,6 +70310,7 @@
                 setQuizFinished(false);
                 setQuizTimerSeconds(0);
                 setUserAnswersHistory([]);
+                setValidatedQuestions({});
                 setActiveQuizMode('ancrage');
             };
 
@@ -70356,6 +70358,7 @@
                 setQuizFinished(false);
                 setQuizTimerSeconds(0);
                 setUserAnswersHistory([]);
+                setValidatedQuestions({});
                 setActiveQuizMode(quizLaunchMode);
                 if (quizLaunchMode === 'crashtest') {
                     setRemainingHearts(crashTestHearts);
@@ -70407,6 +70410,7 @@
                 setQuizFinished(false);
                 setQuizTimerSeconds(0);
                 setUserAnswersHistory([]);
+                setValidatedQuestions({});
                 setActiveQuizMode(mode);
                 if (mode === 'crashtest') {
                     setRemainingHearts(3);
@@ -70418,6 +70422,7 @@
             };
 
             const toggleAnswerChoice = (ansIndex) => {
+                if (activeQuizMode !== 'exam' && validatedQuestions[currentQuizIndex]) return;
                 setUserChoices(prev => {
                     const current = prev[currentQuizIndex] || [];
                     const updated = current.includes(ansIndex) 
@@ -70427,8 +70432,10 @@
                 });
             };
 
-            const handleCrashTestNext = () => {
+            const validateCurrentQuestion = () => {
+                if (validatedQuestions[currentQuizIndex]) return;
                 const currentQ = quizQuestions[currentQuizIndex];
+                if (!currentQ) return;
                 const selected = userChoices[currentQuizIndex] || [];
                 let errorsCount = 0;
                 currentQ.answers.forEach((ans, aIdx) => {
@@ -70438,21 +70445,26 @@
                     }
                 });
 
-                if (errorsCount > 0) {
+                if (activeQuizMode === 'crashtest' && errorsCount > 0) {
                     const nextHearts = remainingHearts - 1;
                     setRemainingHearts(nextHearts);
-                    if (nextHearts <= 0) {
-                        alert("💥 Plus de cœurs restants ! Mort subite déclenchée.\nLe Crash Test s\'arrête ici et la correction complète de vos questions s\'affiche.");
-                        finishQuiz(0);
-                        return;
-                    }
                 }
 
-                if (currentQuizIndex + 1 < quizQuestions.length) {
-                    setCurrentQuizIndex(prev => prev + 1);
-                } else {
-                    finishQuiz();
+                if (errorsCount > 0) {
+                    const todayStr = new Date().toISOString().split('T')[0];
+                    setMistakes(prev => {
+                        if (prev.some(m => m.questionId === currentQ.id)) return prev;
+                        return [...prev, {
+                            id: 'm-' + Date.now() + '-' + currentQuizIndex,
+                            questionId: currentQ.id,
+                            date: todayStr,
+                            userChoice: selected,
+                            correctChoices: currentQ.answers.map((a, i) => a.correct ? i : null).filter(x => x !== null)
+                        }];
+                    });
                 }
+
+                setValidatedQuestions(prev => ({ ...prev, [currentQuizIndex]: true }));
             };
 
             const finishQuiz = (overrideHearts = null) => {
@@ -70732,20 +70744,37 @@
                                 <div className="flex items-center gap-1.5 flex-1 overflow-x-auto py-1">
                                     {quizQuestions.map((q, qIdx) => {
                                         const isCurrent = qIdx === currentQuizIndex;
+                                        const isVal = Boolean(validatedQuestions[qIdx]);
                                         const isAns = (userChoices[qIdx] || []).length > 0;
                                         const isFlag = Boolean(flaggedQuestions[qIdx]);
+
+                                        let btnStyle = 'bg-slate-950 border-slate-800 text-slate-400 hover:bg-slate-800';
+                                        if (isCurrent) {
+                                            btnStyle = 'bg-orange-600 text-white shadow-md ring-2 ring-orange-400 scale-105 z-10';
+                                        } else if (isVal && activeQuizMode !== 'exam') {
+                                            let errs = 0;
+                                            const sel = userChoices[qIdx] || [];
+                                            q.answers.forEach((ans, aIdx) => {
+                                                const isChecked = sel.includes(aIdx);
+                                                if ((ans.correct && !isChecked) || (!ans.correct && isChecked)) errs++;
+                                            });
+                                            if (errs === 0) btnStyle = 'bg-emerald-950/80 border border-emerald-500 text-emerald-300 hover:bg-emerald-900';
+                                            else if (errs === 1) btnStyle = 'bg-amber-950/80 border border-amber-500 text-amber-300 hover:bg-amber-900';
+                                            else btnStyle = 'bg-red-950/80 border border-red-500 text-red-300 hover:bg-red-900';
+                                        } else if (isAns) {
+                                            btnStyle = 'bg-purple-900/70 border border-purple-500/70 text-purple-200 hover:bg-purple-800';
+                                        }
+
                                         return (
                                             <button
                                                 key={q.id || qIdx}
-                                                onClick={() => setCurrentQuizIndex(qIdx)}
-                                                className={`min-w-[32px] h-[32px] rounded-xl text-xs font-bold transition-all shrink-0 flex items-center justify-center relative ${
-                                                    isCurrent 
-                                                        ? 'bg-orange-600 text-white shadow-md ring-2 ring-orange-400 scale-105 z-10' 
-                                                        : isAns
-                                                            ? 'bg-purple-900/70 border border-purple-500/70 text-purple-200 hover:bg-purple-800'
-                                                            : 'bg-slate-950 border border-slate-800 text-slate-400 hover:bg-slate-800'
-                                                }`}
-                                                title={`Question ${qIdx + 1}${isAns ? ' (Répondue)' : ' (Non répondue)'}${isFlag ? ' - Marquée' : ''}`}
+                                                onClick={() => {
+                                                    if (activeQuizMode !== 'crashtest' || qIdx <= currentQuizIndex || isVal) {
+                                                        setCurrentQuizIndex(qIdx);
+                                                    }
+                                                }}
+                                                className={`min-w-[32px] h-[32px] rounded-xl text-xs font-bold transition-all shrink-0 flex items-center justify-center relative ${btnStyle}`}
+                                                title={`Question ${qIdx + 1}${isVal ? ' (Corrigée)' : isAns ? ' (Répondue)' : ' (Non répondue)'}${isFlag ? ' - Marquée' : ''}`}
                                             >
                                                 <span>{qIdx + 1}</span>
                                                 {isFlag && (
@@ -70762,119 +70791,308 @@
                         )}
 
                         <main className="flex-1 max-w-4xl w-full mx-auto p-6 flex flex-col justify-center">
-                            {!quizFinished ? (
-                                <div className="space-y-6">
-                                    <div className="flex justify-between text-xs text-slate-400">
-                                        <span>{currentQ.chapter}</span>
-                                        <span>Année {currentQ.year} • {currentQ.difficulty}</span>
-                                    </div>
+                            {!quizFinished ? (() => {
+                                const isExamMode = activeQuizMode === 'exam';
+                                const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex]);
 
-                                    {currentQ.image && <PdfImage imageInfo={currentQ.image} />}
+                                return (
+                                    <div className="space-y-6">
+                                        <div className="flex justify-between text-xs text-slate-400">
+                                            <span>{currentQ.chapter}</span>
+                                            <span>Année {currentQ.year} • {currentQ.difficulty}</span>
+                                        </div>
 
-                                    <div className="space-y-2">
-                                        <h1 className="text-xl md:text-2xl font-bold text-white">{currentQ.statement}</h1>
-                                        <p className="text-xs text-slate-400 italic">
-                                            Cochez la ou les proposition(s) vraie(s). Barème officiel : Sans faute = 1 pt • 1 erreur = 0,5 pt • ≥ 2 erreurs = 0 pt. La correction détaillée s\'affiche à la fin de la série.
-                                        </p>
-                                    </div>
+                                        {currentQ.image && <PdfImage imageInfo={currentQ.image} />}
 
-                                    <div className="flex flex-col gap-3.5 w-full">
-                                        {currentQ.answers.map((ans, idx) => {
-                                            const isChecked = (userChoices[currentQuizIndex] || []).includes(idx);
-                                            return (
-                                                <div
-                                                    key={ans.id || idx}
-                                                    onClick={() => toggleAnswerChoice(idx)}
-                                                    className={`p-4 rounded-2xl border-2 text-left transition-all flex items-center justify-between gap-4 cursor-pointer select-none ${
-                                                        isChecked
-                                                            ? 'bg-purple-950/40 text-white border-purple-500 shadow-md ring-2 ring-purple-500/20'
-                                                            : 'bg-slate-900/80 text-slate-200 border-slate-800 hover:border-slate-700 hover:bg-slate-800/60 shadow-sm'
-                                                    }`}
-                                                >
-                                                    <div className="flex items-center gap-3.5 flex-1">
-                                                        <div className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 border-2 transition-colors ${
-                                                            isChecked 
-                                                                ? 'bg-purple-600 border-purple-500 text-white' 
-                                                                : 'border-slate-700 bg-slate-800 text-transparent'
-                                                        }`}>
+                                        <div className="space-y-2">
+                                            <h1 className="text-xl md:text-2xl font-bold text-white">{currentQ.statement}</h1>
+                                            <p className="text-xs text-slate-400 italic">
+                                                {isExamMode 
+                                                    ? "Cochez la ou les proposition(s) vraie(s). Barème officiel : Sans faute = 1 pt • 1 erreur = 0,5 pt • ≥ 2 erreurs = 0 pt. La correction détaillée s'affiche à la fin de l'épreuve."
+                                                    : isValidated 
+                                                        ? "Correction détaillée du QCM affichée ci-dessous. Consultez les explications item par item."
+                                                        : "Cochez la ou les proposition(s) vraie(s). Barème officiel : Sans faute = 1 pt • 1 erreur = 0,5 pt • ≥ 2 erreurs = 0 pt. Cliquez sur « Valider ma réponse » pour afficher la correction immédiate."}
+                                            </p>
+                                        </div>
+
+                                        {/* OPTIONS LIST */}
+                                        <div className="flex flex-col gap-3.5 w-full">
+                                            {currentQ.answers.map((ans, idx) => {
+                                                const isChecked = (userChoices[currentQuizIndex] || []).includes(idx);
+                                                const isCorrectAns = ans.correct;
+
+                                                if (!isValidated) {
+                                                    return (
+                                                        <div
+                                                            key={ans.id || idx}
+                                                            onClick={() => toggleAnswerChoice(idx)}
+                                                            className={`p-4 rounded-2xl border-2 text-left transition-all flex items-center justify-between gap-4 cursor-pointer select-none ${
+                                                                isChecked
+                                                                    ? 'bg-purple-950/40 text-white border-purple-500 shadow-md ring-2 ring-purple-500/20'
+                                                                    : 'bg-slate-900/80 text-slate-200 border-slate-800 hover:border-slate-700 hover:bg-slate-800/60 shadow-sm'
+                                                            }`}
+                                                        >
+                                                            <div className="flex items-center gap-3.5 flex-1">
+                                                                <div className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 border-2 transition-colors ${
+                                                                    isChecked 
+                                                                        ? 'bg-purple-600 border-purple-500 text-white' 
+                                                                        : 'border-slate-700 bg-slate-800 text-transparent'
+                                                                }`}>
+                                                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                                                    </svg>
+                                                                </div>
+                                                                <div className="text-sm md:text-base font-medium leading-relaxed">
+                                                                    <span className="font-bold text-purple-400 mr-2.5">{String.fromCharCode(65 + idx)}.</span>
+                                                                    <span>{ans.text}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                }
+
+                                                // VALIDATED STATE : COLOR CODED + BADGES
+                                                let cardStyle = '';
+                                                let badge = null;
+                                                let iconBox = null;
+
+                                                if (isCorrectAns && isChecked) {
+                                                    cardStyle = 'bg-emerald-950/40 text-emerald-100 border-emerald-500 shadow-sm ring-1 ring-emerald-500/30';
+                                                    badge = <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shrink-0">✓ VRAI (Bien coché)</span>;
+                                                    iconBox = (
+                                                        <div className="w-6 h-6 rounded-lg flex items-center justify-center shrink-0 bg-emerald-600 border border-emerald-400 text-white">
                                                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                                             </svg>
                                                         </div>
-                                                        <div className="text-sm md:text-base font-medium leading-relaxed">
-                                                            <span className="font-bold text-purple-400 mr-2.5">{String.fromCharCode(65 + idx)}.</span>
-                                                            <span>{ans.text}</span>
+                                                    );
+                                                } else if (!isCorrectAns && isChecked) {
+                                                    cardStyle = 'bg-red-950/40 text-red-100 border-red-500 shadow-sm ring-1 ring-red-500/30';
+                                                    badge = <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-red-500/20 text-red-300 border border-red-500/40 shrink-0">✗ FAUX (Coché par erreur)</span>;
+                                                    iconBox = (
+                                                        <div className="w-6 h-6 rounded-lg flex items-center justify-center shrink-0 bg-red-600 border border-red-400 text-white">
+                                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                                            </svg>
+                                                        </div>
+                                                    );
+                                                } else if (isCorrectAns && !isChecked) {
+                                                    cardStyle = 'bg-amber-950/30 text-amber-100 border-amber-500 shadow-sm ring-1 ring-amber-500/30';
+                                                    badge = <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 shrink-0">⚠️ VRAI (Oublié)</span>;
+                                                    iconBox = (
+                                                        <div className="w-6 h-6 rounded-lg flex items-center justify-center shrink-0 bg-amber-600 border border-amber-400 text-white">
+                                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                                            </svg>
+                                                        </div>
+                                                    );
+                                                } else {
+                                                    cardStyle = 'bg-slate-900/60 text-slate-300 border-slate-700/80';
+                                                    badge = <span className="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-800 text-slate-400 border border-slate-700 shrink-0">✓ FAUX (Non coché)</span>;
+                                                    iconBox = (
+                                                        <div className="w-6 h-6 rounded-lg flex items-center justify-center shrink-0 bg-slate-800 border border-slate-700 text-slate-500">
+                                                            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                                <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
+                                                            </svg>
+                                                        </div>
+                                                    );
+                                                }
+
+                                                return (
+                                                    <div
+                                                        key={ans.id || idx}
+                                                        className={`p-4 rounded-2xl border-2 text-left transition-all flex items-center justify-between gap-4 select-none ${cardStyle}`}
+                                                    >
+                                                        <div className="flex items-center gap-3.5 flex-1">
+                                                            {iconBox}
+                                                            <div className="text-sm md:text-base font-medium leading-relaxed">
+                                                                <span className="font-bold mr-2.5">{String.fromCharCode(65 + idx)}.</span>
+                                                                <span>{ans.text}</span>
+                                                            </div>
+                                                        </div>
+                                                        {badge}
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+
+                                        {/* IMMEDIATE CORRECTION BANNER & EXPLANATIONS */}
+                                        {isValidated && (() => {
+                                            let curErrors = 0;
+                                            const sel = userChoices[currentQuizIndex] || [];
+                                            currentQ.answers.forEach((ans, aIdx) => {
+                                                const isChecked = sel.includes(aIdx);
+                                                if ((ans.correct && !isChecked) || (!ans.correct && isChecked)) curErrors++;
+                                            });
+                                            const qPoints = curErrors === 0 ? 1.0 : (curErrors === 1 ? 0.5 : 0.0);
+                                            const isGameOver = activeQuizMode === 'crashtest' && remainingHearts <= 0;
+
+                                            return (
+                                                <div className="space-y-4 pt-2">
+                                                    {/* SCORE BANNER */}
+                                                    <div className={`p-4 rounded-2xl border flex flex-wrap items-center justify-between gap-3 shadow-md ${
+                                                        curErrors === 0 
+                                                            ? 'bg-emerald-950/60 border-emerald-500/60 text-emerald-200' 
+                                                            : curErrors === 1 
+                                                                ? 'bg-amber-950/60 border-amber-500/60 text-amber-200' 
+                                                                : 'bg-red-950/60 border-red-500/60 text-red-200'
+                                                    }`}>
+                                                        <div className="flex items-center gap-3">
+                                                            <span className="text-2xl">
+                                                                {curErrors === 0 ? '🎉' : curErrors === 1 ? '🟡' : '❌'}
+                                                            </span>
+                                                            <div>
+                                                                <div className="font-extrabold text-base text-white">
+                                                                    {curErrors === 0 
+                                                                        ? 'Sans faute ! Proposition(s) exacte(s) identifiée(s).' 
+                                                                        : curErrors === 1 
+                                                                            ? '1 seule erreur commise sur ce QCM.' 
+                                                                            : `${curErrors} erreurs commises sur ce QCM.`}
+                                                                </div>
+                                                                <div className="text-xs opacity-80 mt-0.5">
+                                                                    Barème officiel PASS : {qPoints === 1 ? '+1,0 pt' : qPoints === 0.5 ? '+0,5 pt' : '+0,0 pt'}
+                                                                    {activeQuizMode === 'crashtest' && (
+                                                                        curErrors === 0 
+                                                                            ? ' • ❤️ Aucun cœur perdu' 
+                                                                            : ` • 💔 Cœur perdu (${Math.max(0, remainingHearts)} restant${remainingHearts > 1 ? 's' : ''})`
+                                                                    )}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="text-right font-black text-lg">
+                                                            {qPoints === 1 ? '1,0 / 1 pt' : qPoints === 0.5 ? '0,5 / 1 pt' : '0,0 / 1 pt'}
                                                         </div>
                                                     </div>
+
+                                                    {/* MORT SUBITE BANNER IF CRASHTEST GAME OVER */}
+                                                    {isGameOver && (
+                                                        <div className="p-4 rounded-2xl bg-red-950/90 border-2 border-red-500 text-red-100 flex items-center gap-3 shadow-xl animate-pulse">
+                                                            <span className="text-3xl">💥</span>
+                                                            <div>
+                                                                <div className="font-black text-sm uppercase tracking-wider text-red-300">Mort Subite — 0 cœur restant</div>
+                                                                <div className="text-xs text-red-200">Vous avez épuisé toutes vos vies ! Retrouvez ci-dessous la correction détaillée de votre QCM avant d'accéder au bilan.</div>
+                                                            </div>
+                                                        </div>
+                                                    )}
+
+                                                    {/* EXPLANATIONS CONTAINER */}
+                                                    {(currentQ.explanation || (currentQ.itemExplanations && currentQ.itemExplanations.length > 0)) && (
+                                                        <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3 shadow-lg">
+                                                            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-orange-400">
+                                                                <span>💡</span>
+                                                                <span>Correction & Explications Détaillées</span>
+                                                            </div>
+
+                                                            {currentQ.itemExplanations && currentQ.itemExplanations.length > 0 ? (
+                                                                <div className="space-y-2 pt-1">
+                                                                    {currentQ.itemExplanations.map((exp, eIdx) => (
+                                                                        <div key={eIdx} className="p-3 rounded-xl bg-slate-800/70 border border-slate-700/60 text-slate-200 text-sm leading-relaxed">
+                                                                            {exp}
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            ) : (
+                                                                <div className="p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/60 text-slate-200 text-sm leading-relaxed whitespace-pre-line">
+                                                                    {currentQ.explanation}
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    )}
                                                 </div>
                                             );
-                                        })}
-                                    </div>
+                                        })()}
 
-                                    {/* CONTROLS */}
-                                    <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800/80 mt-6">
-                                        <div className="flex items-center gap-2">
-                                            <button
-                                                onClick={() => setCurrentQuizIndex(prev => Math.max(0, prev - 1))}
-                                                disabled={currentQuizIndex === 0}
-                                                className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
-                                                    currentQuizIndex === 0 
-                                                        ? 'bg-slate-900 border border-slate-800 text-slate-600 cursor-not-allowed' 
-                                                        : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700'
-                                                }`}
-                                            >
-                                                <span>← Précédent</span>
-                                            </button>
-
-                                            <button
-                                                onClick={() => setFlaggedQuestions(prev => ({ ...prev, [currentQuizIndex]: !prev[currentQuizIndex] }))}
-                                                className={`px-3 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border ${
-                                                    flaggedQuestions[currentQuizIndex]
-                                                        ? 'bg-amber-950/60 border-amber-500 text-amber-300 ring-1 ring-amber-500/30'
-                                                        : 'bg-slate-800 hover:bg-slate-700 text-slate-400 border border-slate-700'
-                                                }`}
-                                                title="Marquer pour relire plus tard"
-                                            >
-                                                <span>🚩</span>
-                                                <span>{flaggedQuestions[currentQuizIndex] ? 'Marqué' : 'À relire'}</span>
-                                            </button>
-                                        </div>
-
-                                        <div className="flex items-center gap-3">
-                                            {activeQuizMode === 'crashtest' ? (
+                                        {/* CONTROLS */}
+                                        <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800/80 mt-6">
+                                            <div className="flex items-center gap-2">
                                                 <button
-                                                    onClick={handleCrashTestNext}
-                                                    className="px-6 py-2.5 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500 text-white text-xs font-bold rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center gap-2"
+                                                    onClick={() => setCurrentQuizIndex(prev => Math.max(0, prev - 1))}
+                                                    disabled={currentQuizIndex === 0}
+                                                    className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                                                        currentQuizIndex === 0 
+                                                            ? 'bg-slate-900 border border-slate-800 text-slate-600 cursor-not-allowed' 
+                                                            : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700'
+                                                    }`}
                                                 >
-                                                    <span>{currentQuizIndex + 1 < quizQuestions.length ? 'Valider & Question suivante →' : 'Valider & Voir la correction →'}</span>
+                                                    <span>← Précédent</span>
                                                 </button>
-                                            ) : (
-                                                <>
-                                                    {currentQuizIndex + 1 < quizQuestions.length ? (
-                                                        <button
-                                                            onClick={() => setCurrentQuizIndex(prev => prev + 1)}
-                                                            className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white text-xs font-bold rounded-xl transition-all flex items-center gap-1.5"
-                                                        >
-                                                            <span>Question suivante →</span>
-                                                        </button>
-                                                    ) : null}
 
+                                                <button
+                                                    onClick={() => setFlaggedQuestions(prev => ({ ...prev, [currentQuizIndex]: !prev[currentQuizIndex] }))}
+                                                    className={`px-3 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border ${
+                                                        flaggedQuestions[currentQuizIndex]
+                                                            ? 'bg-amber-950/60 border-amber-500 text-amber-300 ring-1 ring-amber-500/30'
+                                                            : 'bg-slate-800 hover:bg-slate-700 text-slate-400 border border-slate-700'
+                                                    }`}
+                                                    title="Marquer pour relire plus tard"
+                                                >
+                                                    <span>🚩</span>
+                                                    <span>{flaggedQuestions[currentQuizIndex] ? 'Marqué' : 'À relire'}</span>
+                                                </button>
+                                            </div>
+
+                                            <div className="flex items-center gap-3">
+                                                {isExamMode ? (
+                                                    <>
+                                                        {currentQuizIndex + 1 < quizQuestions.length ? (
+                                                            <button
+                                                                onClick={() => setCurrentQuizIndex(prev => prev + 1)}
+                                                                className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white text-xs font-bold rounded-xl transition-all flex items-center gap-1.5"
+                                                            >
+                                                                <span>Question suivante →</span>
+                                                            </button>
+                                                        ) : null}
+
+                                                        <button
+                                                            onClick={() => {
+                                                                if (confirm(`Terminer l'épreuve et voir la note finale avec la correction complète ?\n\nVous avez répondu à ${answeredCount} question(s) sur ${quizQuestions.length}.`)) {
+                                                                    finishQuiz();
+                                                                }
+                                                            }}
+                                                            className="px-6 py-2.5 bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 text-white text-xs font-bold rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center gap-2"
+                                                        >
+                                                            <span>🏁 Terminer l'épreuve</span>
+                                                        </button>
+                                                    </>
+                                                ) : !isValidated ? (
                                                     <button
-                                                        onClick={() => {
-                                                            if (confirm(`Terminer la série et voir votre note avec la correction complète ?\n\nVous avez répondu à ${answeredCount} question(s) sur ${quizQuestions.length}.`)) {
-                                                                finishQuiz();
-                                                            }
-                                                        }}
-                                                        className="px-6 py-2.5 bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 text-white text-xs font-bold rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center gap-2"
+                                                        onClick={validateCurrentQuestion}
+                                                        className="px-6 py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-bold rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center gap-2"
                                                     >
-                                                        <span>🏁 Terminer & Corriger</span>
+                                                        <span>✓ Valider ma réponse</span>
                                                     </button>
-                                                </>
-                                            )}
+                                                ) : (
+                                                    <>
+                                                        {activeQuizMode === 'crashtest' && remainingHearts <= 0 ? (
+                                                            <button
+                                                                onClick={() => finishQuiz(0)}
+                                                                className="px-6 py-2.5 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white text-xs font-bold rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center gap-2"
+                                                            >
+                                                                <span>💥 Voir le bilan du Crash Test</span>
+                                                            </button>
+                                                        ) : currentQuizIndex + 1 < quizQuestions.length ? (
+                                                            <button
+                                                                onClick={() => setCurrentQuizIndex(prev => prev + 1)}
+                                                                className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-bold rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center gap-2"
+                                                            >
+                                                                <span>Question suivante →</span>
+                                                            </button>
+                                                        ) : (
+                                                            <button
+                                                                onClick={() => finishQuiz()}
+                                                                className="px-6 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white text-xs font-bold rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center gap-2"
+                                                            >
+                                                                <span>🏁 Voir le bilan final</span>
+                                                            </button>
+                                                        )}
+                                                    </>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ) : (
+                                );
+                            })() : (
                                 <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl max-w-3xl mx-auto space-y-6 shadow-2xl">
                                     <div className="text-center space-y-3">
                                         <div className="w-16 h-16 bg-gradient-to-tr from-red-600 to-orange-500 rounded-3xl mx-auto flex items-center justify-center text-white text-3xl shadow-lg">
