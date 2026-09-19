@@ -69915,27 +69915,50 @@
 
     const getItemExplanation = (q, ans, idx) => {
             if (!ans) return "";
-            if (ans.explanation) return ans.explanation;
-            
-            if (q && q.explanation) {
+            let raw = "";
+            if (ans.explanation && ans.explanation.trim()) {
+                raw = ans.explanation.trim();
+            } else if (q && Array.isArray(q.itemExplanations) && q.itemExplanations[idx] && q.itemExplanations[idx].trim()) {
+                raw = q.itemExplanations[idx].trim();
+            } else if (q && q.explanation && typeof q.explanation === 'string') {
                 const optionLetter = String.fromCharCode(65 + idx);
                 const regexes = [
+                    new RegExp('(?:^|[•\\n])\\s*' + optionLetter + '[\\.\\s:—\\-]+(.*?)(?=(?:[•\\n]\\s*[A-Z][\\.\\s:—\\-]|\\Z))', 'is'),
                     new RegExp(optionLetter + '[\\.\\s]+(Vrai|Faux)\\s*[:—–\\-]?\\s*(.*?)(?=(?:[A-E][\\.\\s]+(?:Vrai|Faux)|Réponses?|$))', 'is'),
                     new RegExp(optionLetter + '\\s+est\\s+(vrai|faux)\\s*\\(?\\s*(.*?)\\)?(?=(?:[A-E]\\s+est\\s+(?:vrai|faux)|Réponses?|$))', 'is')
                 ];
-                
                 for (const regex of regexes) {
                     const match = q.explanation.match(regex);
-                        if (match && match[2] && match[2].trim().length > 3) {
-                            let text = match[2].trim().replace(/^[:—–\-\s\(\)]+/, '').replace(/[\s\.\(\)]+$/, '');
-                            if (text.length > 3) return text;
+                    if (match) {
+                        const captured = match[2] || match[1];
+                        if (captured && captured.trim().length > 3) {
+                            raw = captured.trim().replace(/^[:—–\\-\\s\\(\\)]+/, '').replace(/[\\s\\.\\(\\)]+$/, '');
+                            break;
                         }
+                    }
                 }
             }
 
-            return ans.correct 
-                ? "Affirmation exacte et conforme aux notions théoriques du cours." 
-                : "Affirmation inexacte ou non recommandée dans ce contexte.";
+            if (!raw) {
+                raw = ans.correct 
+                    ? "Vrai. Cette affirmation est exacte d'après les propriétés physiologiques et anatomiques du cours." 
+                    : "Faux. Cette affirmation est inexacte d'après les notions et définitions du cours.";
+            }
+
+            // Clean up letter prefix e.g. "A. ", "A - ", "A : "
+            let clean = raw.replace(/^[A-E][\\.\\s:—\\-]+\\s*/i, '').trim();
+
+            // Standardize "VRAI — " or "FAUX — "
+            clean = clean.replace(/^(VRAI|FAUX)\\s*[—\\-:]\\s*/i, (m, p1) => {
+                return p1.toUpperCase() === 'VRAI' ? 'Vrai. ' : 'Faux. ';
+            });
+
+            // Ensure it starts with Vrai. or Faux.
+            if (!/^vrai[\\.\\s—\\-]/i.test(clean) && !/^faux[\\.\\s—\\-]/i.test(clean)) {
+                clean = (ans.correct ? 'Vrai. ' : 'Faux. ') + clean;
+            }
+
+            return clean;
         };
 
         function App() {
@@ -70851,66 +70874,145 @@
                                                     );
                                                 }
 
-                                                // VALIDATED STATE : COLOR CODED + BADGES
-                                                let cardStyle = '';
-                                                let badge = null;
-                                                let iconBox = null;
+                                                // VALIDATED STATE : EXACT LAYOUT AS IN REFERENCE SCREENSHOT
+                                                const itemExp = getItemExplanation(currentQ, ans, idx);
 
-                                                if (isCorrectAns && isChecked) {
-                                                    cardStyle = 'bg-emerald-950/40 text-emerald-100 border-emerald-500 shadow-sm ring-1 ring-emerald-500/30';
-                                                    badge = <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shrink-0">✓ VRAI (Bien coché)</span>;
-                                                    iconBox = (
-                                                        <div className="w-6 h-6 rounded-lg flex items-center justify-center shrink-0 bg-emerald-600 border border-emerald-400 text-white">
+                                                let cardWrapperClass = '';
+                                                let textClass = '';
+                                                let checkboxIcon = null;
+                                                let statusBadge = null;
+                                                let pillBgClass = '';
+                                                let pillCurveSvg = null;
+                                                let pillPrefix = '';
+                                                let pillPrefixClass = '';
+                                                let pillTextClass = '';
+
+                                                if (isCorrectAns && !isChecked) {
+                                                    // 1. Vrai (Oublié) - Amber/Orange
+                                                    cardWrapperClass = 'bg-[#fef9ee] border-2 border-amber-400 text-amber-950 shadow-sm';
+                                                    textClass = 'text-amber-950 font-semibold';
+                                                    checkboxIcon = (
+                                                        <div className="w-6 h-6 rounded-lg border-2 border-amber-500 bg-amber-100/90 flex items-center justify-center text-amber-600 shrink-0">
                                                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                                             </svg>
                                                         </div>
                                                     );
+                                                    statusBadge = (
+                                                        <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#f59e0b] text-white shadow-sm shrink-0 flex items-center gap-1">
+                                                            <span>▲</span>
+                                                            <span>Vrai (Oublié)</span>
+                                                        </span>
+                                                    );
+                                                    pillBgClass = 'bg-[#e6f7ef] border border-emerald-200/50';
+                                                    pillCurveSvg = (
+                                                        <svg className="w-2.5 h-6 text-emerald-600 shrink-0 mt-0.5 select-none" viewBox="0 0 10 24" fill="none">
+                                                            <path d="M7 2C2.5 6 2.5 18 7 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                                                        </svg>
+                                                    );
+                                                    pillPrefix = 'VRAI — ';
+                                                    pillPrefixClass = 'text-emerald-700 font-black text-sm tracking-wide';
+                                                    pillTextClass = 'text-slate-800 text-sm font-medium leading-relaxed';
                                                 } else if (!isCorrectAns && isChecked) {
-                                                    cardStyle = 'bg-red-950/40 text-red-100 border-red-500 shadow-sm ring-1 ring-red-500/30';
-                                                    badge = <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-red-500/20 text-red-300 border border-red-500/40 shrink-0">✗ FAUX (Coché par erreur)</span>;
-                                                    iconBox = (
-                                                        <div className="w-6 h-6 rounded-lg flex items-center justify-center shrink-0 bg-red-600 border border-red-400 text-white">
+                                                    // 2. Faux (Coché à tort) - Red
+                                                    cardWrapperClass = 'bg-[#fef2f2] border-2 border-red-400 text-red-950 shadow-sm';
+                                                    textClass = 'line-through text-red-600 font-semibold';
+                                                    checkboxIcon = (
+                                                        <div className="w-6 h-6 rounded-lg bg-red-600 border border-red-500 text-white flex items-center justify-center shrink-0">
                                                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                                                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                                             </svg>
                                                         </div>
                                                     );
-                                                } else if (isCorrectAns && !isChecked) {
-                                                    cardStyle = 'bg-amber-950/30 text-amber-100 border-amber-500 shadow-sm ring-1 ring-amber-500/30';
-                                                    badge = <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 shrink-0">⚠️ VRAI (Oublié)</span>;
-                                                    iconBox = (
-                                                        <div className="w-6 h-6 rounded-lg flex items-center justify-center shrink-0 bg-amber-600 border border-amber-400 text-white">
-                                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                                                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                                                            </svg>
-                                                        </div>
+                                                    statusBadge = (
+                                                        <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#dc2626] text-white shadow-sm shrink-0 flex items-center gap-1">
+                                                            <span>✖</span>
+                                                            <span>Faux (Coché à tort)</span>
+                                                        </span>
                                                     );
+                                                    pillBgClass = 'bg-[#feecee] border border-red-200/50';
+                                                    pillCurveSvg = (
+                                                        <svg className="w-2.5 h-6 text-red-600 shrink-0 mt-0.5 select-none" viewBox="0 0 10 24" fill="none">
+                                                            <path d="M7 2C2.5 6 2.5 18 7 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                                                        </svg>
+                                                    );
+                                                    pillPrefix = 'FAUX — ';
+                                                    pillPrefixClass = 'text-red-700 font-black text-sm tracking-wide';
+                                                    pillTextClass = 'text-slate-800 text-sm font-medium leading-relaxed';
+                                                } else if (!isCorrectAns && !isChecked) {
+                                                    // 3. Faux (Correctement évité) - Slate/Grey
+                                                    cardWrapperClass = 'bg-[#a3b1c2] border-2 border-slate-400/90 text-slate-800 shadow-sm';
+                                                    textClass = 'line-through text-slate-600 font-semibold';
+                                                    checkboxIcon = (
+                                                        <div className="w-6 h-6 rounded-lg bg-slate-300/60 border border-slate-400 text-transparent shrink-0"></div>
+                                                    );
+                                                    statusBadge = (
+                                                        <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#5b6a7a] text-white shadow-sm shrink-0">
+                                                            Faux (Correctement évité)
+                                                        </span>
+                                                    );
+                                                    pillBgClass = 'bg-[#8997a8] border border-slate-400/50';
+                                                    pillCurveSvg = (
+                                                        <svg className="w-2.5 h-6 text-[#991b1b] shrink-0 mt-0.5 select-none" viewBox="0 0 10 24" fill="none">
+                                                            <path d="M7 2C2.5 6 2.5 18 7 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                                                        </svg>
+                                                    );
+                                                    pillPrefix = 'FAUX — ';
+                                                    pillPrefixClass = 'text-[#7f1d1d] font-black text-sm tracking-wide';
+                                                    pillTextClass = 'text-[#1e293b] text-sm font-medium leading-relaxed';
                                                 } else {
-                                                    cardStyle = 'bg-slate-900/60 text-slate-300 border-slate-700/80';
-                                                    badge = <span className="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-800 text-slate-400 border border-slate-700 shrink-0">✓ FAUX (Non coché)</span>;
-                                                    iconBox = (
-                                                        <div className="w-6 h-6 rounded-lg flex items-center justify-center shrink-0 bg-slate-800 border border-slate-700 text-slate-500">
-                                                            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                                                <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
+                                                    // 4. Vrai (Bien coché) - Emerald Green
+                                                    cardWrapperClass = 'bg-[#ecfdf5] border-2 border-emerald-400 text-emerald-950 shadow-sm';
+                                                    textClass = 'text-[#064e3b] font-semibold';
+                                                    checkboxIcon = (
+                                                        <div className="w-6 h-6 rounded-lg bg-emerald-600 border border-emerald-500 text-white flex items-center justify-center shrink-0">
+                                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                                             </svg>
                                                         </div>
                                                     );
+                                                    statusBadge = (
+                                                        <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#059669] text-white shadow-sm shrink-0 flex items-center gap-1">
+                                                            <span>✔</span>
+                                                            <span>Vrai (Bien coché)</span>
+                                                        </span>
+                                                    );
+                                                    pillBgClass = 'bg-[#d1fae5]/70 border border-emerald-200/50';
+                                                    pillCurveSvg = (
+                                                        <svg className="w-2.5 h-6 text-emerald-600 shrink-0 mt-0.5 select-none" viewBox="0 0 10 24" fill="none">
+                                                            <path d="M7 2C2.5 6 2.5 18 7 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                                                        </svg>
+                                                    );
+                                                    pillPrefix = 'VRAI — ';
+                                                    pillPrefixClass = 'text-emerald-700 font-black text-sm tracking-wide';
+                                                    pillTextClass = 'text-slate-800 text-sm font-medium leading-relaxed';
                                                 }
 
                                                 return (
                                                     <div
                                                         key={ans.id || idx}
-                                                        className={`p-4 rounded-2xl border-2 text-left transition-all flex items-center justify-between gap-4 select-none ${cardStyle}`}
+                                                        className={`p-4 md:p-5 rounded-2xl transition-all space-y-3 select-none ${cardWrapperClass}`}
                                                     >
-                                                        <div className="flex items-center gap-3.5 flex-1">
-                                                            {iconBox}
-                                                            <div className="text-sm md:text-base font-medium leading-relaxed">
-                                                                <span className="font-bold mr-2.5">{String.fromCharCode(65 + idx)}.</span>
-                                                                <span>{ans.text}</span>
+                                                        {/* TOP ROW : ICON + TEXT + BADGE */}
+                                                        <div className="flex items-start justify-between gap-3 md:gap-4">
+                                                            <div className="flex items-start gap-3.5 flex-1">
+                                                                <div className="mt-0.5 shrink-0">{checkboxIcon}</div>
+                                                                <div className={`text-sm md:text-base leading-relaxed ${textClass}`}>
+                                                                    <span className="font-extrabold mr-2">{String.fromCharCode(65 + idx)}.</span>
+                                                                    <span>{ans.text}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div className="shrink-0">{statusBadge}</div>
+                                                        </div>
+
+                                                        {/* EMBEDDED EXPLANATION PILL */}
+                                                        <div className={`p-3 rounded-xl flex items-start gap-2.5 ${pillBgClass}`}>
+                                                            {pillCurveSvg}
+                                                            <div className="flex-1 leading-relaxed">
+                                                                <span className={pillPrefixClass}>{pillPrefix}</span>
+                                                                <span className={pillTextClass}>{itemExp}</span>
                                                             </div>
                                                         </div>
-                                                        {badge}
                                                     </div>
                                                 );
                                             })}
@@ -70976,27 +71078,16 @@
                                                         </div>
                                                     )}
 
-                                                    {/* EXPLANATIONS CONTAINER */}
-                                                    {(currentQ.explanation || (currentQ.itemExplanations && currentQ.itemExplanations.length > 0)) && (
-                                                        <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3 shadow-lg">
-                                                            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-orange-400">
+                                                    {/* SYNTHESIS / REMARKS IF PRESENT */}
+                                                    {Boolean(currentQ.explanation && typeof currentQ.explanation === 'string' && currentQ.explanation.trim()) && (
+                                                        <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 text-slate-300 text-xs md:text-sm leading-relaxed shadow-lg">
+                                                            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-orange-400 mb-1.5">
                                                                 <span>💡</span>
-                                                                <span>Correction & Explications Détaillées</span>
+                                                                <span>Synthèse globale du QCM</span>
                                                             </div>
-
-                                                            {currentQ.itemExplanations && currentQ.itemExplanations.length > 0 ? (
-                                                                <div className="space-y-2 pt-1">
-                                                                    {currentQ.itemExplanations.map((exp, eIdx) => (
-                                                                        <div key={eIdx} className="p-3 rounded-xl bg-slate-800/70 border border-slate-700/60 text-slate-200 text-sm leading-relaxed">
-                                                                            {exp}
-                                                                        </div>
-                                                                    ))}
-                                                                </div>
-                                                            ) : (
-                                                                <div className="p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/60 text-slate-200 text-sm leading-relaxed whitespace-pre-line">
-                                                                    {currentQ.explanation}
-                                                                </div>
-                                                            )}
+                                                            <div className="whitespace-pre-line text-slate-300">
+                                                                {currentQ.explanation}
+                                                            </div>
                                                         </div>
                                                     )}
                                                 </div>
@@ -71210,48 +71301,147 @@
                                                     <div className="space-y-2.5 my-3">
                                                         {q.answers.map((ans, aIdx) => {
                                                             const isChecked = userChoicesForQ.includes(aIdx);
-                                                            let userStatusBadge = null;
-                                                            if (ans.correct && isChecked) {
-                                                                userStatusBadge = <span className="text-[10px] font-bold bg-emerald-600 text-white px-2 py-0.5 rounded-md shrink-0">✓ Vrai (Votre choix : Vrai)</span>;
-                                                            } else if (ans.correct && !isChecked) {
-                                                                userStatusBadge = <span className="text-[10px] font-bold bg-amber-500 text-white px-2 py-0.5 rounded-md shrink-0">⚠️ Vrai (Oublié par vous)</span>;
-                                                            } else if (!ans.correct && isChecked) {
-                                                                userStatusBadge = <span className="text-[10px] font-bold bg-red-600 text-white px-2 py-0.5 rounded-md shrink-0">✕ Faux (Coché à tort par vous)</span>;
+                                                            const isCorrectAns = Boolean(ans.correct);
+                                                            const itemExp = getItemExplanation(q, ans, aIdx);
+
+                                                            let cardWrapperClass = '';
+                                                            let textClass = '';
+                                                            let checkboxIcon = null;
+                                                            let statusBadge = null;
+                                                            let pillBgClass = '';
+                                                            let pillCurveSvg = null;
+                                                            let pillPrefix = '';
+                                                            let pillPrefixClass = '';
+                                                            let pillTextClass = '';
+
+                                                            if (isCorrectAns && !isChecked) {
+                                                                // 1. Vrai (Oublié) - Amber/Orange
+                                                                cardWrapperClass = 'bg-[#fef9ee] border-2 border-amber-400 text-amber-950 shadow-sm';
+                                                                textClass = 'text-amber-950 font-semibold';
+                                                                checkboxIcon = (
+                                                                    <div className="w-6 h-6 rounded-lg border-2 border-amber-500 bg-amber-100/90 flex items-center justify-center text-amber-600 shrink-0">
+                                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                                                        </svg>
+                                                                    </div>
+                                                                );
+                                                                statusBadge = (
+                                                                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#f59e0b] text-white shadow-sm shrink-0 flex items-center gap-1">
+                                                                        <span>▲</span>
+                                                                        <span>Vrai (Oublié)</span>
+                                                                    </span>
+                                                                );
+                                                                pillBgClass = 'bg-[#e6f7ef] border border-emerald-200/50';
+                                                                pillCurveSvg = (
+                                                                    <svg className="w-2.5 h-6 text-emerald-600 shrink-0 mt-0.5 select-none" viewBox="0 0 10 24" fill="none">
+                                                                        <path d="M7 2C2.5 6 2.5 18 7 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                                                                    </svg>
+                                                                );
+                                                                pillPrefix = 'VRAI — ';
+                                                                pillPrefixClass = 'text-emerald-700 font-black text-sm tracking-wide';
+                                                                pillTextClass = 'text-slate-800 text-sm font-medium leading-relaxed';
+                                                            } else if (!isCorrectAns && isChecked) {
+                                                                // 2. Faux (Coché à tort) - Red
+                                                                cardWrapperClass = 'bg-[#fef2f2] border-2 border-red-400 text-red-950 shadow-sm';
+                                                                textClass = 'line-through text-red-600 font-semibold';
+                                                                checkboxIcon = (
+                                                                    <div className="w-6 h-6 rounded-lg bg-red-600 border border-red-500 text-white flex items-center justify-center shrink-0">
+                                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                                                        </svg>
+                                                                    </div>
+                                                                );
+                                                                statusBadge = (
+                                                                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#dc2626] text-white shadow-sm shrink-0 flex items-center gap-1">
+                                                                        <span>✖</span>
+                                                                        <span>Faux (Coché à tort)</span>
+                                                                    </span>
+                                                                );
+                                                                pillBgClass = 'bg-[#feecee] border border-red-200/50';
+                                                                pillCurveSvg = (
+                                                                    <svg className="w-2.5 h-6 text-red-600 shrink-0 mt-0.5 select-none" viewBox="0 0 10 24" fill="none">
+                                                                        <path d="M7 2C2.5 6 2.5 18 7 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                                                                    </svg>
+                                                                );
+                                                                pillPrefix = 'FAUX — ';
+                                                                pillPrefixClass = 'text-red-700 font-black text-sm tracking-wide';
+                                                                pillTextClass = 'text-slate-800 text-sm font-medium leading-relaxed';
+                                                            } else if (!isCorrectAns && !isChecked) {
+                                                                // 3. Faux (Correctement évité) - Slate/Grey
+                                                                cardWrapperClass = 'bg-[#a3b1c2] border-2 border-slate-400/90 text-slate-800 shadow-sm';
+                                                                textClass = 'line-through text-slate-600 font-semibold';
+                                                                checkboxIcon = (
+                                                                    <div className="w-6 h-6 rounded-lg bg-slate-300/60 border border-slate-400 text-transparent shrink-0"></div>
+                                                                );
+                                                                statusBadge = (
+                                                                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#5b6a7a] text-white shadow-sm shrink-0">
+                                                                        Faux (Correctement évité)
+                                                                    </span>
+                                                                );
+                                                                pillBgClass = 'bg-[#8997a8] border border-slate-400/50';
+                                                                pillCurveSvg = (
+                                                                    <svg className="w-2.5 h-6 text-[#991b1b] shrink-0 mt-0.5 select-none" viewBox="0 0 10 24" fill="none">
+                                                                        <path d="M7 2C2.5 6 2.5 18 7 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                                                                    </svg>
+                                                                );
+                                                                pillPrefix = 'FAUX — ';
+                                                                pillPrefixClass = 'text-[#7f1d1d] font-black text-sm tracking-wide';
+                                                                pillTextClass = 'text-[#1e293b] text-sm font-medium leading-relaxed';
                                                             } else {
-                                                                userStatusBadge = <span className="text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700 px-2 py-0.5 rounded-md shrink-0">✓ Faux (Évité)</span>;
+                                                                // 4. Vrai (Bien coché) - Emerald Green
+                                                                cardWrapperClass = 'bg-[#ecfdf5] border-2 border-emerald-400 text-emerald-950 shadow-sm';
+                                                                textClass = 'text-[#064e3b] font-semibold';
+                                                                checkboxIcon = (
+                                                                    <div className="w-6 h-6 rounded-lg bg-emerald-600 border border-emerald-500 text-white flex items-center justify-center shrink-0">
+                                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                                                        </svg>
+                                                                    </div>
+                                                                );
+                                                                statusBadge = (
+                                                                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#059669] text-white shadow-sm shrink-0 flex items-center gap-1">
+                                                                        <span>✔</span>
+                                                                        <span>Vrai (Bien coché)</span>
+                                                                    </span>
+                                                                );
+                                                                pillBgClass = 'bg-[#d1fae5]/70 border border-emerald-200/50';
+                                                                pillCurveSvg = (
+                                                                    <svg className="w-2.5 h-6 text-emerald-600 shrink-0 mt-0.5 select-none" viewBox="0 0 10 24" fill="none">
+                                                                        <path d="M7 2C2.5 6 2.5 18 7 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                                                                    </svg>
+                                                                );
+                                                                pillPrefix = 'VRAI — ';
+                                                                pillPrefixClass = 'text-emerald-700 font-black text-sm tracking-wide';
+                                                                pillTextClass = 'text-slate-800 text-sm font-medium leading-relaxed';
                                                             }
 
                                                             return (
-                                                                <div key={ans.id || aIdx} className={`p-3 rounded-2xl border text-left flex flex-col gap-1.5 ${
-                                                                    ans.correct 
-                                                                        ? 'bg-emerald-950/30 border-emerald-500/50' 
-                                                                        : 'bg-slate-900/60 border-slate-800'
-                                                                }`}>
-                                                                    <div className="text-xs md:text-sm font-semibold text-slate-100 flex items-start justify-between gap-2">
-                                                                        <div className="flex items-start gap-2">
-                                                                            <span className={`font-bold shrink-0 ${ans.correct ? 'text-emerald-400' : 'text-slate-400'}`}>
-                                                                                {String.fromCharCode(65 + aIdx)}.
-                                                                            </span>
-                                                                            <span>{ans.text}</span>
+                                                                <div
+                                                                    key={ans.id || aIdx}
+                                                                    className={`p-4 md:p-5 rounded-2xl transition-all space-y-3 select-none ${cardWrapperClass}`}
+                                                                >
+                                                                    <div className="flex items-start justify-between gap-3 md:gap-4">
+                                                                        <div className="flex items-start gap-3.5 flex-1">
+                                                                            <div className="mt-0.5 shrink-0">{checkboxIcon}</div>
+                                                                            <div className={`text-sm md:text-base leading-relaxed ${textClass}`}>
+                                                                                <span className="font-extrabold mr-2">{String.fromCharCode(65 + aIdx)}.</span>
+                                                                                <span>{ans.text}</span>
+                                                                            </div>
                                                                         </div>
-                                                                        {userStatusBadge}
+                                                                        <div className="shrink-0">{statusBadge}</div>
                                                                     </div>
 
-                                                                    <div className={`text-xs leading-relaxed p-2.5 rounded-xl border-l-4 font-medium ${
-                                                                        ans.correct 
-                                                                            ? 'bg-emerald-900/40 text-emerald-200 border-emerald-400' 
-                                                                            : 'bg-red-950/40 text-red-300 border-red-500'
-                                                                    }`}>
-                                                                        <span className={`font-bold uppercase tracking-wider mr-1.5 ${ans.correct ? 'text-emerald-400' : 'text-red-400'}`}>
-                                                                            {ans.correct ? 'Vrai —' : 'Faux —'}
-                                                                        </span>
-                                                                        <span>{getItemExplanation(q, ans, aIdx)}</span>
+                                                                    <div className={`p-3 rounded-xl flex items-start gap-2.5 ${pillBgClass}`}>
+                                                                        {pillCurveSvg}
+                                                                        <div className="flex-1 leading-relaxed">
+                                                                            <span className={pillPrefixClass}>{pillPrefix}</span>
+                                                                            <span className={pillTextClass}>{itemExp}</span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             );
                                                         })}
                                                     </div>
-
                                                     <p className="text-xs text-slate-300 bg-slate-950/60 p-3 rounded-xl border border-slate-800">
                                                         <strong>Explication globale :</strong> {q.explanation}
                                                     </p>
