@@ -285,6 +285,21 @@
                     "Fiche n°15 - Outils et méthodes d'analyse en neurosciences.pdf"
                 ]
             }
+        ,
+            {
+                id: 's10',
+                name: 'UE Biostatistiques',
+                code: 'BIOSTAT',
+                icon: '📊',
+                color: 'from-blue-600 to-indigo-600',
+                progress: 0,
+                qcmCount: 24,
+                chapters: [
+                    "Fiche n°1 - Tests paramétriques",
+                    "Fiche n°2 - Tests non paramétriques",
+                    "Fiche n°3 - Test de Fisher"
+                ]
+            }
         ];
 
         const INITIAL_QUESTIONS = [
@@ -71487,6 +71502,1158 @@
         ],
         "explanation": "Réponses A, D et E exactes. L'atteinte des muscles respiratoires complique la dénutrition, l'impédancemétrie évalue la masse maigre et la nutrition par sonde pallie les affections ORL ou anorexies."
     }
+,
+    {
+        "id": "ue_bio_f1_q1",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "Tests paramétriques",
+            "Conditions d'application",
+            "Loi normale"
+        ],
+        "statement": "Concernant les conditions générales d'application des tests statistiques paramétriques, quelles sont les propositions exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Les tests paramétriques s'appliquent exclusivement à des variables qualitatives nominales.",
+                "correct": false,
+                "explanation": "A. Faux — Les tests paramétriques s'appliquent à des variables quantitatives (continues ou discrètes) dont les paramètres de distribution (moyenne, variance) sont modélisés."
+            },
+            {
+                "id": "b",
+                "text": "Pour comparer deux moyennes sur de petits échantillons (n < 30), la normalité de la distribution de la variable dans la population est requise.",
+                "correct": true,
+                "explanation": "B. Vrai — Lorsque les effectifs sont faibles (n < 30 par groupe), le théorème central limite ne s'applique pas directement et la variable doit suivre une loi normale dans la population pour que le test de Student soit valide."
+            },
+            {
+                "id": "c",
+                "text": "Grâce au Théorème Central Limite (TCL), lorsque la taille d'échantillon est suffisante (n >= 30), la moyenne de l'échantillon suit approximativement une loi normale, même si la distribution parente n'est pas normale.",
+                "correct": true,
+                "explanation": "C. Vrai — Le TCL assure la convergence asymptotique de la distribution des moyennes d'échantillons vers une loi normale dès lors que l'effectif n est suffisamment grand (en pratique n >= 30)."
+            },
+            {
+                "id": "d",
+                "text": "L'homoscédasticité désigne l'égalité des moyennes entre les groupes comparés.",
+                "correct": false,
+                "explanation": "D. Faux — L'homoscédasticité désigne l'égalité des variances entre les groupes (variance homogène), et non l'égalité des moyennes."
+            },
+            {
+                "id": "e",
+                "text": "À effectif et conditions de validité identiques, un test paramétrique possède généralement une puissance statistique supérieure à celle de son homologue non paramétrique.",
+                "correct": true,
+                "explanation": "E. Vrai — Quand les hypothèses de normalité et de linéarité sont vérifiées, le test paramétrique exploite toute l'information quantitative des données (valeurs brutes) et est donc plus puissant que le test basé sur les rangs."
+            }
+        ],
+        "explanation": "Réponses B, C et E exactes. Les tests paramétriques concernent des variables quantitatives, requièrent la normalité (ou n >= 30 par le TCL) et l'égalité des variances (homoscédasticité), et offrent une puissance maximale sous ces conditions."
+    },
+    {
+        "id": "ue_bio_f1_q2",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "Test de Student",
+            "Échantillon unique",
+            "Degrés de liberté"
+        ],
+        "statement": "On souhaite comparer la glycémie moyenne m observée chez 25 patients diabétiques (m = 7,8 mmol/L, écart-type s = 1,5 mmol/L) à une valeur cible théorique mu0 = 7,0 mmol/L, en supposant la distribution normale. Quelles propositions sont exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "L'hypothèse nulle H0 s'énonce : H0 : mu = 7,0 mmol/L.",
+                "correct": true,
+                "explanation": "A. Vrai — L'hypothèse nulle postule l'absence de différence entre la moyenne de la population dont est extrait l'échantillon et la valeur cible théorique (H0 : mu = mu0)."
+            },
+            {
+                "id": "b",
+                "text": "Le nombre de degrés de liberté (ddl) associé à ce test de Student pour échantillon unique est de 24.",
+                "correct": true,
+                "explanation": "B. Vrai — Pour un test de Student à un échantillon, le nombre de degrés de liberté est ddl = n - 1 = 25 - 1 = 24."
+            },
+            {
+                "id": "c",
+                "text": "L'erreur standard de la moyenne (SEM) vaut s / n, soit 1,5 / 25 = 0,06 mmol/L.",
+                "correct": false,
+                "explanation": "C. Faux — L'erreur standard de la moyenne est SEM = s / sqrt(n) = 1,5 / sqrt(25) = 1,5 / 5 = 0,30 mmol/L (on divise par racine de n et non par n)."
+            },
+            {
+                "id": "d",
+                "text": "La statistique observée t_obs est égale à (7,8 - 7,0) / 0,30 = 2,67.",
+                "correct": true,
+                "explanation": "D. Vrai — t_obs = (m - mu0) / (s / sqrt(n)) = 0,8 / 0,30 = 2,667 (environ 2,67)."
+            },
+            {
+                "id": "e",
+                "text": "Si le seuil critique pour ddl = 24 au risque alpha = 5% bilatéral est t_critique = 2,064, on ne peut pas rejeter H0.",
+                "correct": false,
+                "explanation": "E. Faux — Comme |t_obs| = 2,67 > 2,064, la statistique se situe dans la région de rejet ; on rejette donc H0 au risque alpha = 5% (la différence est statistiquement significative, p < 0,05)."
+            }
+        ],
+        "explanation": "Réponses A, B et D exactes. Le test compare m à mu0 avec ddl = n - 1 = 24. SEM = s/sqrt(n) = 0,30 mmol/L, t_obs = 2,67 > 2,064, d'où le rejet significatif de H0 au seuil de 5%."
+    },
+    {
+        "id": "ue_bio_f1_q3",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "Test de Student",
+            "Échantillons indépendants",
+            "Variance commune"
+        ],
+        "statement": "Concernant le test t de Student pour la comparaison de deux moyennes sur deux échantillons indépendants (groupe A de taille n_A et groupe B de taille n_B), quelles sont les propositions exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le nombre de degrés de liberté sous l'hypothèse d'homoscédasticité est ddl = n_A + n_B - 2.",
+                "correct": true,
+                "explanation": "A. Vrai — Le nombre de degrés de liberté pour deux échantillons indépendants avec variances égales est (n_A - 1) + (n_B - 1) = n_A + n_B - 2."
+            },
+            {
+                "id": "b",
+                "text": "L'estimation de la variance commune pondérée s_p^2 s'obtient par la simple moyenne arithmétique (s_A^2 + s_B^2) / 2 quelles que soient les tailles n_A et n_B.",
+                "correct": false,
+                "explanation": "B. Faux — La variance commune pondérée s'écrit s_p^2 = [(n_A - 1)s_A^2 + (n_B - 1)s_B^2] / (n_A + n_B - 2). La simple moyenne arithmétique n'est valable que si n_A = n_B."
+            },
+            {
+                "id": "c",
+                "text": "Si les variances des deux groupes sont significativement différentes (hétéroscédasticité), on peut recourir à la correction de Welch.",
+                "correct": true,
+                "explanation": "C. Vrai — Le test t de Welch (ou test de Satterthwaite) adapte la statistique et les degrés de liberté en l'absence d'égalité des variances."
+            },
+            {
+                "id": "d",
+                "text": "L'hypothèse nulle bilatérale est H0 : mu_A = mu_B.",
+                "correct": true,
+                "explanation": "D. Vrai — L'hypothèse nulle stipule que les deux populations ont la même moyenne, soit mu_A - mu_B = 0."
+            },
+            {
+                "id": "e",
+                "text": "Une p-valeur de 0,02 calculée pour ce test signifie qu'il y a 2% de chances que l'hypothèse alternative H1 soit vraie.",
+                "correct": false,
+                "explanation": "E. Faux — La p-valeur est la probabilité d'obtenir une différence au moins aussi extrême que celle observée sous l'hypothèse que H0 est vraie. Ce n'est en aucun cas P(H1)."
+            }
+        ],
+        "explanation": "Réponses A, C et D exactes. Le test t indépendant utilise ddl = n_A + n_B - 2, nécessite une variance pondérée (ou test de Welch si variances inégales), et teste H0 : mu_A = mu_B."
+    },
+    {
+        "id": "ue_bio_f1_q4",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "Séries appariées",
+            "Test de Student apparié"
+        ],
+        "statement": "Une étude évalue l'effet d'un antihypertenseur chez 20 patients en mesurant la pression artérielle systolique avant et après 4 semaines de traitement. Quelles sont les propositions exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Les deux séries de mesures sont considérées comme indépendantes car elles concernent deux temps différents.",
+                "correct": false,
+                "explanation": "A. Faux — Ce sont des séries appariées (mesures répétées sur les mêmes sujets), car chaque mesure 'après' est couplée à la mesure 'avant' du même patient."
+            },
+            {
+                "id": "b",
+                "text": "L'analyse repose sur l'étude de la variable différence individuelle d_i = x_{après, i} - x_{avant, i}.",
+                "correct": true,
+                "explanation": "B. Vrai — Le test pour séries appariées se ramène à un test de Student pour un seul échantillon appliqué à la variable des différences d_i."
+            },
+            {
+                "id": "c",
+                "text": "Le nombre de degrés de liberté de ce test apparié est ddl = 20 - 1 = 19.",
+                "correct": true,
+                "explanation": "C. Vrai — Pour n paires de données, le nombre de degrés de liberté est ddl = n - 1 = 20 - 1 = 19."
+            },
+            {
+                "id": "d",
+                "text": "L'appariement permet d'augmenter la puissance statistique en éliminant la variabilité interindividuelle.",
+                "correct": true,
+                "explanation": "D. Vrai — En contrôlant la variabilité propre à chaque patient, la variance de l'erreur diminue, ce qui augmente la puissance du test par rapport à deux groupes indépendants de même taille."
+            },
+            {
+                "id": "e",
+                "text": "L'hypothèse nulle s'énonce H0 : mu_d = 0 (où mu_d est la moyenne populationnelle des différences).",
+                "correct": true,
+                "explanation": "E. Vrai — H0 stipule que la variation moyenne dans la population est nulle (pas d'effet moyen du traitement)."
+            }
+        ],
+        "explanation": "Réponses B, C, D et E exactes. Il s'agit d'un protocole avant/après (apparié). On teste H0 : mu_d = 0 sur les différences individuelles avec ddl = n - 1 = 19, ce qui élimine la variabilité interindividuelle et maximise la puissance."
+    },
+    {
+        "id": "ue_bio_f1_q5",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2024,
+        "difficulty": "Difficile",
+        "tags": [
+            "Biostatistiques",
+            "ANOVA",
+            "Analyse de variance",
+            "Fisher-Snedecor"
+        ],
+        "statement": "Concernant l'analyse de variance à un facteur (ANOVA à 1 facteur) pour comparer k moyennes indépendantes (k >= 3), quelles sont les propositions exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Elle permet d'éviter l'inflation du risque d'erreur de première espèce alpha observée lors de comparaisons multiples par tests de Student répétés.",
+                "correct": true,
+                "explanation": "A. Vrai — Si l'on réalisait plusieurs tests de Student au risque alpha, le risque global d'avoir au moins un faux positif augmenterait selon 1 - (1 - alpha)^m. L'ANOVA teste globalement l'égalité des k moyennes au risque alpha fixé."
+            },
+            {
+                "id": "b",
+                "text": "L'hypothèse alternative H1 est : 'Toutes les moyennes sont deux à deux différentes'.",
+                "correct": false,
+                "explanation": "B. Faux — L'hypothèse alternative H1 est : 'Au moins une des moyennes est différente des autres' (ou au moins deux moyennes diffèrent), et non que toutes sont différentes deux à deux."
+            },
+            {
+                "id": "c",
+                "text": "La statistique F de l'ANOVA est le rapport : Carré Moyen Inter-groupe / Carré Moyen Intra-groupe (résiduel).",
+                "correct": true,
+                "explanation": "C. Vrai — F = CM_inter / CM_intra = (SS_inter / (k - 1)) / (SS_intra / (N - k)), qui suit une loi de Fisher-Snedecor sous H0."
+            },
+            {
+                "id": "d",
+                "text": "Pour k = 4 groupes et un effectif total N = 40 sujets, les degrés de liberté sont ddl_1 = 3 et ddl_2 = 36.",
+                "correct": true,
+                "explanation": "D. Vrai — ddl_inter = k - 1 = 4 - 1 = 3 ; ddl_intra = N - k = 40 - 4 = 36."
+            },
+            {
+                "id": "e",
+                "text": "Si le test F global n'est pas statistiquement significatif, il est impératif de poursuivre avec des tests post-hoc de Tukey ou Bonferroni.",
+                "correct": false,
+                "explanation": "E. Faux — Si le test F global n'est pas significatif (p >= alpha), on ne rejette pas H0 et on n'effectue AUCUN test post-hoc."
+            }
+        ],
+        "explanation": "Réponses A, C et D exactes. L'ANOVA compare k moyennes sans gonfler le risque alpha. H1 stipule qu'au moins une moyenne diffère. F = CM_inter / CM_intra avec ddl_1 = k-1 et ddl_2 = N-k. Les tests post-hoc ne se font que si F est significatif."
+    },
+    {
+        "id": "ue_bio_f1_q6",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "Risques statistiques",
+            "Puissance",
+            "Alpha",
+            "Beta"
+        ],
+        "statement": "Concernant les risques d'erreur alpha, beta et la puissance d'un test d'hypothèse statistique, quelles sont les propositions exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "L'erreur de première espèce alpha correspond au rejet à tort de l'hypothèse nulle H0 alors qu'elle est vraie (faux positif).",
+                "correct": true,
+                "explanation": "A. Vrai — C'est la définition exacte du risque alpha : conclure à une différence alors qu'il n'y en a pas."
+            },
+            {
+                "id": "b",
+                "text": "L'erreur de deuxième espèce beta correspond au non-rejet de H0 alors que H0 est fausse (faux négatif).",
+                "correct": true,
+                "explanation": "B. Vrai — Le risque beta est la probabilité de passer à côté d'une différence réelle."
+            },
+            {
+                "id": "c",
+                "text": "La puissance statistique d'un test est égale à 1 - alpha.",
+                "correct": false,
+                "explanation": "C. Faux — La puissance statistique est 1 - beta (probabilité de rejeter H0 quand elle est fausse, c'est-à-dire détecter une différence réelle). 1 - alpha est le niveau de confiance."
+            },
+            {
+                "id": "d",
+                "text": "Augmenter la taille de l'échantillon n permet d'augmenter la puissance du test sans modifier le risque alpha.",
+                "correct": true,
+                "explanation": "D. Vrai — Un effectif plus élevé réduit la variance d'échantillonnage (l'erreur standard s/sqrt(n)), ce qui rétrécit la distribution et augmente la puissance 1 - beta à alpha constant."
+            },
+            {
+                "id": "e",
+                "text": "Si l'on diminue arbitrairement le risque alpha de 5% à 1%, la puissance statistique du test augmente.",
+                "correct": false,
+                "explanation": "E. Faux — Diminuer le risque alpha rend le critère de rejet de H0 plus strict, ce qui augmente le risque de faux négatif beta et donc DIMINUE la puissance 1 - beta."
+            }
+        ],
+        "explanation": "Réponses A, B et D exactes. Alpha = faux positif (rejeter H0 vraie), Beta = faux négatif (conserver H0 fausse), Puissance = 1 - Beta. Augmenter n augmente la puissance, tandis que diminuer alpha réduit la puissance."
+    },
+    {
+        "id": "ue_bio_f1_q7",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2024,
+        "difficulty": "Facile",
+        "tags": [
+            "Biostatistiques",
+            "Intervalle de confiance",
+            "Moyenne",
+            "Loi normale"
+        ],
+        "statement": "Sur un échantillon de 100 individus issus d'une population de distribution normale, la cholestérolémie moyenne observée est de 5,0 mmol/L avec un écart-type de 1,0 mmol/L. Quelles propositions concernant l'intervalle de confiance à 95% de la moyenne sont exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "L'écart-type de la moyenne (SEM) vaut 0,10 mmol/L.",
+                "correct": true,
+                "explanation": "A. Vrai — SEM = s / sqrt(n) = 1,0 / sqrt(100) = 1,0 / 10 = 0,10 mmol/L."
+            },
+            {
+                "id": "b",
+                "text": "Comme n = 100 >= 30, on peut utiliser le fractile de la loi normale z = 1,96 pour le niveau de confiance 95%.",
+                "correct": true,
+                "explanation": "B. Vrai — Pour de grands échantillons (n >= 30), la distribution de Student converge vers la loi normale centrée réduite N(0, 1), et le quantile bilatéral à 95% vaut 1,96."
+            },
+            {
+                "id": "c",
+                "text": "La demi-largeur de l'intervalle de confiance à 95% est égale à 1,96 * 0,10 = 0,196 mmol/L.",
+                "correct": true,
+                "explanation": "C. Vrai — La marge d'erreur vaut e = z_{0,05} * SEM = 1,96 * 0,10 = 0,196 mmol/L."
+            },
+            {
+                "id": "d",
+                "text": "L'intervalle de confiance à 95% de la moyenne vraie mu est [4,804 ; 5,196] mmol/L.",
+                "correct": true,
+                "explanation": "D. Vrai — IC95% = [5,0 - 0,196 ; 5,0 + 0,196] = [4,804 ; 5,196] mmol/L."
+            },
+            {
+                "id": "e",
+                "text": "Si la valeur théorique 5,3 mmol/L est testée au risque 5%, le test bilatéral rejettera H0 car 5,3 est situé à l'extérieur de cet IC95%.",
+                "correct": true,
+                "explanation": "E. Vrai — Il y a équivalence mathématique entre le test bilatéral au seuil alpha et l'intervalle de confiance à 1 - alpha : toute valeur hors de l'IC95% est rejetée au seuil de 5%."
+            }
+        ],
+        "explanation": "Réponses A, B, C, D et E exactes (toutes vraies). SEM = 0,10 mmol/L, marge d'erreur = 0,196, IC95% = [4,804 ; 5,196]. 5,3 étant exclu, le test bilatéral rejette H0 au seuil 5%."
+    },
+    {
+        "id": "ue_bio_f1_q8",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2024,
+        "difficulty": "Difficile",
+        "tags": [
+            "Biostatistiques",
+            "Test de Student",
+            "Comparaison de variances",
+            "Test de Fisher-Snedecor"
+        ],
+        "statement": "Avant de réaliser un test de Student pour deux échantillons indépendants, on teste l'égalité des variances s_1^2 et s_2^2. Quelles sont les propositions exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le test d'égalité de deux variances repose sur la statistique F = s_max^2 / s_min^2.",
+                "correct": true,
+                "explanation": "A. Vrai — Le rapport des deux variances d'échantillons indépendants suit une loi de Fisher-Snedecor sous H0 : sigma_1^2 = sigma_2^2."
+            },
+            {
+                "id": "b",
+                "text": "Les degrés de liberté de ce test F sont ddl_num = n_1 - 1 et ddl_denom = n_2 - 1.",
+                "correct": true,
+                "explanation": "B. Vrai — Les degrés de liberté correspondent respectivement aux tailles de chaque groupe moins un."
+            },
+            {
+                "id": "c",
+                "text": "Si le test F conclut à une différence significative des variances au risque 5%, le test de Student classique avec variance commune pondérée peut être appliqué sans réserve.",
+                "correct": false,
+                "explanation": "C. Faux — Si les variances sont significativement différentes, l'hypothèse d'homoscédasticité est violée ; il faut utiliser le test de Welch ou un test non paramétrique (Mann-Whitney)."
+            },
+            {
+                "id": "d",
+                "text": "Le test de Levene est une alternative au test F pour tester l'égalité des variances, plus robuste face aux écarts à la normalité.",
+                "correct": true,
+                "explanation": "D. Vrai — Le test de Levene est moins sensible à la non-normalité que le test de Fisher standard."
+            },
+            {
+                "id": "e",
+                "text": "Un test unilatéral est choisi a posteriori si la différence observée va dans le sens espéré par l'expérimentateur.",
+                "correct": false,
+                "explanation": "E. Faux — Le caractère unilatéral ou bilatéral d'un test doit impérativement être fixé a priori, avant le recueil et l'analyse des données, pour des raisons éthiques et de validité statistique."
+            }
+        ],
+        "explanation": "Réponses A, B et D exactes. Le test F = s_max^2 / s_min^2 vérifie l'homoscédasticité. Si H0 est rejetée, le test de Student classique n'est plus valide (recours à Welch ou Mann-Whitney). Le choix unilatéral doit impérativement être formulé a priori."
+    },
+    {
+        "id": "ue_bio_f2_q1",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°2 - Tests non paramétriques",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "Tests non paramétriques",
+            "Rangs",
+            "Généralités"
+        ],
+        "statement": "Concernant les caractéristiques fondamentales des tests statistiques non paramétriques, quelles sont les propositions exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Ils sont qualifiés de tests à 'distribution libre' (distribution-free) car ils n'exigent aucune hypothèse sur la forme analytique de la distribution sous-jacente.",
+                "correct": true,
+                "explanation": "A. Vrai — Contrairement aux tests paramétriques, ils ne supposent pas que les données suivent une loi normale."
+            },
+            {
+                "id": "b",
+                "text": "Ils transforment généralement les valeurs quantitatives brutes en rangs ordinaux.",
+                "correct": true,
+                "explanation": "B. Vrai — La majorité des tests non paramétriques (Mann-Whitney, Wilcoxon, Kruskal-Wallis) repose sur l'analyse des rangs obtenus après tri croissant des données."
+            },
+            {
+                "id": "c",
+                "text": "Ils sont particulièrement indiqués lorsque la taille des échantillons est faible (n < 30) et que la distribution n'est pas gaussienne.",
+                "correct": true,
+                "explanation": "C. Vrai — C'est leur indication reine, car le théorème central limite ne peut pas compenser l'asymétrie sur de petits effectifs."
+            },
+            {
+                "id": "d",
+                "text": "Ils sont extrêmement sensibles aux valeurs aberrantes (outliers) qui faussent grandement leurs résultats.",
+                "correct": false,
+                "explanation": "D. Faux — Au contraire, ils sont très robustes face aux valeurs aberrantes, car une valeur extrême n'occupe que le rang maximal ou minimal sans peser démesurément par sa valeur numérique brute."
+            },
+            {
+                "id": "e",
+                "text": "Ils peuvent s'appliquer à des variables qualitatives ordinales (ex : stades d'une maladie, échelle de douleur).",
+                "correct": true,
+                "explanation": "E. Vrai — Les variables ordinales possèdent un ordre intrinsèque qui permet immédiatement l'attribution de rangs."
+            }
+        ],
+        "explanation": "Réponses A, B, C et E exactes. Les tests non paramétriques sont à distribution libre, reposent sur les rangs, conviennent aux petits effectifs sans normalité et aux données ordinales, et sont très robustes aux outliers."
+    },
+    {
+        "id": "ue_bio_f2_q2",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°2 - Tests non paramétriques",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "Wilcoxon-Mann-Whitney",
+            "Échantillons indépendants",
+            "Statistique U"
+        ],
+        "statement": "Concernant le test de Mann-Whitney (ou test de la somme des rangs de Wilcoxon pour 2 échantillons indépendants), quelles sont les propositions exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Il constitue l'alternative non paramétrique directe au test t de Student pour échantillons indépendants.",
+                "correct": true,
+                "explanation": "A. Vrai — Il compare les distributions (et notamment les médianes sous hypothèse de formes similaires) de deux groupes indépendants."
+            },
+            {
+                "id": "b",
+                "text": "Pour attribuer les rangs, on classe séparément les observations de chaque groupe de 1 à n_A puis de 1 à n_B.",
+                "correct": false,
+                "explanation": "B. Faux — Pour attribuer les rangs, on réunit l'ensemble des N = n_A + n_B observations dans un même échantillon commun, on les ordonne par ordre croissant de 1 à N, puis on calcule la somme des rangs de chaque groupe."
+            },
+            {
+                "id": "c",
+                "text": "En cas d'ex-aequo (valeurs identiques), on attribue à chaque valeur identique le rang moyen des positions qu'elles occupent.",
+                "correct": true,
+                "explanation": "C. Vrai — C'est la méthode conventionnelle des rangs moyens (mid-ranks)."
+            },
+            {
+                "id": "d",
+                "text": "La somme des statistiques U_A et U_B de Mann-Whitney vérifie l'égalité : U_A + U_B = n_A * n_B.",
+                "correct": true,
+                "explanation": "D. Vrai — C'est une propriété mathématique fondamentale de la statistique U de Mann-Whitney : le produit des effectifs est égal à la somme des deux statistiques U."
+            },
+            {
+                "id": "e",
+                "text": "L'hypothèse nulle H0 postule que les deux distributions sont identiques.",
+                "correct": true,
+                "explanation": "E. Vrai — H0 stipule que la probabilité qu'une observation du groupe A dépasse une observation du groupe B est égale à 0,5 (distributions superposables)."
+            }
+        ],
+        "explanation": "Réponses A, C, D et E exactes. Mann-Whitney est l'analogue non paramétrique du Student indépendant. Les rangs sont attribués sur l'échantillon global réuni (avec rangs moyens pour les ex-aequo), et U_A + U_B = n_A * n_B."
+    },
+    {
+        "id": "ue_bio_f2_q3",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°2 - Tests non paramétriques",
+        "year": 2024,
+        "difficulty": "Difficile",
+        "tags": [
+            "Biostatistiques",
+            "Wilcoxon",
+            "Séries appariées",
+            "Rangs signés"
+        ],
+        "statement": "Concernant le test des rangs signés de Wilcoxon pour séries appariées, quelles sont les propositions exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Il s'applique pour comparer deux séries de données appariées lorsque la distribution des différences n'est pas normale.",
+                "correct": true,
+                "explanation": "A. Vrai — C'est l'équivalent non paramétrique du test de Student sur séries appariées."
+            },
+            {
+                "id": "b",
+                "text": "Les paires dont la différence est strictement nulle (d_i = 0) sont éliminées de l'analyse et l'effectif n est réduit d'autant.",
+                "correct": true,
+                "explanation": "B. Vrai — Selon la procédure standard de Wilcoxon, les différences nulles n'apportent pas d'information sur la direction du changement et sont retirées du calcul."
+            },
+            {
+                "id": "c",
+                "text": "Les rangs sont attribués en ordonnant les différences d_i de la plus négative à la plus positive.",
+                "correct": false,
+                "explanation": "C. Faux — Les rangs sont attribués en ordonnant les VALEURS ABSOLUES des différences |d_i| de 1 à n_réduit, puis on réaffecte à chaque rang le signe de la différence initiale (d'où le nom 'rangs signés')."
+            },
+            {
+                "id": "d",
+                "text": "La statistique W est calculée à partir de la somme des rangs positifs W+ et de la somme des rangs négatifs W-.",
+                "correct": true,
+                "explanation": "D. Vrai — Sous H0, la somme des rangs positifs et la somme des rangs négatifs doivent être proches."
+            },
+            {
+                "id": "e",
+                "text": "Le test des signes est un test non paramétrique encore plus simple que le test des rangs signés, ne prenant en compte que le signe (+ ou -) sans considération d'amplitude.",
+                "correct": true,
+                "explanation": "E. Vrai — Le test des signes repose sur une loi binomiale B(n, 1/2) et ne tient compte que du signe des différences, ce qui le rend moins puissant que le test des rangs signés de Wilcoxon."
+            }
+        ],
+        "explanation": "Réponses A, B, D et E exactes. Le test des rangs signés classe les valeurs absolues |d_i|, supprime les différences nulles, compare W+ et W-, et surpasse en puissance le simple test des signes."
+    },
+    {
+        "id": "ue_bio_f2_q4",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°2 - Tests non paramétriques",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "Kruskal-Wallis",
+            "ANOVA non paramétrique",
+            "Chi-2"
+        ],
+        "statement": "Concernant le test de Kruskal-Wallis, quelles sont les propositions exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Il correspond à l'équivalent non paramétrique de l'ANOVA à un facteur pour k >= 3 groupes indépendants.",
+                "correct": true,
+                "explanation": "A. Vrai — Kruskal-Wallis généralise le test de Mann-Whitney à plus de deux groupes indépendants."
+            },
+            {
+                "id": "b",
+                "text": "Il nécessite que les effectifs des k groupes soient rigoureusement identiques.",
+                "correct": false,
+                "explanation": "B. Faux — Le test de Kruskal-Wallis s'applique tout à fait avec des effectifs inégaux entre les groupes (n_i différents)."
+            },
+            {
+                "id": "c",
+                "text": "Pour des tailles d'échantillons suffisantes, la statistique H de Kruskal-Wallis suit approximativement une loi du Chi-2.",
+                "correct": true,
+                "explanation": "C. Vrai — Asymptotiquement, la statistique H suit une loi du Chi-2."
+            },
+            {
+                "id": "d",
+                "text": "Le nombre de degrés de liberté de la loi du Chi-2 suivie par la statistique H est k - 1 (où k est le nombre de groupes).",
+                "correct": true,
+                "explanation": "D. Vrai — ddl = k - 1, comme le nombre de degrés de liberté inter-groupes dans une ANOVA."
+            },
+            {
+                "id": "e",
+                "text": "Pour des mesures répétées sur les mêmes sujets pour k >= 3 conditions, l'équivalent non paramétrique est le test de Friedman.",
+                "correct": true,
+                "explanation": "E. Vrai — Le test de Friedman est l'analogue non paramétrique de l'ANOVA pour mesures répétées (groupes appariés)."
+            }
+        ],
+        "explanation": "Réponses A, C, D et E exactes. Kruskal-Wallis compare k groupes indépendants sur les rangs (statistique H suivant un Chi-2 à k - 1 ddl). En cas de mesures répétées, on utilise le test de Friedman."
+    },
+    {
+        "id": "ue_bio_f2_q5",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°2 - Tests non paramétriques",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "Corrélation de Spearman",
+            "Corrélation de Pearson",
+            "Rangs"
+        ],
+        "statement": "Concernant la corrélation non paramétrique de Spearman (rho) comparativement à la corrélation linéaire de Pearson (r), quelles sont les propositions exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le coefficient r de Pearson mesure l'intensité d'une relation strictement linéaire entre deux variables quantitatives gaussiennes.",
+                "correct": true,
+                "explanation": "A. Vrai — Le coefficient r de Pearson suppose la normalité bivariée et évalue la composante linéaire."
+            },
+            {
+                "id": "b",
+                "text": "Le coefficient rho de Spearman est le coefficient de corrélation linéaire de Pearson calculé sur les rangs des variables.",
+                "correct": true,
+                "explanation": "B. Vrai — Par définition, le rho de Spearman correspond exactement au coefficient r appliqué aux données converties en rangs."
+            },
+            {
+                "id": "c",
+                "text": "Le coefficient de Spearman peut détecter une relation monotone non linéaire (ex : exponentielle, logarithmique).",
+                "correct": true,
+                "explanation": "C. Vrai — Si Y croît de manière monotone avec X (même sans être une droite), les rangs de Y suivent parfaitement les rangs de X, donnant rho = +1."
+            },
+            {
+                "id": "d",
+                "text": "Le coefficient rho de Spearman est borné entre 0 et +1.",
+                "correct": false,
+                "explanation": "D. Faux — Le coefficient rho de Spearman est borné entre -1 et +1 (comme le r de Pearson), où -1 indique une relation monotone décroissante parfaite."
+            },
+            {
+                "id": "e",
+                "text": "Un coefficient rho égal à 0 implique obligatoirement une indépendance stochastique totale entre les deux variables.",
+                "correct": false,
+                "explanation": "E. Faux — Un coefficient nul indique l'absence de relation monotone, mais n'exclut pas une relation non monotone complexe (ex: relation en U ou parabole)."
+            }
+        ],
+        "explanation": "Réponses A, B et C exactes. Spearman calcule la corrélation sur les rangs, varie de -1 à +1, mesure toute relation monotone (linéaire ou non) et ne nécessite pas la normalité bivariée."
+    },
+    {
+        "id": "ue_bio_f2_q6",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°2 - Tests non paramétriques",
+        "year": 2024,
+        "difficulty": "Facile",
+        "tags": [
+            "Biostatistiques",
+            "Choix de test",
+            "Arbre décisionnel"
+        ],
+        "statement": "Quel test statistique est le plus approprié dans chacune des situations cliniques suivantes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Comparer un score d'anxiété ordinal mesuré sur 12 patients avant et après une séance de relaxation : test des rangs signés de Wilcoxon.",
+                "correct": true,
+                "explanation": "A. Vrai — Variable ordinale, séries appariées (avant/après), petit effectif (n = 12) : le test des rangs signés de Wilcoxon est parfaitement indiqué."
+            },
+            {
+                "id": "b",
+                "text": "Comparer la calcémie moyenne entre 200 hommes et 200 femmes sains : test de Mann-Whitney obligatoirement.",
+                "correct": false,
+                "explanation": "B. Faux — Avec n = 200 par groupe, le théorème central limite garantit la normalité de la moyenne, le test paramétrique t de Student pour échantillons indépendants est le test de choix."
+            },
+            {
+                "id": "c",
+                "text": "Comparer le niveau de douleur (EVA de 0 à 10, non normale) entre 3 groupes de 15 patients recevant des antalgiques différents : test de Kruskal-Wallis.",
+                "correct": true,
+                "explanation": "C. Vrai — Variable non normale, k = 3 groupes indépendants, petits échantillons : test de Kruskal-Wallis."
+            },
+            {
+                "id": "d",
+                "text": "Comparer deux proportions observées sur deux échantillons indépendants de 500 sujets : test de Wilcoxon.",
+                "correct": false,
+                "explanation": "D. Faux — Pour comparer deux proportions qualitatives, on utilise un test du Chi-2 ou un test z de comparaison de proportions, et non un test de Wilcoxon (qui compare des rangs de variables quantitatives/ordinales)."
+            },
+            {
+                "id": "e",
+                "text": "Tester la corrélation entre le stade tumoral TNM (I, II, III, IV) et le taux sérique d'un biomarqueur très asymétrique : coefficient de Spearman.",
+                "correct": true,
+                "explanation": "E. Vrai — Variable ordinale (stade TNM) et variable asymétrique : corrélation sur les rangs de Spearman idéale."
+            }
+        ],
+        "explanation": "Réponses A, C et E exactes. Séries appariées ordinales -> Wilcoxon apparié ; 3 groupes indépendants non gaussiens -> Kruskal-Wallis ; variable ordinale & asymétrique -> corrélation de Spearman."
+    },
+    {
+        "id": "ue_bio_f2_q7",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°2 - Tests non paramétriques",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "Puissance asymptotique",
+            "Efficacité relative",
+            "Tests non paramétriques"
+        ],
+        "statement": "Concernant l'efficacité relative et les limites des tests non paramétriques, quelles propositions sont exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "L'efficacité relative asymptotique (ERA) du test de Wilcoxon par rapport au test de Student lorsque la loi parente est parfaitement normale est d'environ 95% (3/pi).",
+                "correct": true,
+                "explanation": "A. Vrai — Même en situation de normalité stricte, le test de Wilcoxon ne perd qu'environ 5% de puissance par rapport au Student optimal (ERA = 3/pi ≈ 0,955)."
+            },
+            {
+                "id": "b",
+                "text": "Si la distribution sous-jacente présente des queues épaisses ou des valeurs extrêmes, l'ERA du test de Wilcoxon peut dépasser 100% par rapport au test de Student.",
+                "correct": true,
+                "explanation": "B. Vrai — En présence de distributions à queues lourdes (ex: loi logistique ou de Cauchy), le test de Wilcoxon devient plus puissant que le test de Student car il est protégé contre l'explosion de la variance due aux extrêmes."
+            },
+            {
+                "id": "c",
+                "text": "Les tests non paramétriques permettent d'estimer avec une grande précision la valeur de la différence des moyennes dans la population.",
+                "correct": false,
+                "explanation": "C. Faux — Les tests non paramétriques testent l'hypothèse de distributions identiques ou comparent des rangs / médianes, mais ne fournissent pas directement un intervalle de confiance classique sur la différence des moyennes paramétriques."
+            },
+            {
+                "id": "d",
+                "text": "Pour des échantillons de très grande taille (ex : n = 10 000), les tests non paramétriques sont totalement interdits.",
+                "correct": false,
+                "explanation": "D. Faux — Ils ne sont pas interdits ; ils restent valides, bien qu'un test paramétrique ou une approximation normale soit généralement préféré pour des raisons de coût de calcul ou d'interprétabilité."
+            },
+            {
+                "id": "e",
+                "text": "Les tests non paramétriques s'étendent plus difficilement aux modèles multivariés complexes avec interactions multiples que les modèles paramétriques linéaires.",
+                "correct": true,
+                "explanation": "E. Vrai — L'ajustement multivarié et les régressions avec interactions sont beaucoup plus simples et modulables dans le cadre paramétrique (modèles linéaires généralisés)."
+            }
+        ],
+        "explanation": "Réponses A, B et E exactes. L'ERA de Wilcoxon vs Student est de ~95% sous normalité et peut dépasser 100% sur distributions à queues épaisses. Les tests non paramétriques ne fournissent pas d'estimation directe de la moyenne et sont plus complexes à étendre en multivarié."
+    },
+    {
+        "id": "ue_bio_f2_q8",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°2 - Tests non paramétriques",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "Calcul de rangs",
+            "Ex-aequo",
+            "Mann-Whitney"
+        ],
+        "statement": "On mesure une variable chez 4 patients du groupe A : (2, 5, 5, 8) et 3 patients du groupe B : (3, 5, 9). Quelles propositions concernant l'attribution des rangs sont exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "L'effectif total combiné est N = 7.",
+                "correct": true,
+                "explanation": "A. Vrai — n_A = 4, n_B = 3, N = 4 + 3 = 7."
+            },
+            {
+                "id": "b",
+                "text": "La valeur minimale 2 reçoit le rang 1.",
+                "correct": true,
+                "explanation": "B. Vrai — C'est la plus petite valeur de la série ordonnée (2, 3, 5, 5, 5, 8, 9)."
+            },
+            {
+                "id": "c",
+                "text": "La valeur 3 reçoit le rang 2.",
+                "correct": true,
+                "explanation": "C. Vrai — En position 2 dans la série ordonnée, le rang 2 lui est attribué."
+            },
+            {
+                "id": "d",
+                "text": "Les trois valeurs ex-aequo égales à 5 occupent les positions 3, 4 et 5 et reçoivent chacune le rang moyen 4.",
+                "correct": true,
+                "explanation": "D. Vrai — Rang moyen = (3 + 4 + 5) / 3 = 12 / 3 = 4."
+            },
+            {
+                "id": "e",
+                "text": "La somme de tous les rangs attribués de 1 à N est égale à N(N+1)/2 = 7 * 8 / 2 = 28.",
+                "correct": true,
+                "explanation": "E. Vrai — La somme des rangs de 1 à N vaut toujours N(N+1)/2, même en présence d'ex-aequo (1 + 2 + 4 + 4 + 4 + 6 + 7 = 28)."
+            }
+        ],
+        "explanation": "Réponses A, B, C, D et E exactes (toutes vraies). Série triée : 2 (rg 1), 3 (rg 2), 5 (rg 4), 5 (rg 4), 5 (rg 4), 8 (rg 6), 9 (rg 7). Somme totale des rangs = 7 * 8 / 2 = 28."
+    },
+    {
+        "id": "ue_bio_f3_q1",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°3 - Test de Fisher",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "Test de Fisher",
+            "Tableau 2x2",
+            "Conditions de validité"
+        ],
+        "statement": "Concernant les indications et conditions d'application du test exact de Fisher dans un tableau de contingence 2x2, quelles sont les propositions exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Il est utilisé pour tester l'indépendance de deux variables qualitatives à deux modalités chacune.",
+                "correct": true,
+                "explanation": "A. Vrai — Il s'applique à des tables de contingence 2x2 croisant deux variables binaires ou comparant deux pourcentages."
+            },
+            {
+                "id": "b",
+                "text": "Il est impératif d'y recourir dès lors qu'au moins un effectif théorique (calculé sous H0) est strictement inférieur à 5.",
+                "correct": true,
+                "explanation": "B. Vrai — Selon la règle de Cochran, l'approximation du Chi-2 n'est pas valide si un effectif espéré théorique E_ij = (Total_ligne * Total_colonne) / N < 5. Le test exact de Fisher est alors indispensable."
+            },
+            {
+                "id": "c",
+                "text": "Il est qualifié d''exact' car il calcule la probabilité combinatoire exacte sous H0 sans approximation asymptotique continue.",
+                "correct": true,
+                "explanation": "C. Vrai — Contrairement au Chi-2 qui approche la distribution discrète par une loi continue, Fisher calcule la probabilité hypergéométrique exacte."
+            },
+            {
+                "id": "d",
+                "text": "Le test exact de Fisher est strictement interdit si tous les effectifs théoriques dépassent 20.",
+                "correct": false,
+                "explanation": "D. Faux — Le test de Fisher est toujours mathématiquement exact, quelle que soit la taille d'échantillon. Il est simplement plus lourd à calculer manuellement sur de grands effectifs, mais les ordinateurs le calculent sans difficulté."
+            },
+            {
+                "id": "e",
+                "text": "L'hypothèse nulle H0 correspond à l'égalité des proportions ou à l'indépendance des deux critères.",
+                "correct": true,
+                "explanation": "E. Vrai — H0 : p_1 = p_2 ou indépendance entre exposition et événement (Odds Ratio = 1)."
+            }
+        ],
+        "explanation": "Réponses A, B, C et E exactes. Le test exact de Fisher s'applique aux tables 2x2, est indispensable si E_ij < 5 (invalidation du Chi-2), calcule la probabilité hypergéométrique exacte, et teste l'indépendance (H0)."
+    },
+    {
+        "id": "ue_bio_f3_q2",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°3 - Test de Fisher",
+        "year": 2024,
+        "difficulty": "Difficile",
+        "tags": [
+            "Biostatistiques",
+            "Loi hypergéométrique",
+            "Probabilité exacte",
+            "Formule de Fisher"
+        ],
+        "statement": "Dans une table de contingence 2x2 avec les cases notées a, b (ligne 1) et c, d (ligne 2), de marges a+b, c+d, a+c, b+d et total N. Quelles propositions sont exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le test conditionne sur les marges marginales (totaux marginaux considérés comme fixes).",
+                "correct": true,
+                "explanation": "A. Vrai — Le modèle du test exact de Fisher conditionne sur les totaux marginaux des lignes et des colonnes."
+            },
+            {
+                "id": "b",
+                "text": "La probabilité d'obtenir la table observée sous H0 est donnée par la formule hypergéométrique : P = [(a+b)! (c+d)! (a+c)! (b+d)!] / [a! b! c! d! N!].",
+                "correct": true,
+                "explanation": "B. Vrai — C'est l'expression fondamentale de la probabilité exacte d'une table 2x2 sous H0."
+            },
+            {
+                "id": "c",
+                "text": "La factorielle 0! est égale à 0 dans ce calcul.",
+                "correct": false,
+                "explanation": "C. Faux — Par convention mathématique rigoureuse, 0! = 1. Si une case vaut 0, sa factorielle vaut 1 et n'annule pas le dénominateur."
+            },
+            {
+                "id": "d",
+                "text": "Pour obtenir la p-valeur unilatérale, on additionne la probabilité de la table observée avec celles de toutes les tables plus extrêmes compatibles avec les marges.",
+                "correct": true,
+                "explanation": "D. Vrai — On somme les probabilités P(table) pour toutes les configurations allant encore plus dans le sens de l'écart observé."
+            },
+            {
+                "id": "e",
+                "text": "La p-valeur bilatérale est simplement et toujours égale au double de la p-valeur unilatérale, quelle que soit la symétrie des marges.",
+                "correct": false,
+                "explanation": "E. Faux — Comme la distribution hypergéométrique est souvent asymétrique pour des marges inégales, doubler la p-valeur unilatérale n'est qu'une approximation ; la méthode exacte de Fisher somme toutes les tables dont la probabilité P <= P(table observée)."
+            }
+        ],
+        "explanation": "Réponses A, B et D exactes. Le test exact de Fisher repose sur la loi hypergéométrique conditionnelle P = [(a+b)!(c+d)!(a+c)!(b+d)!] / [a!b!c!d!N!], avec 0! = 1. La p-valeur somme les tables observée et plus extrêmes."
+    },
+    {
+        "id": "ue_bio_f3_q3",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°3 - Test de Fisher",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "Effectifs théoriques",
+            "Règle de Cochran",
+            "Choix de test"
+        ],
+        "statement": "Une étude clinique sur une maladie rare compare deux traitements T1 et T2 sur 20 patients au total. Les données observées sont : T1 (4 guéris, 6 non guéris) ; T2 (1 guéri, 9 non guéris). Quelles propositions sont exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le nombre total de patients guéris est de 5 et le nombre total de non guéris est de 15.",
+                "correct": true,
+                "explanation": "A. Vrai — Guéris = 4 + 1 = 5 ; Non guéris = 6 + 9 = 15. Total = 20."
+            },
+            {
+                "id": "b",
+                "text": "L'effectif théorique attendu sous H0 pour la case 'T2 guéri' est E = (10 * 5) / 20 = 2,5.",
+                "correct": true,
+                "explanation": "B. Vrai — E = (Total_ligne_T2 * Total_colonne_guéris) / N = (10 * 5) / 20 = 2,5."
+            },
+            {
+                "id": "c",
+                "text": "Comme cet effectif théorique est inférieur à 5, le test du Chi-2 standard sans correction n'est pas valide.",
+                "correct": true,
+                "explanation": "C. Vrai — La condition de Cochran (tous E_ij >= 5) n'est pas remplie, le Chi-2 asymptotique est pris en défaut."
+            },
+            {
+                "id": "d",
+                "text": "Le test le plus approprié pour analyser ces données est le test exact de Fisher.",
+                "correct": true,
+                "explanation": "D. Vrai — C'est l'indication élective absolue du test exact de Fisher."
+            },
+            {
+                "id": "e",
+                "text": "L'Odds Ratio observé de guérison sous T1 par rapport à T2 vaut (4 * 9) / (6 * 1) = 6,0.",
+                "correct": true,
+                "explanation": "E. Vrai — OR = (a * d) / (b * c) = (4 * 9) / (6 * 1) = 36 / 6 = 6,0."
+            }
+        ],
+        "explanation": "Réponses A, B, C, D et E exactes (toutes vraies). L'effectif théorique E = 2,5 < 5 impose l'abandon du Chi-2 au profit du test exact de Fisher. L'OR observé est de 6,0."
+    },
+    {
+        "id": "ue_bio_f3_q4",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°3 - Test de Fisher",
+        "year": 2024,
+        "difficulty": "Difficile",
+        "tags": [
+            "Biostatistiques",
+            "Calcul combinatoire",
+            "Tables plus extrêmes",
+            "Test de Fisher"
+        ],
+        "statement": "Dans le tableau 2x2 suivant : Groupe A (a=3 succès, b=1 échec ; total 4) et Groupe B (c=0 succès, d=4 échecs ; total 4). Marges fixes : 3 succès, 5 échecs, total N = 8. Quelles sont les propositions exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le nombre maximal de succès dans le groupe A compatible avec les marges fixes est 3.",
+                "correct": true,
+                "explanation": "A. Vrai — Il n'y a que 3 succès au total dans l'expérience, donc 'a' ne peut pas dépasser 3."
+            },
+            {
+                "id": "b",
+                "text": "La table observée (a=3, b=1, c=0, d=4) est déjà la table la plus extrême possible en faveur du groupe A.",
+                "correct": true,
+                "explanation": "B. Vrai — Comme a = 3 correspond au nombre total de succès disponibles, aucune table n'est plus extrême dans le sens d'une supériorité de A."
+            },
+            {
+                "id": "c",
+                "text": "La probabilité de cette table sous H0 est P = (4! * 4! * 3! * 5!) / (3! * 1! * 0! * 4! * 8!).",
+                "correct": true,
+                "explanation": "C. Vrai — Application directe de la formule : P = [4! * 4! * 3! * 5!] / [3! * 1! * 1 * 4! * 8!]."
+            },
+            {
+                "id": "d",
+                "text": "Après simplification, cette probabilité vaut 4 / 56 = 1 / 14 ≈ 0,071.",
+                "correct": true,
+                "explanation": "D. Vrai — P = (4! * 3! * 5!) / (3! * 8!) = (24 * 120) / 40320 = 4 / 56 = 1 / 14 ≈ 0,0714."
+            },
+            {
+                "id": "e",
+                "text": "Au risque unilatéral alpha = 5%, on peut rejeter H0.",
+                "correct": false,
+                "explanation": "E. Faux — La p-valeur unilatérale est p = 0,0714 > 0,05. On ne peut donc pas rejeter H0 au seuil alpha de 5%."
+            }
+        ],
+        "explanation": "Réponses A, B, C et D exactes. La table est la plus extrême possible avec p = 1/14 ≈ 0,071. Comme p > 0,05, on ne rejette pas H0 au risque 5% unilatéral."
+    },
+    {
+        "id": "ue_bio_f3_q5",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°3 - Test de Fisher",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "Chi-2",
+            "Correction de Yates",
+            "Test de Fisher"
+        ],
+        "statement": "Concernant la comparaison entre le test du Chi-2 avec correction de continuité de Yates et le test exact de Fisher, quelles sont les propositions exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "La correction de Yates consiste à soustraire 0,5 à la valeur absolue de la différence |O - E| pour chaque case.",
+                "correct": true,
+                "explanation": "A. Vrai — C'est la définition de la correction de continuité de Yates pour adapter la loi continue du Chi-2 à une distribution discrète."
+            },
+            {
+                "id": "b",
+                "text": "La correction de Yates diminue la valeur du Chi-2 calculé et rend le test plus conservateur.",
+                "correct": true,
+                "explanation": "B. Vrai — En réduisant les écarts |O - E| de 0,5, la statistique Chi-2 diminue, ce qui augmente la p-valeur et diminue le risque de faux positif (test plus conservateur)."
+            },
+            {
+                "id": "c",
+                "text": "La correction de Yates compense parfaitement les petits effectifs et dispense totalement d'utiliser le test de Fisher lorsque E_ij < 3.",
+                "correct": false,
+                "explanation": "C. Faux — Pour de très petits effectifs théoriques (E_ij < 3 à 5), la correction de Yates reste une approximation imparfaite, souvent trop conservatrice ; le test exact de Fisher demeure le seul test rigoureux."
+            },
+            {
+                "id": "d",
+                "text": "Dans un tableau 2x2, le test du Chi-2 possède 1 degré de liberté.",
+                "correct": true,
+                "explanation": "D. Vrai — ddl = (lignes - 1) * (colonnes - 1) = (2 - 1) * (2 - 1) = 1."
+            },
+            {
+                "id": "e",
+                "text": "Le seuil critique du Chi-2 à 1 ddl au risque alpha = 5% est de 3,84.",
+                "correct": true,
+                "explanation": "E. Vrai — Chi-2_critique = (1,96)^2 = 3,841."
+            }
+        ],
+        "explanation": "Réponses A, B, D et E exactes. Yates soustrait 0,5 pour corriger la continuité, rendant le Chi-2 plus conservateur. Le Chi-2 à 1 ddl a pour seuil 3,84. Pour de très faibles effectifs théoriques, Fisher reste la règle."
+    },
+    {
+        "id": "ue_bio_f3_q6",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°3 - Test de Fisher",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "Odds Ratio",
+            "Risque Relatif",
+            "Tableau 2x2"
+        ],
+        "statement": "Dans une étude cas-témoins analysée par un test exact de Fisher, on observe 15 cas exposés, 5 cas non exposés, 6 témoins exposés et 14 témoins non exposés. Quelles sont les propositions exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le calcul du Risque Relatif (RR) direct est la mesure d'association privilégiée dans une étude cas-témoins.",
+                "correct": false,
+                "explanation": "A. Faux — Dans une étude cas-témoins, les effectifs de cas et de témoins sont fixés par l'investigateur, les incidences réelles ne sont pas calculables et le Risque Relatif ne peut pas être calculé directement : on utilise l'Odds Ratio (OR)."
+            },
+            {
+                "id": "b",
+                "text": "L'Odds Ratio de l'exposition chez les cas par rapport aux témoins vaut (15 * 14) / (5 * 6) = 7,0.",
+                "correct": true,
+                "explanation": "B. Vrai — OR = (a * d) / (b * c) = (15 * 14) / (5 * 6) = 210 / 30 = 7,0."
+            },
+            {
+                "id": "c",
+                "text": "L'hypothèse nulle H0 testée par le test de Fisher équivaut à H0 : OR = 1.",
+                "correct": true,
+                "explanation": "C. Vrai — H0 stipule l'absence d'association entre l'exposition et la maladie, ce qui correspond à un Odds Ratio égal à 1."
+            },
+            {
+                "id": "d",
+                "text": "Un OR de 7,0 indique que la cote d'exposition est 7 fois plus élevée chez les cas que chez les témoins.",
+                "correct": true,
+                "explanation": "D. Vrai — C'est l'interprétation épidémiologique exacte de l'Odds Ratio."
+            },
+            {
+                "id": "e",
+                "text": "Si l'intervalle de confiance à 95% de l'OR comprend la valeur 1, le test de Fisher sera statistiquement significatif au seuil de 5%.",
+                "correct": false,
+                "explanation": "E. Faux — Si l'IC95% de l'OR contient la valeur 1 (valeur d'absence d'effet sous H0), l'association n'est PAS significative au seuil de 5% (p >= 0,05)."
+            }
+        ],
+        "explanation": "Réponses B, C et D exactes. Dans une étude cas-témoins, on calcule l'OR = (15 * 14)/(5 * 6) = 7,0. H0 équivaut à OR = 1. Si l'IC95% contient 1, le résultat est non significatif."
+    },
+    {
+        "id": "ue_bio_f3_q7",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°3 - Test de Fisher",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "Test exact de Fisher",
+            "Appariement",
+            "Test de McNemar"
+        ],
+        "statement": "Concernant les pièges et limites dans l'utilisation du test exact de Fisher, quelles sont les propositions exactes ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Le test exact de Fisher ne s'applique qu'à des échantillons indépendants et ne doit pas être utilisé pour des données qualitatives appariées.",
+                "correct": true,
+                "explanation": "A. Vrai — Pour des données binaires appariées (ex : concordance inter-juges ou avant/après sur les mêmes sujets), il faut utiliser le test de McNemar."
+            },
+            {
+                "id": "b",
+                "text": "Pour tester la concordance entre deux méthodes diagnostiques qualitatives sur les mêmes patients, le test de McNemar ou le coefficient Kappa de Cohen est indiqué.",
+                "correct": true,
+                "explanation": "B. Vrai — Les données sont appariées sur chaque patient, le test de Fisher n'est pas applicable."
+            },
+            {
+                "id": "c",
+                "text": "Le test exact de Fisher peut être généralisé à des tableaux de contingence de dimensions supérieures r x c (test de Fisher-Freeman-Halton).",
+                "correct": true,
+                "explanation": "C. Vrai — L'extension exacte hypergéométrique existe pour des tableaux de taille r x c quelconques."
+            },
+            {
+                "id": "d",
+                "text": "Si un tableau 2x2 comporte une case avec un effectif observé nul (a = 0), le test de Fisher ne peut pas être calculé.",
+                "correct": false,
+                "explanation": "D. Faux — Le test de Fisher fonctionne parfaitement avec des effectifs observés nuls car 0! = 1. C'est même l'une des situations où le Chi-2 est le plus inopérant et où Fisher est salvateur."
+            },
+            {
+                "id": "e",
+                "text": "Le test exact de Fisher teste obligatoirement une causalité directe entre les deux variables.",
+                "correct": false,
+                "explanation": "E. Faux — Comme tout test d'association statistique, il met en évidence une liaison ou une dépendance statistique, mais ne prouve en aucun cas la causalité (confusion, biais, causalité inverse possibles)."
+            }
+        ],
+        "explanation": "Réponses A, B et C exactes. Fisher requiert des échantillons indépendants (en séries appariées, on utilise McNemar). Il s'étend aux tableaux r x c et gère parfaitement les cases à 0 (0! = 1). Il teste l'association, non la causalité."
+    },
+    {
+        "id": "ue_bio_f3_q8",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°3 - Test de Fisher",
+        "year": 2024,
+        "difficulty": "Facile",
+        "tags": [
+            "Biostatistiques",
+            "Synthèse",
+            "Chi-2 vs Fisher",
+            "Cochran"
+        ],
+        "statement": "Dans quelles situations parmi les suivantes le test exact de Fisher est-il préférable au test du Chi-2 d'indépendance ?",
+        "answers": [
+            {
+                "id": "a",
+                "text": "Un tableau 2x2 où l'un des effectifs théoriques vaut 3,2.",
+                "correct": true,
+                "explanation": "A. Vrai — Effectif théorique < 5, la condition d'application du Chi-2 n'est pas respectée, Fisher est impératif."
+            },
+            {
+                "id": "b",
+                "text": "Un essai clinique pilote de phase I portant sur 12 volontaires avec 2 groupes de 6 sujets.",
+                "correct": true,
+                "explanation": "B. Vrai — Petit échantillon avec de faibles effectifs théoriques, Fisher est la méthode de référence."
+            },
+            {
+                "id": "c",
+                "text": "Une enquête épidémiologique nationale sur 50 000 participants avec des effectifs théoriques tous supérieurs à 500.",
+                "correct": false,
+                "explanation": "C. Faux — Avec de tels effectifs, le test du Chi-2 asymptotique standard est ultra-rapide, parfaitement valide et donne exactement le même résultat."
+            },
+            {
+                "id": "d",
+                "text": "Un tableau 2x2 comportant une case avec un effectif théorique égal à 0,8.",
+                "correct": true,
+                "explanation": "D. Vrai — Effectif théorique < 5 (et même < 1), le Chi-2 est totalement prohibé."
+            },
+            {
+                "id": "e",
+                "text": "La comparaison de deux moyennes de pression artérielle chez 10 patients.",
+                "correct": false,
+                "explanation": "E. Faux — La pression artérielle est une variable quantitative continue ; la comparaison de deux moyennes relève d'un test de Student ou de Mann-Whitney, et non d'un test de Fisher sur table de contingence binaire."
+            }
+        ],
+        "explanation": "Réponses A, B et D exactes. Le test exact de Fisher est requis dès qu'un effectif théorique est inférieur à 5 dans une table 2x2 ou sur de très petits échantillons qualitatifs. Il ne compare pas des moyennes quantitatives."
+    }
 ];
 
     const getItemExplanation = (q, ans, idx) => {
@@ -71586,6 +72753,10 @@
             const [remainingHearts, setRemainingHearts] = useState(3);
             const [examTimeRemaining, setExamTimeRemaining] = useState(0); // seconds remaining
             const [examTotalSeconds, setExamTotalSeconds] = useState(0);
+            const [examSubMode, setExamSubMode] = useState('standard'); // 'standard' or 'crash70'
+            const [isCrash70Eliminated, setIsCrash70Eliminated] = useState(false);
+            const [eliminatedAtQuestionIndex, setEliminatedAtQuestionIndex] = useState(null);
+            const [eliminatedStats, setEliminatedStats] = useState(null);
 
             const availableQuizCount = useMemo(() => {
                 if (!selectedSubjectForQuiz) return questions.length;
@@ -71918,6 +73089,9 @@
                 setSelectedChapterForQuiz(chapter);
                 setQuizQuestionLimit('all');
                 setCustomQuestionCount('');
+                setIsCrash70Eliminated(false);
+                setEliminatedAtQuestionIndex(null);
+                setEliminatedStats(null);
                 setShowUEConfigModal(true);
             };
 
@@ -71958,6 +73132,9 @@
                 setQuizTimerSeconds(0);
                 setUserAnswersHistory([]);
                 setValidatedQuestions({});
+                setIsCrash70Eliminated(false);
+                setEliminatedAtQuestionIndex(null);
+                setEliminatedStats(null);
                 setActiveQuizMode(quizLaunchMode);
                 if (quizLaunchMode === 'crashtest') {
                     setRemainingHearts(crashTestHearts);
@@ -72066,9 +73243,9 @@
                 setValidatedQuestions(prev => ({ ...prev, [currentQuizIndex]: true }));
             };
 
-            const finishQuiz = (overrideHearts = null) => {
+            const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
                 const hearts = overrideHearts !== null ? overrideHearts : remainingHearts;
-                const isGameOver = (activeQuizMode === 'crashtest' && hearts <= 0);
+                const isGameOver = (activeQuizMode === 'crashtest' && hearts <= 0) || forceCrash70 || isCrash70Eliminated;
                 const treatedList = isGameOver 
                     ? quizQuestions.slice(0, currentQuizIndex + 1)
                     : quizQuestions;
@@ -72214,7 +73391,7 @@
                                     MED
                                 </div>
                                 <h1 className="text-2xl font-bold text-white">MED-PREP <span className="text-red-500">SaaS</span></h1>
-                                <p className="text-slate-400 text-xs mt-1">Plateforme de préparation aux 8 UE médicales</p>
+                                <p className="text-slate-400 text-xs mt-1">Plateforme de préparation aux UE médicales PASS/LAS</p>
                             </div>
                             <form onSubmit={(e) => { e.preventDefault(); setIsAuthenticated(true); }} className="space-y-4">
                                 <div>
@@ -72275,7 +73452,9 @@
                                         {activeQuizMode === 'crashtest' ? (
                                             <span className="text-orange-400">🔥 Crash Test</span>
                                         ) : activeQuizMode === 'exam' ? (
-                                            <span className="text-purple-400">🎓 Mode Examen PASS/LAS</span>
+                                            <span className="text-purple-400">
+                                                🎓 {examSubMode === 'crash70' ? 'Mode Examen — Crash 70%' : 'Mode Examen PASS/LAS'}
+                                            </span>
                                         ) : activeQuizMode === 'mistakes' ? (
                                             <span className="text-amber-400">🎯 Coin Faute</span>
                                         ) : (
@@ -72289,6 +73468,36 @@
                             </div>
 
                             <div className="flex items-center gap-3">
+                                {/* Live HUD for Exam Crash 70% */}
+                                {activeQuizMode === 'exam' && examSubMode === 'crash70' && (() => {
+                                    const valKeys = Object.keys(validatedQuestions).map(Number);
+                                    const totalVal = valKeys.length;
+                                    let sf = 0;
+                                    valKeys.forEach(idx => {
+                                        const q = quizQuestions[idx];
+                                        if (!q) return;
+                                        const sel = userChoices[idx] || [];
+                                        let e = 0;
+                                        q.answers.forEach((ans, aIdx) => {
+                                            const isChecked = sel.includes(aIdx);
+                                            if ((ans.correct && !isChecked) || (!ans.correct && isChecked)) e++;
+                                        });
+                                        if (e === 0) sf++;
+                                    });
+                                    const curRate = totalVal > 0 ? ((sf / totalVal) * 100).toFixed(1).replace('.0', '') : '--';
+                                    const isWarning = totalVal >= 3 && parseFloat(curRate) < 70;
+
+                                    return (
+                                        <div className={`px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 border shadow-inner ${
+                                            isWarning ? 'bg-red-950 border-red-500 text-red-300 animate-pulse' : 'bg-purple-950/80 border-purple-700 text-purple-200'
+                                        }`}>
+                                            <span>💥 Seuil Crash 70% :</span>
+                                            <span className={`font-black ${isWarning ? 'text-red-400' : 'text-emerald-300'}`}>{curRate}%</span>
+                                            <span className="text-[10px] text-slate-400">({sf}/{totalVal} sans faute)</span>
+                                        </div>
+                                    );
+                                })()}
+
                                 {/* Chronometer or Countdown */}
                                 {activeQuizMode === 'exam' ? (
                                     <div className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-bold flex items-center gap-1.5 shadow-inner border ${
@@ -72702,25 +73911,95 @@
                                             <div className="flex items-center gap-3">
                                                 {isExamMode ? (
                                                     <>
-                                                        {currentQuizIndex + 1 < quizQuestions.length ? (
-                                                            <button
-                                                                onClick={() => setCurrentQuizIndex(prev => prev + 1)}
-                                                                className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white text-xs font-bold rounded-xl transition-all flex items-center gap-1.5"
-                                                            >
-                                                                <span>Question suivante →</span>
-                                                            </button>
-                                                        ) : null}
+                                                        {examSubMode === 'crash70' ? (
+                                                            <>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const currentQ = quizQuestions[currentQuizIndex];
+                                                                        const sel = userChoices[currentQuizIndex] || [];
+                                                                        let errs = 0;
+                                                                        currentQ.answers.forEach((ans, aIdx) => {
+                                                                            const isChecked = sel.includes(aIdx);
+                                                                            if ((ans.correct && !isChecked) || (!ans.correct && isChecked)) errs++;
+                                                                        });
 
-                                                        <button
-                                                            onClick={() => {
-                                                                if (confirm(`Terminer l'épreuve et voir la note finale avec la correction complète ?\n\nVous avez répondu à ${answeredCount} question(s) sur ${quizQuestions.length}.`)) {
-                                                                    finishQuiz();
-                                                                }
-                                                            }}
-                                                            className="px-6 py-2.5 bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 text-white text-xs font-bold rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center gap-2"
-                                                        >
-                                                            <span>🏁 Terminer l'épreuve</span>
-                                                        </button>
+                                                                        const newValidated = { ...validatedQuestions, [currentQuizIndex]: true };
+                                                                        setValidatedQuestions(newValidated);
+
+                                                                        if (errs > 0) {
+                                                                            const todayStr = new Date().toISOString().split('T')[0];
+                                                                            setMistakes(prev => {
+                                                                                if (prev.some(m => m.questionId === currentQ.id)) return prev;
+                                                                                return [...prev, {
+                                                                                    id: 'm-' + Date.now() + '-' + currentQuizIndex,
+                                                                                    questionId: currentQ.id,
+                                                                                    date: todayStr,
+                                                                                    userChoice: sel,
+                                                                                    correctChoices: currentQ.answers.map((a, i) => a.correct ? i : null).filter(x => x !== null)
+                                                                                }];
+                                                                            });
+                                                                        }
+
+                                                                        const valKeys = Object.keys(newValidated).map(Number);
+                                                                        const totalVal = valKeys.length;
+                                                                        let sf = 0;
+                                                                        valKeys.forEach(idx => {
+                                                                            const q = quizQuestions[idx];
+                                                                            if (!q) return;
+                                                                            const s = userChoices[idx] || [];
+                                                                            let e = 0;
+                                                                            q.answers.forEach((ans, aIdx) => {
+                                                                                const isChecked = s.includes(aIdx);
+                                                                                if ((ans.correct && !isChecked) || (!ans.correct && isChecked)) e++;
+                                                                            });
+                                                                            if (e === 0) sf++;
+                                                                        });
+
+                                                                        const rate = totalVal > 0 ? (sf / totalVal) * 100 : 100;
+
+                                                                        if (totalVal >= 3 && rate < 70.0) {
+                                                                            setIsCrash70Eliminated(true);
+                                                                            setEliminatedAtQuestionIndex(currentQuizIndex);
+                                                                            setEliminatedStats({ answered: totalVal, sansFaute: sf, rate: parseFloat(rate.toFixed(1)) });
+                                                                            finishQuiz(null, true);
+                                                                            return;
+                                                                        }
+
+                                                                        if (currentQuizIndex + 1 < quizQuestions.length) {
+                                                                            setCurrentQuizIndex(prev => prev + 1);
+                                                                        } else {
+                                                                            setIsCrash70Eliminated(false);
+                                                                            finishQuiz(null, false);
+                                                                        }
+                                                                    }}
+                                                                    className="px-6 py-2.5 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white text-xs font-bold rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center gap-2"
+                                                                >
+                                                                    <span>{currentQuizIndex + 1 < quizQuestions.length ? 'Valider & Question suivante →' : 'Valider & Terminer le Crash 70% 🏁'}</span>
+                                                                </button>
+                                                            </>
+                                                        ) : (
+                                                            <>
+                                                                {currentQuizIndex + 1 < quizQuestions.length ? (
+                                                                    <button
+                                                                        onClick={() => setCurrentQuizIndex(prev => prev + 1)}
+                                                                        className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white text-xs font-bold rounded-xl transition-all flex items-center gap-1.5"
+                                                                    >
+                                                                        <span>Question suivante →</span>
+                                                                    </button>
+                                                                ) : null}
+
+                                                                <button
+                                                                    onClick={() => {
+                                                                        if (confirm(`Terminer l'épreuve et voir la note finale avec la correction complète ?\n\nVous avez répondu à ${answeredCount} question(s) sur ${quizQuestions.length}.`)) {
+                                                                            finishQuiz();
+                                                                        }
+                                                                    }}
+                                                                    className="px-6 py-2.5 bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 text-white text-xs font-bold rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center gap-2"
+                                                                >
+                                                                    <span>🏁 Terminer l'épreuve</span>
+                                                                </button>
+                                                            </>
+                                                        )}
                                                     </>
                                                 ) : !isValidated ? (
                                                     <button
@@ -72770,11 +74049,47 @@
                                                 {activeQuizMode === 'crashtest' 
                                                     ? (remainingHearts <= 0 ? 'Crash Test — Mort Subite (0 cœur restant)' : 'Crash Test Réussi !')
                                                     : activeQuizMode === 'exam' 
-                                                        ? 'Épreuve Mode Examen PASS/LAS' 
+                                                        ? (examSubMode === 'crash70' 
+                                                            ? (isCrash70Eliminated ? 'Épreuve Examen Crash 70% — Éliminé(e)' : 'Épreuve Examen Crash 70% — Réussie !')
+                                                            : 'Épreuve Mode Examen PASS/LAS') 
                                                         : 'Série de QCM Terminée'}
                                             </span>
                                             <h2 className="text-2xl font-black text-white mt-1">Bilan & Correction Complète</h2>
                                         </div>
+
+                                        {/* BANNER FOR EXAM CRASH 70% RESULT */}
+                                        {activeQuizMode === 'exam' && examSubMode === 'crash70' && (
+                                            isCrash70Eliminated ? (
+                                                <div className="p-5 rounded-3xl bg-gradient-to-r from-red-950 via-rose-950 to-slate-900 border-2 border-red-500 text-white space-y-2 shadow-2xl text-left">
+                                                    <div className="flex items-center gap-3">
+                                                        <span className="text-3xl">💥</span>
+                                                        <div>
+                                                            <div className="text-xs font-black uppercase tracking-widest text-red-400">Crash Éliminatoire — Seuil 70% Non Atteint</div>
+                                                            <h3 className="text-lg font-black text-white">Épreuve interrompue à la question {eliminatedAtQuestionIndex !== null ? eliminatedAtQuestionIndex + 1 : userAnswersHistory.length}</h3>
+                                                        </div>
+                                                    </div>
+                                                    <p className="text-xs text-red-200 leading-relaxed">
+                                                        Votre taux de <strong>Sans Faute (1,0 pt)</strong> est tombé à <strong>{eliminatedStats ? eliminatedStats.rate : 0}%</strong> ({eliminatedStats ? eliminatedStats.sansFaute : 0}/{eliminatedStats ? eliminatedStats.answered : 0} QCMs sans faute), ce qui est inférieur au seuil éliminatoire de <strong>70%</strong>.
+                                                    </p>
+                                                    <div className="text-xs text-slate-300">
+                                                        💡 Retrouvez ci-dessous la correction détaillée et les explications des QCMs traités pour vous entraîner et retenter le défi !
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                <div className="p-5 rounded-3xl bg-gradient-to-r from-emerald-950 via-teal-950 to-slate-900 border-2 border-emerald-500 text-white space-y-2 shadow-2xl text-left">
+                                                    <div className="flex items-center gap-3">
+                                                        <span className="text-3xl">🏆</span>
+                                                        <div>
+                                                            <div className="text-xs font-black uppercase tracking-widest text-emerald-400">Défi Réussi — Seuil 70% Validé</div>
+                                                            <h3 className="text-lg font-black text-white">Félicitations ! Vous avez validé l'examen Crash 70% !</h3>
+                                                        </div>
+                                                    </div>
+                                                    <p className="text-xs text-emerald-200 leading-relaxed">
+                                                        Vous avez brillamment maintenu un taux de Sans Faute de <strong>{pct1Pt}%</strong> sur l'ensemble de l'épreuve (seuil requis : &ge; 70%).
+                                                    </p>
+                                                </div>
+                                            )
+                                        )}
 
                                         <div className="flex flex-wrap justify-center items-center gap-4 py-2">
                                             <div className="bg-slate-800 border border-slate-700 px-5 py-2.5 rounded-2xl text-orange-400 font-extrabold text-xl shadow-inner">
@@ -73072,7 +74387,7 @@
                             </div>
                             <div>
                                 <h1 className="font-bold text-white text-sm">MED-PREP <span className="text-red-500">PRO</span></h1>
-                                <p className="text-[11px] text-slate-400">8 Unités d'Enseignement</p>
+                                <p className="text-[11px] text-slate-400">Unités d'Enseignement</p>
                             </div>
                         </div>
 
@@ -73080,7 +74395,7 @@
                             {[
                                 { id: 'dashboard', label: 'Tableau de Bord' },
                                 { id: 'ancrage', label: '⚓ UE Ancrage Mémoriel', badge: ancrageDueCount > 0 ? `${ancrageDueCount} du jour` : ancrageActiveCount },
-                                { id: 'subjects', label: 'Gestion des 8 UE' },
+                                { id: 'subjects', label: 'Unités d\'Enseignement' },
                                 { id: 'bank', label: 'Banque de QCM (UE)' },
                                 { id: 'pdf', label: 'Import PDF & IA' },
                                 { id: 'mistakes', label: 'Coin Faute', badge: mistakes.length },
@@ -73107,7 +74422,7 @@
                             <h2 className="text-lg font-bold text-white uppercase">
                                 {currentView === 'dashboard' && 'Tableau de Bord'}
                                 {currentView === 'ancrage' && '⚓ UE Ancrage Mémoriel — Boîte à Erreurs J1-J28'}
-                                {currentView === 'subjects' && (selectedDetailedSubject ? selectedDetailedSubject.name : 'Les 8 Unités d’Enseignement')}
+                                {currentView === 'subjects' && (selectedDetailedSubject ? selectedDetailedSubject.name : 'Unités d’Enseignement')}
                                 {currentView === 'bank' && 'Banque de QCM & Rangement par UE / Fiche'}
                                 {currentView === 'pdf' && 'Import PDF & Extraction IA'}
                                 {currentView === 'mistakes' && 'Coin Faute'}
@@ -73123,7 +74438,7 @@
                             {currentView === 'dashboard' && (
                                 <div className="space-y-8">
                                     <div className="bg-gradient-to-r from-red-950/40 to-blue-950/40 border border-red-500/20 rounded-3xl p-8 space-y-4">
-                                        <h1 className="text-3xl font-black text-white">Maîtrisez les 8 Unités d'Enseignement</h1>
+                                        <h1 className="text-3xl font-black text-white">Maîtrisez les Unités d'Enseignement</h1>
                                         <p className="text-slate-300 text-sm">Gérez vos banques de QCM par chapitre, lancez des séries ou testez-vous en mode mort subite.</p>
                                         <div className="flex flex-wrap gap-3 pt-1">
                                             <button onClick={() => startQuiz('training')} className="px-5 py-2.5 bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 text-white text-xs font-bold rounded-xl shadow-lg transition-all flex items-center gap-1.5">
@@ -73624,7 +74939,7 @@
                                     <div className="flex justify-between items-center flex-wrap gap-4">
                                         <div>
                                             <h3 className="text-xl font-bold text-white">Banque de QCM & Rangement par UE / Fiche</h3>
-                                            <p className="text-xs text-slate-400">Recherchez et filtrez vos questions parmi les 8 Unités d'Enseignement.</p>
+                                            <p className="text-xs text-slate-400">Recherchez et filtrez vos questions parmi les Unités d'Enseignement.</p>
                                         </div>
                                         <button onClick={() => { setEditingQuestion(null); setShowQuestionModal(true); }} className="px-4 py-2 bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold rounded-xl text-sm shadow-md">➕ Créer un QCM</button>
                                     </div>
@@ -73823,6 +75138,39 @@
                                             {quizLaunchMode === 'exam' && '🎓 Conditions réelles du concours PASS/LAS : compte à rebours de 1 min 30 par QCM, zéro indication pendant l\'épreuve, palette pour relire. Rendu et correction intégrale à la fin.'}
                                         </div>
                                     </div>
+
+                                    {/* 1.5 Sous-mode Examen : Standard vs Crash 70% */}
+                                    {quizLaunchMode === 'exam' && (
+                                        <div className="p-3.5 rounded-2xl bg-purple-950/40 border border-purple-800/60 space-y-2.5">
+                                            <div className="flex justify-between items-center">
+                                                <label className="block text-xs font-bold text-purple-300">Variante de l'Épreuve</label>
+                                                <span className="text-[10px] uppercase tracking-wider font-extrabold px-2.5 py-0.5 rounded-full bg-purple-900/80 text-purple-200 border border-purple-700">
+                                                    {examSubMode === 'crash70' ? '🔥 Seuil Éliminatoire 70%' : '🎓 Standard PASS'}
+                                                </span>
+                                            </div>
+                                            <div className="grid grid-cols-2 gap-2">
+                                                <button 
+                                                    type="button"
+                                                    onClick={() => setExamSubMode('standard')} 
+                                                    className={`p-2.5 rounded-xl border text-xs font-bold transition-all ${examSubMode === 'standard' ? 'bg-purple-600 border-purple-400 text-white shadow-md ring-2 ring-purple-500/30' : 'bg-slate-950 border-slate-800 text-slate-400 hover:bg-slate-800'}`}
+                                                >
+                                                    🎓 Standard PASS
+                                                </button>
+                                                <button 
+                                                    type="button"
+                                                    onClick={() => setExamSubMode('crash70')} 
+                                                    className={`p-2.5 rounded-xl border text-xs font-bold transition-all ${examSubMode === 'crash70' ? 'bg-gradient-to-r from-red-600 to-rose-600 border-red-400 text-white shadow-md ring-2 ring-red-500/30' : 'bg-slate-950 border-slate-800 text-slate-400 hover:bg-slate-800'}`}
+                                                >
+                                                    💥 Crash 70%
+                                                </button>
+                                            </div>
+                                            <div className="text-[11px] text-slate-300 leading-relaxed pt-0.5">
+                                                {examSubMode === 'standard' 
+                                                    ? "🎓 Concours Standard : compte à rebours (1m30/QCM), navigation libre, correction intégrale à la fin de l'épreuve." 
+                                                    : "💥 Sous-mode Crash 70% : vous devez maintenir au minimum 70% de QCMs Sans Faute (1,0 pt). Dès 3 QCMs, si votre taux de sans-faute tombe sous 70%, vous êtes éliminé (Crash) et l'examen s'arrête net !"}
+                                            </div>
+                                        </div>
+                                    )}
 
                                     {/* 2. Mode Crash Test Hearts (Vies) */}
                                     {quizLaunchMode === 'crashtest' && (
