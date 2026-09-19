@@ -69923,8 +69923,8 @@
             } else if (q && q.explanation && typeof q.explanation === 'string') {
                 const optionLetter = String.fromCharCode(65 + idx);
                 const regexes = [
-                    new RegExp('(?:^|[•\\n])\\s*' + optionLetter + '[\\.\\s:—\\-]+(.*?)(?=(?:[•\\n]\\s*[A-Z][\\.\\s:—\\-]|\\Z))', 'is'),
-                    new RegExp(optionLetter + '[\\.\\s]+(Vrai|Faux)\\s*[:—–\\-]?\\s*(.*?)(?=(?:[A-E][\\.\\s]+(?:Vrai|Faux)|Réponses?|$))', 'is'),
+                    new RegExp('(?:^|[•\\n])\\s*' + optionLetter + '[-:.\\s—–]+(.*?)(?=(?:[•\\n]\\s*[A-Z][-:.\\s—–]|$))', 'is'),
+                    new RegExp(optionLetter + '[\\.\\s]+(Vrai|Faux)\\s*[-:—–]?\\s*(.*?)(?=(?:[A-E][\\.\\s]+(?:Vrai|Faux)|Réponses?|$))', 'is'),
                     new RegExp(optionLetter + '\\s+est\\s+(vrai|faux)\\s*\\(?\\s*(.*?)\\)?(?=(?:[A-E]\\s+est\\s+(?:vrai|faux)|Réponses?|$))', 'is')
                 ];
                 for (const regex of regexes) {
@@ -69932,7 +69932,7 @@
                     if (match) {
                         const captured = match[2] || match[1];
                         if (captured && captured.trim().length > 3) {
-                            raw = captured.trim().replace(/^[:—–\\-\\s\\(\\)]+/, '').replace(/[\\s\\.\\(\\)]+$/, '');
+                            raw = captured.trim().replace(/^[-:—–\\s()]+/, '').replace(/[-:.\\s()]+$/, '');
                             break;
                         }
                     }
@@ -69946,15 +69946,15 @@
             }
 
             // Clean up letter prefix e.g. "A. ", "A - ", "A : "
-            let clean = raw.replace(/^[A-E][\\.\\s:—\\-]+\\s*/i, '').trim();
+            let clean = raw.replace(/^[A-E][-:.\\s—–]+\\s*/i, '').trim();
 
             // Standardize "VRAI — " or "FAUX — "
-            clean = clean.replace(/^(VRAI|FAUX)\\s*[—\\-:]\\s*/i, (m, p1) => {
+            clean = clean.replace(/^(VRAI|FAUX)\\s*[-:—–]\\s*/i, (m, p1) => {
                 return p1.toUpperCase() === 'VRAI' ? 'Vrai. ' : 'Faux. ';
             });
 
             // Ensure it starts with Vrai. or Faux.
-            if (!/^vrai[\\.\\s—\\-]/i.test(clean) && !/^faux[\\.\\s—\\-]/i.test(clean)) {
+            if (!/^vrai[-:.\\s—–]/i.test(clean) && !/^faux[-:.\\s—–]/i.test(clean)) {
                 clean = (ans.correct ? 'Vrai. ' : 'Faux. ') + clean;
             }
 
