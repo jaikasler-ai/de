@@ -64340,22 +64340,24 @@
             const [isExtractingAI, setIsExtractingAI] = useState(false);
 
             // Active Quiz State
-            const [activeQuizMode, setActiveQuizMode] = useState(null); // 'training', 'crashtest', 'mistakes'
+            const [activeQuizMode, setActiveQuizMode] = useState(null); // 'training', 'crashtest', 'exam', 'mistakes', 'ancrage'
             const [quizQuestions, setQuizQuestions] = useState([]);
             const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
             const [quizScore, setQuizScore] = useState(0);
-            const [selectedAnswers, setSelectedAnswers] = useState([]);
-            const [isSubmitted, setIsSubmitted] = useState(false);
+            const [userChoices, setUserChoices] = useState({}); // { [qIdx]: number[] }
+            const [flaggedQuestions, setFlaggedQuestions] = useState({}); // { [qIdx]: boolean }
             const [quizFinished, setQuizFinished] = useState(false);
             const [userAnswersHistory, setUserAnswersHistory] = useState([]);
 
-            // UE Config Modal State (Série QCM vs Crash Test avec Cœurs : 1, 3, 5)
+            // UE Config Modal State (Série QCM vs Crash Test avec Cœurs : 1, 3, 5 vs Mode Examen PASS)
             const [showUEConfigModal, setShowUEConfigModal] = useState(false);
             const [selectedSubjectForQuiz, setSelectedSubjectForQuiz] = useState(null);
             const [selectedChapterForQuiz, setSelectedChapterForQuiz] = useState(null);
-            const [quizLaunchMode, setQuizLaunchMode] = useState('training'); // 'training' or 'crashtest'
+            const [quizLaunchMode, setQuizLaunchMode] = useState('training'); // 'training', 'crashtest', 'exam'
             const [crashTestHearts, setCrashTestHearts] = useState(3); // 1, 3, or 5 hearts
             const [remainingHearts, setRemainingHearts] = useState(3);
+            const [examTimeRemaining, setExamTimeRemaining] = useState(0); // seconds remaining
+            const [examTotalSeconds, setExamTotalSeconds] = useState(0);
 
             const availableQuizCount = useMemo(() => {
                 if (!selectedSubjectForQuiz) return questions.length;
@@ -64370,18 +64372,35 @@
             const [customQuestionCount, setCustomQuestionCount] = useState('');
             const [quizTimerSeconds, setQuizTimerSeconds] = useState(0);
 
-            // Chronometer timer effect
+            // Chronometer & Exam Countdown timer effect
             React.useEffect(() => {
                 let interval = null;
                 if (activeQuizMode && !quizFinished) {
                     interval = setInterval(() => {
-                        setQuizTimerSeconds(prev => prev + 1);
+                        if (activeQuizMode === 'exam') {
+                            setExamTimeRemaining(prev => {
+                                if (prev <= 1) {
+                                    return 0;
+                                }
+                                return prev - 1;
+                            });
+                        } else {
+                            setQuizTimerSeconds(prev => prev + 1);
+                        }
                     }, 1000);
                 } else {
                     clearInterval(interval);
                 }
                 return () => clearInterval(interval);
             }, [activeQuizMode, quizFinished]);
+
+            // Auto-submit exam when countdown reaches 0
+            React.useEffect(() => {
+                if (activeQuizMode === 'exam' && examTimeRemaining === 0 && !quizFinished && quizQuestions.length > 0) {
+                    alert("⏰ Épreuve terminée ! Le temps imparti est écoulé.\nVos réponses sont enregistrées et la copie est soumise pour correction.");
+                    finishQuiz();
+                }
+            }, [examTimeRemaining, activeQuizMode, quizFinished, quizQuestions.length]);
 
             const formatQuizTime = (totalSec) => {
                 const mins = Math.floor(totalSec / 60);
@@ -64704,13 +64723,18 @@
                 setQuizQuestions(randomizedPool);
                 setCurrentQuizIndex(0);
                 setQuizScore(0);
-                setSelectedAnswers([]); setIsSubmitted(false);
+                setUserChoices({});
+                setFlaggedQuestions({});
                 setQuizFinished(false);
                 setQuizTimerSeconds(0);
                 setUserAnswersHistory([]);
                 setActiveQuizMode(quizLaunchMode);
                 if (quizLaunchMode === 'crashtest') {
                     setRemainingHearts(crashTestHearts);
+                } else if (quizLaunchMode === 'exam') {
+                    const examSeconds = finalLimit * 90; // 1 min 30 s per question
+                    setExamTotalSeconds(examSeconds);
+                    setExamTimeRemaining(examSeconds);
                 }
             };
 
@@ -64750,156 +64774,123 @@
                 setQuizQuestions(randomizedPool);
                 setCurrentQuizIndex(0);
                 setQuizScore(0);
-                setSelectedAnswers([]); setIsSubmitted(false);
+                setUserChoices({});
+                setFlaggedQuestions({});
                 setQuizFinished(false);
                 setQuizTimerSeconds(0);
                 setUserAnswersHistory([]);
                 setActiveQuizMode(mode);
                 if (mode === 'crashtest') {
                     setRemainingHearts(3);
+                } else if (mode === 'exam') {
+                    const examSeconds = finalLimit * 90;
+                    setExamTotalSeconds(examSeconds);
+                    setExamTimeRemaining(examSeconds);
                 }
             };
 
             const toggleAnswerChoice = (ansIndex) => {
-                if (isSubmitted) return;
-                setSelectedAnswers(prev => 
-                    prev.includes(ansIndex) ? prev.filter(i => i !== ansIndex) : [...prev, ansIndex]
-                );
+                setUserChoices(prev => {
+                    const current = prev[currentQuizIndex] || [];
+                    const updated = current.includes(ansIndex) 
+                        ? current.filter(i => i !== ansIndex) 
+                        : [...current, ansIndex];
+                    return { ...prev, [currentQuizIndex]: updated };
+                });
             };
 
-            const handleMultiAnswerSubmit = () => {
-                if (isSubmitted) return;
-                setIsSubmitted(true);
+            const handleCrashTestNext = () => {
                 const currentQ = quizQuestions[currentQuizIndex];
-                
-                // Medical PASS/LAS scoring: 0 errors = 1pt, 1 error = 0.5pt, >=2 errors = 0pt
+                const selected = userChoices[currentQuizIndex] || [];
                 let errorsCount = 0;
-                currentQ.answers.forEach((ans, idx) => {
-                    const isChecked = selectedAnswers.includes(idx);
+                currentQ.answers.forEach((ans, aIdx) => {
+                    const isChecked = selected.includes(aIdx);
                     if ((ans.correct && !isChecked) || (!ans.correct && isChecked)) {
                         errorsCount++;
                     }
                 });
 
-                let questionPoints = 0;
-                if (errorsCount === 0) questionPoints = 1.0;
-                else if (errorsCount === 1) questionPoints = 0.5;
-
-                const isCorrect = (errorsCount === 0);
-
-                setUserAnswersHistory(prev => [...prev, {
-                    question: currentQ,
-                    selectedAnswerIndices: selectedAnswers,
-                    isCorrect,
-                    errorsCount,
-                    points: questionPoints
-                }]);
-
-                const todayMs = Date.now();
-                const oneDayMs = 24 * 3600 * 1000;
-                const questionId = currentQ.id;
-
-                if (questionPoints > 0) {
-                    setQuizScore(prev => parseFloat((prev + questionPoints).toFixed(1)));
+                if (errorsCount > 0) {
+                    const nextHearts = remainingHearts - 1;
+                    setRemainingHearts(nextHearts);
+                    if (nextHearts <= 0) {
+                        alert("💥 Plus de cœurs restants ! Mort subite déclenchée.\nLe Crash Test s\'arrête ici et la correction complète de vos questions s\'affiche.");
+                        finishQuiz(0);
+                        return;
+                    }
                 }
 
-                if (isCorrect) {
-                    if (activeQuizMode === 'ancrage') {
-                        const targetEntryId = currentQ._ancrageEntryId;
-                        setAncrageData(prev => {
-                            let entryKey = targetEntryId;
-                            if (!entryKey) {
-                                const found = Object.values(prev).find(e => e.questionId === questionId && e.status === 'active');
-                                if (found) entryKey = found.entryId;
-                            }
-                            if (!entryKey || !prev[entryKey]) return prev;
-
-                            const existing = prev[entryKey];
-                            const intervals = existing.isReinforced ? REINFORCED_INTERVALS : STANDARD_INTERVALS;
-                            const nextStep = existing.stepIndex + 1;
-
-                            if (nextStep >= intervals.length) {
-                                // Validation Ultime : Ancré et libéré !
-                                return {
-                                    ...prev,
-                                    [entryKey]: {
-                                        ...existing,
-                                        stepIndex: nextStep,
-                                        status: 'mastered',
-                                        lastReviewTimestamp: todayMs
-                                    }
-                                };
-                            } else {
-                                const nextDelayDays = intervals[nextStep];
-                                return {
-                                    ...prev,
-                                    [entryKey]: {
-                                        ...existing,
-                                        stepIndex: nextStep,
-                                        nextReviewTimestamp: todayMs + (nextDelayDays * oneDayMs),
-                                        lastReviewTimestamp: todayMs,
-                                        status: 'active'
-                                    }
-                                };
-                            }
-                        });
-                    }
+                if (currentQuizIndex + 1 < quizQuestions.length) {
+                    setCurrentQuizIndex(prev => prev + 1);
                 } else {
-                    if (!mistakes.some(m => m.questionId === currentQ.id)) {
-                        setMistakes(prev => [...prev, { id: 'm-' + Date.now(), questionId: currentQ.id, date: new Date().toISOString().split('T')[0], userChoice: selectedAnswers, correctChoices: currentQ.answers.map((a, i) => a.correct ? i : null).filter(x => x !== null) }]);
-                    }
-
-                    if (activeQuizMode === 'ancrage') {
-                        const targetEntryId = currentQ._ancrageEntryId;
-                        setAncrageData(prev => {
-                            let entryKey = targetEntryId;
-                            if (!entryKey) {
-                                const found = Object.values(prev).find(e => e.questionId === questionId && e.status === 'active');
-                                if (found) entryKey = found.entryId;
-                            }
-                            if (!entryKey || !prev[entryKey]) {
-                                addAncrageEntry(questionId);
-                                return prev;
-                            }
-
-                            const existing = prev[entryKey];
-                            const newFailCount = existing.failureCount + 1;
-                            const isReinforced = newFailCount >= 3;
-                            return {
-                                ...prev,
-                                [entryKey]: {
-                                    ...existing,
-                                    stepIndex: 0, // Repart à J0 (Aujourd'hui)
-                                    failureCount: newFailCount,
-                                    isReinforced: isReinforced,
-                                    nextReviewTimestamp: todayMs,
-                                    lastReviewTimestamp: todayMs,
-                                    status: 'active'
-                                }
-                            };
-                        });
-                    } else {
-                        // En mode normal/crashtest -> Ajout manuel via le bouton dans la correction
-                    }
-
-                    if (activeQuizMode === 'crashtest') {
-                        setRemainingHearts(prev => Math.max(0, prev - 1));
-                    }
+                    finishQuiz();
                 }
             };
 
-            const nextQuizQuestion = () => {
-                if (activeQuizMode === 'crashtest' && remainingHearts <= 0) {
-                    setQuizFinished(true);
-                    return;
-                }
-                if (currentQuizIndex + 1 < quizQuestions.length) {
-                    setCurrentQuizIndex(prev => prev + 1);
-                    setSelectedAnswers([]); setIsSubmitted(false);
-                } else {
-                    setQuizFinished(true);
-                    setUser(prev => ({ ...prev, xp: prev.xp + (quizScore * 15) + 50 }));
-                }
+            const finishQuiz = (overrideHearts = null) => {
+                const hearts = overrideHearts !== null ? overrideHearts : remainingHearts;
+                const isGameOver = (activeQuizMode === 'crashtest' && hearts <= 0);
+                const treatedList = isGameOver 
+                    ? quizQuestions.slice(0, currentQuizIndex + 1)
+                    : quizQuestions;
+
+                let totalPoints = 0;
+                const history = [];
+                const todayStr = new Date().toISOString().split('T')[0];
+
+                treatedList.forEach((q, qIdx) => {
+                    const selected = userChoices[qIdx] || [];
+                    let errorsCount = 0;
+                    q.answers.forEach((ans, aIdx) => {
+                        const isChecked = selected.includes(aIdx);
+                        if ((ans.correct && !isChecked) || (!ans.correct && isChecked)) {
+                            errorsCount++;
+                        }
+                    });
+
+                    // Barème officiel PASS / LAS :
+                    // 0 erreur = 1.0 pt
+                    // 1 erreur = 0.5 pt
+                    // >= 2 erreurs = 0.0 pt
+                    let questionPoints = 0.0;
+                    if (errorsCount === 0) {
+                        questionPoints = 1.0;
+                    } else if (errorsCount === 1) {
+                        questionPoints = 0.5;
+                    } else {
+                        questionPoints = 0.0;
+                    }
+
+                    totalPoints += questionPoints;
+                    const isCorrect = (errorsCount === 0);
+
+                    history.push({
+                        question: q,
+                        selectedAnswerIndices: selected,
+                        isCorrect,
+                        errorsCount,
+                        points: questionPoints
+                    });
+
+                    if (errorsCount > 0) {
+                        setMistakes(prev => {
+                            if (prev.some(m => m.questionId === q.id)) return prev;
+                            return [...prev, {
+                                id: 'm-' + Date.now() + '-' + qIdx,
+                                questionId: q.id,
+                                date: todayStr,
+                                userChoice: selected,
+                                correctChoices: q.answers.map((a, i) => a.correct ? i : null).filter(x => x !== null)
+                            }];
+                        });
+                    }
+                });
+
+                const finalScore = parseFloat(totalPoints.toFixed(1));
+                setQuizScore(finalScore);
+                setUserAnswersHistory(history);
+                setQuizFinished(true);
+                setUser(prev => ({ ...prev, xp: prev.xp + Math.round(finalScore * 15) + 50 }));
             };
 
             const changeQuestionSubject = (questionId, newSubjectId) => {
@@ -65004,65 +64995,143 @@
 
             if (activeQuizMode) {
                 const currentQ = quizQuestions[currentQuizIndex];
-                const progressPercent = ((currentQuizIndex + 1) / quizQuestions.length) * 100;
-                const currentHistItem = userAnswersHistory.find(h => h.question && h.question.id === currentQ?.id);
-                const currentPts = currentHistItem ? currentHistItem.points : 0;
-                const currentErrs = currentHistItem ? currentHistItem.errorsCount : 0;
-                const isCurrentInAncrage = Boolean(currentQ && Object.values(ancrageData).some(item => (item.questionId === currentQ.id || item.entryId === currentQ.id) && item.status === 'active'));
+                const progressPercent = quizQuestions.length > 0 ? ((currentQuizIndex + 1) / quizQuestions.length) * 100 : 0;
+                const totalQCount = userAnswersHistory.length || 1;
+                
+                let count1Pt = 0;
+                let countHalfPt = 0;
+                let count0Pt = 0;
 
-                const treatedQuestions = quizQuestions.filter(q => userAnswersHistory.some(h => h.question && h.question.id === q.id));
-                const totalQCount = treatedQuestions.length || 1;
-                let count0 = 0;
-                let countPartialLow = 0;
-                let countHigh = 0;
-
-                treatedQuestions.forEach(q => {
-                    const h = userAnswersHistory.find(item => item.question && item.question.id === q.id);
-                    const pts = h ? (h.points ?? (h.isCorrect ? 1.0 : 0)) : 0;
-                    if (pts === 0) {
-                        count0++;
-                    } else if (pts > 0 && pts < 0.5) {
-                        countPartialLow++;
-                    } else if (pts >= 0.5) {
-                        countHigh++;
-                    }
+                userAnswersHistory.forEach(h => {
+                    const pts = h.points ?? 0;
+                    if (pts === 1.0) count1Pt++;
+                    else if (pts === 0.5) countHalfPt++;
+                    else count0Pt++;
                 });
 
-                const pct0 = ((count0 / totalQCount) * 100).toFixed(1).replace('.0', '');
-                const pctPartialLow = ((countPartialLow / totalQCount) * 100).toFixed(1).replace('.0', '');
-                const pctHigh = ((countHigh / totalQCount) * 100).toFixed(1).replace('.0', '');
+                const pct1Pt = ((count1Pt / totalQCount) * 100).toFixed(1).replace('.0', '');
+                const pctHalfPt = ((countHalfPt / totalQCount) * 100).toFixed(1).replace('.0', '');
+                const pct0Pt = ((count0Pt / totalQCount) * 100).toFixed(1).replace('.0', '');
+
+                const answeredCount = Object.keys(userChoices).filter(k => (userChoices[k] || []).length > 0).length;
 
                 return (
                     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
-                        <header className="border-b border-slate-800 bg-slate-900/60 px-6 py-4 flex items-center justify-between sticky top-0 z-50">
+                        {/* HEADER */}
+                        <header className="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md px-6 py-4 flex items-center justify-between sticky top-0 z-50 shadow-md">
                             <div className="flex items-center gap-4">
-                                <button onClick={() => setActiveQuizMode(null)} className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold">
-                                    ← Retour
+                                <button 
+                                    onClick={() => {
+                                        if (quizFinished || confirm("Voulez-vous quitter la session ? Vos réponses non validées seront perdues.")) {
+                                            setActiveQuizMode(null);
+                                        }
+                                    }} 
+                                    className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold transition-all border border-slate-700 flex items-center gap-1"
+                                >
+                                    <span>←</span>
+                                    <span>Quitter</span>
                                 </button>
                                 <div>
-                                    <span className="text-xs uppercase tracking-widest text-red-500 font-bold">
-                                        {activeQuizMode === 'crashtest' ? `🔥 Crash Test (Vies : ${remainingHearts})` : activeQuizMode === 'ancrage' ? '⚓ Session UE Ancrage Mémoriel (Répétition Espacée)' : '⚡ Série QCM Entraînement'}
+                                    <span className="text-xs uppercase tracking-widest font-bold flex items-center gap-1.5">
+                                        {activeQuizMode === 'crashtest' ? (
+                                            <span className="text-orange-400">🔥 Crash Test</span>
+                                        ) : activeQuizMode === 'exam' ? (
+                                            <span className="text-purple-400">🎓 Mode Examen PASS/LAS</span>
+                                        ) : activeQuizMode === 'mistakes' ? (
+                                            <span className="text-amber-400">🎯 Coin Faute</span>
+                                        ) : (
+                                            <span className="text-blue-400">⚡ Série de QCM</span>
+                                        )}
                                     </span>
-                                    <h2 className="text-sm font-semibold text-white">Question {currentQuizIndex + 1} / {quizQuestions.length}</h2>
+                                    <h2 className="text-sm font-semibold text-white">
+                                        {!quizFinished ? `Question ${currentQuizIndex + 1} / ${quizQuestions.length}` : 'Session terminée'}
+                                    </h2>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-4">
-                                <div className="bg-slate-800 border border-slate-700 px-3.5 py-1.5 rounded-full text-slate-200 text-xs font-mono font-bold flex items-center gap-1.5 shadow-inner">
-                                    <span className="text-orange-400 animate-pulse">⏱️</span>
-                                    <span>{formatQuizTime(quizTimerSeconds)}</span>
-                                </div>
-                                <span className="text-sm font-bold text-orange-400">Score : {quizScore}</span>
-                                {activeQuizMode === 'crashtest' && (
-                                    <div className="bg-red-950 border border-red-800 px-3 py-1 rounded-full text-red-400 text-xs font-bold">
-                                        {Array.from({length: Math.max(0, remainingHearts)}).map(() => '❤️').join(' ')}
+
+                            <div className="flex items-center gap-3">
+                                {/* Chronometer or Countdown */}
+                                {activeQuizMode === 'exam' ? (
+                                    <div className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-bold flex items-center gap-1.5 shadow-inner border ${
+                                        examTimeRemaining < 120 
+                                            ? 'bg-red-950 border-red-500 text-red-300 animate-pulse' 
+                                            : 'bg-slate-800 border-slate-700 text-purple-200'
+                                    }`}>
+                                        <span>⏳</span>
+                                        <span>{formatQuizTime(examTimeRemaining)}</span>
                                     </div>
+                                ) : (
+                                    <div className="bg-slate-800 border border-slate-700 px-3.5 py-1.5 rounded-full text-slate-200 text-xs font-mono font-bold flex items-center gap-1.5 shadow-inner">
+                                        <span className="text-orange-400">⏱️</span>
+                                        <span>{formatQuizTime(quizTimerSeconds)}</span>
+                                    </div>
+                                )}
+
+                                {/* Crash Test Hearts */}
+                                {activeQuizMode === 'crashtest' && (
+                                    <div className="bg-red-950/80 border border-red-800/80 px-3 py-1 rounded-full text-red-400 text-xs font-bold flex items-center gap-1">
+                                        {Array.from({length: Math.max(0, remainingHearts)}).map((_, i) => (
+                                            <span key={i}>❤️</span>
+                                        ))}
+                                        {remainingHearts === 0 && <span>💔 Mort subite</span>}
+                                    </div>
+                                )}
+
+                                {!quizFinished && (
+                                    <button
+                                        onClick={() => {
+                                            if (confirm(`Terminer la série et voir la note avec la correction complète ?\n\nVous avez répondu à ${answeredCount} / ${quizQuestions.length} QCM.`)) {
+                                                finishQuiz();
+                                            }
+                                        }}
+                                        className="px-3.5 py-1.5 bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 text-white font-bold rounded-xl text-xs shadow-md transition-all flex items-center gap-1.5"
+                                    >
+                                        <span>🏁 Terminer</span>
+                                    </button>
                                 )}
                             </div>
                         </header>
 
+                        {/* PROGRESS BAR */}
                         <div className="w-full bg-slate-900 h-1.5">
                             <div className="bg-gradient-to-r from-red-500 to-orange-500 h-1.5 transition-all" style={{ width: `${progressPercent}%` }}></div>
                         </div>
+
+                        {/* QUESTION PALETTE (DURING QUIZ) */}
+                        {!quizFinished && quizQuestions.length > 1 && (
+                            <div className="bg-slate-900/60 border-b border-slate-800 px-6 py-2.5 flex items-center gap-2 overflow-x-auto scrollbar-thin">
+                                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider shrink-0 mr-1">QCM :</span>
+                                <div className="flex items-center gap-1.5 flex-1 overflow-x-auto py-1">
+                                    {quizQuestions.map((q, qIdx) => {
+                                        const isCurrent = qIdx === currentQuizIndex;
+                                        const isAns = (userChoices[qIdx] || []).length > 0;
+                                        const isFlag = Boolean(flaggedQuestions[qIdx]);
+                                        return (
+                                            <button
+                                                key={q.id || qIdx}
+                                                onClick={() => setCurrentQuizIndex(qIdx)}
+                                                className={`min-w-[32px] h-[32px] rounded-xl text-xs font-bold transition-all shrink-0 flex items-center justify-center relative ${
+                                                    isCurrent 
+                                                        ? 'bg-orange-600 text-white shadow-md ring-2 ring-orange-400 scale-105 z-10' 
+                                                        : isAns
+                                                            ? 'bg-purple-900/70 border border-purple-500/70 text-purple-200 hover:bg-purple-800'
+                                                            : 'bg-slate-950 border border-slate-800 text-slate-400 hover:bg-slate-800'
+                                                }`}
+                                                title={`Question ${qIdx + 1}${isAns ? ' (Répondue)' : ' (Non répondue)'}${isFlag ? ' - Marquée' : ''}`}
+                                            >
+                                                <span>{qIdx + 1}</span>
+                                                {isFlag && (
+                                                    <span className="absolute -top-1 -right-1 text-[10px]">🚩</span>
+                                                )}
+                                            </button>
+                                        );
+                                    })}
+                                </div>
+                                <span className="text-xs text-slate-400 shrink-0 font-medium ml-2">
+                                    {answeredCount}/{quizQuestions.length} répondu{answeredCount !== 1 ? 's' : ''}
+                                </span>
+                            </div>
+                        )}
 
                         <main className="flex-1 max-w-4xl w-full mx-auto p-6 flex flex-col justify-center">
                             {!quizFinished ? (
@@ -65074,320 +65143,308 @@
 
                                     {currentQ.image && <PdfImage imageInfo={currentQ.image} />}
 
-                                    {activeQuizMode === 'ancrage' && ancrageData[currentQ.id] && (
-                                        <div className="bg-purple-950/80 border border-purple-800/80 p-3.5 rounded-2xl flex flex-wrap items-center justify-between gap-3 text-xs shadow-md">
-                                            <div className="flex items-center gap-2">
-                                                <span className="bg-purple-600 text-white font-black px-2.5 py-1 rounded-lg">⚓ {getAncrageStepLabel(ancrageData[currentQ.id])}</span>
-                                                <span className="text-purple-200 font-medium">
-                                                    {ancrageData[currentQ.id].isReinforced ? '🚨 Mode Renforcé (J1 - J24)' : 'Standard (J1 - J28)'}
-                                                </span>
-                                            </div>
-                                            <div className="text-purple-300 font-semibold">
-                                                Si réussi ➔ {getAncrageNextStepLabel(ancrageData[currentQ.id])}
-                                            </div>
-                                        </div>
-                                    )}
-                                    <h1 className="text-xl md:text-2xl font-bold text-white">{currentQ.statement}</h1>
-
-                                    
+                                    <div className="space-y-2">
+                                        <h1 className="text-xl md:text-2xl font-bold text-white">{currentQ.statement}</h1>
+                                        <p className="text-xs text-slate-400 italic">
+                                            Cochez la ou les proposition(s) vraie(s). Barème officiel : Sans faute = 1 pt • 1 erreur = 0,5 pt • ≥ 2 erreurs = 0 pt. La correction détaillée s\'affiche à la fin de la série.
+                                        </p>
+                                    </div>
 
                                     <div className="flex flex-col gap-3.5 w-full">
                                         {currentQ.answers.map((ans, idx) => {
-                                            const isChecked = selectedAnswers.includes(idx);
-                                            
-                                            // Base style: White rounded card matching screenshot
-                                            let cardStyle = "bg-white text-slate-800 border-2 border-slate-100 hover:border-purple-300 shadow-sm";
-                                            let checkboxStyle = "border-2 border-slate-300 bg-white";
-                                            let textStyle = "text-slate-800 font-medium";
-                                            let badgeTag = null;
-
-                                            if (isChecked && !isSubmitted) {
-                                                cardStyle = "bg-white text-slate-900 border-2 border-purple-600 shadow-md ring-2 ring-purple-500/20";
-                                                checkboxStyle = "bg-purple-600 border-purple-600 text-white";
-                                            }
-
-                                            if (isSubmitted) {
-                                                if (ans.correct) {
-                                                    // Affirmation VRAIE
-                                                    if (isChecked) {
-                                                        cardStyle = "bg-emerald-50 text-emerald-950 border-2 border-emerald-500 shadow-sm font-semibold";
-                                                        checkboxStyle = "bg-emerald-600 border-emerald-600 text-white";
-                                                        textStyle = "text-emerald-950 font-semibold";
-                                                        badgeTag = <span className="text-xs bg-emerald-600 text-white px-2.5 py-0.5 rounded-full font-bold shadow-sm">✓ Vrai (Bien coché)</span>;
-                                                    } else {
-                                                        cardStyle = "bg-amber-50/90 text-amber-950 border-2 border-amber-400 shadow-sm";
-                                                        checkboxStyle = "border-2 border-amber-500 bg-amber-100 text-amber-700";
-                                                        textStyle = "text-amber-950 font-semibold";
-                                                        badgeTag = <span className="text-xs bg-amber-500 text-white px-2.5 py-0.5 rounded-full font-bold shadow-sm">⚠ Vrai (Oublié)</span>;
-                                                    }
-                                                } else {
-                                                    // Affirmation FAUSSE -> Barrée !
-                                                    if (isChecked) {
-                                                        cardStyle = "bg-red-50 text-red-950 border-2 border-red-400 shadow-sm";
-                                                        checkboxStyle = "bg-red-600 border-red-600 text-white";
-                                                        textStyle = "line-through decoration-red-500 decoration-2 text-red-800 font-medium opacity-80";
-                                                        badgeTag = <span className="text-xs bg-red-600 text-white px-2.5 py-0.5 rounded-full font-bold shadow-sm">✕ Faux (Coché à tort)</span>;
-                                                    } else {
-                                                        cardStyle = "bg-slate-100/80 text-slate-500 border border-slate-200 opacity-70";
-                                                        checkboxStyle = "border border-slate-300 bg-slate-200 text-slate-400";
-                                                        textStyle = "line-through decoration-slate-400 decoration-2 text-slate-400 font-normal";
-                                                        badgeTag = <span className="text-xs bg-slate-200 text-slate-600 px-2 py-0.5 rounded-md font-semibold">Faux (Correctement évité)</span>;
-                                                    }
-                                                }
-                                            }
-
+                                            const isChecked = (userChoices[currentQuizIndex] || []).includes(idx);
                                             return (
                                                 <div
                                                     key={ans.id || idx}
-                                                    onClick={() => !isSubmitted && toggleAnswerChoice(idx)}
-                                                    className={`p-4 rounded-2xl border-2 text-left transition-all flex flex-col gap-2 ${!isSubmitted ? 'cursor-pointer' : ''} ${cardStyle}`}
+                                                    onClick={() => toggleAnswerChoice(idx)}
+                                                    className={`p-4 rounded-2xl border-2 text-left transition-all flex items-center justify-between gap-4 cursor-pointer select-none ${
+                                                        isChecked
+                                                            ? 'bg-purple-950/40 text-white border-purple-500 shadow-md ring-2 ring-purple-500/20'
+                                                            : 'bg-slate-900/80 text-slate-200 border-slate-800 hover:border-slate-700 hover:bg-slate-800/60 shadow-sm'
+                                                    }`}
                                                 >
-                                                    <div className="flex items-start justify-between gap-4 w-full">
-                                                        <div className="flex items-center gap-3 flex-1">
-                                                            <div className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 transition-colors ${checkboxStyle}`}>
-                                                                {isChecked || (isSubmitted && ans.correct) ? (
-                                                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                                                    </svg>
-                                                                ) : null}
-                                                            </div>
-                                                            <span className={`text-sm md:text-base leading-relaxed ${textStyle}`}>
-                                                                <strong className="font-bold mr-1.5">{String.fromCharCode(65 + idx)}.</strong> {ans.text}
-                                                            </span>
-                                                        </div>
-                                                        {badgeTag && <div className="shrink-0">{badgeTag}</div>}
-                                                    </div>
-
-                                                    {/* Inline Correction Box Under Option Text (Matching User Screenshot) */}
-                                                    {isSubmitted && (
-                                                        <div className={`mt-2 text-xs md:text-sm leading-relaxed p-3 rounded-xl border-l-4 font-medium transition-all ${
-                                                            ans.correct 
-                                                                ? 'bg-emerald-50/90 text-emerald-950 border-emerald-500 shadow-sm' 
-                                                                : 'bg-red-50/90 text-red-950 border-red-500 shadow-sm'
+                                                    <div className="flex items-center gap-3.5 flex-1">
+                                                        <div className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 border-2 transition-colors ${
+                                                            isChecked 
+                                                                ? 'bg-purple-600 border-purple-500 text-white' 
+                                                                : 'border-slate-700 bg-slate-800 text-transparent'
                                                         }`}>
-                                                            <span className={`font-black uppercase tracking-wider mr-1.5 ${ans.correct ? 'text-emerald-700' : 'text-red-700'}`}>
-                                                                {ans.correct ? 'Vrai —' : 'Faux —'}
-                                                            </span>
-                                                            <span>{getItemExplanation(currentQ, ans, idx)}</span>
+                                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                                            </svg>
                                                         </div>
-                                                    )}
+                                                        <div className="text-sm md:text-base font-medium leading-relaxed">
+                                                            <span className="font-bold text-purple-400 mr-2.5">{String.fromCharCode(65 + idx)}.</span>
+                                                            <span>{ans.text}</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             );
                                         })}
                                     </div>
 
-                                    {!isSubmitted ? (
-                                        <div className="mt-6 flex justify-end">
+                                    {/* CONTROLS */}
+                                    <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800/80 mt-6">
+                                        <div className="flex items-center gap-2">
                                             <button
-                                                onClick={handleMultiAnswerSubmit}
-                                                className="w-full md:w-auto px-8 py-3.5 bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 text-white font-bold rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center justify-center gap-2"
+                                                onClick={() => setCurrentQuizIndex(prev => Math.max(0, prev - 1))}
+                                                disabled={currentQuizIndex === 0}
+                                                className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                                                    currentQuizIndex === 0 
+                                                        ? 'bg-slate-900 border border-slate-800 text-slate-600 cursor-not-allowed' 
+                                                        : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700'
+                                                }`}
                                             >
-                                                <span>Valider mes réponses ({selectedAnswers.length} propositon{selectedAnswers.length !== 1 ? 's' : ''} choisie{selectedAnswers.length !== 1 ? 's' : ''})</span>
-                                                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
+                                                <span>← Précédent</span>
+                                            </button>
+
+                                            <button
+                                                onClick={() => setFlaggedQuestions(prev => ({ ...prev, [currentQuizIndex]: !prev[currentQuizIndex] }))}
+                                                className={`px-3 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border ${
+                                                    flaggedQuestions[currentQuizIndex]
+                                                        ? 'bg-amber-950/60 border-amber-500 text-amber-300 ring-1 ring-amber-500/30'
+                                                        : 'bg-slate-800 hover:bg-slate-700 text-slate-400 border border-slate-700'
+                                                }`}
+                                                title="Marquer pour relire plus tard"
+                                            >
+                                                <span>🚩</span>
+                                                <span>{flaggedQuestions[currentQuizIndex] ? 'Marqué' : 'À relire'}</span>
                                             </button>
                                         </div>
-                                    ) : (
-                                        <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4 mt-6">
-                                            <div className="font-semibold text-lg">
-                                                {currentPts === 1.0 ? (
-                                                    <span className="text-emerald-400 flex items-center gap-2 font-bold">✓ Sans faute ! Réponse parfaite (+1 pt)</span>
-                                                ) : currentPts === 0.5 ? (
-                                                    <span className="text-amber-400 flex items-center gap-2 font-bold">⚠️ 1 erreur commise (-0,5 pt) ➔ Note attribuée : +0,5 pt</span>
-                                                ) : (
-                                                    <span className="text-red-400 flex items-center gap-2 font-bold">✕ {currentErrs} erreurs commises (≥ 2 erreurs) ➔ Note attribuée : 0 pt {activeQuizMode === 'crashtest' && remainingHearts <= 0 && '(Game Over - 0 cœur restant)'}</span>
-                                                )}
-                                            </div>
-                                            <p className="text-sm text-slate-300"><strong>Explication :</strong> {currentQ.explanation}</p>
 
-                                            {(currentErrs > 0 || currentPts < 1.0) && (
-                                                <div className="flex justify-end pt-1">
+                                        <div className="flex items-center gap-3">
+                                            {activeQuizMode === 'crashtest' ? (
+                                                <button
+                                                    onClick={handleCrashTestNext}
+                                                    className="px-6 py-2.5 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500 text-white text-xs font-bold rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center gap-2"
+                                                >
+                                                    <span>{currentQuizIndex + 1 < quizQuestions.length ? 'Valider & Question suivante →' : 'Valider & Voir la correction →'}</span>
+                                                </button>
+                                            ) : (
+                                                <>
+                                                    {currentQuizIndex + 1 < quizQuestions.length ? (
+                                                        <button
+                                                            onClick={() => setCurrentQuizIndex(prev => prev + 1)}
+                                                            className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white text-xs font-bold rounded-xl transition-all flex items-center gap-1.5"
+                                                        >
+                                                            <span>Question suivante →</span>
+                                                        </button>
+                                                    ) : null}
+
                                                     <button
-                                                        onClick={() => addAncrageEntry(currentQ.id)}
-                                                        disabled={isCurrentInAncrage}
-                                                        className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 shadow-lg ${
-                                                            isCurrentInAncrage
-                                                                ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-500/40 cursor-default'
-                                                                : 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-purple-900/30 hover:scale-[1.02] active:scale-95 cursor-pointer'
-                                                        }`}
+                                                        onClick={() => {
+                                                            if (confirm(`Terminer la série et voir votre note avec la correction complète ?\n\nVous avez répondu à ${answeredCount} question(s) sur ${quizQuestions.length}.`)) {
+                                                                finishQuiz();
+                                                            }
+                                                        }}
+                                                        className="px-6 py-2.5 bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 text-white text-xs font-bold rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center gap-2"
                                                     >
-                                                        <span>⚓</span>
-                                                        <span>{isCurrentInAncrage ? "✓ Déjà dans l'UE Ancrage" : "Mettre dans l'UE Ancrage"}</span>
+                                                        <span>🏁 Terminer & Corriger</span>
                                                     </button>
-                                                </div>
+                                                </>
                                             )}
-
-                                            <button onClick={nextQuizQuestion} className="w-full py-3.5 bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold rounded-xl text-center shadow-lg transition-all hover:brightness-110">
-                                                {activeQuizMode === 'crashtest' && remainingHearts <= 0
-                                                    ? 'Fermer le Crash Test et voir le bilan →'
-                                                    : (currentQuizIndex + 1 < quizQuestions.length ? 'Question suivante →' : 'Voir le bilan et correction complète →')
-                                                }
-                                            </button>
                                         </div>
-                                    )}
+                                    </div>
                                 </div>
                             ) : (
-                                <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl max-w-2xl mx-auto space-y-6">
-                                    <div className="text-center space-y-2">
-                                        <div className="w-16 h-16 bg-gradient-to-tr from-red-600 to-orange-500 rounded-3xl mx-auto flex items-center justify-center text-white text-2xl shadow-lg">🏆</div>
-                                        <h2 className="text-2xl font-bold text-white">Session Terminée !</h2>
-                                        <div className="flex justify-center items-center gap-4 py-2">
-                                            <div className="bg-slate-800 border border-slate-700 px-4 py-2 rounded-2xl text-orange-400 font-bold text-lg">
-                                                Score : {quizScore} / {treatedQuestions.length}
+                                <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl max-w-3xl mx-auto space-y-6 shadow-2xl">
+                                    <div className="text-center space-y-3">
+                                        <div className="w-16 h-16 bg-gradient-to-tr from-red-600 to-orange-500 rounded-3xl mx-auto flex items-center justify-center text-white text-3xl shadow-lg">
+                                            {activeQuizMode === 'crashtest' && remainingHearts <= 0 ? '💥' : '🏆'}
+                                        </div>
+                                        <div>
+                                            <span className="text-xs uppercase tracking-widest text-orange-400 font-bold">
+                                                {activeQuizMode === 'crashtest' 
+                                                    ? (remainingHearts <= 0 ? 'Crash Test — Mort Subite (0 cœur restant)' : 'Crash Test Réussi !')
+                                                    : activeQuizMode === 'exam' 
+                                                        ? 'Épreuve Mode Examen PASS/LAS' 
+                                                        : 'Série de QCM Terminée'}
+                                            </span>
+                                            <h2 className="text-2xl font-black text-white mt-1">Bilan & Correction Complète</h2>
+                                        </div>
+
+                                        <div className="flex flex-wrap justify-center items-center gap-4 py-2">
+                                            <div className="bg-slate-800 border border-slate-700 px-5 py-2.5 rounded-2xl text-orange-400 font-extrabold text-xl shadow-inner">
+                                                Note : {quizScore} / {userAnswersHistory.length}
+                                                <span className="text-xs text-slate-400 font-normal ml-2">
+                                                    ({userAnswersHistory.length > 0 ? ((quizScore / userAnswersHistory.length) * 20).toFixed(1) : 0}/20)
+                                                </span>
                                             </div>
-                                            <div className="bg-slate-800 border border-slate-700 px-4 py-2 rounded-2xl text-slate-300 font-mono font-bold text-lg flex items-center gap-2">
+                                            <div className="bg-slate-800 border border-slate-700 px-5 py-2.5 rounded-2xl text-slate-300 font-mono font-bold text-lg flex items-center gap-2 shadow-inner">
                                                 <span>⏱️</span>
                                                 <span>{formatQuizTime(quizTimerSeconds)}</span>
                                             </div>
-                                            <div className="grid grid-cols-3 gap-3 pt-2">
-                                                <div className="bg-emerald-950/40 border border-emerald-500/40 rounded-2xl p-3 text-center space-y-1">
-                                                    <div className="text-[11px] text-emerald-400 font-bold uppercase tracking-wider flex items-center justify-center gap-1">
-                                                        <span>🟢</span>
-                                                        <span>0.5 à 1 pt</span>
-                                                    </div>
-                                                    <div className="text-xl font-extrabold text-emerald-300">
-                                                        {pctHigh}%
-                                                    </div>
-                                                    <div className="text-[10px] text-emerald-400/80 font-medium">
-                                                        {countHigh} / {totalQCount} QCM
-                                                    </div>
-                                                </div>
+                                        </div>
 
-                                                <div className="bg-amber-950/40 border border-amber-500/40 rounded-2xl p-3 text-center space-y-1">
-                                                    <div className="text-[11px] text-amber-400 font-bold uppercase tracking-wider flex items-center justify-center gap-1">
-                                                        <span>🟡</span>
-                                                        <span>0.1 à 0.49 pt</span>
-                                                    </div>
-                                                    <div className="text-xl font-extrabold text-amber-300">
-                                                        {pctPartialLow}%
-                                                    </div>
-                                                    <div className="text-[10px] text-amber-400/80 font-medium">
-                                                        {countPartialLow} / {totalQCount} QCM
-                                                    </div>
+                                        {/* 3 STATS BOXES MATCHING EXACT PASS BAREME */}
+                                        <div className="grid grid-cols-3 gap-3 pt-2 text-left">
+                                            <div className="bg-emerald-950/40 border border-emerald-500/40 rounded-2xl p-3.5 space-y-1">
+                                                <div className="text-[11px] text-emerald-400 font-bold uppercase tracking-wider flex items-center gap-1">
+                                                    <span>🟢</span>
+                                                    <span>1 pt (Sans faute)</span>
                                                 </div>
+                                                <div className="text-xl font-extrabold text-emerald-300">
+                                                    {count1Pt} <span className="text-xs text-emerald-400/70 font-medium">({pct1Pt}%)</span>
+                                                </div>
+                                                <div className="text-[10px] text-emerald-400/80 leading-tight">
+                                                    Toutes les vraies trouvées, zéro fausse
+                                                </div>
+                                            </div>
 
-                                                <div className="bg-red-950/40 border border-red-500/40 rounded-2xl p-3 text-center space-y-1">
-                                                    <div className="text-[11px] text-red-400 font-bold uppercase tracking-wider flex items-center justify-center gap-1">
-                                                        <span>🔴</span>
-                                                        <span>0 pt</span>
-                                                    </div>
-                                                    <div className="text-xl font-extrabold text-red-300">
-                                                        {pct0}%
-                                                    </div>
-                                                    <div className="text-[10px] text-red-400/80 font-medium">
-                                                        {count0} / {totalQCount} QCM
-                                                    </div>
+                                            <div className="bg-amber-950/40 border border-amber-500/40 rounded-2xl p-3.5 space-y-1">
+                                                <div className="text-[11px] text-amber-400 font-bold uppercase tracking-wider flex items-center gap-1">
+                                                    <span>🟡</span>
+                                                    <span>0,5 pt (1 erreur)</span>
+                                                </div>
+                                                <div className="text-xl font-extrabold text-amber-300">
+                                                    {countHalfPt} <span className="text-xs text-amber-400/70 font-medium">({pctHalfPt}%)</span>
+                                                </div>
+                                                <div className="text-[10px] text-amber-400/80 leading-tight">
+                                                    1 seule faute (1 omission ou 1 faux coché)
+                                                </div>
+                                            </div>
+
+                                            <div className="bg-red-950/40 border border-red-500/40 rounded-2xl p-3.5 space-y-1">
+                                                <div className="text-[11px] text-red-400 font-bold uppercase tracking-wider flex items-center gap-1">
+                                                    <span>🔴</span>
+                                                    <span>0 pt (≥ 2 erreurs)</span>
+                                                </div>
+                                                <div className="text-xl font-extrabold text-red-300">
+                                                    {count0Pt} <span className="text-xs text-red-400/70 font-medium">({pct0Pt}%)</span>
+                                                </div>
+                                                <div className="text-[10px] text-red-400/80 leading-tight">
+                                                    Plus d\'1 faute commise sur le QCM
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
 
-                                    <div className="space-y-4 max-h-96 overflow-y-auto pr-2">
-                                        <h3 className="text-sm font-bold text-white uppercase">Correction détaillée ({treatedQuestions.length} QCM traité{treatedQuestions.length !== 1 ? 's' : ''})</h3>
-                                        {treatedQuestions.map((q, qIdx) => {
-                                            const historyItem = userAnswersHistory.find(h => h.question.id === q.id);
-                                            const pts = historyItem ? (historyItem.points ?? (historyItem.isCorrect ? 1 : 0)) : 0;
-                                            const errs = historyItem ? (historyItem.errorsCount ?? 0) : 0;
+                                    {/* DETAILED CORRECTION LIST */}
+                                    <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2 scrollbar-thin">
+                                        <div className="flex justify-between items-center pb-2 border-b border-slate-800">
+                                            <h3 className="text-sm font-bold text-white uppercase tracking-wider">Correction détaillée ({userAnswersHistory.length} QCM)</h3>
+                                            <span className="text-xs text-slate-400">Cliquez sur un QCM pour l\'ajouter à votre Ancrage</span>
+                                        </div>
 
-                                            let badge = <span className="text-red-400 bg-red-950/80 px-2 py-0.5 rounded-lg border border-red-800/80 text-[11px]">✕ 0 pt ({historyItem ? `${errs} erreur${errs !== 1 ? 's' : ''}` : 'Non traité'})</span>;
+                                        {userAnswersHistory.map((h, qIdx) => {
+                                            const q = h.question;
+                                            const pts = h.points ?? 0;
+                                            const errs = h.errorsCount ?? 0;
+                                            const userChoicesForQ = h.selectedAnswerIndices || [];
+                                            const isCurrentlyInAncrage = Object.values(ancrageData).some(item => (item.questionId === q.id || item.entryId === q.id) && item.status === 'active');
+
+                                            let badge = <span className="text-red-400 bg-red-950/80 px-2.5 py-1 rounded-lg border border-red-800/80 text-xs font-bold">✕ 0 pt ({errs} faute{errs !== 1 ? 's' : ''})</span>;
                                             if (pts === 1.0) {
-                                                badge = <span className="text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded-lg border border-emerald-800/80 text-[11px]">✓ +1 pt (Parfait)</span>;
+                                                badge = <span className="text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-lg border border-emerald-800/80 text-xs font-bold">✓ +1 pt (Sans faute)</span>;
                                             } else if (pts === 0.5) {
-                                                badge = <span className="text-amber-400 bg-amber-950/80 px-2 py-0.5 rounded-lg border border-amber-800/80 text-[11px]">⚠️ +0,5 pt (1 erreur)</span>;
+                                                badge = <span className="text-amber-400 bg-amber-950/80 px-2.5 py-1 rounded-lg border border-amber-800/80 text-xs font-bold">⚠️ +0,5 pt (1 faute)</span>;
                                             }
 
                                             return (
-                                                <div key={q.id || qIdx} className={`p-4 rounded-2xl border space-y-2 ${pts === 1 ? 'bg-emerald-950/20 border-emerald-500/30' : pts === 0.5 ? 'bg-amber-950/20 border-amber-500/30' : 'bg-red-950/20 border-red-500/30'}`}>
+                                                <div key={q.id || qIdx} className={`p-5 rounded-2xl border space-y-3 ${
+                                                    pts === 1 
+                                                        ? 'bg-emerald-950/15 border-emerald-500/30' 
+                                                        : pts === 0.5 
+                                                            ? 'bg-amber-950/15 border-amber-500/30' 
+                                                            : 'bg-red-950/15 border-red-500/30'
+                                                }`}>
                                                     <div className="flex justify-between items-center text-xs font-bold text-white">
                                                         <span>Q{qIdx + 1} : {q.chapter}</span>
                                                         {badge}
                                                     </div>
-                                                    <p className="text-xs text-slate-200">{q.statement}</p>
-                                                    <div className="space-y-2.5 my-3">
-                                                        {q.answers.map((ans, aIdx) => (
-                                                            <div key={ans.id || aIdx} className={`p-3 rounded-2xl border text-left flex flex-col gap-1.5 ${
-                                                                ans.correct 
-                                                                    ? 'bg-emerald-950/30 border-emerald-500/50' 
-                                                                    : 'bg-slate-900/60 border-slate-800'
-                                                            }`}>
-                                                                <div className="text-xs md:text-sm font-semibold text-slate-100 flex items-start gap-2">
-                                                                    <span className={`font-bold shrink-0 ${ans.correct ? 'text-emerald-400' : 'text-slate-400'}`}>
-                                                                        {String.fromCharCode(65 + aIdx)}.
-                                                                    </span>
-                                                                    <span>{ans.text}</span>
-                                                                </div>
 
-                                                                <div className={`text-xs leading-relaxed p-2.5 rounded-xl border-l-4 font-medium ${
-                                                                    ans.correct 
-                                                                        ? 'bg-emerald-900/40 text-emerald-200 border-emerald-400' 
-                                                                        : 'bg-red-950/40 text-red-300 border-red-500'
-                                                                }`}>
-                                                                    <span className={`font-bold uppercase tracking-wider mr-1.5 ${ans.correct ? 'text-emerald-400' : 'text-red-400'}`}>
-                                                                        {ans.correct ? 'Vrai —' : 'Faux —'}
-                                                                    </span>
-                                                                    <span>{getItemExplanation(q, ans, aIdx)}</span>
-                                                                </div>
-                                                            </div>
-                                                        ))}
-                                                    </div>
-                                                    <p className="text-[11px] text-slate-300 mt-1"><strong>Explication :</strong> {q.explanation}</p>
-                                                    {pts < 1 && (
-                                                        <div className="mt-2 flex justify-end">
-                                                            <button 
-                                                                onClick={(e) => {
-                                                                    e.target.innerText = "✅ Ajouté à l'ancrage";
-                                                                    e.target.classList.remove('bg-slate-800', 'text-slate-300', 'hover:bg-slate-700');
-                                                                    e.target.classList.add('bg-emerald-900/50', 'text-emerald-400', 'border-emerald-500/50', 'cursor-default');
-                                                                    e.target.disabled = true;
-                                                                    addAncrageEntry(q.id);
-                                                                }}
-                                                                className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-lg text-[11px] border border-slate-700 transition-all shadow-sm"
-                                                            >
-                                                                📥 Ajouter à l'ancrage
-                                                            </button>
+                                                    <p className="text-sm font-semibold text-slate-100 leading-snug">{q.statement}</p>
+
+                                                    {q.image && (
+                                                        <div className="my-3">
+                                                            <PdfImage imageInfo={q.image} />
                                                         </div>
                                                     )}
+
+                                                    <div className="space-y-2.5 my-3">
+                                                        {q.answers.map((ans, aIdx) => {
+                                                            const isChecked = userChoicesForQ.includes(aIdx);
+                                                            let userStatusBadge = null;
+                                                            if (ans.correct && isChecked) {
+                                                                userStatusBadge = <span className="text-[10px] font-bold bg-emerald-600 text-white px-2 py-0.5 rounded-md shrink-0">✓ Vrai (Votre choix : Vrai)</span>;
+                                                            } else if (ans.correct && !isChecked) {
+                                                                userStatusBadge = <span className="text-[10px] font-bold bg-amber-500 text-white px-2 py-0.5 rounded-md shrink-0">⚠️ Vrai (Oublié par vous)</span>;
+                                                            } else if (!ans.correct && isChecked) {
+                                                                userStatusBadge = <span className="text-[10px] font-bold bg-red-600 text-white px-2 py-0.5 rounded-md shrink-0">✕ Faux (Coché à tort par vous)</span>;
+                                                            } else {
+                                                                userStatusBadge = <span className="text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700 px-2 py-0.5 rounded-md shrink-0">✓ Faux (Évité)</span>;
+                                                            }
+
+                                                            return (
+                                                                <div key={ans.id || aIdx} className={`p-3 rounded-2xl border text-left flex flex-col gap-1.5 ${
+                                                                    ans.correct 
+                                                                        ? 'bg-emerald-950/30 border-emerald-500/50' 
+                                                                        : 'bg-slate-900/60 border-slate-800'
+                                                                }`}>
+                                                                    <div className="text-xs md:text-sm font-semibold text-slate-100 flex items-start justify-between gap-2">
+                                                                        <div className="flex items-start gap-2">
+                                                                            <span className={`font-bold shrink-0 ${ans.correct ? 'text-emerald-400' : 'text-slate-400'}`}>
+                                                                                {String.fromCharCode(65 + aIdx)}.
+                                                                            </span>
+                                                                            <span>{ans.text}</span>
+                                                                        </div>
+                                                                        {userStatusBadge}
+                                                                    </div>
+
+                                                                    <div className={`text-xs leading-relaxed p-2.5 rounded-xl border-l-4 font-medium ${
+                                                                        ans.correct 
+                                                                            ? 'bg-emerald-900/40 text-emerald-200 border-emerald-400' 
+                                                                            : 'bg-red-950/40 text-red-300 border-red-500'
+                                                                    }`}>
+                                                                        <span className={`font-bold uppercase tracking-wider mr-1.5 ${ans.correct ? 'text-emerald-400' : 'text-red-400'}`}>
+                                                                            {ans.correct ? 'Vrai —' : 'Faux —'}
+                                                                        </span>
+                                                                        <span>{getItemExplanation(q, ans, aIdx)}</span>
+                                                                    </div>
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
+
+                                                    <p className="text-xs text-slate-300 bg-slate-950/60 p-3 rounded-xl border border-slate-800">
+                                                        <strong>Explication globale :</strong> {q.explanation}
+                                                    </p>
+
+                                                    <div className="mt-2 flex justify-end">
+                                                        <button 
+                                                            onClick={(e) => {
+                                                                e.target.innerText = "✅ Ajouté à l\'ancrage";
+                                                                e.target.classList.remove('bg-slate-800', 'text-slate-300', 'hover:bg-slate-700');
+                                                                e.target.classList.add('bg-emerald-900/50', 'text-emerald-400', 'border-emerald-500/50', 'cursor-default');
+                                                                e.target.disabled = true;
+                                                                addAncrageEntry(q.id);
+                                                            }}
+                                                            disabled={isCurrentlyInAncrage}
+                                                            className={`px-3 py-1.5 font-semibold rounded-lg text-xs border transition-all shadow-sm ${
+                                                                isCurrentlyInAncrage
+                                                                    ? 'bg-emerald-900/50 text-emerald-400 border-emerald-500/50 cursor-default'
+                                                                    : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
+                                                            }`}
+                                                        >
+                                                            {isCurrentlyInAncrage ? "✅ Déjà dans l\'ancrage" : "📥 Ajouter à l\'ancrage"}
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             );
                                         })}
                                     </div>
 
-                                    <button onClick={() => setActiveQuizMode(null)} className="w-full py-3 bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold rounded-xl">
-                                        Retour au Tableau de Bord
-                                    </button>
+                                    <div className="flex gap-3 pt-2">
+                                        <button 
+                                            onClick={() => setActiveQuizMode(null)} 
+                                            className="flex-1 py-3 bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 text-white font-bold rounded-xl shadow-lg transition-all text-xs"
+                                        >
+                                            Retour au Tableau de Bord
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        )}
+                            )}
                         </main>
-
-                        {!quizFinished && (
-                            <button
-                                onClick={() => {
-                                    if (confirm("Voulez-vous vraiment terminer ce QCM maintenant et obtenir votre note finale ?")) {
-                                        setQuizFinished(true);
-                                    }
-                                }}
-                                className="fixed bottom-6 left-6 z-50 px-4 py-2.5 bg-slate-900/90 hover:bg-red-950/90 border-2 border-red-500/80 hover:border-red-400 text-slate-100 hover:text-white text-xs font-bold rounded-2xl shadow-2xl backdrop-blur-md transition-all flex items-center gap-2 group cursor-pointer"
-                            >
-                                <span className="text-base group-hover:scale-110 transition-transform">🏁</span>
-                                <span>Terminer le QCM & Voir la note</span>
-                            </button>
-                        )}
-
-                        {!quizFinished && isSubmitted && (currentErrs > 0 || currentPts < 1.0) && (
-                            <div className="fixed bottom-6 right-6 z-50">
-                                <button
-                                    onClick={() => addAncrageEntry(currentQ.id)}
-                                    disabled={isCurrentInAncrage}
-                                    className={`px-5 py-3 rounded-2xl font-bold text-xs shadow-2xl transition-all transform hover:scale-105 active:scale-95 flex items-center gap-2 backdrop-blur-md border ${
-                                        isCurrentInAncrage
-                                            ? 'bg-emerald-900/90 text-emerald-300 border-emerald-500/60 cursor-default shadow-emerald-950/50'
-                                            : 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white border-purple-400/40 shadow-purple-950/70 hover:from-purple-500 hover:to-indigo-500 cursor-pointer animate-pulse hover:animate-none'
-                                    }`}
-                                >
-                                    <span className="text-base">⚓</span>
-                                    <span>{isCurrentInAncrage ? "✓ Déjà dans l'UE Ancrage" : "Mettre dans l'UE Ancrage"}</span>
-                                </button>
-                            </div>
-                        )}
                     </div>
                 );
             }
@@ -65456,9 +65513,17 @@
                                     <div className="bg-gradient-to-r from-red-950/40 to-blue-950/40 border border-red-500/20 rounded-3xl p-8 space-y-4">
                                         <h1 className="text-3xl font-black text-white">Maîtrisez les 8 Unités d'Enseignement</h1>
                                         <p className="text-slate-300 text-sm">Gérez vos banques de QCM par chapitre, lancez des séries ou testez-vous en mode mort subite.</p>
-                                        <button onClick={() => startQuiz('training')} className="px-6 py-3 bg-gradient-to-r from-red-600 to-orange-500 text-white font-bold rounded-2xl shadow-lg">
-                                            Lancer une session rapide
-                                        </button>
+                                        <div className="flex flex-wrap gap-3 pt-1">
+                                            <button onClick={() => startQuiz('training')} className="px-5 py-2.5 bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 text-white text-xs font-bold rounded-xl shadow-lg transition-all flex items-center gap-1.5">
+                                                <span>⚡ Série QCM</span>
+                                            </button>
+                                            <button onClick={() => startQuiz('crashtest')} className="px-5 py-2.5 bg-gradient-to-r from-red-700 to-amber-600 hover:from-red-600 hover:to-amber-500 text-white text-xs font-bold rounded-xl shadow-lg transition-all flex items-center gap-1.5">
+                                                <span>🔥 Crash Test</span>
+                                            </button>
+                                            <button onClick={() => startQuiz('exam')} className="px-5 py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-bold rounded-xl shadow-lg transition-all flex items-center gap-1.5">
+                                                <span>🎓 Mode Examen</span>
+                                            </button>
+                                        </div>
                                     </div>
 
                                     {/* CARTE SPÉCIALE UE ANCRAGE MÉMORIEL */}
@@ -65539,9 +65604,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="grid grid-cols-2 gap-3 pt-2">
-                                                <button onClick={() => { setSelectedSubjectForQuiz(sub); setQuizLaunchMode('training'); openUEConfig(sub); }} className="py-2.5 bg-slate-800 text-xs font-bold text-slate-200 rounded-xl">Série QCM</button>
-                                                <button onClick={() => { setSelectedSubjectForQuiz(sub); setQuizLaunchMode('crashtest'); openUEConfig(sub); }} className="py-2.5 bg-gradient-to-r from-red-600 to-orange-600 text-xs font-bold text-white rounded-xl">🔥 Crash Test</button>
+                                            <div className="grid grid-cols-3 gap-2 pt-2">
+                                                <button onClick={() => { setSelectedSubjectForQuiz(sub); setQuizLaunchMode('training'); openUEConfig(sub); }} className="py-2 bg-slate-800 hover:bg-slate-700 text-[11px] font-bold text-slate-200 rounded-xl transition-colors">⚡ Série</button>
+                                                <button onClick={() => { setSelectedSubjectForQuiz(sub); setQuizLaunchMode('crashtest'); openUEConfig(sub); }} className="py-2 bg-gradient-to-r from-red-600 to-orange-600 hover:brightness-110 text-[11px] font-bold text-white rounded-xl transition-all">🔥 Crash</button>
+                                                <button onClick={() => { setSelectedSubjectForQuiz(sub); setQuizLaunchMode('exam'); openUEConfig(sub); }} className="py-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:brightness-110 text-[11px] font-bold text-white rounded-xl transition-all">🎓 Examen</button>
                                             </div>
                                         </div>
                                     ))}
@@ -65554,12 +65620,15 @@
                                         <button onClick={() => setSelectedDetailedSubject(null)} className="px-4 py-2 bg-slate-800 text-xs font-bold rounded-xl text-slate-300">
                                             ← Retour aux 8 UE
                                         </button>
-                                        <div className="flex gap-2">
-                                            <button onClick={() => { setSelectedSubjectForQuiz(selectedDetailedSubject); setQuizLaunchMode('training'); openUEConfig(selectedDetailedSubject); }} className="px-4 py-2 bg-slate-800 text-xs font-bold rounded-xl text-slate-200">
-                                                ⚡ Série QCM Globale
+                                        <div className="flex flex-wrap gap-2">
+                                            <button onClick={() => { setSelectedSubjectForQuiz(selectedDetailedSubject); setQuizLaunchMode('training'); openUEConfig(selectedDetailedSubject); }} className="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-bold rounded-xl text-slate-200 transition-colors">
+                                                ⚡ Série Globale
                                             </button>
-                                            <button onClick={() => { setSelectedSubjectForQuiz(selectedDetailedSubject); setQuizLaunchMode('crashtest'); openUEConfig(selectedDetailedSubject); }} className="px-4 py-2 bg-gradient-to-r from-red-600 to-orange-600 text-xs font-bold rounded-xl text-white">
-                                                🔥 Crash Test Global
+                                            <button onClick={() => { setSelectedSubjectForQuiz(selectedDetailedSubject); setQuizLaunchMode('crashtest'); openUEConfig(selectedDetailedSubject); }} className="px-3.5 py-2 bg-gradient-to-r from-red-600 to-orange-600 hover:brightness-110 text-xs font-bold rounded-xl text-white transition-all">
+                                                🔥 Crash Test
+                                            </button>
+                                            <button onClick={() => { setSelectedSubjectForQuiz(selectedDetailedSubject); setQuizLaunchMode('exam'); openUEConfig(selectedDetailedSubject); }} className="px-3.5 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:brightness-110 text-xs font-bold rounded-xl text-white transition-all">
+                                                🎓 Examen Blanc
                                             </button>
                                         </div>
                                     </div>
@@ -65584,11 +65653,14 @@
                                                         <button onClick={() => { setSelectedBankSubject(selectedDetailedSubject.id); setSearchQuery(chap); setCurrentView('bank'); }} className="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-xs text-slate-300 rounded-xl">
                                                             QCM associés
                                                         </button>
-                                                        <button onClick={() => openUEConfig(selectedDetailedSubject, chap)} className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 rounded-xl">
-                                                            ⚡ QCM Fiche
+                                                        <button onClick={() => { setSelectedSubjectForQuiz(selectedDetailedSubject); setSelectedChapterForQuiz(chap); setQuizLaunchMode('training'); openUEConfig(selectedDetailedSubject, chap); }} className="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-[11px] font-bold text-slate-200 rounded-xl transition-colors">
+                                                            ⚡ Série
                                                         </button>
-                                                        <button onClick={() => { setSelectedSubjectForQuiz(selectedDetailedSubject); setSelectedChapterForQuiz(chap); setQuizLaunchMode('crashtest'); setShowUEConfigModal(true); }} className="px-3 py-1.5 bg-gradient-to-r from-red-600 to-orange-600 text-xs font-bold text-white rounded-xl">
-                                                            🔥 Crash Test Fiche
+                                                        <button onClick={() => { setSelectedSubjectForQuiz(selectedDetailedSubject); setSelectedChapterForQuiz(chap); setQuizLaunchMode('crashtest'); openUEConfig(selectedDetailedSubject, chap); }} className="px-2.5 py-1.5 bg-gradient-to-r from-red-600 to-orange-600 hover:brightness-110 text-[11px] font-bold text-white rounded-xl transition-all">
+                                                            🔥 Crash
+                                                        </button>
+                                                        <button onClick={() => { setSelectedSubjectForQuiz(selectedDetailedSubject); setSelectedChapterForQuiz(chap); setQuizLaunchMode('exam'); openUEConfig(selectedDetailedSubject, chap); }} className="px-2.5 py-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:brightness-110 text-[11px] font-bold text-white rounded-xl transition-all">
+                                                            🎓 Examen
                                                         </button>
                                                     </div>
                                                 </div>
@@ -66106,7 +66178,7 @@
                         </main>
                     </div>
 
-                    {/* UE LAUNCH CONFIGURATION MODAL (Série QCM vs Crash Test avec Cœurs & Sélection du nombre de QCM) */}
+                    {/* UE LAUNCH CONFIGURATION MODAL (Série QCM vs Crash Test avec Cœurs vs Mode Examen PASS) */}
                     {showUEConfigModal && selectedSubjectForQuiz && (
                         <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
                             <div className="bg-slate-900 border border-slate-800 p-6 rounded-3xl max-w-md w-full space-y-6 shadow-2xl">
@@ -66119,16 +66191,24 @@
                                 </div>
 
                                 <div className="space-y-5">
-                                    {/* 1. Mode de révision */}
+                                    {/* 1. Mode de révision (3 modes complets) */}
                                     <div>
                                         <label className="block text-xs font-semibold text-slate-400 mb-2">Mode de révision</label>
-                                        <div className="grid grid-cols-2 gap-3">
-                                            <button onClick={() => setQuizLaunchMode('training')} className={`p-3 rounded-2xl border text-xs font-bold transition-all ${quizLaunchMode === 'training' ? 'bg-red-600 border-red-500 text-white shadow-lg ring-2 ring-red-500/30' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'}`}>
+                                        <div className="grid grid-cols-3 gap-2">
+                                            <button onClick={() => setQuizLaunchMode('training')} className={`p-2.5 rounded-2xl border text-xs font-bold transition-all ${quizLaunchMode === 'training' ? 'bg-red-600 border-red-500 text-white shadow-lg ring-2 ring-red-500/30' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'}`}>
                                                 ⚡ Série QCM
                                             </button>
-                                            <button onClick={() => setQuizLaunchMode('crashtest')} className={`p-3 rounded-2xl border text-xs font-bold transition-all ${quizLaunchMode === 'crashtest' ? 'bg-gradient-to-r from-red-600 to-orange-600 border-orange-500 text-white shadow-lg ring-2 ring-orange-500/30' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'}`}>
+                                            <button onClick={() => setQuizLaunchMode('crashtest')} className={`p-2.5 rounded-2xl border text-xs font-bold transition-all ${quizLaunchMode === 'crashtest' ? 'bg-gradient-to-r from-red-600 to-orange-600 border-orange-500 text-white shadow-lg ring-2 ring-orange-500/30' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'}`}>
                                                 🔥 Crash Test
                                             </button>
+                                            <button onClick={() => setQuizLaunchMode('exam')} className={`p-2.5 rounded-2xl border text-xs font-bold transition-all ${quizLaunchMode === 'exam' ? 'bg-gradient-to-r from-purple-600 to-indigo-600 border-purple-500 text-white shadow-lg ring-2 ring-purple-500/30' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'}`}>
+                                                🎓 Examen
+                                            </button>
+                                        </div>
+                                        <div className="mt-2.5 text-[11px] text-slate-400 leading-relaxed bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
+                                            {quizLaunchMode === 'training' && '⚡ Entraînement classique : répondez librement à votre rythme. Barème officiel PASS (1pt / 0.5pt / 0pt) et correction détaillée affichée à la fin de la série.'}
+                                            {quizLaunchMode === 'crashtest' && '🔥 Mort subite : chaque QCM contenant au moins une faute vous retire un cœur. À 0 cœur, fin du test et affichage immédiat de la correction complète.'}
+                                            {quizLaunchMode === 'exam' && '🎓 Conditions réelles du concours PASS/LAS : compte à rebours de 1 min 30 par QCM, zéro indication pendant l\'épreuve, palette pour relire. Rendu et correction intégrale à la fin.'}
                                         </div>
                                     </div>
 
@@ -66201,7 +66281,7 @@
                                 <div className="flex gap-3 pt-2">
                                     <button onClick={() => setShowUEConfigModal(false)} className="flex-1 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-semibold">Annuler</button>
                                     <button onClick={launchConfiguredQuiz} className="flex-1 py-3 bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 text-white rounded-xl text-xs font-bold shadow-lg transition-transform active:scale-95 flex items-center justify-center gap-1.5">
-                                        <span>Lancer le Test</span>
+                                        <span>Lancer la Session</span>
                                         <span>🚀</span>
                                     </button>
                                 </div>
