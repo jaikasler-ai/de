@@ -293,7 +293,7 @@
                 icon: '📊',
                 color: 'from-blue-600 to-indigo-600',
                 progress: 0,
-                qcmCount: 46,
+                qcmCount: 49,
                 chapters: [
                     "Fiche n°1 - Tests paramétriques",
                     "Fiche n°2 - Test de Fisher",
@@ -74219,6 +74219,165 @@
             }
         ],
         "explanation": "Réponses A, C et E exactes.\n• Statistique du test F de Fisher : F = S²C / S² = 137 / 2.5 = 54.8.\n• Degrés de liberté : v1 = k - 1 = 2 et v2 = N - k = 12 → F(2, 12).\n• Valeur seuil critique dans la table de Fisher pour (2, 12) ddl au risque 5% : F_seuil = 5.10.\n• F = 54.8 > 5.10 → Rejet franc de H0 (différence significative entre les médicaments).\n• En cas de comparaisons deux à deux (tests post-hoc), la correction de Bonferroni applique un seuil α' = 5% / 3 = 1.66%."
+    }
+,
+    {
+        "id": "ue_bio_f2_upec_spond_q1_3",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°2 - Test de Fisher",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "Test de Fisher",
+            "Comparaison de deux variances",
+            "Homoscédasticité"
+        ],
+        "statement": "Énoncé commun aux questions 1.1 à 1.3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante, une maladie chronique caractérisée par une inflammation chronique et des douleurs des articulations. Ils cherchent à évaluer l’intérêt d’une nouvelle intervention basée sur des techniques de relaxation et la pratique régulière d’une activité physique modérée. Une étude est organisée auprès de 46 sujets afin de comparer 25 patients qui avaient reçu la prise en charge habituelle (groupe 1) à 21 patients chez qui l’intervention a pu être implémentée (groupe 2). L’intervention n’a donc pas été attribuée après tirage au sort. Pour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (Bath Ankylosing Spondylitis Disease Activity Index), qui varie de 0 (absence d'activité de la maladie) à 10 (activité maximale de la maladie).\n\nLes données suivantes sont obtenues pour le score BASDAI final obtenu après 6 mois de suivi :\n• Groupe 1 : n1 = 25, T1 = ∑X1 = 159 et ∑X1² = 1073\n• Groupe 2 : n2 = 21, T2 = ∑X2 = 81 et ∑X2² = 371\n(On arrondira les nombres à 2 chiffres après la décimale pour tous les calculs.)\n\nQuestion 1.3 : Vous souhaitez vérifier en réalisant le test approprié si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+        "image": {
+            "url": "src/assets/images/table_basdai_spondylarthrite.png",
+            "alt": "Tableau récapitulatif BASDAI Spondylarthrite ankylosante"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "La valeur seuil à considérer est égale à 2.41",
+                "correct": false,
+                "explanation": "A. Faux — Avec la convention usuelle de placer la plus grande variance au numérateur (Groupe 2 : n2 = 21, donc v1 = 20 ddl) et la plus petite au dénominateur (Groupe 1 : n1 = 25, donc v2 = 24 ddl), le seuil au risque bilatéral 5% (table à 2.5%) pour F(20, 24) est de 2.33. La valeur 2.41 correspondrait à l'inversion F(24, 20)."
+            },
+            {
+                "id": "b",
+                "text": "La valeur seuil à considérer est égale à 2.33",
+                "correct": true,
+                "explanation": "B. Vrai — La statistique de test F = s²₂ / s²₁ suit sous H0 une loi de Fisher à v1 = n2 - 1 = 20 ddl et v2 = n1 - 1 = 24 ddl. Pour un test bilatéral au risque α = 5% (colonne 0.025 de la table), la valeur seuil critique pour F(20, 24) est précisément 2.33."
+            },
+            {
+                "id": "c",
+                "text": "La valeur de la statistique de test est égale à environ 0.94",
+                "correct": false,
+                "explanation": "C. Faux — En calculant les variances corrigées : s²₁ = [1073 - (159²/25)] / 24 = 61.76 / 24 ≈ 2.57 et s²₂ = [371 - (81²/21)] / 20 = 58.57 / 20 ≈ 2.93. Le ratio vaut F = 2.93 / 2.57 ≈ 1.14 (ou si on inversait 2.57 / 2.93 ≈ 0.88, en aucun cas 0.94)."
+            },
+            {
+                "id": "d",
+                "text": "La valeur de la statistique de test est égale à environ 1.14",
+                "correct": true,
+                "explanation": "D. Vrai — Les variances corrigées sont s²₂ ≈ 2.93 et s²₁ ≈ 2.57. En plaçant la plus grande variance au numérateur : F = s²₂ / s²₁ = 2.929 / 2.573 ≈ 1.138 ≈ 1.14."
+            },
+            {
+                "id": "e",
+                "text": "Vous ne rejetez pas l’hypothèse H0 au risque alpha 5% car F < valeur seuil",
+                "correct": true,
+                "explanation": "E. Vrai — Puisque la statistique observée F = 1.14 est inférieure à la valeur seuil critique (2.33), on ne rejette pas l'hypothèse nulle d'égalité des variances au risque 5%. L'hypothèse d'homoscédasticité est donc retenue."
+            }
+        ],
+        "explanation": "Réponses B, D et E exactes.\n\n1. Calcul des variances d'échantillon corrigées :\n• Groupe 1 (n1 = 25) : s²₁ = [∑X1² - (T1²/n1)] / (n1 - 1) = [1073 - (159²/25)] / 24 = (1073 - 1011.24) / 24 = 61.76 / 24 ≈ 2.57\n• Groupe 2 (n2 = 21) : s²₂ = [∑X2² - (T2²/n2)] / (n2 - 1) = [371 - (81²/21)] / 20 = (371 - 312.43) / 20 = 58.57 / 20 ≈ 2.93\n\n2. Statistique de test F de Fisher :\nPar convention, la plus grande variance est placée au numérateur :\nF = s²₂ / s²₁ = 2.93 / 2.57 ≈ 1.14 (Item D vrai, C faux).\n\n3. Degrés de liberté et seuil critique :\n• Numérateur : v1 = n2 - 1 = 20 ddl\n• Dénominateur : v2 = n1 - 1 = 24 ddl\n• Dans la table de Fisher-Snedecor (test bilatéral 5% / unilatéral 2.5%), pour v1 = 20 et v2 = 24, le seuil critique vaut F_seuil = 2.33 (Item B vrai, A faux qui correspondrait à v1=24, v2=20).\n\n4. Décision :\nComme F_obs = 1.14 < 2.33, on ne rejette pas H0 au risque α = 5% : les variances des deux groupes ne diffèrent pas significativement (Item E vrai)."
+    },
+    {
+        "id": "ue_bio_f2_upec_spond_q1_4",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°2 - Test de Fisher",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "ANOVA",
+            "Test F de Fisher",
+            "Variance intergroupes",
+            "Variance intragroupes"
+        ],
+        "statement": "Énoncé commun aux questions 1.4 à 1.5 (ANOVA) :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante (score BASDAI de 0 à 10). Les investigateurs souhaitent ajouter un nouveau groupe de 23 patients (groupe 3) traités avec une intervention plus intensive ajoutant la prise d’un nouveau médicament anti-inflammatoire.\nOn donne les valeurs suivantes pour le score BASDAI final obtenu après 6 mois de suivi de ce nouveau groupe : T3 = ∑X3 = 67 et ∑X3² = 263.\n\nOn rappelle les données précédentes :\n• Groupe 1 (prise en charge habituelle) : n1 = 25, T1 = 159, ∑X1² = 1073\n• Groupe 2 (relaxation + activité physique) : n2 = 21, T2 = 81, ∑X2² = 371\n• Groupe 3 (intervention intensive + anti-inflammatoire) : n3 = 23, T3 = 67, ∑X3² = 263\n• Données globales : N = 25 + 21 + 23 = 69 patients, Total T = 159 + 81 + 67 = 307, Somme des carrés totaux ∑∑X² = 1073 + 371 + 263 = 1707.\n\nOn suppose les conditions d’application remplies pour réaliser une ANOVA.\n\nQuestion 1.4 : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+        "image": {
+            "url": "src/assets/images/table_basdai_spondylarthrite.png",
+            "alt": "Tableau récapitulatif BASDAI Spondylarthrite ankylosante"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "La valeur de la variance intergroupes est égale à environ 76.5",
+                "correct": true,
+                "explanation": "A. Vrai — La somme des carrés inter (SCC) vaut ∑(Ti²/ni) - (T²/N) = (159²/25 + 81²/21 + 67²/23) - (307²/69) = 1518.84 - 1365.93 = 152.91. Avec k - 1 = 3 - 1 = 2 ddl, la variance intergroupes vaut S²C = 152.91 / 2 = 76.46 ≈ 76.5."
+            },
+            {
+                "id": "b",
+                "text": "La valeur de la variance intragroupes est égale à environ 4.5",
+                "correct": false,
+                "explanation": "B. Faux — La variance intragroupes vaut 2.9 (et non 4.5)."
+            },
+            {
+                "id": "c",
+                "text": "La valeur de la variance intragroupes est égale à environ 2.9",
+                "correct": true,
+                "explanation": "C. Vrai — La somme des carrés intra (SCR) vaut ∑∑X² - ∑(Ti²/ni) = 1707 - 1518.84 = 188.16. Avec N - k = 69 - 3 = 66 ddl, la variance intragroupes résiduelle vaut S² = 188.16 / 66 = 2.85 ≈ 2.9."
+            },
+            {
+                "id": "d",
+                "text": "L’ANOVA s’appuie sur la réalisation d’un test F de Fisher",
+                "correct": true,
+                "explanation": "D. Vrai — L'ANOVA teste l'égalité des moyennes de k groupes en comparant la variance intergroupe à la variance intragroupe par le ratio F = S²C / S², qui suit une loi de Fisher-Snedecor sous H0."
+            },
+            {
+                "id": "e",
+                "text": "Les conditions d’application pour réaliser l’ANOVA supposent l’hétéroscédasticité des variances",
+                "correct": false,
+                "explanation": "E. Faux — L'ANOVA exige l'homoscédasticité (homogénéité / égalité des variances dans les k populations), et non l'hétéroscédasticité."
+            }
+        ],
+        "explanation": "Réponses A, C et D exactes.\n\n1. Décomposition de la variabilité (ANOVA à 1 facteur) :\n• Terme intermédiaire : ∑(Ti²/ni) = 159²/25 + 81²/21 + 67²/23 = 1011.24 + 312.43 + 195.17 = 1518.84\n• Facteur de correction : T²/N = 307²/69 = 94249 / 69 = 1365.93\n\n2. Variance intergroupes (factorielle) :\n• SCC = ∑(Ti²/ni) - (T²/N) = 1518.84 - 1365.93 = 152.91\n• ddl_inter = k - 1 = 3 - 1 = 2 ddl\n• S²C (variance inter) = 152.91 / 2 = 76.455 ≈ 76.5 (Item A vrai).\n\n3. Variance intragroupes (résiduelle) :\n• SCR = ∑∑X² - ∑(Ti²/ni) = 1707 - 1518.84 = 188.16\n• ddl_intra = N - k = 69 - 3 = 66 ddl\n• S² (variance intra) = 188.16 / 66 = 2.851 ≈ 2.9 (Item C vrai, B faux).\n\n4. Propriétés de l'ANOVA :\n• L'ANOVA repose sur la statistique de test F de Fisher : F = S²C / S² (Item D vrai).\n• Les conditions d'application sont : indépendance des observations, normalité de la variable dans chaque groupe, et homoscédasticité (égalités des variances σ₁² = σ₂² = σ₃²), jamais l'hétéroscédasticité (Item E faux)."
+    },
+    {
+        "id": "ue_bio_f2_upec_spond_q1_5",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°2 - Test de Fisher",
+        "year": 2024,
+        "difficulty": "Moyen",
+        "tags": [
+            "Biostatistiques",
+            "ANOVA",
+            "Test F de Fisher",
+            "Décision statistique",
+            "Degré de signification"
+        ],
+        "statement": "Énoncé commun aux questions 1.4 à 1.5 (ANOVA) :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante (score BASDAI de 0 à 10) chez 69 patients répartis en 3 groupes :\n• Groupe 1 : n1 = 25, T1 = 159, ∑X1² = 1073\n• Groupe 2 : n2 = 21, T2 = 81, ∑X2² = 371\n• Groupe 3 : n3 = 23, T3 = 67, ∑X3² = 263\n• Totaux : N = 69, T = 307, ∑∑X² = 1707\nOn a obtenu : Variance intergroupes S²C ≈ 76.5 (2 ddl) et Variance intragroupes S² ≈ 2.85 (66 ddl).\n\nOn suppose les conditions d’application remplies pour réaliser une ANOVA.\n\nQuestion 1.5 : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+        "image": {
+            "url": "src/assets/images/table_basdai_spondylarthrite.png",
+            "alt": "Tableau récapitulatif BASDAI Spondylarthrite ankylosante"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "On rejette H0 car X²= environ 22.9 > valeur seuil d’environ 3.81",
+                "correct": false,
+                "explanation": "A. Faux — L'ANOVA utilise la statistique F de Fisher (rapport de deux variances) et non un test du chi-deux (X²)."
+            },
+            {
+                "id": "b",
+                "text": "On rejette H0 car F= environ 26.8 > valeur seuil située entre 3.89 et 3.93",
+                "correct": true,
+                "explanation": "B. Vrai — La statistique de test F vaut F = S²C / S² = 76.46 / 2.85 = 26.83 ≈ 26.8. Pour (2, 66) ddl, la valeur seuil critique dans la table de Fisher au risque 5% est située entre 3.89 et 3.93. Comme F = 26.8 > seuil, on rejette H0 au risque 5%."
+            },
+            {
+                "id": "c",
+                "text": "On rejette H0 car F=environ 15.2 > valeur seuil située entre 3.89 et 3.93",
+                "correct": false,
+                "explanation": "C. Faux — La valeur de F calculée est de 26.8 (et non 15.2)."
+            },
+            {
+                "id": "d",
+                "text": "On ne rejette pas H0 car F= environ 3.4 < valeur seuil de 4.05",
+                "correct": false,
+                "explanation": "D. Faux — On rejette H0 car F ≈ 26.8 > valeur seuil."
+            },
+            {
+                "id": "e",
+                "text": "Il existe au moins deux moyennes qui diffèrent car le degré de signification est inférieur à 5%",
+                "correct": true,
+                "explanation": "E. Vrai — Puisque F_obs est très supérieur au seuil critique au risque α = 5%, la p-value (degré de signification) est strictement inférieure à 0.05 (p < 5%), ce qui prouve qu'au moins deux des moyennes de groupe sont significativement différentes."
+            }
+        ],
+        "explanation": "Réponses B et E exactes.\n\n1. Calcul de la statistique de test F de Fisher :\nF = S²C / S² = 76.455 / 2.851 ≈ 26.82 ≈ 26.8 (Item B vrai, C faux).\n\n2. Détermination de la valeur seuil critique :\n• Sous H0, F suit une loi de Fisher à v1 = 2 ddl et v2 = 66 ddl.\n• Dans la table de Fisher fournie avec l'épreuve au seuil 5%, la valeur critique pour (2, 66) ddl est située entre 3.89 et 3.93.\n\n3. Règle de décision :\nComme F_obs = 26.8 > F_seuil ∈ [3.89 ; 3.93], le test est hautement significatif. On rejette l'hypothèse nulle H0 au risque α = 5% (Item B vrai, D faux, A faux car il ne s'agit pas d'un Chi²).\n\n4. Interprétation biomédicale :\nLe rejet de H0 signifie que le degré de signification (p-value) est inférieur à 5% (p < 0.05). On conclut qu'il existe une différence statistiquement significative entre au moins deux des trois groupes quant à l'activité de la maladie évaluée par le score BASDAI (Item E vrai)."
     }
 ];
 
