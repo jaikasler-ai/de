@@ -131,71 +131,6 @@
             );
         }
 
-        
-        function DataTable({ data }) {
-            if (!data || !data.headers || !data.rows) return null;
-            return (
-                <div className="w-full my-4 overflow-x-auto rounded-2xl border border-slate-700/80 bg-slate-950/80 shadow-lg">
-                    <table className="w-full text-left text-xs sm:text-sm border-collapse">
-                        <thead>
-                            <tr className="bg-slate-800 text-blue-300 font-bold border-b border-slate-700">
-                                {data.headers.map((h, i) => (
-                                    <th key={i} className={"px-3.5 py-3 whitespace-nowrap " + (i === 0 ? "text-left" : "text-center")}>
-                                        {h}
-                                    </th>
-                                ))}
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-slate-800 text-slate-200 font-mono">
-                            {data.rows.map((row, rIdx) => {
-                                const isTotal = rIdx === data.rows.length - 1;
-                                return (
-                                    <tr key={rIdx} className={isTotal ? "bg-blue-950/50 font-bold text-cyan-300" : "hover:bg-slate-800/40 transition-colors"}>
-                                        {row.map((cell, cIdx) => (
-                                            <td key={cIdx} className={"px-3.5 py-2.5 whitespace-nowrap " + (cIdx === 0 ? "font-sans text-left font-semibold text-slate-100" : "text-center")}>
-                                                {cell}
-                                            </td>
-                                        ))}
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
-                </div>
-            );
-        }
-
-        function FisherStatsCard({ stats }) {
-            if (!stats) return null;
-            return (
-                <div className="my-4 p-4 rounded-2xl bg-gradient-to-br from-indigo-950/70 via-slate-900 to-slate-900 border border-indigo-500/40 shadow-xl space-y-3">
-                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-indigo-400">
-                        <span>📊</span>
-                        <span>Paramètres ANOVA & Statistique de Test de Fisher</span>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <div className="p-3 rounded-xl bg-slate-800/90 border border-indigo-500/30 text-center shadow-inner">
-                            <div className="text-[11px] font-semibold text-slate-400 uppercase">Variance Intergroupes (S²C)</div>
-                            <div className="text-base sm:text-lg font-black text-indigo-300 mt-0.5 font-mono">{stats.varianceInter}</div>
-                        </div>
-                        <div className="p-3 rounded-xl bg-slate-800/90 border border-purple-500/30 text-center shadow-inner">
-                            <div className="text-[11px] font-semibold text-slate-400 uppercase">Variance Intragroupes (S²)</div>
-                            <div className="text-base sm:text-lg font-black text-purple-300 mt-0.5 font-mono">{stats.varianceIntra}</div>
-                        </div>
-                        <div className="p-3 rounded-xl bg-slate-800/90 border border-emerald-500/30 text-center shadow-inner">
-                            <div className="text-[11px] font-semibold text-slate-400 uppercase">Statistique de Fisher (F)</div>
-                            <div className="text-base sm:text-lg font-black text-emerald-400 mt-0.5 font-mono">{stats.statistiqueF}</div>
-                        </div>
-                    </div>
-                    {stats.details && (
-                        <div className="text-xs text-slate-300 bg-slate-950/70 p-3 rounded-xl border border-slate-800 leading-relaxed font-sans">
-                            {stats.details}
-                        </div>
-                    )}
-                </div>
-            );
-        }
-
         const INITIAL_SUBJECTS = [
             { 
                 id: 's1', 
@@ -72444,7 +72379,7 @@
                     "Test F de Fisher",
                     "Transaminases"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nL'équipe de recherche évalue un nouveau traitement hépatologique et étudie l'effet de 3 posologies différentes sur le taux de transaminases après 12 mois de suivi chez 30 patients répartis en 3 groupes de 10 :\n• Groupe 1 (Posologie standard) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120 607, m1 = 107.1\n• Groupe 2 (Posologie intermédiaire) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56 820, m2 = 74.8\n• Groupe 3 (Posologie élevée) : n3 = 10, T3 = ∑X3 = 632, ∑X3² = 44 190, m3 = 63.2\n• Total général : N = 30 patients, T = 2 451, ∑∑X² = 221 617, m globale = 81.70\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes : S²C = SCC / 2 = 10 350.2 / 2 ≈ 5 175 (pour 2 ddl)\n• Variance intragroupes : S² = SCR / 27 = 11 020.1 / 27 ≈ 408 (pour 27 ddl)\n• Statistique calculée de Fisher : F = S²C / S² = 5 175 / 408 ≈ 12.68 (ou 12.7)\n• Décision : Au risque 5%, F_obs (12.68) > F_seuil(2, 27) ≈ 3.35 → Rejet de H0 (p < 0.05). Différence significative entre les 3 posologies.\n\nQUESTION 1 du DP 1 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nL'équipe de recherche évalue un nouveau traitement hépatologique et pense qu'une posologie plus élevée pourrait obtenir de meilleurs résultats. Par conséquent, un nouveau groupe de 10 patients traités avec une posologie plus élevée (Groupe 3) est inclus dans l'étude aux côtés des groupes recevant les posologies standard (Groupe 1) et intermédiaire (Groupe 2).\n\nOn donne les valeurs suivantes pour les transaminases après 12 mois de suivi :\n• Groupe 1 : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120607\n• Groupe 2 : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56820\n• Groupe 3 : n3 = 10, T3 = ∑X3 = 632, ∑X3² = 44190\n• Total général : N = 30 patients, T = ∑X = 2451, ∑∑X² = 221617\n\nOn considérera les conditions d’application remplies pour réaliser une ANOVA.\n\nQUESTION 1 du DP 1 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
             "image": {
                     "url": "src/assets/images/table_dp1_transaminases.png",
                     "alt": "Tableau récapitulatif DP 1 - Transaminases"
@@ -72482,53 +72417,8 @@
                     }
             ],
             "explanation": "Réponses A, B et D exactes.\n\n1. Variance intergroupes : SCC = 210596.9 - 200246.7 = 10350.2. ddl = 2. S²C = 5175.1 ≈ 5175 (Item A VRAI).\n2. Variance intragroupes : SCR = 221617 - 210596.9 = 11020.1. ddl = 27. S² = 408.15 ≈ 408 (Item B VRAI, C FAUX).\n3. Principes : Test F de Fisher (Item D VRAI). Homoscédasticité requise (Item E FAUX).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nL'équipe de recherche évalue un nouveau traitement hépatologique et étudie l'effet de 3 posologies différentes sur le taux de transaminases après 12 mois de suivi chez 30 patients répartis en 3 groupes de 10 :\n• Groupe 1 (Posologie standard) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120 607, m1 = 107.1\n• Groupe 2 (Posologie intermédiaire) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56 820, m2 = 74.8\n• Groupe 3 (Posologie élevée) : n3 = 10, T3 = ∑X3 = 632, ∑X3² = 44 190, m3 = 63.2\n• Total général : N = 30 patients, T = 2 451, ∑∑X² = 221 617, m globale = 81.70\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes : S²C = SCC / 2 = 10 350.2 / 2 ≈ 5 175 (pour 2 ddl)\n• Variance intragroupes : S² = SCR / 27 = 11 020.1 / 27 ≈ 408 (pour 27 ddl)\n• Statistique calculée de Fisher : F = S²C / S² = 5 175 / 408 ≈ 12.68 (ou 12.7)\n• Décision : Au risque 5%, F_obs (12.68) > F_seuil(2, 27) ≈ 3.35 → Rejet de H0 (p < 0.05). Différence significative entre les 3 posologies.",
-            "subStatement": "QUESTION 1 du DP 1 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Posologie standard)",
-                                    "10",
-                                    "1 071",
-                                    "120 607",
-                                    "107.1"
-                            ],
-                            [
-                                    "Groupe 2 (Posologie intermédiaire)",
-                                    "10",
-                                    "748",
-                                    "56 820",
-                                    "74.8"
-                            ],
-                            [
-                                    "Groupe 3 (Posologie élevée)",
-                                    "10",
-                                    "632",
-                                    "44 190",
-                                    "63.2"
-                            ],
-                            [
-                                    "Total général",
-                                    "30",
-                                    "2 451",
-                                    "221 617",
-                                    "81.70"
-                            ]
-                    ]
-            },
-            "fisherStats": {
-                    "varianceInter": "5 175.1 (S²C)",
-                    "varianceIntra": "408.15 (S²)",
-                    "statistiqueF": "F = 12.68",
-                    "details": "ANOVA à un facteur (k=3, N=30) : Variance intergroupes S²C = SCC / 2 = 10 350.2 / 2 ≈ 5 175 (ddl=2) • Variance intragroupes S² = SCR / 27 = 11 020.1 / 27 ≈ 408 (ddl=27) • Statistique F = S²C / S² = 5 175 / 408 ≈ 12.68 > Seuil critique F(2, 27) ≈ 3.35 (Rejet franc de H0 au risque 5%, p < 0.05)."
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nL'équipe de recherche évalue un nouveau traitement hépatologique et pense qu'une posologie plus élevée pourrait obtenir de meilleurs résultats. Par conséquent, un nouveau groupe de 10 patients traités avec une posologie plus élevée (Groupe 3) est inclus dans l'étude aux côtés des groupes recevant les posologies standard (Groupe 1) et intermédiaire (Groupe 2).\n\nOn donne les valeurs suivantes pour les transaminases après 12 mois de suivi :\n• Groupe 1 : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120607\n• Groupe 2 : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56820\n• Groupe 3 : n3 = 10, T3 = ∑X3 = 632, ∑X3² = 44190\n• Total général : N = 30 patients, T = ∑X = 2451, ∑∑X² = 221617\n\nOn considérera les conditions d’application remplies pour réaliser une ANOVA.",
+            "subStatement": "QUESTION 1 du DP 1 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?"
     },
     {
             "id": "ue_bio_dp1_q2",
@@ -72549,7 +72439,7 @@
                     "Test F de Fisher",
                     "Transaminases"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nL'équipe de recherche évalue un nouveau traitement hépatologique et étudie l'effet de 3 posologies différentes sur le taux de transaminases après 12 mois de suivi chez 30 patients répartis en 3 groupes de 10 :\n• Groupe 1 (Posologie standard) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120 607, m1 = 107.1\n• Groupe 2 (Posologie intermédiaire) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56 820, m2 = 74.8\n• Groupe 3 (Posologie élevée) : n3 = 10, T3 = ∑X3 = 632, ∑X3² = 44 190, m3 = 63.2\n• Total général : N = 30 patients, T = 2 451, ∑∑X² = 221 617, m globale = 81.70\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes : S²C = SCC / 2 = 10 350.2 / 2 ≈ 5 175 (pour 2 ddl)\n• Variance intragroupes : S² = SCR / 27 = 11 020.1 / 27 ≈ 408 (pour 27 ddl)\n• Statistique calculée de Fisher : F = S²C / S² = 5 175 / 408 ≈ 12.68 (ou 12.7)\n• Décision : Au risque 5%, F_obs (12.68) > F_seuil(2, 27) ≈ 3.35 → Rejet de H0 (p < 0.05). Différence significative entre les 3 posologies.\n\nQUESTION 2 du DP 1 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nL'équipe de recherche évalue un nouveau traitement hépatologique et pense qu'une posologie plus élevée pourrait obtenir de meilleurs résultats. Par conséquent, un nouveau groupe de 10 patients traités avec une posologie plus élevée (Groupe 3) est inclus dans l'étude aux côtés des groupes recevant les posologies standard (Groupe 1) et intermédiaire (Groupe 2).\n\nOn donne les valeurs suivantes pour les transaminases après 12 mois de suivi :\n• Groupe 1 : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120607\n• Groupe 2 : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56820\n• Groupe 3 : n3 = 10, T3 = ∑X3 = 632, ∑X3² = 44190\n• Total général : N = 30 patients, T = ∑X = 2451, ∑∑X² = 221617\n\nOn considérera les conditions d’application remplies pour réaliser une ANOVA.\n\nQUESTION 2 du DP 1 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
             "image": {
                     "url": "src/assets/images/table_dp1_transaminases.png",
                     "alt": "Tableau récapitulatif DP 1 - Transaminases"
@@ -72587,53 +72477,8 @@
                     }
             ],
             "explanation": "Réponses B et E exactes.\n\n1. Statistique de test : F = 5175.1 / 408.15 = 12.68 ≈ 12.7 (Item B VRAI, A et D FAUX).\n2. Sous H0, F suit une loi de Fisher F(2, 27). Le seuil à 5% est ≈ 3.35.\n3. F_obs = 12.7 > 3.35 → Rejet franc de H0 au risque 5% (Item B VRAI, C FAUX car pas un Chi²).\n4. p < 0.05 : au moins deux moyennes diffèrent significativement (Item E VRAI).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nL'équipe de recherche évalue un nouveau traitement hépatologique et étudie l'effet de 3 posologies différentes sur le taux de transaminases après 12 mois de suivi chez 30 patients répartis en 3 groupes de 10 :\n• Groupe 1 (Posologie standard) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120 607, m1 = 107.1\n• Groupe 2 (Posologie intermédiaire) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56 820, m2 = 74.8\n• Groupe 3 (Posologie élevée) : n3 = 10, T3 = ∑X3 = 632, ∑X3² = 44 190, m3 = 63.2\n• Total général : N = 30 patients, T = 2 451, ∑∑X² = 221 617, m globale = 81.70\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes : S²C = SCC / 2 = 10 350.2 / 2 ≈ 5 175 (pour 2 ddl)\n• Variance intragroupes : S² = SCR / 27 = 11 020.1 / 27 ≈ 408 (pour 27 ddl)\n• Statistique calculée de Fisher : F = S²C / S² = 5 175 / 408 ≈ 12.68 (ou 12.7)\n• Décision : Au risque 5%, F_obs (12.68) > F_seuil(2, 27) ≈ 3.35 → Rejet de H0 (p < 0.05). Différence significative entre les 3 posologies.",
-            "subStatement": "QUESTION 2 du DP 1 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Posologie standard)",
-                                    "10",
-                                    "1 071",
-                                    "120 607",
-                                    "107.1"
-                            ],
-                            [
-                                    "Groupe 2 (Posologie intermédiaire)",
-                                    "10",
-                                    "748",
-                                    "56 820",
-                                    "74.8"
-                            ],
-                            [
-                                    "Groupe 3 (Posologie élevée)",
-                                    "10",
-                                    "632",
-                                    "44 190",
-                                    "63.2"
-                            ],
-                            [
-                                    "Total général",
-                                    "30",
-                                    "2 451",
-                                    "221 617",
-                                    "81.70"
-                            ]
-                    ]
-            },
-            "fisherStats": {
-                    "varianceInter": "5 175.1 (S²C)",
-                    "varianceIntra": "408.15 (S²)",
-                    "statistiqueF": "F = 12.68",
-                    "details": "ANOVA à un facteur (k=3, N=30) : Variance intergroupes S²C = SCC / 2 = 10 350.2 / 2 ≈ 5 175 (ddl=2) • Variance intragroupes S² = SCR / 27 = 11 020.1 / 27 ≈ 408 (ddl=27) • Statistique F = S²C / S² = 5 175 / 408 ≈ 12.68 > Seuil critique F(2, 27) ≈ 3.35 (Rejet franc de H0 au risque 5%, p < 0.05)."
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nL'équipe de recherche évalue un nouveau traitement hépatologique et pense qu'une posologie plus élevée pourrait obtenir de meilleurs résultats. Par conséquent, un nouveau groupe de 10 patients traités avec une posologie plus élevée (Groupe 3) est inclus dans l'étude aux côtés des groupes recevant les posologies standard (Groupe 1) et intermédiaire (Groupe 2).\n\nOn donne les valeurs suivantes pour les transaminases après 12 mois de suivi :\n• Groupe 1 : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120607\n• Groupe 2 : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56820\n• Groupe 3 : n3 = 10, T3 = ∑X3 = 632, ∑X3² = 44190\n• Total général : N = 30 patients, T = ∑X = 2451, ∑∑X² = 221617\n\nOn considérera les conditions d’application remplies pour réaliser une ANOVA.",
+            "subStatement": "QUESTION 2 du DP 1 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?"
     },
     {
             "id": "ue_bio_dp2_q1",
@@ -72654,7 +72499,7 @@
                     "Test F de Fisher",
                     "BASDAI"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nLes investigateurs étudient la sévérité de la spondylarthrite ankylosante via le score BASDAI (0 à 10) après 3 mois de suivi chez 44 patients répartis en 3 groupes :\n• Groupe 1 (Prise en charge habituelle) : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773, m1 = 6.93\n• Groupe 2 (Techniques de relaxation) : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514, m2 = 5.20\n• Groupe 3 (Intervention intensive + sport) : n3 = 15, T3 = ∑X3 = 70, ∑X3² = 480, m3 = 4.67\n• Total général : N = 44 patients, T = 245, ∑∑X² = 1 767, m globale = 5.57\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes : S²C = SCC / 2 = 40.13 / 2 ≈ 20.07 (pour 2 ddl)\n• Variance intragroupes : S² = SCR / 41 = 362.66 / 41 ≈ 8.85 (pour 41 ddl)\n• Statistique calculée de Fisher : F = S²C / S² = 20.07 / 8.85 ≈ 2.27 (ou 2.3)\n• Décision : Au risque 5%, F_obs (2.27) < F_seuil(2, 41) ≈ 4.05 → Non-rejet de H0. Pas de différence statistiquement significative entre les trois groupes.\n\nQUESTION 1 du DP 2 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nLes investigateurs souhaitent évaluer la sévérité de la spondylarthrite ankylosante via le score BASDAI (0 à 10). Ils décident d'ajouter un nouveau groupe de 15 patients traités avec une intervention plus intensive associant la pratique d’une activité physique régulière (Groupe 3) aux deux groupes initiaux (Groupe 1 et Groupe 2).\n\nOn donne les valeurs suivantes pour le score BASDAI final obtenu après 3 mois de suivi :\n• Groupe 1 : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773\n• Groupe 2 : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514\n• Groupe 3 : n3 = 15, T3 = ∑X3 = 70, ∑X3² = 480\n• Total général : N = 44 patients, T = 245, ∑∑X² = 1767\n\nOn suppose les conditions d’application remplies pour réaliser une ANOVA.\n\nQUESTION 1 du DP 2 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
             "image": {
                     "url": "src/assets/images/table_dp2_basdai.png",
                     "alt": "Tableau récapitulatif DP 2 - Score BASDAI"
@@ -72692,53 +72537,8 @@
                     }
             ],
             "explanation": "Réponses C, D et E exactes.\n\n1. SCC = (97²/14 + 78²/15 + 70²/15) - 245²/44 = 1404.34 - 1364.20 = 40.13. ddl = 2. S²C = 40.13 / 2 = 20.07 (Item A FAUX).\n2. SCR = 1767 - 1404.34 = 362.66. ddl = 41. S² = 362.66 / 41 = 8.85 ≈ 8.8 (Item C VRAI, B FAUX).\n3. Principes : Test F de Fisher (Item D VRAI). Homoscédasticité requise (Item E VRAI).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nLes investigateurs étudient la sévérité de la spondylarthrite ankylosante via le score BASDAI (0 à 10) après 3 mois de suivi chez 44 patients répartis en 3 groupes :\n• Groupe 1 (Prise en charge habituelle) : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773, m1 = 6.93\n• Groupe 2 (Techniques de relaxation) : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514, m2 = 5.20\n• Groupe 3 (Intervention intensive + sport) : n3 = 15, T3 = ∑X3 = 70, ∑X3² = 480, m3 = 4.67\n• Total général : N = 44 patients, T = 245, ∑∑X² = 1 767, m globale = 5.57\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes : S²C = SCC / 2 = 40.13 / 2 ≈ 20.07 (pour 2 ddl)\n• Variance intragroupes : S² = SCR / 41 = 362.66 / 41 ≈ 8.85 (pour 41 ddl)\n• Statistique calculée de Fisher : F = S²C / S² = 20.07 / 8.85 ≈ 2.27 (ou 2.3)\n• Décision : Au risque 5%, F_obs (2.27) < F_seuil(2, 41) ≈ 4.05 → Non-rejet de H0. Pas de différence statistiquement significative entre les trois groupes.",
-            "subStatement": "QUESTION 1 du DP 2 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Habituel)",
-                                    "14",
-                                    "97",
-                                    "773",
-                                    "6.93"
-                            ],
-                            [
-                                    "Groupe 2 (Relaxation)",
-                                    "15",
-                                    "78",
-                                    "514",
-                                    "5.20"
-                            ],
-                            [
-                                    "Groupe 3 (Intensif + sport)",
-                                    "15",
-                                    "70",
-                                    "480",
-                                    "4.67"
-                            ],
-                            [
-                                    "Total général",
-                                    "44",
-                                    "245",
-                                    "1 767",
-                                    "5.57"
-                            ]
-                    ]
-            },
-            "fisherStats": {
-                    "varianceInter": "20.07 (S²C)",
-                    "varianceIntra": "8.85 (S²)",
-                    "statistiqueF": "F = 2.27",
-                    "details": "ANOVA à un facteur (k=3, N=44) : Variance intergroupes S²C = SCC / 2 = 40.13 / 2 ≈ 20.07 (ddl=2) • Variance intragroupes S² = SCR / 41 = 362.66 / 41 ≈ 8.85 (ddl=41) • Statistique F = 20.07 / 8.85 ≈ 2.27 (ou 2.3) < Seuil critique F(2, 41) ≈ 4.05 (Non-rejet de H0 au risque 5%)."
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nLes investigateurs souhaitent évaluer la sévérité de la spondylarthrite ankylosante via le score BASDAI (0 à 10). Ils décident d'ajouter un nouveau groupe de 15 patients traités avec une intervention plus intensive associant la pratique d’une activité physique régulière (Groupe 3) aux deux groupes initiaux (Groupe 1 et Groupe 2).\n\nOn donne les valeurs suivantes pour le score BASDAI final obtenu après 3 mois de suivi :\n• Groupe 1 : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773\n• Groupe 2 : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514\n• Groupe 3 : n3 = 15, T3 = ∑X3 = 70, ∑X3² = 480\n• Total général : N = 44 patients, T = 245, ∑∑X² = 1767\n\nOn suppose les conditions d’application remplies pour réaliser une ANOVA.",
+            "subStatement": "QUESTION 1 du DP 2 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?"
     },
     {
             "id": "ue_bio_dp2_q2",
@@ -72759,7 +72559,7 @@
                     "Test F de Fisher",
                     "BASDAI"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nLes investigateurs étudient la sévérité de la spondylarthrite ankylosante via le score BASDAI (0 à 10) après 3 mois de suivi chez 44 patients répartis en 3 groupes :\n• Groupe 1 (Prise en charge habituelle) : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773, m1 = 6.93\n• Groupe 2 (Techniques de relaxation) : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514, m2 = 5.20\n• Groupe 3 (Intervention intensive + sport) : n3 = 15, T3 = ∑X3 = 70, ∑X3² = 480, m3 = 4.67\n• Total général : N = 44 patients, T = 245, ∑∑X² = 1 767, m globale = 5.57\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes : S²C = SCC / 2 = 40.13 / 2 ≈ 20.07 (pour 2 ddl)\n• Variance intragroupes : S² = SCR / 41 = 362.66 / 41 ≈ 8.85 (pour 41 ddl)\n• Statistique calculée de Fisher : F = S²C / S² = 20.07 / 8.85 ≈ 2.27 (ou 2.3)\n• Décision : Au risque 5%, F_obs (2.27) < F_seuil(2, 41) ≈ 4.05 → Non-rejet de H0. Pas de différence statistiquement significative entre les trois groupes.\n\nQUESTION 2 du DP 2 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nLes investigateurs souhaitent évaluer la sévérité de la spondylarthrite ankylosante via le score BASDAI (0 à 10). Ils décident d'ajouter un nouveau groupe de 15 patients traités avec une intervention plus intensive associant la pratique d’une activité physique régulière (Groupe 3) aux deux groupes initiaux (Groupe 1 et Groupe 2).\n\nOn donne les valeurs suivantes pour le score BASDAI final obtenu après 3 mois de suivi :\n• Groupe 1 : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773\n• Groupe 2 : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514\n• Groupe 3 : n3 = 15, T3 = ∑X3 = 70, ∑X3² = 480\n• Total général : N = 44 patients, T = 245, ∑∑X² = 1767\n\nOn suppose les conditions d’application remplies pour réaliser une ANOVA.\n\nQUESTION 2 du DP 2 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
             "image": {
                     "url": "src/assets/images/table_dp2_basdai.png",
                     "alt": "Tableau récapitulatif DP 2 - Score BASDAI"
@@ -72797,53 +72597,8 @@
                     }
             ],
             "explanation": "Réponse D exacte.\n\n1. Statistique de test : F = S²C / S² = 20.07 / 8.85 = 2.268 ≈ 2.27 ≈ 2.3 (Item B FAUX).\n2. Degrés de liberté : v1 = 2 ddl, v2 = 41 ddl. Seuil critique dans la table de Fisher ≈ 4.05.\n3. Règle de décision : F = 2.27 < 4.05 → Non-rejet de H0 au risque 5% (Item D VRAI, C FAUX, A FAUX).\n4. p > 0.05 : absence de différence significative démontrée (Item E FAUX).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nLes investigateurs étudient la sévérité de la spondylarthrite ankylosante via le score BASDAI (0 à 10) après 3 mois de suivi chez 44 patients répartis en 3 groupes :\n• Groupe 1 (Prise en charge habituelle) : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773, m1 = 6.93\n• Groupe 2 (Techniques de relaxation) : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514, m2 = 5.20\n• Groupe 3 (Intervention intensive + sport) : n3 = 15, T3 = ∑X3 = 70, ∑X3² = 480, m3 = 4.67\n• Total général : N = 44 patients, T = 245, ∑∑X² = 1 767, m globale = 5.57\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes : S²C = SCC / 2 = 40.13 / 2 ≈ 20.07 (pour 2 ddl)\n• Variance intragroupes : S² = SCR / 41 = 362.66 / 41 ≈ 8.85 (pour 41 ddl)\n• Statistique calculée de Fisher : F = S²C / S² = 20.07 / 8.85 ≈ 2.27 (ou 2.3)\n• Décision : Au risque 5%, F_obs (2.27) < F_seuil(2, 41) ≈ 4.05 → Non-rejet de H0. Pas de différence statistiquement significative entre les trois groupes.",
-            "subStatement": "QUESTION 2 du DP 2 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Habituel)",
-                                    "14",
-                                    "97",
-                                    "773",
-                                    "6.93"
-                            ],
-                            [
-                                    "Groupe 2 (Relaxation)",
-                                    "15",
-                                    "78",
-                                    "514",
-                                    "5.20"
-                            ],
-                            [
-                                    "Groupe 3 (Intensif + sport)",
-                                    "15",
-                                    "70",
-                                    "480",
-                                    "4.67"
-                            ],
-                            [
-                                    "Total général",
-                                    "44",
-                                    "245",
-                                    "1 767",
-                                    "5.57"
-                            ]
-                    ]
-            },
-            "fisherStats": {
-                    "varianceInter": "20.07 (S²C)",
-                    "varianceIntra": "8.85 (S²)",
-                    "statistiqueF": "F = 2.27",
-                    "details": "ANOVA à un facteur (k=3, N=44) : Variance intergroupes S²C = SCC / 2 = 40.13 / 2 ≈ 20.07 (ddl=2) • Variance intragroupes S² = SCR / 41 = 362.66 / 41 ≈ 8.85 (ddl=41) • Statistique F = 20.07 / 8.85 ≈ 2.27 (ou 2.3) < Seuil critique F(2, 41) ≈ 4.05 (Non-rejet de H0 au risque 5%)."
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nLes investigateurs souhaitent évaluer la sévérité de la spondylarthrite ankylosante via le score BASDAI (0 à 10). Ils décident d'ajouter un nouveau groupe de 15 patients traités avec une intervention plus intensive associant la pratique d’une activité physique régulière (Groupe 3) aux deux groupes initiaux (Groupe 1 et Groupe 2).\n\nOn donne les valeurs suivantes pour le score BASDAI final obtenu après 3 mois de suivi :\n• Groupe 1 : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773\n• Groupe 2 : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514\n• Groupe 3 : n3 = 15, T3 = ∑X3 = 70, ∑X3² = 480\n• Total général : N = 44 patients, T = 245, ∑∑X² = 1767\n\nOn suppose les conditions d’application remplies pour réaliser une ANOVA.",
+            "subStatement": "QUESTION 2 du DP 2 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?"
     },
     {
             "id": "ue_bio_dp3_q1",
@@ -72864,7 +72619,7 @@
                     "Test F de Fisher",
                     "Gériatrie"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nLes investigateurs évaluent l'effet d'interventions nutritionnelles et d'activités physiques sur la force de préhension (en kg) chez 89 patients âgés dénutris répartis en 3 groupes :\n• Groupe 1 (Placebo / Habituel) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14 947, m1 = 21.53\n• Groupe 2 (Complément alimentaire seul) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13 517, m2 = 21.89\n• Groupe 3 (Complément + mobilité) : n3 = 29, T3 = ∑X3 = 701, ∑X3² = 17 057, m3 = 24.17\n• Total général : N = 89 patients, T = 2 003, ∑∑X² = 45 521, m globale = 22.51\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes : S²C = SCC / 2 = 121.46 / 2 ≈ 60.73 (pour 2 ddl)\n• Variance intragroupes : S² = SCR / 86 = 320.79 / 86 ≈ 3.73 (pour 86 ddl)\n• Statistique calculée de Fisher : F = S²C / S² = 60.73 / 3.73 ≈ 16.3\n• Décision : Au risque 5%, F_obs (16.3) > Seuil critique [3.84 ; 3.86] → Rejet franc de H0 (p < 0.05). Différence significative entre les 3 modalités.\n\nQUESTION 1 du DP 3 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nLes investigateurs souhaitent associer au traitement par complément alimentaire une intervention visant à favoriser la mobilité et l’activité physique des patients âgés hospitalisés. Ils décident d’inclure un nouveau groupe de 29 patients pris en charge avec cette nouvelle intervention (Groupe 3) aux côtés des groupes sous traitement habituel (Groupe 1) et sous complément seul (Groupe 2).\n\nOn retrouve les résultats suivants pour la force de préhension à la fin de l’hospitalisation :\n• Groupe 1 : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14947\n• Groupe 2 : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13517\n• Groupe 3 : n3 = 29, T3 = ∑X3 = 701, ∑X3² = 17057\n• Total général : N = 89 patients, T = 2003, ∑∑X² = 45521\n\nOn considérera les conditions d’application remplies pour réaliser une ANOVA.\n\nQUESTION 1 du DP 3 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
             "image": {
                     "url": "src/assets/images/table_dp3_prehension.png",
                     "alt": "Tableau récapitulatif DP 3 - Force de préhension"
@@ -72902,53 +72657,8 @@
                     }
             ],
             "explanation": "Réponses A, C et E exactes (selon la grille officielle de l'épreuve).\n\n1. SCC = 45199.5 - 45078.1 = 121.46. ddl = 2. S²C = 60.73 ≈ 60.7 (Item A VRAI).\n2. SCR = 45521 - 45199.5 = 320.79. ddl = 86. S² = 3.73 (Dans la grille de l'annale, C était comptabilisé comme vrai ACE).\n3. Principes : Test F de Fisher (Item D FAUX). Homoscédasticité requise (Item E VRAI).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nLes investigateurs évaluent l'effet d'interventions nutritionnelles et d'activités physiques sur la force de préhension (en kg) chez 89 patients âgés dénutris répartis en 3 groupes :\n• Groupe 1 (Placebo / Habituel) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14 947, m1 = 21.53\n• Groupe 2 (Complément alimentaire seul) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13 517, m2 = 21.89\n• Groupe 3 (Complément + mobilité) : n3 = 29, T3 = ∑X3 = 701, ∑X3² = 17 057, m3 = 24.17\n• Total général : N = 89 patients, T = 2 003, ∑∑X² = 45 521, m globale = 22.51\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes : S²C = SCC / 2 = 121.46 / 2 ≈ 60.73 (pour 2 ddl)\n• Variance intragroupes : S² = SCR / 86 = 320.79 / 86 ≈ 3.73 (pour 86 ddl)\n• Statistique calculée de Fisher : F = S²C / S² = 60.73 / 3.73 ≈ 16.3\n• Décision : Au risque 5%, F_obs (16.3) > Seuil critique [3.84 ; 3.86] → Rejet franc de H0 (p < 0.05). Différence significative entre les 3 modalités.",
-            "subStatement": "QUESTION 1 du DP 3 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Placebo)",
-                                    "32",
-                                    "689",
-                                    "14 947",
-                                    "21.53"
-                            ],
-                            [
-                                    "Groupe 2 (Complément seul)",
-                                    "28",
-                                    "613",
-                                    "13 517",
-                                    "21.89"
-                            ],
-                            [
-                                    "Groupe 3 (Complément + mobilité)",
-                                    "29",
-                                    "701",
-                                    "17 057",
-                                    "24.17"
-                            ],
-                            [
-                                    "Total général",
-                                    "89",
-                                    "2 003",
-                                    "45 521",
-                                    "22.51"
-                            ]
-                    ]
-            },
-            "fisherStats": {
-                    "varianceInter": "60.73 (S²C)",
-                    "varianceIntra": "3.73 (S²)",
-                    "statistiqueF": "F = 16.3",
-                    "details": "ANOVA à un facteur (k=3, N=89) : Variance intergroupes S²C = SCC / 2 = 121.46 / 2 ≈ 60.73 (ddl=2) • Variance intragroupes S² = SCR / 86 = 320.79 / 86 ≈ 3.73 (ddl=86) • Statistique F = 60.73 / 3.73 ≈ 16.28 ≈ 16.3 > Seuil critique F(2, 86) ∈ [3.84 ; 3.86] (Rejet franc de H0 au risque 5%, p < 0.05)."
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nLes investigateurs souhaitent associer au traitement par complément alimentaire une intervention visant à favoriser la mobilité et l’activité physique des patients âgés hospitalisés. Ils décident d’inclure un nouveau groupe de 29 patients pris en charge avec cette nouvelle intervention (Groupe 3) aux côtés des groupes sous traitement habituel (Groupe 1) et sous complément seul (Groupe 2).\n\nOn retrouve les résultats suivants pour la force de préhension à la fin de l’hospitalisation :\n• Groupe 1 : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14947\n• Groupe 2 : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13517\n• Groupe 3 : n3 = 29, T3 = ∑X3 = 701, ∑X3² = 17057\n• Total général : N = 89 patients, T = 2003, ∑∑X² = 45521\n\nOn considérera les conditions d’application remplies pour réaliser une ANOVA.",
+            "subStatement": "QUESTION 1 du DP 3 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?"
     },
     {
             "id": "ue_bio_dp3_q2",
@@ -72969,7 +72679,7 @@
                     "Test F de Fisher",
                     "Gériatrie"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nLes investigateurs évaluent l'effet d'interventions nutritionnelles et d'activités physiques sur la force de préhension (en kg) chez 89 patients âgés dénutris répartis en 3 groupes :\n• Groupe 1 (Placebo / Habituel) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14 947, m1 = 21.53\n• Groupe 2 (Complément alimentaire seul) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13 517, m2 = 21.89\n• Groupe 3 (Complément + mobilité) : n3 = 29, T3 = ∑X3 = 701, ∑X3² = 17 057, m3 = 24.17\n• Total général : N = 89 patients, T = 2 003, ∑∑X² = 45 521, m globale = 22.51\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes : S²C = SCC / 2 = 121.46 / 2 ≈ 60.73 (pour 2 ddl)\n• Variance intragroupes : S² = SCR / 86 = 320.79 / 86 ≈ 3.73 (pour 86 ddl)\n• Statistique calculée de Fisher : F = S²C / S² = 60.73 / 3.73 ≈ 16.3\n• Décision : Au risque 5%, F_obs (16.3) > Seuil critique [3.84 ; 3.86] → Rejet franc de H0 (p < 0.05). Différence significative entre les 3 modalités.\n\nQUESTION 2 du DP 3 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nLes investigateurs souhaitent associer au traitement par complément alimentaire une intervention visant à favoriser la mobilité et l’activité physique des patients âgés hospitalisés. Ils décident d’inclure un nouveau groupe de 29 patients pris en charge avec cette nouvelle intervention (Groupe 3) aux côtés des groupes sous traitement habituel (Groupe 1) et sous complément seul (Groupe 2).\n\nOn retrouve les résultats suivants pour la force de préhension à la fin de l’hospitalisation :\n• Groupe 1 : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14947\n• Groupe 2 : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13517\n• Groupe 3 : n3 = 29, T3 = ∑X3 = 701, ∑X3² = 17057\n• Total général : N = 89 patients, T = 2003, ∑∑X² = 45521\n\nOn considérera les conditions d’application remplies pour réaliser une ANOVA.\n\nQUESTION 2 du DP 3 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
             "image": {
                     "url": "src/assets/images/table_dp3_prehension.png",
                     "alt": "Tableau récapitulatif DP 3 - Force de préhension"
@@ -73007,53 +72717,8 @@
                     }
             ],
             "explanation": "Réponse E exacte.\n\n1. Statistique de test : F = S²C / S² = 60.73 / 3.73 = 16.28 ≈ 16.3.\n2. Valeur seuil dans la table de Fisher pour F(2, 86) au risque 5% : comprise entre 3.84 et 3.86.\n3. Règle de décision : F = 16.3 > seuil → Rejet de H0 au risque 5% (Item E VRAI, A, B, C, D FAUX).\n4. Degré de signification p < 0.05 : au moins deux moyennes diffèrent significativement.",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nLes investigateurs évaluent l'effet d'interventions nutritionnelles et d'activités physiques sur la force de préhension (en kg) chez 89 patients âgés dénutris répartis en 3 groupes :\n• Groupe 1 (Placebo / Habituel) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14 947, m1 = 21.53\n• Groupe 2 (Complément alimentaire seul) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13 517, m2 = 21.89\n• Groupe 3 (Complément + mobilité) : n3 = 29, T3 = ∑X3 = 701, ∑X3² = 17 057, m3 = 24.17\n• Total général : N = 89 patients, T = 2 003, ∑∑X² = 45 521, m globale = 22.51\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes : S²C = SCC / 2 = 121.46 / 2 ≈ 60.73 (pour 2 ddl)\n• Variance intragroupes : S² = SCR / 86 = 320.79 / 86 ≈ 3.73 (pour 86 ddl)\n• Statistique calculée de Fisher : F = S²C / S² = 60.73 / 3.73 ≈ 16.3\n• Décision : Au risque 5%, F_obs (16.3) > Seuil critique [3.84 ; 3.86] → Rejet franc de H0 (p < 0.05). Différence significative entre les 3 modalités.",
-            "subStatement": "QUESTION 2 du DP 3 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Placebo)",
-                                    "32",
-                                    "689",
-                                    "14 947",
-                                    "21.53"
-                            ],
-                            [
-                                    "Groupe 2 (Complément seul)",
-                                    "28",
-                                    "613",
-                                    "13 517",
-                                    "21.89"
-                            ],
-                            [
-                                    "Groupe 3 (Complément + mobilité)",
-                                    "29",
-                                    "701",
-                                    "17 057",
-                                    "24.17"
-                            ],
-                            [
-                                    "Total général",
-                                    "89",
-                                    "2 003",
-                                    "45 521",
-                                    "22.51"
-                            ]
-                    ]
-            },
-            "fisherStats": {
-                    "varianceInter": "60.73 (S²C)",
-                    "varianceIntra": "3.73 (S²)",
-                    "statistiqueF": "F = 16.3",
-                    "details": "ANOVA à un facteur (k=3, N=89) : Variance intergroupes S²C = SCC / 2 = 121.46 / 2 ≈ 60.73 (ddl=2) • Variance intragroupes S² = SCR / 86 = 320.79 / 86 ≈ 3.73 (ddl=86) • Statistique F = 60.73 / 3.73 ≈ 16.28 ≈ 16.3 > Seuil critique F(2, 86) ∈ [3.84 ; 3.86] (Rejet franc de H0 au risque 5%, p < 0.05)."
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nLes investigateurs souhaitent associer au traitement par complément alimentaire une intervention visant à favoriser la mobilité et l’activité physique des patients âgés hospitalisés. Ils décident d’inclure un nouveau groupe de 29 patients pris en charge avec cette nouvelle intervention (Groupe 3) aux côtés des groupes sous traitement habituel (Groupe 1) et sous complément seul (Groupe 2).\n\nOn retrouve les résultats suivants pour la force de préhension à la fin de l’hospitalisation :\n• Groupe 1 : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14947\n• Groupe 2 : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13517\n• Groupe 3 : n3 = 29, T3 = ∑X3 = 701, ∑X3² = 17057\n• Total général : N = 89 patients, T = 2003, ∑∑X² = 45521\n\nOn considérera les conditions d’application remplies pour réaliser une ANOVA.",
+            "subStatement": "QUESTION 2 du DP 3 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?"
     },
     {
             "id": "ue_bio_dp4_q1",
@@ -73074,7 +72739,7 @@
                     "Test F de Fisher",
                     "BASDAI"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nOn évalue la sévérité de la spondylarthrite ankylosante par le score BASDAI (0 à 10) à 6 mois de suivi chez 69 patients répartis en 3 groupes :\n• Groupe 1 (Prise en charge habituelle) : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1 073, m1 = 6.36\n• Groupe 2 (Relaxation + sport) : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371, m2 = 3.86\n• Groupe 3 (Intensif + anti-inflammatoire) : n3 = 23, T3 = ∑X3 = 67, ∑X3² = 263, m3 = 2.91\n• Total général : N = 69 patients, T = 307, ∑∑X² = 1 707, m globale = 4.45\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes (CM inter) : CM_inter ≈ 76.5 (pour 2 ddl)\n• Variance intragroupes (CM intra) : CM_intra ≈ 2.85 à 2.9 (pour 66 ddl)\n• Statistique calculée de Fisher : F = CM_inter / CM_intra = 76.5 / 2.85 ≈ 26.8\n• Décision : Au risque 5%, F_obs (26.8) > Seuil critique [3.89 ; 3.93] → Rejet de H0 (p < 0.05). Au moins deux groupes diffèrent significativement.\n\nQUESTION 1 du DP 4 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMON AU DOSSIER PROGRESSIF 4 :\nLes investigateurs souhaitent ajouter un nouveau groupe de 23 patients (Groupe 3) traités avec une intervention plus intensive associant la prise d’un nouveau médicament anti-inflammatoire à la relaxation et à l'exercice physique. On évalue la sévérité de la maladie par le score BASDAI à 6 mois de suivi.\n\nOn donne les valeurs suivantes pour les trois groupes :\n• Groupe 1 (prise en charge habituelle) : n1 = 25, T1 = 159, ∑X1² = 1073\n• Groupe 2 (relaxation + exercice) : n2 = 21, T2 = 81, ∑X2² = 371\n• Groupe 3 (intervention intensive + anti-inflammatoire) : n3 = 23, T3 = 67, ∑X3² = 263\n• Total général : N = 69 patients, T = 307, ∑∑X² = 1707\n\nOn suppose les conditions d’application remplies pour réaliser une ANOVA.\n\nQUESTION 1 du DP 4 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
             "image": {
                     "url": "src/assets/images/table_dp4_basdai_spond.png",
                     "alt": "Tableau récapitulatif DP 4 - Score BASDAI"
@@ -73112,53 +72777,8 @@
                     }
             ],
             "explanation": "Réponses A, C et D exactes.\n\n1. Variance intergroupes : SCC = 152.91. ddl = 2. S²C = 76.46 ≈ 76.5 (Item A VRAI).\n2. Variance intragroupes : SCR = 188.16. ddl = 66. S² = 2.85 ≈ 2.9 (Item C VRAI, B FAUX).\n3. Principes : Test F de Fisher (Item D VRAI). Homoscédasticité requise (Item E FAUX).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nOn évalue la sévérité de la spondylarthrite ankylosante par le score BASDAI (0 à 10) à 6 mois de suivi chez 69 patients répartis en 3 groupes :\n• Groupe 1 (Prise en charge habituelle) : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1 073, m1 = 6.36\n• Groupe 2 (Relaxation + sport) : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371, m2 = 3.86\n• Groupe 3 (Intensif + anti-inflammatoire) : n3 = 23, T3 = ∑X3 = 67, ∑X3² = 263, m3 = 2.91\n• Total général : N = 69 patients, T = 307, ∑∑X² = 1 707, m globale = 4.45\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes (CM inter) : CM_inter ≈ 76.5 (pour 2 ddl)\n• Variance intragroupes (CM intra) : CM_intra ≈ 2.85 à 2.9 (pour 66 ddl)\n• Statistique calculée de Fisher : F = CM_inter / CM_intra = 76.5 / 2.85 ≈ 26.8\n• Décision : Au risque 5%, F_obs (26.8) > Seuil critique [3.89 ; 3.93] → Rejet de H0 (p < 0.05). Au moins deux groupes diffèrent significativement.",
-            "subStatement": "QUESTION 1 du DP 4 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Habituel)",
-                                    "25",
-                                    "159",
-                                    "1 073",
-                                    "6.36"
-                            ],
-                            [
-                                    "Groupe 2 (Relaxation + sport)",
-                                    "21",
-                                    "81",
-                                    "371",
-                                    "3.86"
-                            ],
-                            [
-                                    "Groupe 3 (Intensif + anti-inflammatoire)",
-                                    "23",
-                                    "67",
-                                    "263",
-                                    "2.91"
-                            ],
-                            [
-                                    "Total général",
-                                    "69",
-                                    "307",
-                                    "1 707",
-                                    "4.45"
-                            ]
-                    ]
-            },
-            "fisherStats": {
-                    "varianceInter": "76.5 (CM inter)",
-                    "varianceIntra": "2.85 à 2.9 (CM intra)",
-                    "statistiqueF": "F = 26.8",
-                    "details": "ANOVA à un facteur (k=3, N=69) : Variance intergroupes CM_inter ≈ 76.5 (ddl=2) • Variance intragroupes CM_intra ≈ 2.85 à 2.9 (ddl=66) • Statistique F = CM_inter / CM_intra = 76.5 / 2.85 ≈ 26.8 > Seuil critique F(2, 66) ∈ [3.89 ; 3.93] (Rejet très significatif de H0 au risque 5%, p < 0.05)."
-            }
+            "commonStatement": "ÉNONCÉ COMMON AU DOSSIER PROGRESSIF 4 :\nLes investigateurs souhaitent ajouter un nouveau groupe de 23 patients (Groupe 3) traités avec une intervention plus intensive associant la prise d’un nouveau médicament anti-inflammatoire à la relaxation et à l'exercice physique. On évalue la sévérité de la maladie par le score BASDAI à 6 mois de suivi.\n\nOn donne les valeurs suivantes pour les trois groupes :\n• Groupe 1 (prise en charge habituelle) : n1 = 25, T1 = 159, ∑X1² = 1073\n• Groupe 2 (relaxation + exercice) : n2 = 21, T2 = 81, ∑X2² = 371\n• Groupe 3 (intervention intensive + anti-inflammatoire) : n3 = 23, T3 = 67, ∑X3² = 263\n• Total général : N = 69 patients, T = 307, ∑∑X² = 1707\n\nOn suppose les conditions d’application remplies pour réaliser une ANOVA.",
+            "subStatement": "QUESTION 1 du DP 4 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?"
     },
     {
             "id": "ue_bio_dp4_q2",
@@ -73179,7 +72799,7 @@
                     "Test F de Fisher",
                     "BASDAI"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nOn évalue la sévérité de la spondylarthrite ankylosante par le score BASDAI (0 à 10) à 6 mois de suivi chez 69 patients répartis en 3 groupes :\n• Groupe 1 (Prise en charge habituelle) : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1 073, m1 = 6.36\n• Groupe 2 (Relaxation + sport) : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371, m2 = 3.86\n• Groupe 3 (Intensif + anti-inflammatoire) : n3 = 23, T3 = ∑X3 = 67, ∑X3² = 263, m3 = 2.91\n• Total général : N = 69 patients, T = 307, ∑∑X² = 1 707, m globale = 4.45\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes (CM inter) : CM_inter ≈ 76.5 (pour 2 ddl)\n• Variance intragroupes (CM intra) : CM_intra ≈ 2.85 à 2.9 (pour 66 ddl)\n• Statistique calculée de Fisher : F = CM_inter / CM_intra = 76.5 / 2.85 ≈ 26.8\n• Décision : Au risque 5%, F_obs (26.8) > Seuil critique [3.89 ; 3.93] → Rejet de H0 (p < 0.05). Au moins deux groupes diffèrent significativement.\n\nQUESTION 2 du DP 4 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMON AU DOSSIER PROGRESSIF 4 :\nLes investigateurs souhaitent ajouter un nouveau groupe de 23 patients (Groupe 3) traités avec une intervention plus intensive associant la prise d’un nouveau médicament anti-inflammatoire à la relaxation et à l'exercice physique. On évalue la sévérité de la maladie par le score BASDAI à 6 mois de suivi.\n\nOn donne les valeurs suivantes pour les trois groupes :\n• Groupe 1 (prise en charge habituelle) : n1 = 25, T1 = 159, ∑X1² = 1073\n• Groupe 2 (relaxation + exercice) : n2 = 21, T2 = 81, ∑X2² = 371\n• Groupe 3 (intervention intensive + anti-inflammatoire) : n3 = 23, T3 = 67, ∑X3² = 263\n• Total général : N = 69 patients, T = 307, ∑∑X² = 1707\n\nOn suppose les conditions d’application remplies pour réaliser une ANOVA.\n\nQUESTION 2 du DP 4 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
             "image": {
                     "url": "src/assets/images/table_dp4_basdai_spond.png",
                     "alt": "Tableau récapitulatif DP 4 - Score BASDAI"
@@ -73217,53 +72837,8 @@
                     }
             ],
             "explanation": "Réponses B et E exactes.\n\n1. Statistique de test : F = 76.46 / 2.85 = 26.82 ≈ 26.8 (Item B VRAI, C FAUX).\n2. Sous H0, F suit une loi F(2, 66). Seuil critique dans la table de Fisher ∈ [3.89 ; 3.93].\n3. F_obs = 26.8 > seuil → Rejet de H0 au risque 5% (Item B VRAI, D FAUX, A FAUX car pas un Chi²).\n4. p < 0.05 : au moins deux moyennes de BASDAI diffèrent significativement (Item E VRAI).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nOn évalue la sévérité de la spondylarthrite ankylosante par le score BASDAI (0 à 10) à 6 mois de suivi chez 69 patients répartis en 3 groupes :\n• Groupe 1 (Prise en charge habituelle) : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1 073, m1 = 6.36\n• Groupe 2 (Relaxation + sport) : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371, m2 = 3.86\n• Groupe 3 (Intensif + anti-inflammatoire) : n3 = 23, T3 = ∑X3 = 67, ∑X3² = 263, m3 = 2.91\n• Total général : N = 69 patients, T = 307, ∑∑X² = 1 707, m globale = 4.45\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes (CM inter) : CM_inter ≈ 76.5 (pour 2 ddl)\n• Variance intragroupes (CM intra) : CM_intra ≈ 2.85 à 2.9 (pour 66 ddl)\n• Statistique calculée de Fisher : F = CM_inter / CM_intra = 76.5 / 2.85 ≈ 26.8\n• Décision : Au risque 5%, F_obs (26.8) > Seuil critique [3.89 ; 3.93] → Rejet de H0 (p < 0.05). Au moins deux groupes diffèrent significativement.",
-            "subStatement": "QUESTION 2 du DP 4 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Habituel)",
-                                    "25",
-                                    "159",
-                                    "1 073",
-                                    "6.36"
-                            ],
-                            [
-                                    "Groupe 2 (Relaxation + sport)",
-                                    "21",
-                                    "81",
-                                    "371",
-                                    "3.86"
-                            ],
-                            [
-                                    "Groupe 3 (Intensif + anti-inflammatoire)",
-                                    "23",
-                                    "67",
-                                    "263",
-                                    "2.91"
-                            ],
-                            [
-                                    "Total général",
-                                    "69",
-                                    "307",
-                                    "1 707",
-                                    "4.45"
-                            ]
-                    ]
-            },
-            "fisherStats": {
-                    "varianceInter": "76.5 (CM inter)",
-                    "varianceIntra": "2.85 à 2.9 (CM intra)",
-                    "statistiqueF": "F = 26.8",
-                    "details": "ANOVA à un facteur (k=3, N=69) : Variance intergroupes CM_inter ≈ 76.5 (ddl=2) • Variance intragroupes CM_intra ≈ 2.85 à 2.9 (ddl=66) • Statistique F = CM_inter / CM_intra = 76.5 / 2.85 ≈ 26.8 > Seuil critique F(2, 66) ∈ [3.89 ; 3.93] (Rejet très significatif de H0 au risque 5%, p < 0.05)."
-            }
+            "commonStatement": "ÉNONCÉ COMMON AU DOSSIER PROGRESSIF 4 :\nLes investigateurs souhaitent ajouter un nouveau groupe de 23 patients (Groupe 3) traités avec une intervention plus intensive associant la prise d’un nouveau médicament anti-inflammatoire à la relaxation et à l'exercice physique. On évalue la sévérité de la maladie par le score BASDAI à 6 mois de suivi.\n\nOn donne les valeurs suivantes pour les trois groupes :\n• Groupe 1 (prise en charge habituelle) : n1 = 25, T1 = 159, ∑X1² = 1073\n• Groupe 2 (relaxation + exercice) : n2 = 21, T2 = 81, ∑X2² = 371\n• Groupe 3 (intervention intensive + anti-inflammatoire) : n3 = 23, T3 = 67, ∑X3² = 263\n• Total général : N = 69 patients, T = 307, ∑∑X² = 1707\n\nOn suppose les conditions d’application remplies pour réaliser une ANOVA.",
+            "subStatement": "QUESTION 2 du DP 4 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?"
     },
     {
             "id": "ue_bio_dp5_q1",
@@ -73284,7 +72859,7 @@
                     "Test F de Fisher",
                     "Paris XII"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 80 patients en rééducation après chirurgie orthopédique pour évaluer la force d'extension maximale du genou (en Nm) selon 3 protocoles :\n• Groupe A (Rééducation + Placebo) : nA = 27, TA = ∑XA = 1215, ∑XA² = 55 675, mA = 45.00\n• Groupe B (Rééducation + Acides aminés) : nB = 27, TB = ∑XB = 1296, ∑XB² = 62 496, mB = 48.00\n• Groupe C (Rééducation + Physiothérapie) : nC = 26, TC = ∑XC = 1352, ∑XC² = 70 624, mC = 52.00\n• Total général : N = 80 patients, T = 3 863, ∑∑X² = 188 795, m globale = 48.29\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes : S²C = SCC / 2 = 652.39 / 2 ≈ 326.2 (pour 2 ddl)\n• Variance intragroupes : S² = SCR / 77 = 1 608 / 77 ≈ 20.88 (pour 77 ddl)\n• Statistique calculée de Fisher : F = S²C / S² = 326.2 / 20.88 = 15.61 ≈ 15.6\n• Décision : Au risque 5%, F_obs (15.6) > Seuil critique F(2, 77) ≈ 3.8 → Rejet de H0 (p < 0.05). Différence significative d'efficacité entre les trois protocoles.\n\nQUESTION 1 du DP 5 (QCM 4) : Concernant ce test, quelle(s) est(sont) la(les) propositions exactes ?",
+            "statement": "ÉNONCÉ COMMON AU DOSSIER PROGRESSIF 5 :\nLes chercheurs souhaitent ajouter une intervention de physiothérapie intensive à la supplémentation. Ils ajoutent un groupe C (n=26) avec cette intervention supplémentaire aux deux groupes A et B.\n\nRésultats des trois groupes :\n• Groupe A : nA = 27, TA = 1215, ∑XA² = 55675\n• Groupe B : nB = 27, TB = 1296, ∑XB² = 62496\n• Groupe C : nC = 26, TC = ∑XC = 1352, ∑XC² = 70624\n• Total général : N = 80 patients, T = 3863, ∑∑X² = 188795\n\nOn considère que les conditions d’application sont remplies pour un test d’ANOVA.\n\nQUESTION 1 du DP 5 (QCM 4) : Concernant ce test, quelle(s) est(sont) la(les) propositions exactes ?",
             "image": {
                     "url": "src/assets/images/table_dp5_physiotherapie.png",
                     "alt": "Tableau récapitulatif DP 5 - Physiothérapie"
@@ -73322,53 +72897,8 @@
                     }
             ],
             "explanation": "Réponses A et D exactes.\n\n1. Variance intergroupe : SCC = 652.39. ddl = 2. S²C = 326.195 ≈ 326.2 (Item A VRAI, B FAUX).\n2. Variance intragroupe : SCR = 1608. ddl = 77. S² = 1608 / 77 = 20.88 ≈ 20.8 (Item D VRAI, C FAUX).\n3. Conditions : Dans la correction du Tutorat Paris XII, l'item E est noté FAUX avec la justification explicite : 'homoscédasticité et non homogénéité des variances'.",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 80 patients en rééducation après chirurgie orthopédique pour évaluer la force d'extension maximale du genou (en Nm) selon 3 protocoles :\n• Groupe A (Rééducation + Placebo) : nA = 27, TA = ∑XA = 1215, ∑XA² = 55 675, mA = 45.00\n• Groupe B (Rééducation + Acides aminés) : nB = 27, TB = ∑XB = 1296, ∑XB² = 62 496, mB = 48.00\n• Groupe C (Rééducation + Physiothérapie) : nC = 26, TC = ∑XC = 1352, ∑XC² = 70 624, mC = 52.00\n• Total général : N = 80 patients, T = 3 863, ∑∑X² = 188 795, m globale = 48.29\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes : S²C = SCC / 2 = 652.39 / 2 ≈ 326.2 (pour 2 ddl)\n• Variance intragroupes : S² = SCR / 77 = 1 608 / 77 ≈ 20.88 (pour 77 ddl)\n• Statistique calculée de Fisher : F = S²C / S² = 326.2 / 20.88 = 15.61 ≈ 15.6\n• Décision : Au risque 5%, F_obs (15.6) > Seuil critique F(2, 77) ≈ 3.8 → Rejet de H0 (p < 0.05). Différence significative d'efficacité entre les trois protocoles.",
-            "subStatement": "QUESTION 1 du DP 5 (QCM 4) : Concernant ce test, quelle(s) est(sont) la(les) propositions exactes ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe A (Placebo)",
-                                    "27",
-                                    "1 215",
-                                    "55 675",
-                                    "45.00"
-                            ],
-                            [
-                                    "Groupe B (Acides aminés)",
-                                    "27",
-                                    "1 296",
-                                    "62 496",
-                                    "48.00"
-                            ],
-                            [
-                                    "Groupe C (Physiothérapie)",
-                                    "26",
-                                    "1 352",
-                                    "70 624",
-                                    "52.00"
-                            ],
-                            [
-                                    "Total général",
-                                    "80",
-                                    "3 863",
-                                    "188 795",
-                                    "48.29"
-                            ]
-                    ]
-            },
-            "fisherStats": {
-                    "varianceInter": "326.2 (S²C)",
-                    "varianceIntra": "20.88 (S²)",
-                    "statistiqueF": "F = 15.61",
-                    "details": "ANOVA à un facteur (k=3, N=80) : Variance intergroupes S²C = SCC / 2 = 652.39 / 2 ≈ 326.2 (ddl=2) • Variance intragroupes S² = SCR / 77 = 1 608 / 77 ≈ 20.88 (ddl=77) • Statistique F = S²C / S² = 326.2 / 20.88 = 15.61 ≈ 15.6 > Seuil critique F(2, 77) ≈ 3.8 (Rejet franc de H0 au risque 5%, p < 0.05)."
-            }
+            "commonStatement": "ÉNONCÉ COMMON AU DOSSIER PROGRESSIF 5 :\nLes chercheurs souhaitent ajouter une intervention de physiothérapie intensive à la supplémentation. Ils ajoutent un groupe C (n=26) avec cette intervention supplémentaire aux deux groupes A et B.\n\nRésultats des trois groupes :\n• Groupe A : nA = 27, TA = 1215, ∑XA² = 55675\n• Groupe B : nB = 27, TB = 1296, ∑XB² = 62496\n• Groupe C : nC = 26, TC = ∑XC = 1352, ∑XC² = 70624\n• Total général : N = 80 patients, T = 3863, ∑∑X² = 188795\n\nOn considère que les conditions d’application sont remplies pour un test d’ANOVA.",
+            "subStatement": "QUESTION 1 du DP 5 (QCM 4) : Concernant ce test, quelle(s) est(sont) la(les) propositions exactes ?"
     },
     {
             "id": "ue_bio_dp5_q2",
@@ -73389,7 +72919,7 @@
                     "Test F de Fisher",
                     "Paris XII"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 80 patients en rééducation après chirurgie orthopédique pour évaluer la force d'extension maximale du genou (en Nm) selon 3 protocoles :\n• Groupe A (Rééducation + Placebo) : nA = 27, TA = ∑XA = 1215, ∑XA² = 55 675, mA = 45.00\n• Groupe B (Rééducation + Acides aminés) : nB = 27, TB = ∑XB = 1296, ∑XB² = 62 496, mB = 48.00\n• Groupe C (Rééducation + Physiothérapie) : nC = 26, TC = ∑XC = 1352, ∑XC² = 70 624, mC = 52.00\n• Total général : N = 80 patients, T = 3 863, ∑∑X² = 188 795, m globale = 48.29\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes : S²C = SCC / 2 = 652.39 / 2 ≈ 326.2 (pour 2 ddl)\n• Variance intragroupes : S² = SCR / 77 = 1 608 / 77 ≈ 20.88 (pour 77 ddl)\n• Statistique calculée de Fisher : F = S²C / S² = 326.2 / 20.88 = 15.61 ≈ 15.6\n• Décision : Au risque 5%, F_obs (15.6) > Seuil critique F(2, 77) ≈ 3.8 → Rejet de H0 (p < 0.05). Différence significative d'efficacité entre les trois protocoles.\n\nQUESTION 2 du DP 5 (QCM 5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMON AU DOSSIER PROGRESSIF 5 :\nLes chercheurs souhaitent ajouter une intervention de physiothérapie intensive à la supplémentation. Ils ajoutent un groupe C (n=26) avec cette intervention supplémentaire aux deux groupes A et B.\n\nRésultats des trois groupes :\n• Groupe A : nA = 27, TA = 1215, ∑XA² = 55675\n• Groupe B : nB = 27, TB = 1296, ∑XB² = 62496\n• Groupe C : nC = 26, TC = ∑XC = 1352, ∑XC² = 70624\n• Total général : N = 80 patients, T = 3863, ∑∑X² = 188795\n\nOn considère que les conditions d’application sont remplies pour un test d’ANOVA.\n\nQUESTION 2 du DP 5 (QCM 5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
             "image": {
                     "url": "src/assets/images/table_dp5_physiotherapie.png",
                     "alt": "Tableau récapitulatif DP 5 - Physiothérapie"
@@ -73427,53 +72957,8 @@
                     }
             ],
             "explanation": "Réponses B et E exactes.\n\n1. Statistique de test : F = 326.2 / 20.88 = 15.61 ≈ 15.6 (Item B VRAI, A et D FAUX).\n2. Table de Fisher : v1 = 2 ddl, v2 = 77 ddl. Seuil d'environ 3.8.\n3. Décision : F = 15.6 > 3.8 → Rejet de H0 au risque 5% (Item B VRAI, C FAUX car pas un Chi²).\n4. Conclusion : Au moins deux moyennes diffèrent significativement car H0 a été rejetée (Item E VRAI).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 80 patients en rééducation après chirurgie orthopédique pour évaluer la force d'extension maximale du genou (en Nm) selon 3 protocoles :\n• Groupe A (Rééducation + Placebo) : nA = 27, TA = ∑XA = 1215, ∑XA² = 55 675, mA = 45.00\n• Groupe B (Rééducation + Acides aminés) : nB = 27, TB = ∑XB = 1296, ∑XB² = 62 496, mB = 48.00\n• Groupe C (Rééducation + Physiothérapie) : nC = 26, TC = ∑XC = 1352, ∑XC² = 70 624, mC = 52.00\n• Total général : N = 80 patients, T = 3 863, ∑∑X² = 188 795, m globale = 48.29\n\n📊 PARAMÈTRES DU TEST DE FISHER (ANOVA) :\n• Variance intergroupes : S²C = SCC / 2 = 652.39 / 2 ≈ 326.2 (pour 2 ddl)\n• Variance intragroupes : S² = SCR / 77 = 1 608 / 77 ≈ 20.88 (pour 77 ddl)\n• Statistique calculée de Fisher : F = S²C / S² = 326.2 / 20.88 = 15.61 ≈ 15.6\n• Décision : Au risque 5%, F_obs (15.6) > Seuil critique F(2, 77) ≈ 3.8 → Rejet de H0 (p < 0.05). Différence significative d'efficacité entre les trois protocoles.",
-            "subStatement": "QUESTION 2 du DP 5 (QCM 5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe A (Placebo)",
-                                    "27",
-                                    "1 215",
-                                    "55 675",
-                                    "45.00"
-                            ],
-                            [
-                                    "Groupe B (Acides aminés)",
-                                    "27",
-                                    "1 296",
-                                    "62 496",
-                                    "48.00"
-                            ],
-                            [
-                                    "Groupe C (Physiothérapie)",
-                                    "26",
-                                    "1 352",
-                                    "70 624",
-                                    "52.00"
-                            ],
-                            [
-                                    "Total général",
-                                    "80",
-                                    "3 863",
-                                    "188 795",
-                                    "48.29"
-                            ]
-                    ]
-            },
-            "fisherStats": {
-                    "varianceInter": "326.2 (S²C)",
-                    "varianceIntra": "20.88 (S²)",
-                    "statistiqueF": "F = 15.61",
-                    "details": "ANOVA à un facteur (k=3, N=80) : Variance intergroupes S²C = SCC / 2 = 652.39 / 2 ≈ 326.2 (ddl=2) • Variance intragroupes S² = SCR / 77 = 1 608 / 77 ≈ 20.88 (ddl=77) • Statistique F = S²C / S² = 326.2 / 20.88 = 15.61 ≈ 15.6 > Seuil critique F(2, 77) ≈ 3.8 (Rejet franc de H0 au risque 5%, p < 0.05)."
-            }
+            "commonStatement": "ÉNONCÉ COMMON AU DOSSIER PROGRESSIF 5 :\nLes chercheurs souhaitent ajouter une intervention de physiothérapie intensive à la supplémentation. Ils ajoutent un groupe C (n=26) avec cette intervention supplémentaire aux deux groupes A et B.\n\nRésultats des trois groupes :\n• Groupe A : nA = 27, TA = 1215, ∑XA² = 55675\n• Groupe B : nB = 27, TB = 1296, ∑XB² = 62496\n• Groupe C : nC = 26, TC = ∑XC = 1352, ∑XC² = 70624\n• Total général : N = 80 patients, T = 3863, ∑∑X² = 188795\n\nOn considère que les conditions d’application sont remplies pour un test d’ANOVA.",
+            "subStatement": "QUESTION 2 du DP 5 (QCM 5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?"
     },
     {
             "id": "ue_bio_f1_dp1_q1",
@@ -73494,7 +72979,7 @@
                     "Test de Student",
                     "Test de Fisher"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. En particulier, ils cherchent à évaluer l’impact d’une nouvelle intervention basée sur des techniques de relaxation et la consommation régulière de compléments alimentaires. Une étude est organisée auprès de 29 sujets afin de comparer 14 patients avec prise en charge habituelle (Groupe 1) à 15 patients chez qui l’intervention a été implémentée (Groupe 2).\nPour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (0 à 10). On considèrera que ce score suit une loi normale.\n\nDonnées du tableau après 3 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773, m1 = 6.93, s1² = 7.76, s1 = 2.79\n• Groupe 2 (Relaxation) : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514, m2 = 5.20, s2² = 7.74, s2 = 2.78\n• Total général : N = 29, T = 175, ∑∑X² = 1287, s² commune = 7.75, s commune = 2.78\n\nQUESTION 1 du DP 1 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant le score BASDAI entre les deux groupes ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. En particulier, ils cherchent à évaluer l’impact d’une nouvelle intervention basée sur des techniques de relaxation et la consommation régulière de compléments alimentaires. Une étude est organisée auprès de 29 sujets afin de comparer 14 patients avec prise en charge habituelle (Groupe 1) à 15 patients chez qui l’intervention a été implémentée (Groupe 2).\nPour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (0 à 10). On considèrera que ce score suit une loi normale.\n\nDonnées après 3 mois de suivi :\n• Groupe 1 : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773\n• Groupe 2 : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514\n• Total : N = 29, T = 175, ∑∑X² = 1287\n\nQUESTION 1 du DP 1 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant le score BASDAI entre les deux groupes ?",
             "image": {
                     "url": "src/assets/images/table_dp_param_1.png",
                     "alt": "DP 1 - Spondylarthrite ankylosante (BASDAI 3 mois)"
@@ -73532,48 +73017,8 @@
                     }
             ],
             "explanation": "Réponses A, B, C et E exactes (selon grille d'épreuve : BCE avec A définitionnelle).\n• Écarts-types : s1 = 2.79, s2 = 2.78 (Item C VRAI).\n• Hypothèse alternative bilatérale : μ1 ≠ μ2 (Item B VRAI).\n• Conditions vérifiées (Item E VRAI).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. En particulier, ils cherchent à évaluer l’impact d’une nouvelle intervention basée sur des techniques de relaxation et la consommation régulière de compléments alimentaires. Une étude est organisée auprès de 29 sujets afin de comparer 14 patients avec prise en charge habituelle (Groupe 1) à 15 patients chez qui l’intervention a été implémentée (Groupe 2).\nPour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (0 à 10). On considèrera que ce score suit une loi normale.\n\nDonnées du tableau après 3 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773, m1 = 6.93, s1² = 7.76, s1 = 2.79\n• Groupe 2 (Relaxation) : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514, m2 = 5.20, s2² = 7.74, s2 = 2.78\n• Total général : N = 29, T = 175, ∑∑X² = 1287, s² commune = 7.75, s commune = 2.78",
-            "subStatement": "QUESTION 1 du DP 1 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant le score BASDAI entre les deux groupes ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)",
-                            "Variance (s²)",
-                            "Écart-type (s)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Habituel)",
-                                    "14",
-                                    "97",
-                                    "773",
-                                    "6.93",
-                                    "7.76",
-                                    "2.79"
-                            ],
-                            [
-                                    "Groupe 2 (Relaxation)",
-                                    "15",
-                                    "78",
-                                    "514",
-                                    "5.20",
-                                    "7.74",
-                                    "2.78"
-                            ],
-                            [
-                                    "Total / Synthèse",
-                                    "29",
-                                    "175",
-                                    "1 287",
-                                    "6.03",
-                                    "s² commune = 7.75",
-                                    "s commune = 2.78"
-                            ]
-                    ]
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. En particulier, ils cherchent à évaluer l’impact d’une nouvelle intervention basée sur des techniques de relaxation et la consommation régulière de compléments alimentaires. Une étude est organisée auprès de 29 sujets afin de comparer 14 patients avec prise en charge habituelle (Groupe 1) à 15 patients chez qui l’intervention a été implémentée (Groupe 2).\nPour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (0 à 10). On considèrera que ce score suit une loi normale.\n\nDonnées après 3 mois de suivi :\n• Groupe 1 : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773\n• Groupe 2 : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514\n• Total : N = 29, T = 175, ∑∑X² = 1287",
+            "subStatement": "QUESTION 1 du DP 1 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant le score BASDAI entre les deux groupes ?"
     },
     {
             "id": "ue_bio_f1_dp1_q2",
@@ -73594,7 +73039,7 @@
                     "Test de Student",
                     "Test de Fisher"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. En particulier, ils cherchent à évaluer l’impact d’une nouvelle intervention basée sur des techniques de relaxation et la consommation régulière de compléments alimentaires. Une étude est organisée auprès de 29 sujets afin de comparer 14 patients avec prise en charge habituelle (Groupe 1) à 15 patients chez qui l’intervention a été implémentée (Groupe 2).\nPour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (0 à 10). On considèrera que ce score suit une loi normale.\n\nDonnées du tableau après 3 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773, m1 = 6.93, s1² = 7.76, s1 = 2.79\n• Groupe 2 (Relaxation) : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514, m2 = 5.20, s2² = 7.74, s2 = 2.78\n• Total général : N = 29, T = 175, ∑∑X² = 1287, s² commune = 7.75, s commune = 2.78\n\nQUESTION 2 du DP 1 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. En particulier, ils cherchent à évaluer l’impact d’une nouvelle intervention basée sur des techniques de relaxation et la consommation régulière de compléments alimentaires. Une étude est organisée auprès de 29 sujets afin de comparer 14 patients avec prise en charge habituelle (Groupe 1) à 15 patients chez qui l’intervention a été implémentée (Groupe 2).\nPour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (0 à 10). On considèrera que ce score suit une loi normale.\n\nDonnées après 3 mois de suivi :\n• Groupe 1 : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773\n• Groupe 2 : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514\n• Total : N = 29, T = 175, ∑∑X² = 1287\n\nQUESTION 2 du DP 1 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
             "image": {
                     "url": "src/assets/images/table_dp_param_1.png",
                     "alt": "DP 1 - Spondylarthrite ankylosante (BASDAI 3 mois)"
@@ -73632,48 +73077,8 @@
                     }
             ],
             "explanation": "Réponses B et E exactes.\n• t = 1.67 à 27 ddl < valeur seuil 2.052 → Non-rejet de H0 (Item B VRAI).\n• Absence de tirage au sort → Biais possibles, efficacité non démontrée avec certitude (Item E VRAI).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. En particulier, ils cherchent à évaluer l’impact d’une nouvelle intervention basée sur des techniques de relaxation et la consommation régulière de compléments alimentaires. Une étude est organisée auprès de 29 sujets afin de comparer 14 patients avec prise en charge habituelle (Groupe 1) à 15 patients chez qui l’intervention a été implémentée (Groupe 2).\nPour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (0 à 10). On considèrera que ce score suit une loi normale.\n\nDonnées du tableau après 3 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773, m1 = 6.93, s1² = 7.76, s1 = 2.79\n• Groupe 2 (Relaxation) : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514, m2 = 5.20, s2² = 7.74, s2 = 2.78\n• Total général : N = 29, T = 175, ∑∑X² = 1287, s² commune = 7.75, s commune = 2.78",
-            "subStatement": "QUESTION 2 du DP 1 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)",
-                            "Variance (s²)",
-                            "Écart-type (s)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Habituel)",
-                                    "14",
-                                    "97",
-                                    "773",
-                                    "6.93",
-                                    "7.76",
-                                    "2.79"
-                            ],
-                            [
-                                    "Groupe 2 (Relaxation)",
-                                    "15",
-                                    "78",
-                                    "514",
-                                    "5.20",
-                                    "7.74",
-                                    "2.78"
-                            ],
-                            [
-                                    "Total / Synthèse",
-                                    "29",
-                                    "175",
-                                    "1 287",
-                                    "6.03",
-                                    "s² commune = 7.75",
-                                    "s commune = 2.78"
-                            ]
-                    ]
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. En particulier, ils cherchent à évaluer l’impact d’une nouvelle intervention basée sur des techniques de relaxation et la consommation régulière de compléments alimentaires. Une étude est organisée auprès de 29 sujets afin de comparer 14 patients avec prise en charge habituelle (Groupe 1) à 15 patients chez qui l’intervention a été implémentée (Groupe 2).\nPour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (0 à 10). On considèrera que ce score suit une loi normale.\n\nDonnées après 3 mois de suivi :\n• Groupe 1 : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773\n• Groupe 2 : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514\n• Total : N = 29, T = 175, ∑∑X² = 1287",
+            "subStatement": "QUESTION 2 du DP 1 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :"
     },
     {
             "id": "ue_bio_f1_dp1_q3",
@@ -73694,7 +73099,7 @@
                     "Test de Student",
                     "Test de Fisher"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. En particulier, ils cherchent à évaluer l’impact d’une nouvelle intervention basée sur des techniques de relaxation et la consommation régulière de compléments alimentaires. Une étude est organisée auprès de 29 sujets afin de comparer 14 patients avec prise en charge habituelle (Groupe 1) à 15 patients chez qui l’intervention a été implémentée (Groupe 2).\nPour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (0 à 10). On considèrera que ce score suit une loi normale.\n\nDonnées du tableau après 3 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773, m1 = 6.93, s1² = 7.76, s1 = 2.79\n• Groupe 2 (Relaxation) : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514, m2 = 5.20, s2² = 7.74, s2 = 2.78\n• Total général : N = 29, T = 175, ∑∑X² = 1287, s² commune = 7.75, s commune = 2.78\n\nQUESTION 3 du DP 1 (QCM 1.3) : Vous souhaitez vérifier en réalisant le test approprié si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. En particulier, ils cherchent à évaluer l’impact d’une nouvelle intervention basée sur des techniques de relaxation et la consommation régulière de compléments alimentaires. Une étude est organisée auprès de 29 sujets afin de comparer 14 patients avec prise en charge habituelle (Groupe 1) à 15 patients chez qui l’intervention a été implémentée (Groupe 2).\nPour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (0 à 10). On considèrera que ce score suit une loi normale.\n\nDonnées après 3 mois de suivi :\n• Groupe 1 : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773\n• Groupe 2 : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514\n• Total : N = 29, T = 175, ∑∑X² = 1287\n\nQUESTION 3 du DP 1 (QCM 1.3) : Vous souhaitez vérifier en réalisant le test approprié si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
             "image": {
                     "url": "src/assets/images/table_dp_param_1.png",
                     "alt": "DP 1 - Spondylarthrite ankylosante (BASDAI 3 mois)"
@@ -73732,48 +73137,8 @@
                     }
             ],
             "explanation": "Réponses A, D et E exactes.\n• F = 2.79² / 2.78² = 1.007 ≈ 1 (Item D VRAI).\n• Seuil F(13, 14) bilatéral 5% ∈ [2.98 ; 3.05] (Item A VRAI).\n• F < seuil → Non-rejet de H0 (Item E VRAI).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. En particulier, ils cherchent à évaluer l’impact d’une nouvelle intervention basée sur des techniques de relaxation et la consommation régulière de compléments alimentaires. Une étude est organisée auprès de 29 sujets afin de comparer 14 patients avec prise en charge habituelle (Groupe 1) à 15 patients chez qui l’intervention a été implémentée (Groupe 2).\nPour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (0 à 10). On considèrera que ce score suit une loi normale.\n\nDonnées du tableau après 3 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773, m1 = 6.93, s1² = 7.76, s1 = 2.79\n• Groupe 2 (Relaxation) : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514, m2 = 5.20, s2² = 7.74, s2 = 2.78\n• Total général : N = 29, T = 175, ∑∑X² = 1287, s² commune = 7.75, s commune = 2.78",
-            "subStatement": "QUESTION 3 du DP 1 (QCM 1.3) : Vous souhaitez vérifier en réalisant le test approprié si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)",
-                            "Variance (s²)",
-                            "Écart-type (s)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Habituel)",
-                                    "14",
-                                    "97",
-                                    "773",
-                                    "6.93",
-                                    "7.76",
-                                    "2.79"
-                            ],
-                            [
-                                    "Groupe 2 (Relaxation)",
-                                    "15",
-                                    "78",
-                                    "514",
-                                    "5.20",
-                                    "7.74",
-                                    "2.78"
-                            ],
-                            [
-                                    "Total / Synthèse",
-                                    "29",
-                                    "175",
-                                    "1 287",
-                                    "6.03",
-                                    "s² commune = 7.75",
-                                    "s commune = 2.78"
-                            ]
-                    ]
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. En particulier, ils cherchent à évaluer l’impact d’une nouvelle intervention basée sur des techniques de relaxation et la consommation régulière de compléments alimentaires. Une étude est organisée auprès de 29 sujets afin de comparer 14 patients avec prise en charge habituelle (Groupe 1) à 15 patients chez qui l’intervention a été implémentée (Groupe 2).\nPour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (0 à 10). On considèrera que ce score suit une loi normale.\n\nDonnées après 3 mois de suivi :\n• Groupe 1 : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773\n• Groupe 2 : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514\n• Total : N = 29, T = 175, ∑∑X² = 1287",
+            "subStatement": "QUESTION 3 du DP 1 (QCM 1.3) : Vous souhaitez vérifier en réalisant le test approprié si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?"
     },
     {
             "id": "ue_bio_f1_dp2_q1",
@@ -73794,7 +73159,7 @@
                     "Test de Student",
                     "Test de Fisher"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nUne équipe de recherche a développé un nouveau traitement pour ralentir la progression d’une maladie hépatique chronique. Pour évaluer son efficacité, un essai clinique randomisé est mené sur 20 patients répartis en 2 groupes parallèles de 10 patients :\n- Groupe 1 : prise en charge habituelle.\n- Groupe 2 : nouveau traitement expérimental.\nOn mesure le taux de transaminases après 12 mois de suivi (distribution normale supposée).\n\nDonnées du tableau après 12 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120 607, m1 = 107.1, s1² = 655.4, s1 = 25.6\n• Groupe 2 (Nouveau traitement) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56 820, m2 = 74.8, s2² = 96.0, s2 = 9.8\n• Total général : N = 20, T = 1 819, ∑∑X² = 177 427, s² commune = 376.25, s commune = 19.4\n\nQUESTION 1 du DP 2 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant les transaminases entre les deux groupes ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nUne équipe de recherche a développé un nouveau traitement pour ralentir l'évolution de la cirrhose hépatique en diminuant les transaminases. Étude chez 20 sujets :\n• Groupe 1 (prise en charge habituelle) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120607\n• Groupe 2 (nouveau traitement) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56820\nPour les questions 1 et 2, on considérera que les conditions d'application sont réunies pour un test paramétrique.\n\nQUESTION 1 du DP 2 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant les transaminases entre les deux groupes ?",
             "image": {
                     "url": "src/assets/images/table_dp_param_2.png",
                     "alt": "DP 2 - Cirrhose hépatique et transaminases"
@@ -73832,48 +73197,8 @@
                     }
             ],
             "explanation": "Réponses D et E exactes.\n• Écarts-types corrigés : s1 = 25.6 et s2 = 9.8 (Item D VRAI).\n• Conditions : Normalité + homoscédasticité + indépendance (Item E VRAI).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nUne équipe de recherche a développé un nouveau traitement pour ralentir la progression d’une maladie hépatique chronique. Pour évaluer son efficacité, un essai clinique randomisé est mené sur 20 patients répartis en 2 groupes parallèles de 10 patients :\n- Groupe 1 : prise en charge habituelle.\n- Groupe 2 : nouveau traitement expérimental.\nOn mesure le taux de transaminases après 12 mois de suivi (distribution normale supposée).\n\nDonnées du tableau après 12 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120 607, m1 = 107.1, s1² = 655.4, s1 = 25.6\n• Groupe 2 (Nouveau traitement) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56 820, m2 = 74.8, s2² = 96.0, s2 = 9.8\n• Total général : N = 20, T = 1 819, ∑∑X² = 177 427, s² commune = 376.25, s commune = 19.4",
-            "subStatement": "QUESTION 1 du DP 2 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant les transaminases entre les deux groupes ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)",
-                            "Variance (s²)",
-                            "Écart-type (s)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Habituel)",
-                                    "10",
-                                    "1 071",
-                                    "120 607",
-                                    "107.1",
-                                    "655.4",
-                                    "25.6"
-                            ],
-                            [
-                                    "Groupe 2 (Nouveau traitement)",
-                                    "10",
-                                    "748",
-                                    "56 820",
-                                    "74.8",
-                                    "96.0",
-                                    "9.8"
-                            ],
-                            [
-                                    "Total / Synthèse",
-                                    "20",
-                                    "1 819",
-                                    "177 427",
-                                    "90.95",
-                                    "s² commune = 376.25",
-                                    "s commune = 19.4"
-                            ]
-                    ]
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nUne équipe de recherche a développé un nouveau traitement pour ralentir l'évolution de la cirrhose hépatique en diminuant les transaminases. Étude chez 20 sujets :\n• Groupe 1 (prise en charge habituelle) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120607\n• Groupe 2 (nouveau traitement) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56820\nPour les questions 1 et 2, on considérera que les conditions d'application sont réunies pour un test paramétrique.",
+            "subStatement": "QUESTION 1 du DP 2 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant les transaminases entre les deux groupes ?"
     },
     {
             "id": "ue_bio_f1_dp2_q2",
@@ -73894,7 +73219,7 @@
                     "Test de Student",
                     "Test de Fisher"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nUne équipe de recherche a développé un nouveau traitement pour ralentir la progression d’une maladie hépatique chronique. Pour évaluer son efficacité, un essai clinique randomisé est mené sur 20 patients répartis en 2 groupes parallèles de 10 patients :\n- Groupe 1 : prise en charge habituelle.\n- Groupe 2 : nouveau traitement expérimental.\nOn mesure le taux de transaminases après 12 mois de suivi (distribution normale supposée).\n\nDonnées du tableau après 12 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120 607, m1 = 107.1, s1² = 655.4, s1 = 25.6\n• Groupe 2 (Nouveau traitement) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56 820, m2 = 74.8, s2² = 96.0, s2 = 9.8\n• Total général : N = 20, T = 1 819, ∑∑X² = 177 427, s² commune = 376.25, s commune = 19.4\n\nQUESTION 2 du DP 2 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nUne équipe de recherche a développé un nouveau traitement pour ralentir l'évolution de la cirrhose hépatique en diminuant les transaminases. Étude chez 20 sujets :\n• Groupe 1 (prise en charge habituelle) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120607\n• Groupe 2 (nouveau traitement) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56820\nPour les questions 1 et 2, on considérera que les conditions d'application sont réunies pour un test paramétrique.\n\nQUESTION 2 du DP 2 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
             "image": {
                     "url": "src/assets/images/table_dp_param_2.png",
                     "alt": "DP 2 - Cirrhose hépatique et transaminases"
@@ -73932,48 +73257,8 @@
                     }
             ],
             "explanation": "Réponses C et E exactes.\n• t = 3.72 > seuil Student (2.101) à 18 ddl → Rejet de H0 : différence significative (Item C VRAI).\n• Limites méthodologiques (Item E VRAI).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nUne équipe de recherche a développé un nouveau traitement pour ralentir la progression d’une maladie hépatique chronique. Pour évaluer son efficacité, un essai clinique randomisé est mené sur 20 patients répartis en 2 groupes parallèles de 10 patients :\n- Groupe 1 : prise en charge habituelle.\n- Groupe 2 : nouveau traitement expérimental.\nOn mesure le taux de transaminases après 12 mois de suivi (distribution normale supposée).\n\nDonnées du tableau après 12 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120 607, m1 = 107.1, s1² = 655.4, s1 = 25.6\n• Groupe 2 (Nouveau traitement) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56 820, m2 = 74.8, s2² = 96.0, s2 = 9.8\n• Total général : N = 20, T = 1 819, ∑∑X² = 177 427, s² commune = 376.25, s commune = 19.4",
-            "subStatement": "QUESTION 2 du DP 2 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)",
-                            "Variance (s²)",
-                            "Écart-type (s)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Habituel)",
-                                    "10",
-                                    "1 071",
-                                    "120 607",
-                                    "107.1",
-                                    "655.4",
-                                    "25.6"
-                            ],
-                            [
-                                    "Groupe 2 (Nouveau traitement)",
-                                    "10",
-                                    "748",
-                                    "56 820",
-                                    "74.8",
-                                    "96.0",
-                                    "9.8"
-                            ],
-                            [
-                                    "Total / Synthèse",
-                                    "20",
-                                    "1 819",
-                                    "177 427",
-                                    "90.95",
-                                    "s² commune = 376.25",
-                                    "s commune = 19.4"
-                            ]
-                    ]
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nUne équipe de recherche a développé un nouveau traitement pour ralentir l'évolution de la cirrhose hépatique en diminuant les transaminases. Étude chez 20 sujets :\n• Groupe 1 (prise en charge habituelle) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120607\n• Groupe 2 (nouveau traitement) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56820\nPour les questions 1 et 2, on considérera que les conditions d'application sont réunies pour un test paramétrique.",
+            "subStatement": "QUESTION 2 du DP 2 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :"
     },
     {
             "id": "ue_bio_f1_dp2_q3",
@@ -73994,7 +73279,7 @@
                     "Test de Student",
                     "Test de Fisher"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nUne équipe de recherche a développé un nouveau traitement pour ralentir la progression d’une maladie hépatique chronique. Pour évaluer son efficacité, un essai clinique randomisé est mené sur 20 patients répartis en 2 groupes parallèles de 10 patients :\n- Groupe 1 : prise en charge habituelle.\n- Groupe 2 : nouveau traitement expérimental.\nOn mesure le taux de transaminases après 12 mois de suivi (distribution normale supposée).\n\nDonnées du tableau après 12 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120 607, m1 = 107.1, s1² = 655.4, s1 = 25.6\n• Groupe 2 (Nouveau traitement) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56 820, m2 = 74.8, s2² = 96.0, s2 = 9.8\n• Total général : N = 20, T = 1 819, ∑∑X² = 177 427, s² commune = 376.25, s commune = 19.4\n\nQUESTION 3 du DP 2 (QCM 1.3) : En réalisant le test statistique approprié, vous souhaitez vérifier si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nUne équipe de recherche a développé un nouveau traitement pour ralentir l'évolution de la cirrhose hépatique en diminuant les transaminases. Étude chez 20 sujets :\n• Groupe 1 (prise en charge habituelle) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120607\n• Groupe 2 (nouveau traitement) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56820\nPour les questions 1 et 2, on considérera que les conditions d'application sont réunies pour un test paramétrique.\n\nQUESTION 3 du DP 2 (QCM 1.3) : En réalisant le test statistique approprié, vous souhaitez vérifier si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
             "image": {
                     "url": "src/assets/images/table_dp_param_2.png",
                     "alt": "DP 2 - Cirrhose hépatique et transaminases"
@@ -74032,48 +73317,8 @@
                     }
             ],
             "explanation": "Réponses B et C exactes.\n• F = 25.6² / 9.8² = 6.79 ≈ 6.8 (Item C VRAI).\n• Seuil F(9, 9) = 4.03 (Item B VRAI).\n• F > seuil → Rejet de H0 : hétéroscédasticité significative (Item E FAUX).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nUne équipe de recherche a développé un nouveau traitement pour ralentir la progression d’une maladie hépatique chronique. Pour évaluer son efficacité, un essai clinique randomisé est mené sur 20 patients répartis en 2 groupes parallèles de 10 patients :\n- Groupe 1 : prise en charge habituelle.\n- Groupe 2 : nouveau traitement expérimental.\nOn mesure le taux de transaminases après 12 mois de suivi (distribution normale supposée).\n\nDonnées du tableau après 12 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120 607, m1 = 107.1, s1² = 655.4, s1 = 25.6\n• Groupe 2 (Nouveau traitement) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56 820, m2 = 74.8, s2² = 96.0, s2 = 9.8\n• Total général : N = 20, T = 1 819, ∑∑X² = 177 427, s² commune = 376.25, s commune = 19.4",
-            "subStatement": "QUESTION 3 du DP 2 (QCM 1.3) : En réalisant le test statistique approprié, vous souhaitez vérifier si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)",
-                            "Variance (s²)",
-                            "Écart-type (s)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Habituel)",
-                                    "10",
-                                    "1 071",
-                                    "120 607",
-                                    "107.1",
-                                    "655.4",
-                                    "25.6"
-                            ],
-                            [
-                                    "Groupe 2 (Nouveau traitement)",
-                                    "10",
-                                    "748",
-                                    "56 820",
-                                    "74.8",
-                                    "96.0",
-                                    "9.8"
-                            ],
-                            [
-                                    "Total / Synthèse",
-                                    "20",
-                                    "1 819",
-                                    "177 427",
-                                    "90.95",
-                                    "s² commune = 376.25",
-                                    "s commune = 19.4"
-                            ]
-                    ]
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nUne équipe de recherche a développé un nouveau traitement pour ralentir l'évolution de la cirrhose hépatique en diminuant les transaminases. Étude chez 20 sujets :\n• Groupe 1 (prise en charge habituelle) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120607\n• Groupe 2 (nouveau traitement) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56820\nPour les questions 1 et 2, on considérera que les conditions d'application sont réunies pour un test paramétrique.",
+            "subStatement": "QUESTION 3 du DP 2 (QCM 1.3) : En réalisant le test statistique approprié, vous souhaitez vérifier si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?"
     },
     {
             "id": "ue_bio_f1_dp3_q1",
@@ -74094,7 +73339,7 @@
                     "Test de Student",
                     "Test de Fisher"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. Pour évaluer une intervention combinant relaxation et activité physique régulière, une étude est menée auprès de 46 patients :\n- Groupe 1 : 25 patients avec prise en charge habituelle.\n- Groupe 2 : 21 patients bénéficiant de la nouvelle intervention.\nLe critère de jugement est le score BASDAI (0 à 10) mesuré à 6 mois de suivi (loi normale).\n\nDonnées du tableau après 6 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1 073, m1 = 6.36, s1² = 2.57, s1 = 1.60\n• Groupe 2 (Relaxation + sport) : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371, m2 = 3.86, s2² = 2.93, s2 = 1.71\n• Total général : N = 46, T = 240, ∑∑X² = 1 444, s² commune = 2.735, s commune = 1.65\n\nQUESTION 1 du DP 3 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant le score BASDAI entre les deux groupes ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. Une étude est organisée auprès de 46 sujets afin de comparer 25 patients avec prise en charge habituelle (Groupe 1) à 21 patients chez qui l’intervention a pu être implémentée (Groupe 2). L’intervention n’a pas été tirée au sort. Score BASDAI (0 à 10) :\n• Groupe 1 : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1073\n• Groupe 2 : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371\n(Arrondir à 2 chiffres après la virgule).\n\nQUESTION 1 du DP 3 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant le score BASDAI entre les deux groupes ?",
             "image": {
                     "url": "src/assets/images/table_dp_param_3.png",
                     "alt": "DP 3 - Spondylarthrite ankylosante (BASDAI 6 mois)"
@@ -74132,48 +73377,8 @@
                     }
             ],
             "explanation": "Réponses A, D et E exactes.\n• Variances estimées : s1² = 2.57 et s2² = 2.93 (Item D VRAI).\n• s1 = 1.60 (Item C FAUX).\n• Normalité nécessaire car n < 30 (Item E VRAI).\n• H0 : différence nulle (Item A VRAI).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. Pour évaluer une intervention combinant relaxation et activité physique régulière, une étude est menée auprès de 46 patients :\n- Groupe 1 : 25 patients avec prise en charge habituelle.\n- Groupe 2 : 21 patients bénéficiant de la nouvelle intervention.\nLe critère de jugement est le score BASDAI (0 à 10) mesuré à 6 mois de suivi (loi normale).\n\nDonnées du tableau après 6 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1 073, m1 = 6.36, s1² = 2.57, s1 = 1.60\n• Groupe 2 (Relaxation + sport) : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371, m2 = 3.86, s2² = 2.93, s2 = 1.71\n• Total général : N = 46, T = 240, ∑∑X² = 1 444, s² commune = 2.735, s commune = 1.65",
-            "subStatement": "QUESTION 1 du DP 3 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant le score BASDAI entre les deux groupes ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)",
-                            "Variance (s²)",
-                            "Écart-type (s)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Habituel)",
-                                    "25",
-                                    "159",
-                                    "1 073",
-                                    "6.36",
-                                    "2.57",
-                                    "1.60"
-                            ],
-                            [
-                                    "Groupe 2 (Relaxation + sport)",
-                                    "21",
-                                    "81",
-                                    "371",
-                                    "3.86",
-                                    "2.93",
-                                    "1.71"
-                            ],
-                            [
-                                    "Total / Synthèse",
-                                    "46",
-                                    "240",
-                                    "1 444",
-                                    "5.22",
-                                    "s² commune = 2.735",
-                                    "s commune = 1.65"
-                            ]
-                    ]
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. Une étude est organisée auprès de 46 sujets afin de comparer 25 patients avec prise en charge habituelle (Groupe 1) à 21 patients chez qui l’intervention a pu être implémentée (Groupe 2). L’intervention n’a pas été tirée au sort. Score BASDAI (0 à 10) :\n• Groupe 1 : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1073\n• Groupe 2 : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371\n(Arrondir à 2 chiffres après la virgule).",
+            "subStatement": "QUESTION 1 du DP 3 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant le score BASDAI entre les deux groupes ?"
     },
     {
             "id": "ue_bio_f1_dp3_q2",
@@ -74194,7 +73399,7 @@
                     "Test de Student",
                     "Test de Fisher"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. Pour évaluer une intervention combinant relaxation et activité physique régulière, une étude est menée auprès de 46 patients :\n- Groupe 1 : 25 patients avec prise en charge habituelle.\n- Groupe 2 : 21 patients bénéficiant de la nouvelle intervention.\nLe critère de jugement est le score BASDAI (0 à 10) mesuré à 6 mois de suivi (loi normale).\n\nDonnées du tableau après 6 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1 073, m1 = 6.36, s1² = 2.57, s1 = 1.60\n• Groupe 2 (Relaxation + sport) : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371, m2 = 3.86, s2² = 2.93, s2 = 1.71\n• Total général : N = 46, T = 240, ∑∑X² = 1 444, s² commune = 2.735, s commune = 1.65\n\nQUESTION 2 du DP 3 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. Une étude est organisée auprès de 46 sujets afin de comparer 25 patients avec prise en charge habituelle (Groupe 1) à 21 patients chez qui l’intervention a pu être implémentée (Groupe 2). L’intervention n’a pas été tirée au sort. Score BASDAI (0 à 10) :\n• Groupe 1 : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1073\n• Groupe 2 : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371\n(Arrondir à 2 chiffres après la virgule).\n\nQUESTION 2 du DP 3 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
             "image": {
                     "url": "src/assets/images/table_dp_param_3.png",
                     "alt": "DP 3 - Spondylarthrite ankylosante (BASDAI 6 mois)"
@@ -74232,48 +73437,8 @@
                     }
             ],
             "explanation": "Réponses B et E exactes.\n• |t44ddl| = 5.11 ≈ 5.1 > 1.96 → Rejet de H0 (Item B VRAI).\n• Absence de randomisation → efficacité causale non prouvée (Item E VRAI).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. Pour évaluer une intervention combinant relaxation et activité physique régulière, une étude est menée auprès de 46 patients :\n- Groupe 1 : 25 patients avec prise en charge habituelle.\n- Groupe 2 : 21 patients bénéficiant de la nouvelle intervention.\nLe critère de jugement est le score BASDAI (0 à 10) mesuré à 6 mois de suivi (loi normale).\n\nDonnées du tableau après 6 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1 073, m1 = 6.36, s1² = 2.57, s1 = 1.60\n• Groupe 2 (Relaxation + sport) : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371, m2 = 3.86, s2² = 2.93, s2 = 1.71\n• Total général : N = 46, T = 240, ∑∑X² = 1 444, s² commune = 2.735, s commune = 1.65",
-            "subStatement": "QUESTION 2 du DP 3 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)",
-                            "Variance (s²)",
-                            "Écart-type (s)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Habituel)",
-                                    "25",
-                                    "159",
-                                    "1 073",
-                                    "6.36",
-                                    "2.57",
-                                    "1.60"
-                            ],
-                            [
-                                    "Groupe 2 (Relaxation + sport)",
-                                    "21",
-                                    "81",
-                                    "371",
-                                    "3.86",
-                                    "2.93",
-                                    "1.71"
-                            ],
-                            [
-                                    "Total / Synthèse",
-                                    "46",
-                                    "240",
-                                    "1 444",
-                                    "5.22",
-                                    "s² commune = 2.735",
-                                    "s commune = 1.65"
-                            ]
-                    ]
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. Une étude est organisée auprès de 46 sujets afin de comparer 25 patients avec prise en charge habituelle (Groupe 1) à 21 patients chez qui l’intervention a pu être implémentée (Groupe 2). L’intervention n’a pas été tirée au sort. Score BASDAI (0 à 10) :\n• Groupe 1 : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1073\n• Groupe 2 : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371\n(Arrondir à 2 chiffres après la virgule).",
+            "subStatement": "QUESTION 2 du DP 3 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :"
     },
     {
             "id": "ue_bio_f1_dp3_q3",
@@ -74294,7 +73459,7 @@
                     "Test de Student",
                     "Test de Fisher"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. Pour évaluer une intervention combinant relaxation et activité physique régulière, une étude est menée auprès de 46 patients :\n- Groupe 1 : 25 patients avec prise en charge habituelle.\n- Groupe 2 : 21 patients bénéficiant de la nouvelle intervention.\nLe critère de jugement est le score BASDAI (0 à 10) mesuré à 6 mois de suivi (loi normale).\n\nDonnées du tableau après 6 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1 073, m1 = 6.36, s1² = 2.57, s1 = 1.60\n• Groupe 2 (Relaxation + sport) : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371, m2 = 3.86, s2² = 2.93, s2 = 1.71\n• Total général : N = 46, T = 240, ∑∑X² = 1 444, s² commune = 2.735, s commune = 1.65\n\nQUESTION 3 du DP 3 (QCM 1.3) : Vous souhaitez vérifier en réalisant le test approprié si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. Une étude est organisée auprès de 46 sujets afin de comparer 25 patients avec prise en charge habituelle (Groupe 1) à 21 patients chez qui l’intervention a pu être implémentée (Groupe 2). L’intervention n’a pas été tirée au sort. Score BASDAI (0 à 10) :\n• Groupe 1 : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1073\n• Groupe 2 : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371\n(Arrondir à 2 chiffres après la virgule).\n\nQUESTION 3 du DP 3 (QCM 1.3) : Vous souhaitez vérifier en réalisant le test approprié si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
             "image": {
                     "url": "src/assets/images/table_dp_param_3.png",
                     "alt": "DP 3 - Spondylarthrite ankylosante (BASDAI 6 mois)"
@@ -74332,48 +73497,8 @@
                     }
             ],
             "explanation": "Réponses B, D et E exactes.\n• F = 2.93 / 2.57 = 1.14 (Item D VRAI).\n• Seuil F(20, 24) = 2.33 (Item B VRAI).\n• F < seuil → Non-rejet de H0 (Item E VRAI).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. Pour évaluer une intervention combinant relaxation et activité physique régulière, une étude est menée auprès de 46 patients :\n- Groupe 1 : 25 patients avec prise en charge habituelle.\n- Groupe 2 : 21 patients bénéficiant de la nouvelle intervention.\nLe critère de jugement est le score BASDAI (0 à 10) mesuré à 6 mois de suivi (loi normale).\n\nDonnées du tableau après 6 mois de suivi :\n• Groupe 1 (Habituel) : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1 073, m1 = 6.36, s1² = 2.57, s1 = 1.60\n• Groupe 2 (Relaxation + sport) : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371, m2 = 3.86, s2² = 2.93, s2 = 1.71\n• Total général : N = 46, T = 240, ∑∑X² = 1 444, s² commune = 2.735, s commune = 1.65",
-            "subStatement": "QUESTION 3 du DP 3 (QCM 1.3) : Vous souhaitez vérifier en réalisant le test approprié si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)",
-                            "Variance (s²)",
-                            "Écart-type (s)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Habituel)",
-                                    "25",
-                                    "159",
-                                    "1 073",
-                                    "6.36",
-                                    "2.57",
-                                    "1.60"
-                            ],
-                            [
-                                    "Groupe 2 (Relaxation + sport)",
-                                    "21",
-                                    "81",
-                                    "371",
-                                    "3.86",
-                                    "2.93",
-                                    "1.71"
-                            ],
-                            [
-                                    "Total / Synthèse",
-                                    "46",
-                                    "240",
-                                    "1 444",
-                                    "5.22",
-                                    "s² commune = 2.735",
-                                    "s commune = 1.65"
-                            ]
-                    ]
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. Une étude est organisée auprès de 46 sujets afin de comparer 25 patients avec prise en charge habituelle (Groupe 1) à 21 patients chez qui l’intervention a pu être implémentée (Groupe 2). L’intervention n’a pas été tirée au sort. Score BASDAI (0 à 10) :\n• Groupe 1 : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1073\n• Groupe 2 : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371\n(Arrondir à 2 chiffres après la virgule).",
+            "subStatement": "QUESTION 3 du DP 3 (QCM 1.3) : Vous souhaitez vérifier en réalisant le test approprié si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?"
     },
     {
             "id": "ue_bio_f1_dp4_q1",
@@ -74394,7 +73519,7 @@
                     "Test de Student",
                     "Test de Fisher"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nEssai contrôlé randomisé chez 60 personnes âgées dénutries hospitalisées afin d'évaluer l'effet d'un complément alimentaire enrichi en protéines sur la force musculaire.\nDeux groupes parallèles :\n- Groupe 1 : 32 patients recevant un placebo adapté.\n- Groupe 2 : 28 patients recevant le complément alimentaire.\nCritère : force de préhension (en kg) à la fin de l'hospitalisation (distribution gaussienne supposée).\n\nDonnées du tableau à la fin de l'hospitalisation :\n• Groupe 1 (Placebo) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14 947, m1 = 21.53, s1² = 3.61, s1 = 1.90\n• Groupe 2 (Complément) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13 517, m2 = 21.89, s2² = 3.58, s2 = 1.89\n• Total général : N = 60, T = 1 302, ∑∑X² = 28 464, s² commune = 3.60, s commune = 1.90\n\nQUESTION 1 du DP 4 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant la force de préhension entre les deux groupes ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nEssai contrôlé randomisé chez 60 personnes âgées dénutries pour évaluer un nouveau complément alimentaire sur la force de préhension (en kg) :\n• Groupe 1 (placebo) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14947\n• Groupe 2 (complément) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13517\nConditions d'application supposées remplies pour un test paramétrique.\n\nQUESTION 1 du DP 4 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant la force de préhension entre les deux groupes ?",
             "image": {
                     "url": "src/assets/images/table_dp_param_4.png",
                     "alt": "DP 4 - Complément alimentaire et force de préhension"
@@ -74432,48 +73557,8 @@
                     }
             ],
             "explanation": "Réponses B, C et E exactes.\n• H1 : μ1 ≠ μ2 (Item B VRAI).\n• Homoscédasticité requise (Item C VRAI).\n• Variances : s1² = 3.61 et s2² = 3.58 ≈ 3.6 (Item E VRAI).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nEssai contrôlé randomisé chez 60 personnes âgées dénutries hospitalisées afin d'évaluer l'effet d'un complément alimentaire enrichi en protéines sur la force musculaire.\nDeux groupes parallèles :\n- Groupe 1 : 32 patients recevant un placebo adapté.\n- Groupe 2 : 28 patients recevant le complément alimentaire.\nCritère : force de préhension (en kg) à la fin de l'hospitalisation (distribution gaussienne supposée).\n\nDonnées du tableau à la fin de l'hospitalisation :\n• Groupe 1 (Placebo) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14 947, m1 = 21.53, s1² = 3.61, s1 = 1.90\n• Groupe 2 (Complément) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13 517, m2 = 21.89, s2² = 3.58, s2 = 1.89\n• Total général : N = 60, T = 1 302, ∑∑X² = 28 464, s² commune = 3.60, s commune = 1.90",
-            "subStatement": "QUESTION 1 du DP 4 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant la force de préhension entre les deux groupes ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)",
-                            "Variance (s²)",
-                            "Écart-type (s)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Placebo)",
-                                    "32",
-                                    "689",
-                                    "14 947",
-                                    "21.53",
-                                    "3.61",
-                                    "1.90"
-                            ],
-                            [
-                                    "Groupe 2 (Complément)",
-                                    "28",
-                                    "613",
-                                    "13 517",
-                                    "21.89",
-                                    "3.58",
-                                    "1.89"
-                            ],
-                            [
-                                    "Total / Synthèse",
-                                    "60",
-                                    "1 302",
-                                    "28 464",
-                                    "21.70",
-                                    "s² commune = 3.60",
-                                    "s commune = 1.90"
-                            ]
-                    ]
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nEssai contrôlé randomisé chez 60 personnes âgées dénutries pour évaluer un nouveau complément alimentaire sur la force de préhension (en kg) :\n• Groupe 1 (placebo) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14947\n• Groupe 2 (complément) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13517\nConditions d'application supposées remplies pour un test paramétrique.",
+            "subStatement": "QUESTION 1 du DP 4 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant la force de préhension entre les deux groupes ?"
     },
     {
             "id": "ue_bio_f1_dp4_q2",
@@ -74494,7 +73579,7 @@
                     "Test de Student",
                     "Test de Fisher"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nEssai contrôlé randomisé chez 60 personnes âgées dénutries hospitalisées afin d'évaluer l'effet d'un complément alimentaire enrichi en protéines sur la force musculaire.\nDeux groupes parallèles :\n- Groupe 1 : 32 patients recevant un placebo adapté.\n- Groupe 2 : 28 patients recevant le complément alimentaire.\nCritère : force de préhension (en kg) à la fin de l'hospitalisation (distribution gaussienne supposée).\n\nDonnées du tableau à la fin de l'hospitalisation :\n• Groupe 1 (Placebo) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14 947, m1 = 21.53, s1² = 3.61, s1 = 1.90\n• Groupe 2 (Complément) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13 517, m2 = 21.89, s2² = 3.58, s2 = 1.89\n• Total général : N = 60, T = 1 302, ∑∑X² = 28 464, s² commune = 3.60, s commune = 1.90\n\nQUESTION 2 du DP 4 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nEssai contrôlé randomisé chez 60 personnes âgées dénutries pour évaluer un nouveau complément alimentaire sur la force de préhension (en kg) :\n• Groupe 1 (placebo) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14947\n• Groupe 2 (complément) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13517\nConditions d'application supposées remplies pour un test paramétrique.\n\nQUESTION 2 du DP 4 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
             "image": {
                     "url": "src/assets/images/table_dp_param_4.png",
                     "alt": "DP 4 - Complément alimentaire et force de préhension"
@@ -74532,48 +73617,8 @@
                     }
             ],
             "explanation": "Réponses A et E exactes (dans le sujet d'annale : E notée VRAI pour le plan d'étude, et A validée par le calcul t = 0.74 < 1.96).\n• t = 0.74 < seuil → Non-rejet de H0 (Item A VRAI).\n• ECR → Efficacité démontrable en cas de résultat significatif (Item E VRAI).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nEssai contrôlé randomisé chez 60 personnes âgées dénutries hospitalisées afin d'évaluer l'effet d'un complément alimentaire enrichi en protéines sur la force musculaire.\nDeux groupes parallèles :\n- Groupe 1 : 32 patients recevant un placebo adapté.\n- Groupe 2 : 28 patients recevant le complément alimentaire.\nCritère : force de préhension (en kg) à la fin de l'hospitalisation (distribution gaussienne supposée).\n\nDonnées du tableau à la fin de l'hospitalisation :\n• Groupe 1 (Placebo) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14 947, m1 = 21.53, s1² = 3.61, s1 = 1.90\n• Groupe 2 (Complément) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13 517, m2 = 21.89, s2² = 3.58, s2 = 1.89\n• Total général : N = 60, T = 1 302, ∑∑X² = 28 464, s² commune = 3.60, s commune = 1.90",
-            "subStatement": "QUESTION 2 du DP 4 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)",
-                            "Variance (s²)",
-                            "Écart-type (s)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Placebo)",
-                                    "32",
-                                    "689",
-                                    "14 947",
-                                    "21.53",
-                                    "3.61",
-                                    "1.90"
-                            ],
-                            [
-                                    "Groupe 2 (Complément)",
-                                    "28",
-                                    "613",
-                                    "13 517",
-                                    "21.89",
-                                    "3.58",
-                                    "1.89"
-                            ],
-                            [
-                                    "Total / Synthèse",
-                                    "60",
-                                    "1 302",
-                                    "28 464",
-                                    "21.70",
-                                    "s² commune = 3.60",
-                                    "s commune = 1.90"
-                            ]
-                    ]
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nEssai contrôlé randomisé chez 60 personnes âgées dénutries pour évaluer un nouveau complément alimentaire sur la force de préhension (en kg) :\n• Groupe 1 (placebo) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14947\n• Groupe 2 (complément) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13517\nConditions d'application supposées remplies pour un test paramétrique.",
+            "subStatement": "QUESTION 2 du DP 4 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :"
     },
     {
             "id": "ue_bio_f1_dp4_q3",
@@ -74594,7 +73639,7 @@
                     "Test de Student",
                     "Test de Fisher"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nEssai contrôlé randomisé chez 60 personnes âgées dénutries hospitalisées afin d'évaluer l'effet d'un complément alimentaire enrichi en protéines sur la force musculaire.\nDeux groupes parallèles :\n- Groupe 1 : 32 patients recevant un placebo adapté.\n- Groupe 2 : 28 patients recevant le complément alimentaire.\nCritère : force de préhension (en kg) à la fin de l'hospitalisation (distribution gaussienne supposée).\n\nDonnées du tableau à la fin de l'hospitalisation :\n• Groupe 1 (Placebo) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14 947, m1 = 21.53, s1² = 3.61, s1 = 1.90\n• Groupe 2 (Complément) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13 517, m2 = 21.89, s2² = 3.58, s2 = 1.89\n• Total général : N = 60, T = 1 302, ∑∑X² = 28 464, s² commune = 3.60, s commune = 1.90\n\nQUESTION 3 du DP 4 (QCM 1.3) : En réalisant le test statistique approprié, vous souhaitez vérifier si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nEssai contrôlé randomisé chez 60 personnes âgées dénutries pour évaluer un nouveau complément alimentaire sur la force de préhension (en kg) :\n• Groupe 1 (placebo) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14947\n• Groupe 2 (complément) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13517\nConditions d'application supposées remplies pour un test paramétrique.\n\nQUESTION 3 du DP 4 (QCM 1.3) : En réalisant le test statistique approprié, vous souhaitez vérifier si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
             "image": {
                     "url": "src/assets/images/table_dp_param_4.png",
                     "alt": "DP 4 - Complément alimentaire et force de préhension"
@@ -74632,48 +73677,8 @@
                     }
             ],
             "explanation": "Réponses A, D et E exactes.\n• F = 3.61 / 3.58 = 1.01 (Item D VRAI).\n• Seuil F(31, 27) ∈ [2.07 ; 2.13] (Item A VRAI).\n• F < seuil → Non-rejet de H0 (Item E VRAI).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nEssai contrôlé randomisé chez 60 personnes âgées dénutries hospitalisées afin d'évaluer l'effet d'un complément alimentaire enrichi en protéines sur la force musculaire.\nDeux groupes parallèles :\n- Groupe 1 : 32 patients recevant un placebo adapté.\n- Groupe 2 : 28 patients recevant le complément alimentaire.\nCritère : force de préhension (en kg) à la fin de l'hospitalisation (distribution gaussienne supposée).\n\nDonnées du tableau à la fin de l'hospitalisation :\n• Groupe 1 (Placebo) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14 947, m1 = 21.53, s1² = 3.61, s1 = 1.90\n• Groupe 2 (Complément) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13 517, m2 = 21.89, s2² = 3.58, s2 = 1.89\n• Total général : N = 60, T = 1 302, ∑∑X² = 28 464, s² commune = 3.60, s commune = 1.90",
-            "subStatement": "QUESTION 3 du DP 4 (QCM 1.3) : En réalisant le test statistique approprié, vous souhaitez vérifier si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)",
-                            "Variance (s²)",
-                            "Écart-type (s)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe 1 (Placebo)",
-                                    "32",
-                                    "689",
-                                    "14 947",
-                                    "21.53",
-                                    "3.61",
-                                    "1.90"
-                            ],
-                            [
-                                    "Groupe 2 (Complément)",
-                                    "28",
-                                    "613",
-                                    "13 517",
-                                    "21.89",
-                                    "3.58",
-                                    "1.89"
-                            ],
-                            [
-                                    "Total / Synthèse",
-                                    "60",
-                                    "1 302",
-                                    "28 464",
-                                    "21.70",
-                                    "s² commune = 3.60",
-                                    "s commune = 1.90"
-                            ]
-                    ]
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nEssai contrôlé randomisé chez 60 personnes âgées dénutries pour évaluer un nouveau complément alimentaire sur la force de préhension (en kg) :\n• Groupe 1 (placebo) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14947\n• Groupe 2 (complément) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13517\nConditions d'application supposées remplies pour un test paramétrique.",
+            "subStatement": "QUESTION 3 du DP 4 (QCM 1.3) : En réalisant le test statistique approprié, vous souhaitez vérifier si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?"
     },
     {
             "id": "ue_bio_f1_dp5_q1",
@@ -74694,7 +73699,7 @@
                     "Test de Student",
                     "Test de Fisher"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 54 patients en rééducation après chirurgie orthopédique pour évaluer l'effet d'une supplémentation en acides aminés sur la force d'extension maximale du genou (en Nm).\nDeux groupes de 27 patients :\n- Groupe A : rééducation standard + placebo.\n- Groupe B : rééducation standard + acides aminés.\nConditions d'application considérées réunies pour les tests paramétriques.\n\nDonnées du tableau après 8 semaines :\n• Groupe A (Placebo) : nA = 27, TA = ∑XA = 1 215, ∑XA² = 55 675, mA = 45.00, sA² = 38.46, sA = 6.20\n• Groupe B (Acides aminés) : nB = 27, TB = ∑XB = 1 296, ∑XB² = 62 496, mB = 48.00, sB² = 11.08, sB = 3.33\n• Total général : N = 54, T = 2 511, ∑∑X² = 118 171, s² commune = 24.77, s commune = 4.98\n\nQUESTION 1 du DP 5 (QCM 1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant la force d’extension du genou entre les deux groupes ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 54 patients en rééducation après chirurgie orthopédique pour évaluer la force d’extension du genou :\n• Groupe A (placebo, n = 27) : TA = 1215, ∑XA² = 55675\n• Groupe B (acides aminés, n = 27) : TB = 1296, ∑XB² = 62496\nConditions d'application supposées réunies pour un test paramétrique.\n\nQUESTION 1 du DP 5 (QCM 1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant la force d’extension du genou entre les deux groupes ?",
             "image": {
                     "url": "src/assets/images/table_dp_param_5.png",
                     "alt": "DP 5 - Supplémentation en acides aminés et force du genou"
@@ -74732,48 +73737,8 @@
                     }
             ],
             "explanation": "Réponses A, B et C exactes.\n• H0 et H1 bilatérales (Items A et B VRAIS).\n• Homoscédasticité nécessaire (Item C VRAI).\n• sA = 6.20 (Item D FAUX) et sB² = 11.08 (Item E FAUX).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 54 patients en rééducation après chirurgie orthopédique pour évaluer l'effet d'une supplémentation en acides aminés sur la force d'extension maximale du genou (en Nm).\nDeux groupes de 27 patients :\n- Groupe A : rééducation standard + placebo.\n- Groupe B : rééducation standard + acides aminés.\nConditions d'application considérées réunies pour les tests paramétriques.\n\nDonnées du tableau après 8 semaines :\n• Groupe A (Placebo) : nA = 27, TA = ∑XA = 1 215, ∑XA² = 55 675, mA = 45.00, sA² = 38.46, sA = 6.20\n• Groupe B (Acides aminés) : nB = 27, TB = ∑XB = 1 296, ∑XB² = 62 496, mB = 48.00, sB² = 11.08, sB = 3.33\n• Total général : N = 54, T = 2 511, ∑∑X² = 118 171, s² commune = 24.77, s commune = 4.98",
-            "subStatement": "QUESTION 1 du DP 5 (QCM 1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant la force d’extension du genou entre les deux groupes ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)",
-                            "Variance (s²)",
-                            "Écart-type (s)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe A (Placebo)",
-                                    "27",
-                                    "1 215",
-                                    "55 675",
-                                    "45.00",
-                                    "38.46",
-                                    "6.20"
-                            ],
-                            [
-                                    "Groupe B (Acides aminés)",
-                                    "27",
-                                    "1 296",
-                                    "62 496",
-                                    "48.00",
-                                    "11.08",
-                                    "3.33"
-                            ],
-                            [
-                                    "Total / Synthèse",
-                                    "54",
-                                    "2 511",
-                                    "118 171",
-                                    "46.50",
-                                    "s² commune = 24.77",
-                                    "s commune = 4.98"
-                            ]
-                    ]
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 54 patients en rééducation après chirurgie orthopédique pour évaluer la force d’extension du genou :\n• Groupe A (placebo, n = 27) : TA = 1215, ∑XA² = 55675\n• Groupe B (acides aminés, n = 27) : TB = 1296, ∑XB² = 62496\nConditions d'application supposées réunies pour un test paramétrique.",
+            "subStatement": "QUESTION 1 du DP 5 (QCM 1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant la force d’extension du genou entre les deux groupes ?"
     },
     {
             "id": "ue_bio_f1_dp5_q2",
@@ -74794,7 +73759,7 @@
                     "Test de Student",
                     "Test de Fisher"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 54 patients en rééducation après chirurgie orthopédique pour évaluer l'effet d'une supplémentation en acides aminés sur la force d'extension maximale du genou (en Nm).\nDeux groupes de 27 patients :\n- Groupe A : rééducation standard + placebo.\n- Groupe B : rééducation standard + acides aminés.\nConditions d'application considérées réunies pour les tests paramétriques.\n\nDonnées du tableau après 8 semaines :\n• Groupe A (Placebo) : nA = 27, TA = ∑XA = 1 215, ∑XA² = 55 675, mA = 45.00, sA² = 38.46, sA = 6.20\n• Groupe B (Acides aminés) : nB = 27, TB = ∑XB = 1 296, ∑XB² = 62 496, mB = 48.00, sB² = 11.08, sB = 3.33\n• Total général : N = 54, T = 2 511, ∑∑X² = 118 171, s² commune = 24.77, s commune = 4.98\n\nQUESTION 2 du DP 5 (QCM 2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 54 patients en rééducation après chirurgie orthopédique pour évaluer la force d’extension du genou :\n• Groupe A (placebo, n = 27) : TA = 1215, ∑XA² = 55675\n• Groupe B (acides aminés, n = 27) : TB = 1296, ∑XB² = 62496\nConditions d'application supposées réunies pour un test paramétrique.\n\nQUESTION 2 du DP 5 (QCM 2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
             "image": {
                     "url": "src/assets/images/table_dp_param_5.png",
                     "alt": "DP 5 - Supplémentation en acides aminés et force du genou"
@@ -74832,48 +73797,8 @@
                     }
             ],
             "explanation": "Réponses A, C et E exactes (grille tutorat AE).\n• t = 2.21 > seuil → Rejet de H0 : différence significative (Items A et C VRAIS).\n• ECR → Efficacité démontrée (Item E VRAI).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 54 patients en rééducation après chirurgie orthopédique pour évaluer l'effet d'une supplémentation en acides aminés sur la force d'extension maximale du genou (en Nm).\nDeux groupes de 27 patients :\n- Groupe A : rééducation standard + placebo.\n- Groupe B : rééducation standard + acides aminés.\nConditions d'application considérées réunies pour les tests paramétriques.\n\nDonnées du tableau après 8 semaines :\n• Groupe A (Placebo) : nA = 27, TA = ∑XA = 1 215, ∑XA² = 55 675, mA = 45.00, sA² = 38.46, sA = 6.20\n• Groupe B (Acides aminés) : nB = 27, TB = ∑XB = 1 296, ∑XB² = 62 496, mB = 48.00, sB² = 11.08, sB = 3.33\n• Total général : N = 54, T = 2 511, ∑∑X² = 118 171, s² commune = 24.77, s commune = 4.98",
-            "subStatement": "QUESTION 2 du DP 5 (QCM 2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)",
-                            "Variance (s²)",
-                            "Écart-type (s)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe A (Placebo)",
-                                    "27",
-                                    "1 215",
-                                    "55 675",
-                                    "45.00",
-                                    "38.46",
-                                    "6.20"
-                            ],
-                            [
-                                    "Groupe B (Acides aminés)",
-                                    "27",
-                                    "1 296",
-                                    "62 496",
-                                    "48.00",
-                                    "11.08",
-                                    "3.33"
-                            ],
-                            [
-                                    "Total / Synthèse",
-                                    "54",
-                                    "2 511",
-                                    "118 171",
-                                    "46.50",
-                                    "s² commune = 24.77",
-                                    "s commune = 4.98"
-                            ]
-                    ]
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 54 patients en rééducation après chirurgie orthopédique pour évaluer la force d’extension du genou :\n• Groupe A (placebo, n = 27) : TA = 1215, ∑XA² = 55675\n• Groupe B (acides aminés, n = 27) : TB = 1296, ∑XB² = 62496\nConditions d'application supposées réunies pour un test paramétrique.",
+            "subStatement": "QUESTION 2 du DP 5 (QCM 2) : La conclusion du test est (une ou plusieurs propositions exactes) :"
     },
     {
             "id": "ue_bio_f1_dp5_q3",
@@ -74894,7 +73819,7 @@
                     "Test de Student",
                     "Test de Fisher"
             ],
-            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 54 patients en rééducation après chirurgie orthopédique pour évaluer l'effet d'une supplémentation en acides aminés sur la force d'extension maximale du genou (en Nm).\nDeux groupes de 27 patients :\n- Groupe A : rééducation standard + placebo.\n- Groupe B : rééducation standard + acides aminés.\nConditions d'application considérées réunies pour les tests paramétriques.\n\nDonnées du tableau après 8 semaines :\n• Groupe A (Placebo) : nA = 27, TA = ∑XA = 1 215, ∑XA² = 55 675, mA = 45.00, sA² = 38.46, sA = 6.20\n• Groupe B (Acides aminés) : nB = 27, TB = ∑XB = 1 296, ∑XB² = 62 496, mB = 48.00, sB² = 11.08, sB = 3.33\n• Total général : N = 54, T = 2 511, ∑∑X² = 118 171, s² commune = 24.77, s commune = 4.98\n\nQUESTION 3 du DP 5 (QCM 3) : En réalisant le test statistique approprié, vous souhaitez vérifier si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 54 patients en rééducation après chirurgie orthopédique pour évaluer la force d’extension du genou :\n• Groupe A (placebo, n = 27) : TA = 1215, ∑XA² = 55675\n• Groupe B (acides aminés, n = 27) : TB = 1296, ∑XB² = 62496\nConditions d'application supposées réunies pour un test paramétrique.\n\nQUESTION 3 du DP 5 (QCM 3) : En réalisant le test statistique approprié, vous souhaitez vérifier si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
             "image": {
                     "url": "src/assets/images/table_dp_param_5.png",
                     "alt": "DP 5 - Supplémentation en acides aminés et force du genou"
@@ -74932,48 +73857,8 @@
                     }
             ],
             "explanation": "Réponses B et D exactes.\n• F = 38.46 / 11.08 = 3.47 (Item D VRAI).\n• Seuil Fisher ≈ 2.19 (Item B VRAI).\n• F > seuil → Rejet de H0 (Item E FAUX).",
-            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 54 patients en rééducation après chirurgie orthopédique pour évaluer l'effet d'une supplémentation en acides aminés sur la force d'extension maximale du genou (en Nm).\nDeux groupes de 27 patients :\n- Groupe A : rééducation standard + placebo.\n- Groupe B : rééducation standard + acides aminés.\nConditions d'application considérées réunies pour les tests paramétriques.\n\nDonnées du tableau après 8 semaines :\n• Groupe A (Placebo) : nA = 27, TA = ∑XA = 1 215, ∑XA² = 55 675, mA = 45.00, sA² = 38.46, sA = 6.20\n• Groupe B (Acides aminés) : nB = 27, TB = ∑XB = 1 296, ∑XB² = 62 496, mB = 48.00, sB² = 11.08, sB = 3.33\n• Total général : N = 54, T = 2 511, ∑∑X² = 118 171, s² commune = 24.77, s commune = 4.98",
-            "subStatement": "QUESTION 3 du DP 5 (QCM 3) : En réalisant le test statistique approprié, vous souhaitez vérifier si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-            "tableData": {
-                    "headers": [
-                            "Groupe",
-                            "Effectif (n)",
-                            "Somme T = ∑X",
-                            "Somme ∑X²",
-                            "Moyenne (m)",
-                            "Variance (s²)",
-                            "Écart-type (s)"
-                    ],
-                    "rows": [
-                            [
-                                    "Groupe A (Placebo)",
-                                    "27",
-                                    "1 215",
-                                    "55 675",
-                                    "45.00",
-                                    "38.46",
-                                    "6.20"
-                            ],
-                            [
-                                    "Groupe B (Acides aminés)",
-                                    "27",
-                                    "1 296",
-                                    "62 496",
-                                    "48.00",
-                                    "11.08",
-                                    "3.33"
-                            ],
-                            [
-                                    "Total / Synthèse",
-                                    "54",
-                                    "2 511",
-                                    "118 171",
-                                    "46.50",
-                                    "s² commune = 24.77",
-                                    "s commune = 4.98"
-                            ]
-                    ]
-            }
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 54 patients en rééducation après chirurgie orthopédique pour évaluer la force d’extension du genou :\n• Groupe A (placebo, n = 27) : TA = 1215, ∑XA² = 55675\n• Groupe B (acides aminés, n = 27) : TB = 1296, ∑XB² = 62496\nConditions d'application supposées réunies pour un test paramétrique.",
+            "subStatement": "QUESTION 3 du DP 5 (QCM 3) : En réalisant le test statistique approprié, vous souhaitez vérifier si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?"
     }];
 
     const getItemExplanation = (q, ans, idx) => {
@@ -76097,16 +74982,6 @@ const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
                                                     <p className="text-sm md:text-base text-slate-100 whitespace-pre-line leading-relaxed font-normal">
                                                         {currentQ.commonStatement || currentQ.statement}
                                                     </p>
-
-                                                    {/* TABLE HTML INTERACTIVE DYNAMIQUE */}
-                                                    {currentQ.tableData && (
-                                                        <DataTable data={currentQ.tableData} />
-                                                    )}
-
-                                                    {/* PARAMÈTRES ANOVA / TEST DE FISHER */}
-                                                    {currentQ.fisherStats && (
-                                                        <FisherStatsCard stats={currentQ.fisherStats} />
-                                                    )}
                                                 </div>
 
                                                 {/* TABLE IMAGE SI PRÉSENTE */}
@@ -76557,8 +75432,6 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                             </div>
                                         )}
 
-                                        {currentQ.tableData && <DataTable data={currentQ.tableData} />}
-                                        {currentQ.fisherStats && <FisherStatsCard stats={currentQ.fisherStats} />}
                                         {currentQ.image && <PdfImage imageInfo={currentQ.image} />}
 
                                         <div className="space-y-2">
@@ -77159,8 +76032,6 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
 
                                                     <p className="text-sm font-semibold text-slate-100 leading-snug">{q.statement}</p>
 
-                                                    {q.tableData && <DataTable data={q.tableData} />}
-                                                    {q.fisherStats && <FisherStatsCard stats={q.fisherStats} />}
                                                     {q.image && (
                                                         <div className="my-3">
                                                             <PdfImage imageInfo={q.image} />
