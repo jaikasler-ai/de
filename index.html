@@ -74845,10 +74845,10 @@ const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
                                                     btnStyle = 'bg-purple-900/70 border border-purple-500/70 text-purple-200 hover:bg-purple-800';
                                                 }
 
-                                                let dpLabel = DP ;
+                                                let dpLabel = `DP ${visitedDp.size}`;
                                                 if (q.dpTitle) {
                                                     const m = q.dpTitle.match(/DP\s*(\d+)/i);
-                                                    if (m) dpLabel = DP ;
+                                                    if (m) dpLabel = `DP ${m[1]}`;
                                                 }
 
                                                 buttons.push(
@@ -74858,8 +74858,8 @@ const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
                                                             setCurrentQuizIndex(dpIndices[0]);
                                                             window.scrollTo({ top: 0, behavior: 'smooth' });
                                                         }}
-                                                        className={px-3 h-[32px] rounded-xl text-xs font-black transition-all shrink-0 flex items-center justify-center gap-1 }
-                                                        title={${q.dpTitle || dpLabel} ( questions)}
+                                                        className={`px-3 h-[32px] rounded-xl text-xs font-black transition-all shrink-0 flex items-center justify-center gap-1 ${btnStyle}`}
+                                                        title={`${q.dpTitle || dpLabel} (${dpIndices.length} questions)${isVal ? ' (Corrigé)' : isAns ? ' (Répondu)' : ''}`}
                                                     >
                                                         <span>📋</span>
                                                         <span>{dpLabel}</span>
@@ -74897,8 +74897,8 @@ const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
                                                                 window.scrollTo({ top: 0, behavior: 'smooth' });
                                                             }
                                                         }}
-                                                        className={min-w-[32px] h-[32px] rounded-xl text-xs font-bold transition-all shrink-0 flex items-center justify-center relative }
-                                                        title={Question }
+                                                        className={`min-w-[32px] h-[32px] rounded-xl text-xs font-bold transition-all shrink-0 flex items-center justify-center relative ${btnStyle}`}
+                                                        title={`Question ${qIdx + 1}${isVal ? ' (Corrigée)' : isAns ? ' (Répondue)' : ' (Non répondue)'}${isFlag ? ' - Marquée' : ''}`}
                                                     >
                                                         <span>{qIdx + 1}</span>
                                                         {isFlag && (
