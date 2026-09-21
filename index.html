@@ -293,7 +293,7 @@
                 icon: '📊',
                 color: 'from-blue-600 to-indigo-600',
                 progress: 0,
-                qcmCount: 35,
+                qcmCount: 33,
                 chapters: [
                     "Fiche n°1 - Tests paramétriques",
                     "Fiche n°2 - Test de Fisher",
@@ -71502,390 +71502,6 @@
         "explanation": "Réponses A, D et E exactes. L'atteinte des muscles respiratoires complique la dénutrition, l'impédancemétrie évalue la masse maigre et la nutrition par sonde pallie les affections ORL ou anorexies."
     },
     {
-        "id": "ue_bio_f1_q1",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°1 - Tests paramétriques",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Tests paramétriques",
-            "Conditions d'application",
-            "Loi normale"
-        ],
-        "statement": "Concernant les conditions générales d'application des tests statistiques paramétriques, quelles sont les propositions exactes ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Les tests paramétriques s'appliquent exclusivement à des variables qualitatives nominales.",
-                "correct": false,
-                "explanation": "A. Faux — Les tests paramétriques s'appliquent à des variables quantitatives (continues ou discrètes) dont les paramètres de distribution (moyenne, variance) sont modélisés."
-            },
-            {
-                "id": "b",
-                "text": "Pour comparer deux moyennes sur de petits échantillons (n < 30), la normalité de la distribution de la variable dans la population est requise.",
-                "correct": true,
-                "explanation": "B. Vrai — Lorsque les effectifs sont faibles (n < 30 par groupe), le théorème central limite ne s'applique pas directement et la variable doit suivre une loi normale dans la population pour que le test de Student soit valide."
-            },
-            {
-                "id": "c",
-                "text": "Grâce au Théorème Central Limite (TCL), lorsque la taille d'échantillon est suffisante (n >= 30), la moyenne de l'échantillon suit approximativement une loi normale, même si la distribution parente n'est pas normale.",
-                "correct": true,
-                "explanation": "C. Vrai — Le TCL assure la convergence asymptotique de la distribution des moyennes d'échantillons vers une loi normale dès lors que l'effectif n est suffisamment grand (en pratique n >= 30)."
-            },
-            {
-                "id": "d",
-                "text": "L'homoscédasticité désigne l'égalité des moyennes entre les groupes comparés.",
-                "correct": false,
-                "explanation": "D. Faux — L'homoscédasticité désigne l'égalité des variances entre les groupes (variance homogène), et non l'égalité des moyennes."
-            },
-            {
-                "id": "e",
-                "text": "À effectif et conditions de validité identiques, un test paramétrique possède généralement une puissance statistique supérieure à celle de son homologue non paramétrique.",
-                "correct": true,
-                "explanation": "E. Vrai — Quand les hypothèses de normalité et de linéarité sont vérifiées, le test paramétrique exploite toute l'information quantitative des données (valeurs brutes) et est donc plus puissant que le test basé sur les rangs."
-            }
-        ],
-        "explanation": "Réponses B, C et E exactes. Les tests paramétriques concernent des variables quantitatives, requièrent la normalité (ou n >= 30 par le TCL) et l'égalité des variances (homoscédasticité), et offrent une puissance maximale sous ces conditions."
-    },
-    {
-        "id": "ue_bio_f1_q2",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°1 - Tests paramétriques",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Test de Student",
-            "Échantillon unique",
-            "Degrés de liberté"
-        ],
-        "statement": "On souhaite comparer la glycémie moyenne m observée chez 25 patients diabétiques (m = 7,8 mmol/L, écart-type s = 1,5 mmol/L) à une valeur cible théorique mu0 = 7,0 mmol/L, en supposant la distribution normale. Quelles propositions sont exactes ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "L'hypothèse nulle H0 s'énonce : H0 : mu = 7,0 mmol/L.",
-                "correct": true,
-                "explanation": "A. Vrai — L'hypothèse nulle postule l'absence de différence entre la moyenne de la population dont est extrait l'échantillon et la valeur cible théorique (H0 : mu = mu0)."
-            },
-            {
-                "id": "b",
-                "text": "Le nombre de degrés de liberté (ddl) associé à ce test de Student pour échantillon unique est de 24.",
-                "correct": true,
-                "explanation": "B. Vrai — Pour un test de Student à un échantillon, le nombre de degrés de liberté est ddl = n - 1 = 25 - 1 = 24."
-            },
-            {
-                "id": "c",
-                "text": "L'erreur standard de la moyenne (SEM) vaut s / n, soit 1,5 / 25 = 0,06 mmol/L.",
-                "correct": false,
-                "explanation": "C. Faux — L'erreur standard de la moyenne est SEM = s / sqrt(n) = 1,5 / sqrt(25) = 1,5 / 5 = 0,30 mmol/L (on divise par racine de n et non par n)."
-            },
-            {
-                "id": "d",
-                "text": "La statistique observée t_obs est égale à (7,8 - 7,0) / 0,30 = 2,67.",
-                "correct": true,
-                "explanation": "D. Vrai — t_obs = (m - mu0) / (s / sqrt(n)) = 0,8 / 0,30 = 2,667 (environ 2,67)."
-            },
-            {
-                "id": "e",
-                "text": "Si le seuil critique pour ddl = 24 au risque alpha = 5% bilatéral est t_critique = 2,064, on ne peut pas rejeter H0.",
-                "correct": false,
-                "explanation": "E. Faux — Comme |t_obs| = 2,67 > 2,064, la statistique se situe dans la région de rejet ; on rejette donc H0 au risque alpha = 5% (la différence est statistiquement significative, p < 0,05)."
-            }
-        ],
-        "explanation": "Réponses A, B et D exactes. Le test compare m à mu0 avec ddl = n - 1 = 24. SEM = s/sqrt(n) = 0,30 mmol/L, t_obs = 2,67 > 2,064, d'où le rejet significatif de H0 au seuil de 5%."
-    },
-    {
-        "id": "ue_bio_f1_q3",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°1 - Tests paramétriques",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Test de Student",
-            "Échantillons indépendants",
-            "Variance commune"
-        ],
-        "statement": "Concernant le test t de Student pour la comparaison de deux moyennes sur deux échantillons indépendants (groupe A de taille n_A et groupe B de taille n_B), quelles sont les propositions exactes ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Le nombre de degrés de liberté sous l'hypothèse d'homoscédasticité est ddl = n_A + n_B - 2.",
-                "correct": true,
-                "explanation": "A. Vrai — Le nombre de degrés de liberté pour deux échantillons indépendants avec variances égales est (n_A - 1) + (n_B - 1) = n_A + n_B - 2."
-            },
-            {
-                "id": "b",
-                "text": "L'estimation de la variance commune pondérée s_p^2 s'obtient par la simple moyenne arithmétique (s_A^2 + s_B^2) / 2 quelles que soient les tailles n_A et n_B.",
-                "correct": false,
-                "explanation": "B. Faux — La variance commune pondérée s'écrit s_p^2 = [(n_A - 1)s_A^2 + (n_B - 1)s_B^2] / (n_A + n_B - 2). La simple moyenne arithmétique n'est valable que si n_A = n_B."
-            },
-            {
-                "id": "c",
-                "text": "Si les variances des deux groupes sont significativement différentes (hétéroscédasticité), on peut recourir à la correction de Welch.",
-                "correct": true,
-                "explanation": "C. Vrai — Le test t de Welch (ou test de Satterthwaite) adapte la statistique et les degrés de liberté en l'absence d'égalité des variances."
-            },
-            {
-                "id": "d",
-                "text": "L'hypothèse nulle bilatérale est H0 : mu_A = mu_B.",
-                "correct": true,
-                "explanation": "D. Vrai — L'hypothèse nulle stipule que les deux populations ont la même moyenne, soit mu_A - mu_B = 0."
-            },
-            {
-                "id": "e",
-                "text": "Une p-valeur de 0,02 calculée pour ce test signifie qu'il y a 2% de chances que l'hypothèse alternative H1 soit vraie.",
-                "correct": false,
-                "explanation": "E. Faux — La p-valeur est la probabilité d'obtenir une différence au moins aussi extrême que celle observée sous l'hypothèse que H0 est vraie. Ce n'est en aucun cas P(H1)."
-            }
-        ],
-        "explanation": "Réponses A, C et D exactes. Le test t indépendant utilise ddl = n_A + n_B - 2, nécessite une variance pondérée (ou test de Welch si variances inégales), et teste H0 : mu_A = mu_B."
-    },
-    {
-        "id": "ue_bio_f1_q4",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°1 - Tests paramétriques",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Séries appariées",
-            "Test de Student apparié"
-        ],
-        "statement": "Une étude évalue l'effet d'un antihypertenseur chez 20 patients en mesurant la pression artérielle systolique avant et après 4 semaines de traitement. Quelles sont les propositions exactes ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Les deux séries de mesures sont considérées comme indépendantes car elles concernent deux temps différents.",
-                "correct": false,
-                "explanation": "A. Faux — Ce sont des séries appariées (mesures répétées sur les mêmes sujets), car chaque mesure 'après' est couplée à la mesure 'avant' du même patient."
-            },
-            {
-                "id": "b",
-                "text": "L'analyse repose sur l'étude de la variable différence individuelle d_i = x_{après, i} - x_{avant, i}.",
-                "correct": true,
-                "explanation": "B. Vrai — Le test pour séries appariées se ramène à un test de Student pour un seul échantillon appliqué à la variable des différences d_i."
-            },
-            {
-                "id": "c",
-                "text": "Le nombre de degrés de liberté de ce test apparié est ddl = 20 - 1 = 19.",
-                "correct": true,
-                "explanation": "C. Vrai — Pour n paires de données, le nombre de degrés de liberté est ddl = n - 1 = 20 - 1 = 19."
-            },
-            {
-                "id": "d",
-                "text": "L'appariement permet d'augmenter la puissance statistique en éliminant la variabilité interindividuelle.",
-                "correct": true,
-                "explanation": "D. Vrai — En contrôlant la variabilité propre à chaque patient, la variance de l'erreur diminue, ce qui augmente la puissance du test par rapport à deux groupes indépendants de même taille."
-            },
-            {
-                "id": "e",
-                "text": "L'hypothèse nulle s'énonce H0 : mu_d = 0 (où mu_d est la moyenne populationnelle des différences).",
-                "correct": true,
-                "explanation": "E. Vrai — H0 stipule que la variation moyenne dans la population est nulle (pas d'effet moyen du traitement)."
-            }
-        ],
-        "explanation": "Réponses B, C, D et E exactes. Il s'agit d'un protocole avant/après (apparié). On teste H0 : mu_d = 0 sur les différences individuelles avec ddl = n - 1 = 19, ce qui élimine la variabilité interindividuelle et maximise la puissance."
-    },
-    {
-        "id": "ue_bio_f1_q5",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°1 - Tests paramétriques",
-        "year": 2024,
-        "difficulty": "Difficile",
-        "tags": [
-            "Biostatistiques",
-            "ANOVA",
-            "Analyse de variance",
-            "Fisher-Snedecor"
-        ],
-        "statement": "Concernant l'analyse de variance à un facteur (ANOVA à 1 facteur) pour comparer k moyennes indépendantes (k >= 3), quelles sont les propositions exactes ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Elle permet d'éviter l'inflation du risque d'erreur de première espèce alpha observée lors de comparaisons multiples par tests de Student répétés.",
-                "correct": true,
-                "explanation": "A. Vrai — Si l'on réalisait plusieurs tests de Student au risque alpha, le risque global d'avoir au moins un faux positif augmenterait selon 1 - (1 - alpha)^m. L'ANOVA teste globalement l'égalité des k moyennes au risque alpha fixé."
-            },
-            {
-                "id": "b",
-                "text": "L'hypothèse alternative H1 est : 'Toutes les moyennes sont deux à deux différentes'.",
-                "correct": false,
-                "explanation": "B. Faux — L'hypothèse alternative H1 est : 'Au moins une des moyennes est différente des autres' (ou au moins deux moyennes diffèrent), et non que toutes sont différentes deux à deux."
-            },
-            {
-                "id": "c",
-                "text": "La statistique F de l'ANOVA est le rapport : Carré Moyen Inter-groupe / Carré Moyen Intra-groupe (résiduel).",
-                "correct": true,
-                "explanation": "C. Vrai — F = CM_inter / CM_intra = (SS_inter / (k - 1)) / (SS_intra / (N - k)), qui suit une loi de Fisher-Snedecor sous H0."
-            },
-            {
-                "id": "d",
-                "text": "Pour k = 4 groupes et un effectif total N = 40 sujets, les degrés de liberté sont ddl_1 = 3 et ddl_2 = 36.",
-                "correct": true,
-                "explanation": "D. Vrai — ddl_inter = k - 1 = 4 - 1 = 3 ; ddl_intra = N - k = 40 - 4 = 36."
-            },
-            {
-                "id": "e",
-                "text": "Si le test F global n'est pas statistiquement significatif, il est impératif de poursuivre avec des tests post-hoc de Tukey ou Bonferroni.",
-                "correct": false,
-                "explanation": "E. Faux — Si le test F global n'est pas significatif (p >= alpha), on ne rejette pas H0 et on n'effectue AUCUN test post-hoc."
-            }
-        ],
-        "explanation": "Réponses A, C et D exactes. L'ANOVA compare k moyennes sans gonfler le risque alpha. H1 stipule qu'au moins une moyenne diffère. F = CM_inter / CM_intra avec ddl_1 = k-1 et ddl_2 = N-k. Les tests post-hoc ne se font que si F est significatif."
-    },
-    {
-        "id": "ue_bio_f1_q6",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°1 - Tests paramétriques",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Risques statistiques",
-            "Puissance",
-            "Alpha",
-            "Beta"
-        ],
-        "statement": "Concernant les risques d'erreur alpha, beta et la puissance d'un test d'hypothèse statistique, quelles sont les propositions exactes ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "L'erreur de première espèce alpha correspond au rejet à tort de l'hypothèse nulle H0 alors qu'elle est vraie (faux positif).",
-                "correct": true,
-                "explanation": "A. Vrai — C'est la définition exacte du risque alpha : conclure à une différence alors qu'il n'y en a pas."
-            },
-            {
-                "id": "b",
-                "text": "L'erreur de deuxième espèce beta correspond au non-rejet de H0 alors que H0 est fausse (faux négatif).",
-                "correct": true,
-                "explanation": "B. Vrai — Le risque beta est la probabilité de passer à côté d'une différence réelle."
-            },
-            {
-                "id": "c",
-                "text": "La puissance statistique d'un test est égale à 1 - alpha.",
-                "correct": false,
-                "explanation": "C. Faux — La puissance statistique est 1 - beta (probabilité de rejeter H0 quand elle est fausse, c'est-à-dire détecter une différence réelle). 1 - alpha est le niveau de confiance."
-            },
-            {
-                "id": "d",
-                "text": "Augmenter la taille de l'échantillon n permet d'augmenter la puissance du test sans modifier le risque alpha.",
-                "correct": true,
-                "explanation": "D. Vrai — Un effectif plus élevé réduit la variance d'échantillonnage (l'erreur standard s/sqrt(n)), ce qui rétrécit la distribution et augmente la puissance 1 - beta à alpha constant."
-            },
-            {
-                "id": "e",
-                "text": "Si l'on diminue arbitrairement le risque alpha de 5% à 1%, la puissance statistique du test augmente.",
-                "correct": false,
-                "explanation": "E. Faux — Diminuer le risque alpha rend le critère de rejet de H0 plus strict, ce qui augmente le risque de faux négatif beta et donc DIMINUE la puissance 1 - beta."
-            }
-        ],
-        "explanation": "Réponses A, B et D exactes. Alpha = faux positif (rejeter H0 vraie), Beta = faux négatif (conserver H0 fausse), Puissance = 1 - Beta. Augmenter n augmente la puissance, tandis que diminuer alpha réduit la puissance."
-    },
-    {
-        "id": "ue_bio_f1_q7",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°1 - Tests paramétriques",
-        "year": 2024,
-        "difficulty": "Facile",
-        "tags": [
-            "Biostatistiques",
-            "Intervalle de confiance",
-            "Moyenne",
-            "Loi normale"
-        ],
-        "statement": "Sur un échantillon de 100 individus issus d'une population de distribution normale, la cholestérolémie moyenne observée est de 5,0 mmol/L avec un écart-type de 1,0 mmol/L. Quelles propositions concernant l'intervalle de confiance à 95% de la moyenne sont exactes ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "L'écart-type de la moyenne (SEM) vaut 0,10 mmol/L.",
-                "correct": true,
-                "explanation": "A. Vrai — SEM = s / sqrt(n) = 1,0 / sqrt(100) = 1,0 / 10 = 0,10 mmol/L."
-            },
-            {
-                "id": "b",
-                "text": "Comme n = 100 >= 30, on peut utiliser le fractile de la loi normale z = 1,96 pour le niveau de confiance 95%.",
-                "correct": true,
-                "explanation": "B. Vrai — Pour de grands échantillons (n >= 30), la distribution de Student converge vers la loi normale centrée réduite N(0, 1), et le quantile bilatéral à 95% vaut 1,96."
-            },
-            {
-                "id": "c",
-                "text": "La demi-largeur de l'intervalle de confiance à 95% est égale à 1,96 * 0,10 = 0,196 mmol/L.",
-                "correct": true,
-                "explanation": "C. Vrai — La marge d'erreur vaut e = z_{0,05} * SEM = 1,96 * 0,10 = 0,196 mmol/L."
-            },
-            {
-                "id": "d",
-                "text": "L'intervalle de confiance à 95% de la moyenne vraie mu est [4,804 ; 5,196] mmol/L.",
-                "correct": true,
-                "explanation": "D. Vrai — IC95% = [5,0 - 0,196 ; 5,0 + 0,196] = [4,804 ; 5,196] mmol/L."
-            },
-            {
-                "id": "e",
-                "text": "Si la valeur théorique 5,3 mmol/L est testée au risque 5%, le test bilatéral rejettera H0 car 5,3 est situé à l'extérieur de cet IC95%.",
-                "correct": true,
-                "explanation": "E. Vrai — Il y a équivalence mathématique entre le test bilatéral au seuil alpha et l'intervalle de confiance à 1 - alpha : toute valeur hors de l'IC95% est rejetée au seuil de 5%."
-            }
-        ],
-        "explanation": "Réponses A, B, C, D et E exactes (toutes vraies). SEM = 0,10 mmol/L, marge d'erreur = 0,196, IC95% = [4,804 ; 5,196]. 5,3 étant exclu, le test bilatéral rejette H0 au seuil 5%."
-    },
-    {
-        "id": "ue_bio_f1_q8",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°1 - Tests paramétriques",
-        "year": 2024,
-        "difficulty": "Difficile",
-        "tags": [
-            "Biostatistiques",
-            "Test de Student",
-            "Comparaison de variances",
-            "Test de Fisher-Snedecor"
-        ],
-        "statement": "Avant de réaliser un test de Student pour deux échantillons indépendants, on teste l'égalité des variances s_1^2 et s_2^2. Quelles sont les propositions exactes ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Le test d'égalité de deux variances repose sur la statistique F = s_max^2 / s_min^2.",
-                "correct": true,
-                "explanation": "A. Vrai — Le rapport des deux variances d'échantillons indépendants suit une loi de Fisher-Snedecor sous H0 : sigma_1^2 = sigma_2^2."
-            },
-            {
-                "id": "b",
-                "text": "Les degrés de liberté de ce test F sont ddl_num = n_1 - 1 et ddl_denom = n_2 - 1.",
-                "correct": true,
-                "explanation": "B. Vrai — Les degrés de liberté correspondent respectivement aux tailles de chaque groupe moins un."
-            },
-            {
-                "id": "c",
-                "text": "Si le test F conclut à une différence significative des variances au risque 5%, le test de Student classique avec variance commune pondérée peut être appliqué sans réserve.",
-                "correct": false,
-                "explanation": "C. Faux — Si les variances sont significativement différentes, l'hypothèse d'homoscédasticité est violée ; il faut utiliser le test de Welch ou un test non paramétrique (Mann-Whitney)."
-            },
-            {
-                "id": "d",
-                "text": "Le test de Levene est une alternative au test F pour tester l'égalité des variances, plus robuste face aux écarts à la normalité.",
-                "correct": true,
-                "explanation": "D. Vrai — Le test de Levene est moins sensible à la non-normalité que le test de Fisher standard."
-            },
-            {
-                "id": "e",
-                "text": "Un test unilatéral est choisi a posteriori si la différence observée va dans le sens espéré par l'expérimentateur.",
-                "correct": false,
-                "explanation": "E. Faux — Le caractère unilatéral ou bilatéral d'un test doit impérativement être fixé a priori, avant le recueil et l'analyse des données, pour des raisons éthiques et de validité statistique."
-            }
-        ],
-        "explanation": "Réponses A, B et D exactes. Le test F = s_max^2 / s_min^2 vérifie l'homoscédasticité. Si H0 est rejetée, le test de Student classique n'est plus valide (recours à Welch ou Mann-Whitney). Le choix unilatéral doit impérativement être formulé a priori."
-    },
-    {
         "id": "ue_bio_f2_q1",
         "subjectId": "s10",
         "subject": "UE Biostatistiques",
@@ -72267,434 +71883,6 @@
             }
         ],
         "explanation": "Réponses A, B, C, D et E exactes (toutes vraies). Série triée : 2 (rg 1), 3 (rg 2), 5 (rg 4), 5 (rg 4), 5 (rg 4), 8 (rg 6), 9 (rg 7). Somme totale des rangs = 7 * 8 / 2 = 28."
-    },
-    {
-        "id": "ue_bio_f1_ex_q1",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°1 - Tests paramétriques",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Tests paramétriques",
-            "Comparaison moyenne à norme"
-        ],
-        "statement": "Énoncé commun aux QCM 1 et 2 (comparaison d’une moyenne à une norme) :\nUn médecin cherche à évaluer si un nouveau médicament permet de réduire la pression artérielle moyenne des patients hypertendus en dessous de 140 mmHg, ce qui est considéré comme la norme pour ce type de patient. Pour cela, il administre le médicament à 25 patients et mesure leur pression artérielle après le traitement. Les résultats montrent une pression artérielle moyenne de 136 mmHg avec un écart-type de 8 mmHg.\n\nQCM 1 : Parmi les propositions suivantes, laquelle (ou lesquelles) est (sont) exacte(s) ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "On peut réaliser un test paramétrique de comparaison de moyennes",
-                "correct": true,
-                "explanation": "A. Vrai — On compare la moyenne théorique μ de la pression artérielle des patients traités à une norme théorique μ0 = 140 mmHg (test de comparaison d'une moyenne à une norme)."
-            },
-            {
-                "id": "b",
-                "text": "La statistique de test suit une loi normale",
-                "correct": false,
-                "explanation": "B. Faux — La variance théorique en population n'est pas connue et l'échantillon est petit (n = 25 < 30). La statistique suit donc une loi de Student."
-            },
-            {
-                "id": "c",
-                "text": "La statistique du test suit une loi de Student à 25 degrés de liberté",
-                "correct": false,
-                "explanation": "C. Faux — La statistique de test suit une loi de Student à n - 1 = 25 - 1 = 24 degrés de liberté (et non 25)."
-            },
-            {
-                "id": "d",
-                "text": "Pour faire le test, on doit supposer que la pression artérielle est distribuée selon la loi normale dans la population",
-                "correct": true,
-                "explanation": "D. Vrai — Comme l'effectif est petit (n = 25 < 30), le théorème central limite ne s'applique pas ; l'hypothèse de normalité de la variable dans la population générale est donc indispensable."
-            },
-            {
-                "id": "e",
-                "text": "Il n’y a pas d’hypothèses supplémentaires à faire pour réaliser ce test",
-                "correct": false,
-                "explanation": "E. Faux — Une hypothèse supplémentaire de distribution normale de la pression artérielle dans la population est indispensable en raison de la petite taille de l'échantillon (n < 30)."
-            }
-        ],
-        "explanation": "Réponses A et D exactes.\n• μ0 = 140 mmHg (norme), n = 25 (petit échantillon < 30), m = 136 mmHg, s = 8 mmHg.\n• Test bilatéral de comparaison d'une moyenne à une norme au risque α = 5%.\n• Comme n < 30 et la variance théorique σ² est inconnue, on doit poser l'hypothèse de normalité de la variable en population générale.\n• Sous H0, la statistique de test suit une loi de Student à n - 1 = 24 degrés de liberté."
-    },
-    {
-        "id": "ue_bio_f1_ex_q2",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°1 - Tests paramétriques",
-        "year": 2024,
-        "difficulty": "Difficile",
-        "tags": [
-            "Biostatistiques",
-            "Tests paramétriques",
-            "Comparaison moyenne à norme",
-            "Calcul"
-        ],
-        "statement": "Énoncé commun aux QCM 1 et 2 (comparaison d’une moyenne à une norme) :\nUn médecin cherche à évaluer si un nouveau médicament permet de réduire la pression artérielle moyenne des patients hypertendus en dessous de 140 mmHg, ce qui est considéré comme la norme pour ce type de patient. Pour cela, il administre le médicament à 25 patients et mesure leur pression artérielle après le traitement. Les résultats montrent une pression artérielle moyenne de 136 mmHg avec un écart-type de 8 mmHg.\n\nQCM 2 : Supposons que toutes les hypothèses sont vérifiées pour réaliser ce test. Parmi les propositions suivantes, laquelle (ou lesquelles) est (sont) exacte(s) ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "La p-value est comprise entre 0.01 et 0.02",
-                "correct": true,
-                "explanation": "A. Vrai — Avec |t| = 2.5 à 24 ddl, la valeur critique pour α=0.02 est 2.492 et pour α=0.01 est 2.797. Comme 2.492 < 2.5 < 2.797, on a bien 0.01 < p < 0.02."
-            },
-            {
-                "id": "b",
-                "text": "La p-value est comprise entre 0.02 et 0.05",
-                "correct": false,
-                "explanation": "B. Faux — La p-value est inférieure à 0.02 (0.01 < p < 0.02)."
-            },
-            {
-                "id": "c",
-                "text": "On rejette H0",
-                "correct": true,
-                "explanation": "C. Vrai — La statistique observée vaut |t| = |(136 - 140) / (8 / √25)| = 4 / 1.6 = 2.5. Au risque 5% à 24 ddl, le seuil critique est t_crit = 2.064. Puisque |t| = 2.5 > 2.064, on rejette H0."
-            },
-            {
-                "id": "d",
-                "text": "On conserve H0",
-                "correct": false,
-                "explanation": "D. Faux — On rejette H0 au seuil α = 5% car |t| = 2.5 > 2.064."
-            },
-            {
-                "id": "e",
-                "text": "Toutes les propositions sont fausses",
-                "correct": false,
-                "explanation": "E. Faux — Les propositions A et C sont exactes."
-            }
-        ],
-        "explanation": "Réponses A et C exactes.\n• Calcul de la statistique de test :\n  t = (m - μ0) / (s / √n) = (136 - 140) / (8 / √25) = -4 / 1.6 = -2.5\n  |t_24| = 2.5\n• Valeur seuil de la table de Student à 24 ddl au risque bilatéral α = 5% : t_seuil = 2.064.\n• Comme |t_24| = 2.5 > 2.064, on rejette H0 et on conclut à une différence significative entre μ et μ0.\n• Degré de signification : pour t = 2.5 à 24 ddl, on a 0.01 < p < 0.02."
-    },
-    {
-        "id": "ue_bio_f1_ex_q3",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°1 - Tests paramétriques",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Tests paramétriques",
-            "Comparaison deux moyennes",
-            "Calcul"
-        ],
-        "statement": "QCM 3 (comparaison de deux moyennes) :\nUn chercheur souhaite comparer l’efficacité de deux médicaments (Médicament A et Médicament B) pour réduire le cholestérol. Il administre le Médicament A à un groupe de 100 patients et le Médicament B à un autre groupe de 120 patients. Après un mois de traitement, il mesure la réduction moyenne du cholestérol dans chaque groupe.\n- Groupe 1 (Médicament A) : La réduction moyenne du cholestérol est de 20 mg/dL avec un écart-type de 8 mg/dL.\n- Groupe 2 (Médicament B) : La réduction moyenne du cholestérol est de 18 mg/dL avec un écart-type de 7 mg/dL.\nLe chercheur souhaite déterminer si les deux médicaments ont une efficacité statistiquement différente, au niveau de signification α = 0.05. La conclusion du test statistique est :",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Les variances observées sont trop différentes pour pouvoir réaliser le test paramétrique approprié",
-                "correct": false,
-                "explanation": "A. Faux — Sur deux grands échantillons indépendants (n1 = 100 ≥ 30 et n2 = 120 ≥ 30), aucune condition sur les variances n'est requise grâce au théorème central limite."
-            },
-            {
-                "id": "b",
-                "text": "On rejette H0 car |z| = 1.96",
-                "correct": false,
-                "explanation": "B. Faux — La statistique calculée est |z| = 1.95 < 1.96, on ne rejette donc pas H0."
-            },
-            {
-                "id": "c",
-                "text": "On montre une différence significative car |t_ddl_∞| = 6.0 > 1.96",
-                "correct": false,
-                "explanation": "C. Faux — La statistique calculée ne vaut pas 6.0 mais |z| = 1.95."
-            },
-            {
-                "id": "d",
-                "text": "On ne rejette pas H0 car |z| = 1.95 < 1.96",
-                "correct": true,
-                "explanation": "D. Vrai — |z| = |20 - 18| / √(8²/100 + 7²/120) = 2 / √(0.64 + 0.4083) = 2 / √1.0483 = 2 / 1.0239 ≈ 1.95. Comme |z| = 1.95 < 1.96 au risque α = 5%, on ne rejette pas H0."
-            },
-            {
-                "id": "e",
-                "text": "On ne montre pas de différence significative car |t_30ddl| = 1.2 < 1.96",
-                "correct": false,
-                "explanation": "E. Faux — On utilise la loi normale centrée réduite Z car les effectifs sont grands (n1, n2 ≥ 30), et |z| ≈ 1.95."
-            }
-        ],
-        "explanation": "Réponse D exacte.\n• Données : n1 = 100, m1 = 20 mg/dL, s1 = 8 mg/dL ; n2 = 120, m2 = 18 mg/dL, s2 = 7 mg/dL.\n• Comme n1 ≥ 30 et n2 ≥ 30, test z bilatéral de comparaison de deux moyennes indépendantes.\n• Statistique de test sous H0 :\n  |z| = |m1 - m2| / √(s1²/n1 + s2²/n2) = |20 - 18| / √(64/100 + 49/120) = 2 / √(0.64 + 0.4083) = 2 / √1.0483 ≈ 1.953.\n• Au risque bilatéral 5%, z_seuil = 1.96.\n• Comme |z| = 1.95 < 1.96, on ne rejette pas H0 : on ne peut pas conclure à une différence significative entre les deux médicaments au risque 5%."
-    },
-    {
-        "id": "ue_bio_f1_ex_q4",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°1 - Tests paramétriques",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Tests paramétriques",
-            "Comparaison deux proportions"
-        ],
-        "statement": "Énoncé commun aux questions 1 à 2 :\nOn réalise une étude sur l’efficacité d’un substitut nicotinique. On administre ce traitement à deux échantillons de sujets fumeurs : un de 200 hommes et un de 200 femmes. On observe que 100 hommes et 110 femmes ont arrêté de fumer. On souhaite savoir si le traitement a la même efficacité chez les hommes et chez les femmes. On suppose les conditions pour faire un test bilatéral basé sur la loi normale sont satisfaites.\n\nQuestion 1 : Quel est (quelles sont) la (les) proposition(s) exacte(s) ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "La proportion théorique d’hommes ayant cessé de fumer est égale à 50%.",
-                "correct": false,
-                "explanation": "A. Faux — 50% (100/200 = 0.50) est la proportion observée (pH) et non la proportion théorique."
-            },
-            {
-                "id": "b",
-                "text": "La proportion observée de femme ayant cessé de fumer est égale à 55%.",
-                "correct": true,
-                "explanation": "B. Vrai — pF = 110 / 200 = 0.55, soit 55%."
-            },
-            {
-                "id": "c",
-                "text": "Le test en question est un test de comparaison d’une proportion observée à une proportion théorique.",
-                "correct": false,
-                "explanation": "C. Faux — C'est un test de comparaison de deux proportions observées sur échantillons indépendants."
-            },
-            {
-                "id": "d",
-                "text": "Le test en question est un test de comparaison de deux proportions observées.",
-                "correct": true,
-                "explanation": "D. Vrai — On compare le taux de succès observé chez les hommes à celui observé chez les femmes."
-            },
-            {
-                "id": "e",
-                "text": "L’hypothèse nulle est qu’il y a autant d’hommes que de femmes qui ont cessé de fumer dans les deux populations d’hommes et de femmes dans lesquelles les échantillons ont été pris.",
-                "correct": true,
-                "explanation": "E. Vrai — L'hypothèse nulle stipule l'égalité des proportions théoriques dans les deux populations : H0 : p_hommes = p_femmes."
-            }
-        ],
-        "explanation": "Réponses B, D et E exactes.\n• Échantillon hommes : nH = 200, succès = 100 → proportion observée pH = 100/200 = 0.50 (50%).\n• Échantillon femmes : nF = 200, succès = 110 → proportion observée pF = 110/200 = 0.55 (55%).\n• Il s'agit d'un test bilatéral de comparaison de deux proportions observées indépendantes.\n• Hypothèse nulle H0 : p_hommes = p_femmes (même proportion théorique d'arrêt du tabac dans les deux populations)."
-    },
-    {
-        "id": "ue_bio_f1_ex_q5",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°1 - Tests paramétriques",
-        "year": 2024,
-        "difficulty": "Difficile",
-        "tags": [
-            "Biostatistiques",
-            "Tests paramétriques",
-            "Comparaison deux proportions",
-            "Calcul"
-        ],
-        "statement": "Énoncé commun aux questions 1 à 2 :\nOn réalise une étude sur l’efficacité d’un substitut nicotinique. On administre ce traitement à deux échantillons de sujets fumeurs : un de 200 hommes et un de 200 femmes. On observe que 100 hommes et 110 femmes ont arrêté de fumer. On souhaite savoir si le traitement a la même efficacité chez les hommes et chez les femmes. On suppose les conditions pour faire un test bilatéral basé sur la loi normale sont satisfaites.\n\nQuestion 2 : Une ou plusieurs proposition(s) exacte(s) concernant ce test :",
-        "answers": [
-            {
-                "id": "a",
-                "text": "La proportion observée commune est égale à 52,5 %.",
-                "correct": true,
-                "explanation": "A. Vrai — p0 = (100 + 110) / (200 + 200) = 210 / 400 = 0.525, soit 52.5%."
-            },
-            {
-                "id": "b",
-                "text": "La statistique du test est égale à z = 1.",
-                "correct": true,
-                "explanation": "B. Vrai — z = |0.50 - 0.55| / √[0.525 * 0.475 * (1/200 + 1/200)] = 0.05 / √[0.249375 * 0.01] = 0.05 / 0.049937 ≈ 1.00."
-            },
-            {
-                "id": "c",
-                "text": "On rejette H0 et on conclut à une différence significative entre les proportions d’hommes et de femmes ayant cessé de fumer.",
-                "correct": false,
-                "explanation": "C. Faux — Comme |z| = 1.00 < 1.96 au seuil 5%, on ne rejette pas H0."
-            },
-            {
-                "id": "d",
-                "text": "On ne rejette pas H0 et on conclut que les proportions d’hommes et de femmes ayant cessé de fumer ne sont pas significativement différentes.",
-                "correct": true,
-                "explanation": "D. Vrai — |z| = 1.00 < 1.96, non rejet de H0 (la différence n'est pas significative)."
-            },
-            {
-                "id": "e",
-                "text": "Le degré de signification du test est p < 0,01.",
-                "correct": false,
-                "explanation": "E. Faux — H0 n'étant pas rejetée au risque 5%, on a p > 0.05."
-            }
-        ],
-        "explanation": "Réponses A, B et D exactes.\n• Proportion commune sous H0 : p0 = (nH*pH + nF*pF) / (nH + nF) = (100 + 110) / 400 = 0.525 (52.5%).\n• Écart-type sous H0 : √[p0*(1-p0)*(1/nH + 1/nF)] = √[0.525 * 0.475 * (2/200)] = √0.00249375 ≈ 0.04994.\n• Statistique du test : |z| = |0.50 - 0.55| / 0.04994 = 0.05 / 0.04994 ≈ 1.00.\n• Seuil bilatéral au risque 5% : z_seuil = 1.96. Comme |z| = 1.00 < 1.96, non-rejet de H0 : pas de différence statistiquement significative."
-    },
-    {
-        "id": "ue_bio_f1_ex_q6",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°1 - Tests paramétriques",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Tests paramétriques",
-            "Choix de test"
-        ],
-        "statement": "Énoncé commun aux questions 3 à 5 :\nOn cherche un nouveau médicament pour diminuer le dosage des phosphatases alcalines dans une population d’enfants de 12 ans. On fait un essai thérapeutique sur des enfants de cet âge et on tire au sort le traitement qui leur sera prescrit. Les phosphatases alcalines sont dosées dans un échantillon 1 de n1 = 41 enfants qui reçoivent un placebo et on obtient un dosage moyen de 120 UI/L et une variance de 900 UI/L. Dans un échantillon 2 de n2 = 61 enfants qui reçoivent le nouveau médicament, on obtient un dosage moyen de 105 UI/L et une variance de 400 UI/L. Le dosage est distribué normalement dans les deux populations.\n\nQuestion 3 : Quel est ou quels sont le ou les test(s) que l’on peut faire avec ces données ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "On peut faire un test de comparaison de deux moyennes observées sur grands échantillons basé sur la loi normale.",
-                "correct": true,
-                "explanation": "A. Vrai — Les deux effectifs sont grands (n1 = 41 > 30 et n2 = 61 > 30), on peut appliquer le test z basé sur la loi normale."
-            },
-            {
-                "id": "b",
-                "text": "On peut faire un test de comparaison de deux moyennes observées sur petits échantillons basé sur la loi de Student.",
-                "correct": false,
-                "explanation": "B. Faux — Ce sont de grands échantillons (n1 > 30 et n2 > 30), le recours au test de Student sur petits échantillons n'est pas requis."
-            },
-            {
-                "id": "c",
-                "text": "On peut faire un test de comparaison d’une moyenne observée à une moyenne théorique basé sur la loi normale.",
-                "correct": false,
-                "explanation": "C. Faux — On compare deux groupes observés (placebo vs médicament), et non une moyenne observée à une norme théorique connue."
-            },
-            {
-                "id": "d",
-                "text": "On peut faire un test de comparaison d’une moyenne observée à une moyenne théorique basé sur la loi de Student.",
-                "correct": false,
-                "explanation": "D. Faux — Il s'agit de comparer deux échantillons indépendants entre eux."
-            },
-            {
-                "id": "e",
-                "text": "On peut faire un test de comparaison de variances de type Fisher-Snedecor.",
-                "correct": true,
-                "explanation": "E. Vrai — Comme la variable est distribuée normalement dans les deux populations, on peut comparer les deux variances à l'aide d'un test F de Fisher-Snedecor."
-            }
-        ],
-        "explanation": "Réponses A et E exactes.\n• Deux échantillons indépendants : n1 = 41 (> 30) et n2 = 61 (> 30).\n• Comme n1, n2 > 30, on peut réaliser un test paramétrique de comparaison de deux moyennes sur grands échantillons basé sur la loi normale (item A).\n• De plus, l'énoncé précisant que la variable est distribuée normalement dans les deux populations, le test d'homoscédasticité (comparaison de variances) de Fisher-Snedecor est applicable (item E)."
-    },
-    {
-        "id": "ue_bio_f1_ex_q7",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°1 - Tests paramétriques",
-        "year": 2024,
-        "difficulty": "Difficile",
-        "tags": [
-            "Biostatistiques",
-            "Tests paramétriques",
-            "Comparaison deux moyennes",
-            "Calcul"
-        ],
-        "statement": "Énoncé commun aux questions 3 à 5 :\nOn cherche un nouveau médicament pour diminuer le dosage des phosphatases alcalines dans une population d’enfants de 12 ans. On fait un essai thérapeutique sur des enfants de cet âge et on tire au sort le traitement qui leur sera prescrit. Les phosphatases alcalines sont dosées dans un échantillon 1 de n1 = 41 enfants qui reçoivent un placebo et on obtient un dosage moyen de 120 UI/L et une variance de 900 UI/L. Dans un échantillon 2 de n2 = 61 enfants qui reçoivent le nouveau médicament, on obtient un dosage moyen de 105 UI/L et une variance de 400 UI/L. Le dosage est distribué normalement dans les deux populations.\n\nQuestion 4 : On effectue le test bilatéral de comparaison des moyennes choisi à la question précédente :",
-        "answers": [
-            {
-                "id": "a",
-                "text": "La statistique du test vaut 1,66",
-                "correct": false,
-                "explanation": "A. Faux — La statistique z calculée vaut 2.81 (et non 1.66)."
-            },
-            {
-                "id": "b",
-                "text": "On conclut que le médicament fait diminuer significativement le dosage de phosphates.",
-                "correct": true,
-                "explanation": "B. Vrai — |z| = 2.81 > 1.96 (rejet de H0). L'attribution ayant été faite par tirage au sort (essai randomisé), on peut conclure à une relation causale d'efficacité dans le sens observé (diminution)."
-            },
-            {
-                "id": "c",
-                "text": "On conclut que le médicament ne fait pas diminuer significativement le dosage de phosphates.",
-                "correct": false,
-                "explanation": "C. Faux — La diminution est statistiquement significative au risque 5%."
-            },
-            {
-                "id": "d",
-                "text": "Le degré de signification est p < 0,02",
-                "correct": false,
-                "explanation": "D. Faux — Comme |z| = 2.81 > 2.576, le degré de signification est encore plus fort : p < 0.01."
-            },
-            {
-                "id": "e",
-                "text": "Le degré de signification est p < 0,01",
-                "correct": true,
-                "explanation": "E. Vrai — Pour la loi normale, au risque bilatéral de 1%, la valeur critique est 2.576. Comme |z| = 2.81 > 2.576, on a p < 0.01."
-            }
-        ],
-        "explanation": "Réponses B et E exactes.\n• Calcul de la statistique z :\n  z = (m1 - m2) / √(s1²/n1 + s2²/n2) = (120 - 105) / √(900/41 + 400/61)\n  z = 15 / √(21.951 + 6.557) = 15 / √28.508 = 15 / 5.339 ≈ 2.81.\n• Comparaison aux valeurs seuils de la loi normale :\n  - Au risque 5% : z_seuil = 1.96 → 2.81 > 1.96 (Rejet de H0).\n  - Au risque 1% : z_seuil = 2.576 → 2.81 > 2.576, d'où p < 0.01.\n• Conclusion : L'essai étant randomisé (tirage au sort), on conclut que le traitement diminue significativement le dosage des phosphatases alcalines (p < 0.01)."
-    },
-    {
-        "id": "ue_bio_f1_ex_q8",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°1 - Tests paramétriques",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Tests paramétriques",
-            "Calcul variance"
-        ],
-        "statement": "Énoncé commun aux QCM 1.1 à 1.3 :\nDes chercheurs ont mis au point un programme de supplémentation en acides aminés essentiels destiné aux patients adultes hospitalisés en rééducation après chirurgie orthopédique. L’objectif est d’améliorer la récupération musculaire, évaluée par la mesure de la force d’extension du genou avant le retour à domicile. Ils réalisent un essai contrôlé randomisé chez 54 patients :\n● Groupe A (n = 27) : supplémentation placebo\n● Groupe B (n = 27) : supplémentation en acides aminés\nÀ la fin de la rééducation, les résultats suivants sont obtenus :\nGroupe A : TA = ΣXA = 1215 et ΣXA² = 55675 ; Groupe B : TB = ΣXB = 1296 et ΣXB² = 62496\nPour les questions 1 et 2, on considérera que la (les) condition(s) d'application est(sont) réunie(s) pour réaliser un test paramétrique.\n\nQCM 1 : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant la valeur de la force de préhension à la fin de l’hospitalisation entre les deux groupes ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "H0 : les moyennes théoriques des deux groupes sont égales",
-                "correct": true,
-                "explanation": "A. Vrai — L'hypothèse nulle d'un test bilatéral pose l'égalité des moyennes théoriques : H0 : μA = μB."
-            },
-            {
-                "id": "b",
-                "text": "H1 : μA ≠ μB",
-                "correct": true,
-                "explanation": "B. Vrai — L'hypothèse alternative bilatérale est H1 : μA ≠ μB."
-            },
-            {
-                "id": "c",
-                "text": "L’égalité des variances est une condition d’application du test t de Student pour échantillons indépendants",
-                "correct": true,
-                "explanation": "C. Vrai — L'homoscédasticité (égalité des variances dans les deux populations) est requise pour le test t de Student sur petits échantillons."
-            },
-            {
-                "id": "d",
-                "text": "L’écart-type du groupe A est d’environ 4.9",
-                "correct": false,
-                "explanation": "D. Faux — sA² = [ΣXA² - (ΣXA)²/nA] / (nA - 1) = [55675 - (1215)²/27] / 26 = [55675 - 54675] / 26 = 1000 / 26 ≈ 38.46. D'où sA = √38.46 ≈ 6.20."
-            },
-            {
-                "id": "e",
-                "text": "La variance du groupe B est d’environ 12.4",
-                "correct": false,
-                "explanation": "E. Faux — sB² = [ΣXB² - (ΣXB)²/nB] / (nB - 1) = [62496 - (1296)²/27] / 26 = [62496 - 62208] / 26 = 288 / 26 ≈ 11.08 (et non 12.4)."
-            }
-        ],
-        "explanation": "Réponses A, B et C exactes.\n• Hypothèses : H0 : μA = μB vs H1 : μA ≠ μB (bilatéral).\n• Conditions d'application du test de Student : indépendance, normalité des distributions et égalité des variances (homoscédasticité).\n• Calculs des variances et écarts-types :\n  - Groupe A : mA = 1215/27 = 45 ; sA² = (55675 - 27*45²) / 26 = (55675 - 54675) / 26 = 1000 / 26 ≈ 38.46 → sA = √38.46 ≈ 6.20.\n  - Groupe B : mB = 1296/27 = 48 ; sB² = (62496 - 27*48²) / 26 = (62496 - 62208) / 26 = 288 / 26 ≈ 11.08 → sB = √11.08 ≈ 3.33."
-    },
-    {
-        "id": "ue_bio_f1_ex_q9",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°1 - Tests paramétriques",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Tests paramétriques",
-            "Conclusion test",
-            "Causalité"
-        ],
-        "statement": "Énoncé commun aux QCM 1.1 à 1.3 :\nDes chercheurs ont mis au point un programme de supplémentation en acides aminés essentiels destiné aux patients adultes hospitalisés en rééducation après chirurgie orthopédique. L’objectif est d’améliorer la récupération musculaire, évaluée par la mesure de la force d’extension du genou avant le retour à domicile. Ils réalisent un essai contrôlé randomisé chez 54 patients :\n● Groupe A (n = 27) : supplémentation placebo\n● Groupe B (n = 27) : supplémentation en acides aminés\nÀ la fin de la rééducation, les résultats suivants sont obtenus :\nGroupe A : TA = ΣXA = 1215 et ΣXA² = 55675 ; Groupe B : TB = ΣXB = 1296 et ΣXB² = 62496\nPour les questions 1 et 2, on considérera que la (les) condition(s) d'application est(sont) réunie(s) pour réaliser un test paramétrique.\n\nQCM 2 : La conclusion du test est (une ou plusieurs propositions exactes) :",
-        "answers": [
-            {
-                "id": "a",
-                "text": "On rejette H0 car ∣t52∣ = 2.21 > valeur seuil",
-                "correct": true,
-                "explanation": "A. Vrai — La statistique de Student commune pour ddl = 27+27-2 = 52 vaut |t52| = 2.21. Comme 2.21 > t_crit (2.007 au risque 5%), on rejette H0."
-            },
-            {
-                "id": "b",
-                "text": "On ne rejette pas H0 car ∣t52∣ = 0.88 < valeur seuil",
-                "correct": false,
-                "explanation": "B. Faux — La statistique observée vaut |t52| = 2.21 > valeur seuil."
-            },
-            {
-                "id": "c",
-                "text": "Le test montre une différence significative entre les groupes",
-                "correct": false,
-                "explanation": "C. Faux — D'après la grille de correction officielle de l'exercice (item considéré comme faux/non retenu par l'énoncé)."
-            },
-            {
-                "id": "d",
-                "text": "On ne peut pas rejeter H0 car la statistique de test est inférieure à 1.96",
-                "correct": false,
-                "explanation": "D. Faux — La statistique calculée (2.21) est supérieure à la valeur seuil."
-            },
-            {
-                "id": "e",
-                "text": "Le plan de l’étude permet d’affirmer l’efficacité du traitement si la différence est significative",
-                "correct": true,
-                "explanation": "E. Vrai — L'essai étant un essai clinique contrôlé randomisé, la randomisation élimine les biais de confusion et autorise l'inférence causale quant à l'efficacité du traitement."
-            }
-        ],
-        "explanation": "Réponses A et E exactes.\n• Degrés de liberté : ddl = nA + nB - 2 = 27 + 27 - 2 = 52.\n• Statistique de test : |t_52| = 2.21 > valeur seuil critique (≈ 2.007 au risque 5%), on rejette H0.\n• La randomisation (essai contrôlé randomisé) permet de conclure à un lien de causalité direct (efficacité du traitement) en cas de différence statistiquement significative."
     },
     {
         "id": "ue9_f12_snp_q1",
@@ -73751,6 +72939,876 @@
             }
         ],
         "explanation": "Réponses B et E exactes.\n\n1. Statistique de test : F = 326.2 / 20.88 = 15.61 ≈ 15.6 (Item B VRAI, A et D FAUX).\n2. Table de Fisher : v1 = 2 ddl, v2 = 77 ddl. Seuil d'environ 3.8.\n3. Décision : F = 15.6 > 3.8 → Rejet de H0 au risque 5% (Item B VRAI, C FAUX car pas un Chi²).\n4. Conclusion : Au moins deux moyennes diffèrent significativement car H0 a été rejetée (Item E VRAI)."
+    },
+    {
+        "id": "ue_bio_f1_dp1_q1",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp_param_1",
+        "dpTitle": "DP 1 - Spondylarthrite ankylosante (BASDAI 3 mois)",
+        "dpStep": 1,
+        "dpTotalSteps": 3,
+        "tags": [
+            "Biostatistiques",
+            "Dossier Progressif",
+            "Tests paramétriques",
+            "Test de Student",
+            "Test de Fisher"
+        ],
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. En particulier, ils cherchent à évaluer l’impact d’une nouvelle intervention basée sur des techniques de relaxation et la consommation régulière de compléments alimentaires. Une étude est organisée auprès de 29 sujets afin de comparer 14 patients avec prise en charge habituelle (Groupe 1) à 15 patients chez qui l’intervention a été implémentée (Groupe 2).\nPour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (0 à 10). On considèrera que ce score suit une loi normale.\n\nDonnées après 3 mois de suivi :\n• Groupe 1 : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773\n• Groupe 2 : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514\n• Total : N = 29, T = 175, ∑∑X² = 1287\n\nQUESTION 1 du DP 1 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant le score BASDAI entre les deux groupes ?",
+        "image": {
+            "url": "src/assets/images/table_dp_param_1.png",
+            "alt": "DP 1 - Spondylarthrite ankylosante (BASDAI 3 mois)"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "Hypothèse nulle H0 : la différence des moyennes des groupes est égale à zéro",
+                "correct": true,
+                "explanation": "A. Vrai — Test bilatéral : H0 : μ1 = μ2, soit μ1 - μ2 = 0."
+            },
+            {
+                "id": "b",
+                "text": "Hypothèse alternative H1 : μ1 ≠ μ2",
+                "correct": true,
+                "explanation": "B. Vrai — Test bilatéral au risque 5% : H1 : μ1 ≠ μ2."
+            },
+            {
+                "id": "c",
+                "text": "L’écart type du score est de 2,79 (groupe 1) et 2,78 (groupe 2)",
+                "correct": true,
+                "explanation": "C. Vrai — s1 = √[(773 - 97²/14)/13] = 2.79 et s2 = √[(514 - 78²/15)/14] = 2.78."
+            },
+            {
+                "id": "d",
+                "text": "L’écart type du score est de 7,76 (groupe 1) et 4,74 (groupe 2)",
+                "correct": false,
+                "explanation": "D. Faux — 7.76 est la variance s1² (et non l'écart-type)."
+            },
+            {
+                "id": "e",
+                "text": "Sans faire de test, les conditions d’application semblent remplies pour réaliser un test paramétrique",
+                "correct": true,
+                "explanation": "E. Vrai — Normalité posée par l'énoncé et variances très proches (7.76 vs 7.74)."
+            }
+        ],
+        "explanation": "Réponses A, B, C et E exactes (selon grille d'épreuve : BCE avec A définitionnelle).\n• Écarts-types : s1 = 2.79, s2 = 2.78 (Item C VRAI).\n• Hypothèse alternative bilatérale : μ1 ≠ μ2 (Item B VRAI).\n• Conditions vérifiées (Item E VRAI)."
+    },
+    {
+        "id": "ue_bio_f1_dp1_q2",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp_param_1",
+        "dpTitle": "DP 1 - Spondylarthrite ankylosante (BASDAI 3 mois)",
+        "dpStep": 2,
+        "dpTotalSteps": 3,
+        "tags": [
+            "Biostatistiques",
+            "Dossier Progressif",
+            "Tests paramétriques",
+            "Test de Student",
+            "Test de Fisher"
+        ],
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. En particulier, ils cherchent à évaluer l’impact d’une nouvelle intervention basée sur des techniques de relaxation et la consommation régulière de compléments alimentaires. Une étude est organisée auprès de 29 sujets afin de comparer 14 patients avec prise en charge habituelle (Groupe 1) à 15 patients chez qui l’intervention a été implémentée (Groupe 2).\nPour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (0 à 10). On considèrera que ce score suit une loi normale.\n\nDonnées après 3 mois de suivi :\n• Groupe 1 : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773\n• Groupe 2 : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514\n• Total : N = 29, T = 175, ∑∑X² = 1287\n\nQUESTION 2 du DP 1 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
+        "image": {
+            "url": "src/assets/images/table_dp_param_1.png",
+            "alt": "DP 1 - Spondylarthrite ankylosante (BASDAI 3 mois)"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "On rejette H0 car |Z|=2,2 > 1,96",
+                "correct": false,
+                "explanation": "A. Faux — Effectifs n1=14, n2=15 < 30 : on utilise Student et non la loi normale Z."
+            },
+            {
+                "id": "b",
+                "text": "On ne rejette pas H0 car |t27ddl|= environ 1,6 < 2,052",
+                "correct": true,
+                "explanation": "B. Vrai — ddl = 27. m1 = 6.93, m2 = 5.20. s²commune = 7.75. t = (6.93 - 5.2) / √[7.75*(1/14 + 1/15)] = 1.67 ≈ 1.6 < 2.052. Non-rejet de H0."
+            },
+            {
+                "id": "c",
+                "text": "On montre une différence significative car |t27ddl|=2,2 > 1,96",
+                "correct": false,
+                "explanation": "C. Faux — t calculé vaut 1.67."
+            },
+            {
+                "id": "d",
+                "text": "H0 est vraie car la valeur du test est inférieure à la valeur seuil",
+                "correct": false,
+                "explanation": "D. Faux — On ne conclut jamais qu'une hypothèse nulle est 'vraie'."
+            },
+            {
+                "id": "e",
+                "text": "Le schéma de l’étude ne permet pas de démontrer l’efficacité de l’intervention",
+                "correct": true,
+                "explanation": "E. Vrai — Absence de randomisation : le schéma observationnel empêche de prouver formellement la causalité."
+            }
+        ],
+        "explanation": "Réponses B et E exactes.\n• t = 1.67 à 27 ddl < valeur seuil 2.052 → Non-rejet de H0 (Item B VRAI).\n• Absence de tirage au sort → Biais possibles, efficacité non démontrée avec certitude (Item E VRAI)."
+    },
+    {
+        "id": "ue_bio_f1_dp1_q3",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp_param_1",
+        "dpTitle": "DP 1 - Spondylarthrite ankylosante (BASDAI 3 mois)",
+        "dpStep": 3,
+        "dpTotalSteps": 3,
+        "tags": [
+            "Biostatistiques",
+            "Dossier Progressif",
+            "Tests paramétriques",
+            "Test de Student",
+            "Test de Fisher"
+        ],
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. En particulier, ils cherchent à évaluer l’impact d’une nouvelle intervention basée sur des techniques de relaxation et la consommation régulière de compléments alimentaires. Une étude est organisée auprès de 29 sujets afin de comparer 14 patients avec prise en charge habituelle (Groupe 1) à 15 patients chez qui l’intervention a été implémentée (Groupe 2).\nPour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (0 à 10). On considèrera que ce score suit une loi normale.\n\nDonnées après 3 mois de suivi :\n• Groupe 1 : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773\n• Groupe 2 : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514\n• Total : N = 29, T = 175, ∑∑X² = 1287\n\nQUESTION 3 du DP 1 (QCM 1.3) : Vous souhaitez vérifier en réalisant le test approprié si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+        "image": {
+            "url": "src/assets/images/table_dp_param_1.png",
+            "alt": "DP 1 - Spondylarthrite ankylosante (BASDAI 3 mois)"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "La valeur seuil à considérer est située entre 2.98 et 3.05",
+                "correct": true,
+                "explanation": "A. Vrai — v1 = 13 ddl, v2 = 14 ddl : seuil bilatéral à 5% dans la table de Fisher ∈ [2.98 ; 3.05]."
+            },
+            {
+                "id": "b",
+                "text": "La valeur seuil à considérer est égale à 3.08",
+                "correct": false,
+                "explanation": "B. Faux — Seuil entre 2.98 et 3.05."
+            },
+            {
+                "id": "c",
+                "text": "La valeur de la statistique de test est égale à environ 2",
+                "correct": false,
+                "explanation": "C. Faux — F vaut environ 1.01."
+            },
+            {
+                "id": "d",
+                "text": "La valeur de la statistique de test est égale à environ 1",
+                "correct": true,
+                "explanation": "D. Vrai — F = s1² / s2² = 2.79² / 2.78² = 1.007 ≈ 1."
+            },
+            {
+                "id": "e",
+                "text": "Vous ne rejetez pas l’hypothèse H0 au risque alpha 5% car F < valeur seuil",
+                "correct": true,
+                "explanation": "E. Vrai — F = 1.01 < seuil critique : non-rejet de H0 (homoscédasticité retenue)."
+            }
+        ],
+        "explanation": "Réponses A, D et E exactes.\n• F = 2.79² / 2.78² = 1.007 ≈ 1 (Item D VRAI).\n• Seuil F(13, 14) bilatéral 5% ∈ [2.98 ; 3.05] (Item A VRAI).\n• F < seuil → Non-rejet de H0 (Item E VRAI)."
+    },
+    {
+        "id": "ue_bio_f1_dp2_q1",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp_param_2",
+        "dpTitle": "DP 2 - Cirrhose hépatique et transaminases",
+        "dpStep": 1,
+        "dpTotalSteps": 3,
+        "tags": [
+            "Biostatistiques",
+            "Dossier Progressif",
+            "Tests paramétriques",
+            "Test de Student",
+            "Test de Fisher"
+        ],
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nUne équipe de recherche a développé un nouveau traitement pour ralentir l'évolution de la cirrhose hépatique en diminuant les transaminases. Étude chez 20 sujets :\n• Groupe 1 (prise en charge habituelle) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120607\n• Groupe 2 (nouveau traitement) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56820\nPour les questions 1 et 2, on considérera que les conditions d'application sont réunies pour un test paramétrique.\n\nQUESTION 1 du DP 2 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant les transaminases entre les deux groupes ?",
+        "image": {
+            "url": "src/assets/images/table_dp_param_2.png",
+            "alt": "DP 2 - Cirrhose hépatique et transaminases"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "Hypothèse nulle H0 : les moyennes observées des groupes sont égales à zéro",
+                "correct": false,
+                "explanation": "A. Faux — H0 concerne les moyennes théoriques (μ1 = μ2)."
+            },
+            {
+                "id": "b",
+                "text": "Hypothèse alternative H1 : μ1 < μ2",
+                "correct": false,
+                "explanation": "B. Faux — Test bilatéral : H1 : μ1 ≠ μ2."
+            },
+            {
+                "id": "c",
+                "text": "L’écart type des transaminases est de 50.2 (groupe 1) et 12.3 (groupe 2)",
+                "correct": false,
+                "explanation": "C. Faux — s1 = 25.6 et s2 = 9.8."
+            },
+            {
+                "id": "d",
+                "text": "L’écart type des transaminases est de 25.6 (groupe 1) et 9.8 (groupe 2)",
+                "correct": true,
+                "explanation": "D. Vrai — s1 = √[(120607 - 1071²/10)/9] = 25.6 et s2 = √[(56820 - 748²/10)/9] = 9.8."
+            },
+            {
+                "id": "e",
+                "text": "La normalité de la distribution du taux de transaminases n'est pas la seule condition d'application pour réaliser le test paramétrique approprié",
+                "correct": true,
+                "explanation": "E. Vrai — L'égalité des variances (homoscédasticité) et l'indépendance sont également requises."
+            }
+        ],
+        "explanation": "Réponses D et E exactes.\n• Écarts-types corrigés : s1 = 25.6 et s2 = 9.8 (Item D VRAI).\n• Conditions : Normalité + homoscédasticité + indépendance (Item E VRAI)."
+    },
+    {
+        "id": "ue_bio_f1_dp2_q2",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp_param_2",
+        "dpTitle": "DP 2 - Cirrhose hépatique et transaminases",
+        "dpStep": 2,
+        "dpTotalSteps": 3,
+        "tags": [
+            "Biostatistiques",
+            "Dossier Progressif",
+            "Tests paramétriques",
+            "Test de Student",
+            "Test de Fisher"
+        ],
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nUne équipe de recherche a développé un nouveau traitement pour ralentir l'évolution de la cirrhose hépatique en diminuant les transaminases. Étude chez 20 sujets :\n• Groupe 1 (prise en charge habituelle) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120607\n• Groupe 2 (nouveau traitement) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56820\nPour les questions 1 et 2, on considérera que les conditions d'application sont réunies pour un test paramétrique.\n\nQUESTION 2 du DP 2 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
+        "image": {
+            "url": "src/assets/images/table_dp_param_2.png",
+            "alt": "DP 2 - Cirrhose hépatique et transaminases"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "On ne rejette pas H0 car |t18ddl|=1.91 < 2.101",
+                "correct": false,
+                "explanation": "A. Faux — t vaut 3.72."
+            },
+            {
+                "id": "b",
+                "text": "On rejette H0 car |Z|=3.23 > 1.96",
+                "correct": false,
+                "explanation": "B. Faux — Petits échantillons (n=10), loi de Student à 18 ddl et non Z."
+            },
+            {
+                "id": "c",
+                "text": "On montre une différence significative car |t18ddl|= 3.72 > 2.101",
+                "correct": true,
+                "explanation": "C. Vrai — m1 = 107.1, m2 = 74.8. s²commune = 376.25. t = (107.1 - 74.8)/√[376.25*(2/10)] = 32.3 / 8.67 = 3.72 > 2.101. On rejette H0."
+            },
+            {
+                "id": "d",
+                "text": "H0 est vraie car la valeur du test est inférieure à la valeur seuil",
+                "correct": false,
+                "explanation": "D. Faux — |t| est supérieur au seuil et on rejette H0."
+            },
+            {
+                "id": "e",
+                "text": "Le plan expérimental de l’étude ne permettrait pas d'affirmer avec certitude l’efficacité du traitement",
+                "correct": true,
+                "explanation": "E. Vrai — Absence de double aveugle / contrôle placebo explicite dans le protocole."
+            }
+        ],
+        "explanation": "Réponses C et E exactes.\n• t = 3.72 > seuil Student (2.101) à 18 ddl → Rejet de H0 : différence significative (Item C VRAI).\n• Limites méthodologiques (Item E VRAI)."
+    },
+    {
+        "id": "ue_bio_f1_dp2_q3",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp_param_2",
+        "dpTitle": "DP 2 - Cirrhose hépatique et transaminases",
+        "dpStep": 3,
+        "dpTotalSteps": 3,
+        "tags": [
+            "Biostatistiques",
+            "Dossier Progressif",
+            "Tests paramétriques",
+            "Test de Student",
+            "Test de Fisher"
+        ],
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nUne équipe de recherche a développé un nouveau traitement pour ralentir l'évolution de la cirrhose hépatique en diminuant les transaminases. Étude chez 20 sujets :\n• Groupe 1 (prise en charge habituelle) : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120607\n• Groupe 2 (nouveau traitement) : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56820\nPour les questions 1 et 2, on considérera que les conditions d'application sont réunies pour un test paramétrique.\n\nQUESTION 3 du DP 2 (QCM 1.3) : En réalisant le test statistique approprié, vous souhaitez vérifier si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+        "image": {
+            "url": "src/assets/images/table_dp_param_2.png",
+            "alt": "DP 2 - Cirrhose hépatique et transaminases"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "La valeur seuil à considérer est égale à 3.72",
+                "correct": false,
+                "explanation": "A. Faux — 3.72 était la statistique t de Student."
+            },
+            {
+                "id": "b",
+                "text": "La valeur seuil à considérer est égale à 4.03",
+                "correct": true,
+                "explanation": "B. Vrai — v1 = 9, v2 = 9 ddl : seuil de Fisher bilatéral à 5% = 4.03."
+            },
+            {
+                "id": "c",
+                "text": "La valeur de la statistique de test est égale à environ 6.8",
+                "correct": true,
+                "explanation": "C. Vrai — F = s1² / s2² = 25.6² / 9.8² = 655.88 / 96.62 = 6.79 ≈ 6.8."
+            },
+            {
+                "id": "d",
+                "text": "La valeur de la statistique de test est égale à environ 0.15",
+                "correct": false,
+                "explanation": "D. Faux — F vaut environ 6.8."
+            },
+            {
+                "id": "e",
+                "text": "Vous ne rejetez pas l’hypothèse H0 au risque alpha 5% car F < valeur seuil",
+                "correct": false,
+                "explanation": "E. Faux — F = 6.8 > 4.03 : on rejette H0 (variances inégales)."
+            }
+        ],
+        "explanation": "Réponses B et C exactes.\n• F = 25.6² / 9.8² = 6.79 ≈ 6.8 (Item C VRAI).\n• Seuil F(9, 9) = 4.03 (Item B VRAI).\n• F > seuil → Rejet de H0 : hétéroscédasticité significative (Item E FAUX)."
+    },
+    {
+        "id": "ue_bio_f1_dp3_q1",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp_param_3",
+        "dpTitle": "DP 3 - Spondylarthrite ankylosante (BASDAI 6 mois)",
+        "dpStep": 1,
+        "dpTotalSteps": 3,
+        "tags": [
+            "Biostatistiques",
+            "Dossier Progressif",
+            "Tests paramétriques",
+            "Test de Student",
+            "Test de Fisher"
+        ],
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. Une étude est organisée auprès de 46 sujets afin de comparer 25 patients avec prise en charge habituelle (Groupe 1) à 21 patients chez qui l’intervention a pu être implémentée (Groupe 2). L’intervention n’a pas été tirée au sort. Score BASDAI (0 à 10) :\n• Groupe 1 : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1073\n• Groupe 2 : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371\n(Arrondir à 2 chiffres après la virgule).\n\nQUESTION 1 du DP 3 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant le score BASDAI entre les deux groupes ?",
+        "image": {
+            "url": "src/assets/images/table_dp_param_3.png",
+            "alt": "DP 3 - Spondylarthrite ankylosante (BASDAI 6 mois)"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "Hypothèse nulle H0 : la différence des moyennes des groupes est égale à zéro",
+                "correct": true,
+                "explanation": "A. Vrai — Test bilatéral : H0 : μ1 = μ2 (différence nulle)."
+            },
+            {
+                "id": "b",
+                "text": "Hypothèse alternative H1 : μ1 < μ2",
+                "correct": false,
+                "explanation": "B. Faux — Test bilatéral : H1 : μ1 ≠ μ2."
+            },
+            {
+                "id": "c",
+                "text": "L’écart type du score est d’environ 1.11 (groupe 1) et 1.71 (groupe 2)",
+                "correct": false,
+                "explanation": "C. Faux — s1 = √2.57 = 1.60 (et non 1.11)."
+            },
+            {
+                "id": "d",
+                "text": "La variance du score est d’environ 2.57 (groupe 1) et 2.93 (groupe 2)",
+                "correct": true,
+                "explanation": "D. Vrai — s1² = 2.57 et s2² = 2.93."
+            },
+            {
+                "id": "e",
+                "text": "La normalité des distributions est une condition d’application nécessaire pour réaliser le test paramétrique approprié",
+                "correct": true,
+                "explanation": "E. Vrai — Effectifs n1=25 et n2=21 < 30 : la normalité est requise."
+            }
+        ],
+        "explanation": "Réponses A, D et E exactes.\n• Variances estimées : s1² = 2.57 et s2² = 2.93 (Item D VRAI).\n• s1 = 1.60 (Item C FAUX).\n• Normalité nécessaire car n < 30 (Item E VRAI).\n• H0 : différence nulle (Item A VRAI)."
+    },
+    {
+        "id": "ue_bio_f1_dp3_q2",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp_param_3",
+        "dpTitle": "DP 3 - Spondylarthrite ankylosante (BASDAI 6 mois)",
+        "dpStep": 2,
+        "dpTotalSteps": 3,
+        "tags": [
+            "Biostatistiques",
+            "Dossier Progressif",
+            "Tests paramétriques",
+            "Test de Student",
+            "Test de Fisher"
+        ],
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. Une étude est organisée auprès de 46 sujets afin de comparer 25 patients avec prise en charge habituelle (Groupe 1) à 21 patients chez qui l’intervention a pu être implémentée (Groupe 2). L’intervention n’a pas été tirée au sort. Score BASDAI (0 à 10) :\n• Groupe 1 : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1073\n• Groupe 2 : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371\n(Arrondir à 2 chiffres après la virgule).\n\nQUESTION 2 du DP 3 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
+        "image": {
+            "url": "src/assets/images/table_dp_param_3.png",
+            "alt": "DP 3 - Spondylarthrite ankylosante (BASDAI 6 mois)"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "On rejette H0 car |Z|= environ 6.5 > 1.96",
+                "correct": false,
+                "explanation": "A. Faux — Test de Student et non test Z."
+            },
+            {
+                "id": "b",
+                "text": "On rejette H0 car |t44ddl|= environ 5.1 > 1.96",
+                "correct": true,
+                "explanation": "B. Vrai — ddl = 44. t = 5.11 > 1.96 : rejet franc de H0."
+            },
+            {
+                "id": "c",
+                "text": "On montre une différence significative car |t46ddl|= environ 4.6 > 1.96",
+                "correct": false,
+                "explanation": "C. Faux — ddl = 44 (et non 46)."
+            },
+            {
+                "id": "d",
+                "text": "H0 est vraie car la valeur du test est supérieure à la valeur seuil",
+                "correct": false,
+                "explanation": "D. Faux — Valeur supérieure au seuil → rejet de H0."
+            },
+            {
+                "id": "e",
+                "text": "Le plan expérimental de l’étude ne permet pas de démontrer l’efficacité de l’intervention",
+                "correct": true,
+                "explanation": "E. Vrai — Pas de tirage au sort (étude non randomisée), présence de facteurs de confusion potentiels."
+            }
+        ],
+        "explanation": "Réponses B et E exactes.\n• |t44ddl| = 5.11 ≈ 5.1 > 1.96 → Rejet de H0 (Item B VRAI).\n• Absence de randomisation → efficacité causale non prouvée (Item E VRAI)."
+    },
+    {
+        "id": "ue_bio_f1_dp3_q3",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp_param_3",
+        "dpTitle": "DP 3 - Spondylarthrite ankylosante (BASDAI 6 mois)",
+        "dpStep": 3,
+        "dpTotalSteps": 3,
+        "tags": [
+            "Biostatistiques",
+            "Dossier Progressif",
+            "Tests paramétriques",
+            "Test de Student",
+            "Test de Fisher"
+        ],
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. Une étude est organisée auprès de 46 sujets afin de comparer 25 patients avec prise en charge habituelle (Groupe 1) à 21 patients chez qui l’intervention a pu être implémentée (Groupe 2). L’intervention n’a pas été tirée au sort. Score BASDAI (0 à 10) :\n• Groupe 1 : n1 = 25, T1 = ∑X1 = 159, ∑X1² = 1073\n• Groupe 2 : n2 = 21, T2 = ∑X2 = 81, ∑X2² = 371\n(Arrondir à 2 chiffres après la virgule).\n\nQUESTION 3 du DP 3 (QCM 1.3) : Vous souhaitez vérifier en réalisant le test approprié si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+        "image": {
+            "url": "src/assets/images/table_dp_param_3.png",
+            "alt": "DP 3 - Spondylarthrite ankylosante (BASDAI 6 mois)"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "La valeur seuil à considérer est égale à 2.41",
+                "correct": false,
+                "explanation": "A. Faux — 2.41 correspond à F(24, 20)."
+            },
+            {
+                "id": "b",
+                "text": "La valeur seuil à considérer est égale à 2.33",
+                "correct": true,
+                "explanation": "B. Vrai — v1 = 20, v2 = 24 ddl : seuil bilatéral 5% = 2.33."
+            },
+            {
+                "id": "c",
+                "text": "La valeur de la statistique de test est égale à environ 0.94",
+                "correct": false,
+                "explanation": "C. Faux — F vaut 1.14."
+            },
+            {
+                "id": "d",
+                "text": "La valeur de la statistique de test est égale à environ 1.14",
+                "correct": true,
+                "explanation": "D. Vrai — F = s2² / s1² = 2.93 / 2.57 = 1.14."
+            },
+            {
+                "id": "e",
+                "text": "Vous ne rejetez pas l’hypothèse H0 au risque alpha 5% car F < valeur seuil",
+                "correct": true,
+                "explanation": "E. Vrai — F = 1.14 < 2.33 : non-rejet de H0 (variances homogènes)."
+            }
+        ],
+        "explanation": "Réponses B, D et E exactes.\n• F = 2.93 / 2.57 = 1.14 (Item D VRAI).\n• Seuil F(20, 24) = 2.33 (Item B VRAI).\n• F < seuil → Non-rejet de H0 (Item E VRAI)."
+    },
+    {
+        "id": "ue_bio_f1_dp4_q1",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp_param_4",
+        "dpTitle": "DP 4 - Complément alimentaire et force de préhension",
+        "dpStep": 1,
+        "dpTotalSteps": 3,
+        "tags": [
+            "Biostatistiques",
+            "Dossier Progressif",
+            "Tests paramétriques",
+            "Test de Student",
+            "Test de Fisher"
+        ],
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nEssai contrôlé randomisé chez 60 personnes âgées dénutries pour évaluer un nouveau complément alimentaire sur la force de préhension (en kg) :\n• Groupe 1 (placebo) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14947\n• Groupe 2 (complément) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13517\nConditions d'application supposées remplies pour un test paramétrique.\n\nQUESTION 1 du DP 4 (QCM 1.1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant la force de préhension entre les deux groupes ?",
+        "image": {
+            "url": "src/assets/images/table_dp_param_4.png",
+            "alt": "DP 4 - Complément alimentaire et force de préhension"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "Hypothèse nulle H0 : les moyennes observées m1 et m2 des groupes sont différentes",
+                "correct": false,
+                "explanation": "A. Faux — H0 pose l'égalité des moyennes théoriques (μ1 = μ2)."
+            },
+            {
+                "id": "b",
+                "text": "Hypothèse alternative H1 : μ1 ≠ μ2",
+                "correct": true,
+                "explanation": "B. Vrai — Test bilatéral : H1 : μ1 ≠ μ2."
+            },
+            {
+                "id": "c",
+                "text": "L’égalité des variances est une condition d’application nécessaire pour réaliser le test paramétrique approprié",
+                "correct": true,
+                "explanation": "C. Vrai — Homoscédasticité requise."
+            },
+            {
+                "id": "d",
+                "text": "L’écart type de la force de préhension est de 4.1 (groupe 1) et 3.6 (groupe 2)",
+                "correct": false,
+                "explanation": "D. Faux — s1 = 1.90 kg et s2 = 1.89 kg."
+            },
+            {
+                "id": "e",
+                "text": "Les variances de la force de préhension des deux groupes sont égales à environ 3.6",
+                "correct": true,
+                "explanation": "E. Vrai — s1² = 3.61 et s2² = 3.58 ≈ 3.6."
+            }
+        ],
+        "explanation": "Réponses B, C et E exactes.\n• H1 : μ1 ≠ μ2 (Item B VRAI).\n• Homoscédasticité requise (Item C VRAI).\n• Variances : s1² = 3.61 et s2² = 3.58 ≈ 3.6 (Item E VRAI)."
+    },
+    {
+        "id": "ue_bio_f1_dp4_q2",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp_param_4",
+        "dpTitle": "DP 4 - Complément alimentaire et force de préhension",
+        "dpStep": 2,
+        "dpTotalSteps": 3,
+        "tags": [
+            "Biostatistiques",
+            "Dossier Progressif",
+            "Tests paramétriques",
+            "Test de Student",
+            "Test de Fisher"
+        ],
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nEssai contrôlé randomisé chez 60 personnes âgées dénutries pour évaluer un nouveau complément alimentaire sur la force de préhension (en kg) :\n• Groupe 1 (placebo) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14947\n• Groupe 2 (complément) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13517\nConditions d'application supposées remplies pour un test paramétrique.\n\nQUESTION 2 du DP 4 (QCM 1.2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
+        "image": {
+            "url": "src/assets/images/table_dp_param_4.png",
+            "alt": "DP 4 - Complément alimentaire et force de préhension"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "On ne rejette pas H0 car |t58ddl|= 0.74 < valeur seuil",
+                "correct": true,
+                "explanation": "A. Vrai — t = 0.74 à 58 ddl < 1.96 : non-rejet de H0."
+            },
+            {
+                "id": "b",
+                "text": "On rejette H0 car |Z|=1.20 < valeur seuil",
+                "correct": false,
+                "explanation": "B. Faux — t < seuil entraîne le non-rejet de H0."
+            },
+            {
+                "id": "c",
+                "text": "On montre une différence significative car |t58ddl|= 3.72 > 1.96",
+                "correct": false,
+                "explanation": "C. Faux — t = 0.74."
+            },
+            {
+                "id": "d",
+                "text": "H0 est vraie car la valeur du test est inférieure à la valeur seuil",
+                "correct": false,
+                "explanation": "D. Faux — On ne valide jamais formellement H0."
+            },
+            {
+                "id": "e",
+                "text": "Le plan expérimental de l’étude permettrait d'affirmer l’efficacité du traitement en cas de différence significative",
+                "correct": true,
+                "explanation": "E. Vrai — Essai contrôlé randomisé permettant d'établir un lien de causalité."
+            }
+        ],
+        "explanation": "Réponses A et E exactes (dans le sujet d'annale : E notée VRAI pour le plan d'étude, et A validée par le calcul t = 0.74 < 1.96).\n• t = 0.74 < seuil → Non-rejet de H0 (Item A VRAI).\n• ECR → Efficacité démontrable en cas de résultat significatif (Item E VRAI)."
+    },
+    {
+        "id": "ue_bio_f1_dp4_q3",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp_param_4",
+        "dpTitle": "DP 4 - Complément alimentaire et force de préhension",
+        "dpStep": 3,
+        "dpTotalSteps": 3,
+        "tags": [
+            "Biostatistiques",
+            "Dossier Progressif",
+            "Tests paramétriques",
+            "Test de Student",
+            "Test de Fisher"
+        ],
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nEssai contrôlé randomisé chez 60 personnes âgées dénutries pour évaluer un nouveau complément alimentaire sur la force de préhension (en kg) :\n• Groupe 1 (placebo) : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14947\n• Groupe 2 (complément) : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13517\nConditions d'application supposées remplies pour un test paramétrique.\n\nQUESTION 3 du DP 4 (QCM 1.3) : En réalisant le test statistique approprié, vous souhaitez vérifier si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+        "image": {
+            "url": "src/assets/images/table_dp_param_4.png",
+            "alt": "DP 4 - Complément alimentaire et force de préhension"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "La valeur seuil à considérer est située entre 2.07 et 2.13",
+                "correct": true,
+                "explanation": "A. Vrai — v1 = 31, v2 = 27 ddl : seuil de Fisher bilatéral ∈ [2.07 ; 2.13]."
+            },
+            {
+                "id": "b",
+                "text": "La valeur seuil à considérer est égale à 2.15",
+                "correct": false,
+                "explanation": "B. Faux — Seuil entre 2.07 et 2.13."
+            },
+            {
+                "id": "c",
+                "text": "La valeur de la statistique de test est égale à environ 0.85",
+                "correct": false,
+                "explanation": "C. Faux — F = 1.01."
+            },
+            {
+                "id": "d",
+                "text": "La valeur de la statistique de test est égale à environ 1.01",
+                "correct": true,
+                "explanation": "D. Vrai — F = s1² / s2² = 3.61 / 3.58 = 1.008 ≈ 1.01."
+            },
+            {
+                "id": "e",
+                "text": "Vous ne rejetez pas l’hypothèse H0 au risque alpha 5% car F < valeur seuil",
+                "correct": true,
+                "explanation": "E. Vrai — F = 1.01 < seuil critique : non-rejet de H0."
+            }
+        ],
+        "explanation": "Réponses A, D et E exactes.\n• F = 3.61 / 3.58 = 1.01 (Item D VRAI).\n• Seuil F(31, 27) ∈ [2.07 ; 2.13] (Item A VRAI).\n• F < seuil → Non-rejet de H0 (Item E VRAI)."
+    },
+    {
+        "id": "ue_bio_f1_dp5_q1",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp_param_5",
+        "dpTitle": "DP 5 - Supplémentation en acides aminés et force du genou",
+        "dpStep": 1,
+        "dpTotalSteps": 3,
+        "tags": [
+            "Biostatistiques",
+            "Dossier Progressif",
+            "Tests paramétriques",
+            "Test de Student",
+            "Test de Fisher"
+        ],
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 54 patients en rééducation après chirurgie orthopédique pour évaluer la force d’extension du genou :\n• Groupe A (placebo, n = 27) : TA = 1215, ∑XA² = 55675\n• Groupe B (acides aminés, n = 27) : TB = 1296, ∑XB² = 62496\nConditions d'application supposées réunies pour un test paramétrique.\n\nQUESTION 1 du DP 5 (QCM 1) : Quelle(s) est (sont) la (les) proposition(s) exacte(s) pour un test statistique bilatéral au risque 5% comparant la force d’extension du genou entre les deux groupes ?",
+        "image": {
+            "url": "src/assets/images/table_dp_param_5.png",
+            "alt": "DP 5 - Supplémentation en acides aminés et force du genou"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "H0 : les moyennes théoriques des deux groupes sont égales",
+                "correct": true,
+                "explanation": "A. Vrai — H0 : μA = μB."
+            },
+            {
+                "id": "b",
+                "text": "H1 : μA ≠ μB",
+                "correct": true,
+                "explanation": "B. Vrai — Test bilatéral : H1 : μA ≠ μB."
+            },
+            {
+                "id": "c",
+                "text": "L’égalité des variances est une condition d’application du test t de Student pour échantillons indépendants",
+                "correct": true,
+                "explanation": "C. Vrai — Homoscédasticité indispensable."
+            },
+            {
+                "id": "d",
+                "text": "L’écart-type du groupe A est d’environ 4.9",
+                "correct": false,
+                "explanation": "D. Faux — sA = 6.20."
+            },
+            {
+                "id": "e",
+                "text": "La variance du groupe B est d’environ 12.4",
+                "correct": false,
+                "explanation": "E. Faux — sB² = 11.08."
+            }
+        ],
+        "explanation": "Réponses A, B et C exactes.\n• H0 et H1 bilatérales (Items A et B VRAIS).\n• Homoscédasticité nécessaire (Item C VRAI).\n• sA = 6.20 (Item D FAUX) et sB² = 11.08 (Item E FAUX)."
+    },
+    {
+        "id": "ue_bio_f1_dp5_q2",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp_param_5",
+        "dpTitle": "DP 5 - Supplémentation en acides aminés et force du genou",
+        "dpStep": 2,
+        "dpTotalSteps": 3,
+        "tags": [
+            "Biostatistiques",
+            "Dossier Progressif",
+            "Tests paramétriques",
+            "Test de Student",
+            "Test de Fisher"
+        ],
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 54 patients en rééducation après chirurgie orthopédique pour évaluer la force d’extension du genou :\n• Groupe A (placebo, n = 27) : TA = 1215, ∑XA² = 55675\n• Groupe B (acides aminés, n = 27) : TB = 1296, ∑XB² = 62496\nConditions d'application supposées réunies pour un test paramétrique.\n\nQUESTION 2 du DP 5 (QCM 2) : La conclusion du test est (une ou plusieurs propositions exactes) :",
+        "image": {
+            "url": "src/assets/images/table_dp_param_5.png",
+            "alt": "DP 5 - Supplémentation en acides aminés et force du genou"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "On rejette H0 car ∣t52∣=2.21 > valeur seuil",
+                "correct": true,
+                "explanation": "A. Vrai — t = 2.21 > 2.01 à 52 ddl : rejet de H0."
+            },
+            {
+                "id": "b",
+                "text": "On ne rejette pas H0 car ∣t52∣=0.88 < valeur seuil",
+                "correct": false,
+                "explanation": "B. Faux — t = 2.21."
+            },
+            {
+                "id": "c",
+                "text": "Le test montre une différence significative entre les groupes",
+                "correct": true,
+                "explanation": "C. Vrai — Le rejet de H0 atteste d'une différence significative."
+            },
+            {
+                "id": "d",
+                "text": "On ne peut pas rejeter H0 car la statistique de test est inférieure à 1.96",
+                "correct": false,
+                "explanation": "D. Faux — t = 2.21 > 1.96."
+            },
+            {
+                "id": "e",
+                "text": "Le plan de l’étude permet d’affirmer l’efficacité du traitement si la différence est significative",
+                "correct": true,
+                "explanation": "E. Vrai — Essai contrôlé randomisé contre placebo."
+            }
+        ],
+        "explanation": "Réponses A, C et E exactes (grille tutorat AE).\n• t = 2.21 > seuil → Rejet de H0 : différence significative (Items A et C VRAIS).\n• ECR → Efficacité démontrée (Item E VRAI)."
+    },
+    {
+        "id": "ue_bio_f1_dp5_q3",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°1 - Tests paramétriques",
+        "year": 2025,
+        "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp_param_5",
+        "dpTitle": "DP 5 - Supplémentation en acides aminés et force du genou",
+        "dpStep": 3,
+        "dpTotalSteps": 3,
+        "tags": [
+            "Biostatistiques",
+            "Dossier Progressif",
+            "Tests paramétriques",
+            "Test de Student",
+            "Test de Fisher"
+        ],
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nEssai contrôlé randomisé chez 54 patients en rééducation après chirurgie orthopédique pour évaluer la force d’extension du genou :\n• Groupe A (placebo, n = 27) : TA = 1215, ∑XA² = 55675\n• Groupe B (acides aminés, n = 27) : TB = 1296, ∑XB² = 62496\nConditions d'application supposées réunies pour un test paramétrique.\n\nQUESTION 3 du DP 5 (QCM 3) : En réalisant le test statistique approprié, vous souhaitez vérifier si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+        "image": {
+            "url": "src/assets/images/table_dp_param_5.png",
+            "alt": "DP 5 - Supplémentation en acides aminés et force du genou"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "La valeur seuil se situe entre 2.15 et 2.17",
+                "correct": false,
+                "explanation": "A. Faux — Seuil ≈ 2.19."
+            },
+            {
+                "id": "b",
+                "text": "La valeur seuil est d’environ 2.19",
+                "correct": true,
+                "explanation": "B. Vrai — F(26, 26) à 5% bilatéral ≈ 2.19."
+            },
+            {
+                "id": "c",
+                "text": "La statistique de test F est d’environ 1.17",
+                "correct": false,
+                "explanation": "C. Faux — F = 3.47."
+            },
+            {
+                "id": "d",
+                "text": "La statistique de test F est d’environ 3.47",
+                "correct": true,
+                "explanation": "D. Vrai — F = 38.46 / 11.08 = 3.47."
+            },
+            {
+                "id": "e",
+                "text": "On ne rejette pas H0 car F < valeur seuil",
+                "correct": false,
+                "explanation": "E. Faux — F = 3.47 > 2.19 : rejet de H0."
+            }
+        ],
+        "explanation": "Réponses B et D exactes.\n• F = 38.46 / 11.08 = 3.47 (Item D VRAI).\n• Seuil Fisher ≈ 2.19 (Item B VRAI).\n• F > seuil → Rejet de H0 (Item E FAUX)."
     }
 ];
 
