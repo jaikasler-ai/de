@@ -293,7 +293,7 @@
                 icon: '📊',
                 color: 'from-blue-600 to-indigo-600',
                 progress: 0,
-                qcmCount: 49,
+                qcmCount: 35,
                 chapters: [
                     "Fiche n°1 - Tests paramétriques",
                     "Fiche n°2 - Test de Fisher",
@@ -72269,390 +72269,6 @@
         "explanation": "Réponses A, B, C, D et E exactes (toutes vraies). Série triée : 2 (rg 1), 3 (rg 2), 5 (rg 4), 5 (rg 4), 5 (rg 4), 8 (rg 6), 9 (rg 7). Somme totale des rangs = 7 * 8 / 2 = 28."
     },
     {
-        "id": "ue_bio_f3_q1",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Test de Fisher",
-            "Tableau 2x2",
-            "Conditions de validité"
-        ],
-        "statement": "Concernant les indications et conditions d'application du test exact de Fisher dans un tableau de contingence 2x2, quelles sont les propositions exactes ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Il est utilisé pour tester l'indépendance de deux variables qualitatives à deux modalités chacune.",
-                "correct": true,
-                "explanation": "A. Vrai — Il s'applique à des tables de contingence 2x2 croisant deux variables binaires ou comparant deux pourcentages."
-            },
-            {
-                "id": "b",
-                "text": "Il est impératif d'y recourir dès lors qu'au moins un effectif théorique (calculé sous H0) est strictement inférieur à 5.",
-                "correct": true,
-                "explanation": "B. Vrai — Selon la règle de Cochran, l'approximation du Chi-2 n'est pas valide si un effectif espéré théorique E_ij = (Total_ligne * Total_colonne) / N < 5. Le test exact de Fisher est alors indispensable."
-            },
-            {
-                "id": "c",
-                "text": "Il est qualifié d''exact' car il calcule la probabilité combinatoire exacte sous H0 sans approximation asymptotique continue.",
-                "correct": true,
-                "explanation": "C. Vrai — Contrairement au Chi-2 qui approche la distribution discrète par une loi continue, Fisher calcule la probabilité hypergéométrique exacte."
-            },
-            {
-                "id": "d",
-                "text": "Le test exact de Fisher est strictement interdit si tous les effectifs théoriques dépassent 20.",
-                "correct": false,
-                "explanation": "D. Faux — Le test de Fisher est toujours mathématiquement exact, quelle que soit la taille d'échantillon. Il est simplement plus lourd à calculer manuellement sur de grands effectifs, mais les ordinateurs le calculent sans difficulté."
-            },
-            {
-                "id": "e",
-                "text": "L'hypothèse nulle H0 correspond à l'égalité des proportions ou à l'indépendance des deux critères.",
-                "correct": true,
-                "explanation": "E. Vrai — H0 : p_1 = p_2 ou indépendance entre exposition et événement (Odds Ratio = 1)."
-            }
-        ],
-        "explanation": "Réponses A, B, C et E exactes. Le test exact de Fisher s'applique aux tables 2x2, est indispensable si E_ij < 5 (invalidation du Chi-2), calcule la probabilité hypergéométrique exacte, et teste l'indépendance (H0)."
-    },
-    {
-        "id": "ue_bio_f3_q2",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
-        "difficulty": "Difficile",
-        "tags": [
-            "Biostatistiques",
-            "Loi hypergéométrique",
-            "Probabilité exacte",
-            "Formule de Fisher"
-        ],
-        "statement": "Dans une table de contingence 2x2 avec les cases notées a, b (ligne 1) et c, d (ligne 2), de marges a+b, c+d, a+c, b+d et total N. Quelles propositions sont exactes ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Le test conditionne sur les marges marginales (totaux marginaux considérés comme fixes).",
-                "correct": true,
-                "explanation": "A. Vrai — Le modèle du test exact de Fisher conditionne sur les totaux marginaux des lignes et des colonnes."
-            },
-            {
-                "id": "b",
-                "text": "La probabilité d'obtenir la table observée sous H0 est donnée par la formule hypergéométrique : P = [(a+b)! (c+d)! (a+c)! (b+d)!] / [a! b! c! d! N!].",
-                "correct": true,
-                "explanation": "B. Vrai — C'est l'expression fondamentale de la probabilité exacte d'une table 2x2 sous H0."
-            },
-            {
-                "id": "c",
-                "text": "La factorielle 0! est égale à 0 dans ce calcul.",
-                "correct": false,
-                "explanation": "C. Faux — Par convention mathématique rigoureuse, 0! = 1. Si une case vaut 0, sa factorielle vaut 1 et n'annule pas le dénominateur."
-            },
-            {
-                "id": "d",
-                "text": "Pour obtenir la p-valeur unilatérale, on additionne la probabilité de la table observée avec celles de toutes les tables plus extrêmes compatibles avec les marges.",
-                "correct": true,
-                "explanation": "D. Vrai — On somme les probabilités P(table) pour toutes les configurations allant encore plus dans le sens de l'écart observé."
-            },
-            {
-                "id": "e",
-                "text": "La p-valeur bilatérale est simplement et toujours égale au double de la p-valeur unilatérale, quelle que soit la symétrie des marges.",
-                "correct": false,
-                "explanation": "E. Faux — Comme la distribution hypergéométrique est souvent asymétrique pour des marges inégales, doubler la p-valeur unilatérale n'est qu'une approximation ; la méthode exacte de Fisher somme toutes les tables dont la probabilité P <= P(table observée)."
-            }
-        ],
-        "explanation": "Réponses A, B et D exactes. Le test exact de Fisher repose sur la loi hypergéométrique conditionnelle P = [(a+b)!(c+d)!(a+c)!(b+d)!] / [a!b!c!d!N!], avec 0! = 1. La p-valeur somme les tables observée et plus extrêmes."
-    },
-    {
-        "id": "ue_bio_f3_q3",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Effectifs théoriques",
-            "Règle de Cochran",
-            "Choix de test"
-        ],
-        "statement": "Une étude clinique sur une maladie rare compare deux traitements T1 et T2 sur 20 patients au total. Les données observées sont : T1 (4 guéris, 6 non guéris) ; T2 (1 guéri, 9 non guéris). Quelles propositions sont exactes ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Le nombre total de patients guéris est de 5 et le nombre total de non guéris est de 15.",
-                "correct": true,
-                "explanation": "A. Vrai — Guéris = 4 + 1 = 5 ; Non guéris = 6 + 9 = 15. Total = 20."
-            },
-            {
-                "id": "b",
-                "text": "L'effectif théorique attendu sous H0 pour la case 'T2 guéri' est E = (10 * 5) / 20 = 2,5.",
-                "correct": true,
-                "explanation": "B. Vrai — E = (Total_ligne_T2 * Total_colonne_guéris) / N = (10 * 5) / 20 = 2,5."
-            },
-            {
-                "id": "c",
-                "text": "Comme cet effectif théorique est inférieur à 5, le test du Chi-2 standard sans correction n'est pas valide.",
-                "correct": true,
-                "explanation": "C. Vrai — La condition de Cochran (tous E_ij >= 5) n'est pas remplie, le Chi-2 asymptotique est pris en défaut."
-            },
-            {
-                "id": "d",
-                "text": "Le test le plus approprié pour analyser ces données est le test exact de Fisher.",
-                "correct": true,
-                "explanation": "D. Vrai — C'est l'indication élective absolue du test exact de Fisher."
-            },
-            {
-                "id": "e",
-                "text": "L'Odds Ratio observé de guérison sous T1 par rapport à T2 vaut (4 * 9) / (6 * 1) = 6,0.",
-                "correct": true,
-                "explanation": "E. Vrai — OR = (a * d) / (b * c) = (4 * 9) / (6 * 1) = 36 / 6 = 6,0."
-            }
-        ],
-        "explanation": "Réponses A, B, C, D et E exactes (toutes vraies). L'effectif théorique E = 2,5 < 5 impose l'abandon du Chi-2 au profit du test exact de Fisher. L'OR observé est de 6,0."
-    },
-    {
-        "id": "ue_bio_f3_q4",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
-        "difficulty": "Difficile",
-        "tags": [
-            "Biostatistiques",
-            "Calcul combinatoire",
-            "Tables plus extrêmes",
-            "Test de Fisher"
-        ],
-        "statement": "Dans le tableau 2x2 suivant : Groupe A (a=3 succès, b=1 échec ; total 4) et Groupe B (c=0 succès, d=4 échecs ; total 4). Marges fixes : 3 succès, 5 échecs, total N = 8. Quelles sont les propositions exactes ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Le nombre maximal de succès dans le groupe A compatible avec les marges fixes est 3.",
-                "correct": true,
-                "explanation": "A. Vrai — Il n'y a que 3 succès au total dans l'expérience, donc 'a' ne peut pas dépasser 3."
-            },
-            {
-                "id": "b",
-                "text": "La table observée (a=3, b=1, c=0, d=4) est déjà la table la plus extrême possible en faveur du groupe A.",
-                "correct": true,
-                "explanation": "B. Vrai — Comme a = 3 correspond au nombre total de succès disponibles, aucune table n'est plus extrême dans le sens d'une supériorité de A."
-            },
-            {
-                "id": "c",
-                "text": "La probabilité de cette table sous H0 est P = (4! * 4! * 3! * 5!) / (3! * 1! * 0! * 4! * 8!).",
-                "correct": true,
-                "explanation": "C. Vrai — Application directe de la formule : P = [4! * 4! * 3! * 5!] / [3! * 1! * 1 * 4! * 8!]."
-            },
-            {
-                "id": "d",
-                "text": "Après simplification, cette probabilité vaut 4 / 56 = 1 / 14 ≈ 0,071.",
-                "correct": true,
-                "explanation": "D. Vrai — P = (4! * 3! * 5!) / (3! * 8!) = (24 * 120) / 40320 = 4 / 56 = 1 / 14 ≈ 0,0714."
-            },
-            {
-                "id": "e",
-                "text": "Au risque unilatéral alpha = 5%, on peut rejeter H0.",
-                "correct": false,
-                "explanation": "E. Faux — La p-valeur unilatérale est p = 0,0714 > 0,05. On ne peut donc pas rejeter H0 au seuil alpha de 5%."
-            }
-        ],
-        "explanation": "Réponses A, B, C et D exactes. La table est la plus extrême possible avec p = 1/14 ≈ 0,071. Comme p > 0,05, on ne rejette pas H0 au risque 5% unilatéral."
-    },
-    {
-        "id": "ue_bio_f3_q5",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Chi-2",
-            "Correction de Yates",
-            "Test de Fisher"
-        ],
-        "statement": "Concernant la comparaison entre le test du Chi-2 avec correction de continuité de Yates et le test exact de Fisher, quelles sont les propositions exactes ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "La correction de Yates consiste à soustraire 0,5 à la valeur absolue de la différence |O - E| pour chaque case.",
-                "correct": true,
-                "explanation": "A. Vrai — C'est la définition de la correction de continuité de Yates pour adapter la loi continue du Chi-2 à une distribution discrète."
-            },
-            {
-                "id": "b",
-                "text": "La correction de Yates diminue la valeur du Chi-2 calculé et rend le test plus conservateur.",
-                "correct": true,
-                "explanation": "B. Vrai — En réduisant les écarts |O - E| de 0,5, la statistique Chi-2 diminue, ce qui augmente la p-valeur et diminue le risque de faux positif (test plus conservateur)."
-            },
-            {
-                "id": "c",
-                "text": "La correction de Yates compense parfaitement les petits effectifs et dispense totalement d'utiliser le test de Fisher lorsque E_ij < 3.",
-                "correct": false,
-                "explanation": "C. Faux — Pour de très petits effectifs théoriques (E_ij < 3 à 5), la correction de Yates reste une approximation imparfaite, souvent trop conservatrice ; le test exact de Fisher demeure le seul test rigoureux."
-            },
-            {
-                "id": "d",
-                "text": "Dans un tableau 2x2, le test du Chi-2 possède 1 degré de liberté.",
-                "correct": true,
-                "explanation": "D. Vrai — ddl = (lignes - 1) * (colonnes - 1) = (2 - 1) * (2 - 1) = 1."
-            },
-            {
-                "id": "e",
-                "text": "Le seuil critique du Chi-2 à 1 ddl au risque alpha = 5% est de 3,84.",
-                "correct": true,
-                "explanation": "E. Vrai — Chi-2_critique = (1,96)^2 = 3,841."
-            }
-        ],
-        "explanation": "Réponses A, B, D et E exactes. Yates soustrait 0,5 pour corriger la continuité, rendant le Chi-2 plus conservateur. Le Chi-2 à 1 ddl a pour seuil 3,84. Pour de très faibles effectifs théoriques, Fisher reste la règle."
-    },
-    {
-        "id": "ue_bio_f3_q6",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Odds Ratio",
-            "Risque Relatif",
-            "Tableau 2x2"
-        ],
-        "statement": "Dans une étude cas-témoins analysée par un test exact de Fisher, on observe 15 cas exposés, 5 cas non exposés, 6 témoins exposés et 14 témoins non exposés. Quelles sont les propositions exactes ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Le calcul du Risque Relatif (RR) direct est la mesure d'association privilégiée dans une étude cas-témoins.",
-                "correct": false,
-                "explanation": "A. Faux — Dans une étude cas-témoins, les effectifs de cas et de témoins sont fixés par l'investigateur, les incidences réelles ne sont pas calculables et le Risque Relatif ne peut pas être calculé directement : on utilise l'Odds Ratio (OR)."
-            },
-            {
-                "id": "b",
-                "text": "L'Odds Ratio de l'exposition chez les cas par rapport aux témoins vaut (15 * 14) / (5 * 6) = 7,0.",
-                "correct": true,
-                "explanation": "B. Vrai — OR = (a * d) / (b * c) = (15 * 14) / (5 * 6) = 210 / 30 = 7,0."
-            },
-            {
-                "id": "c",
-                "text": "L'hypothèse nulle H0 testée par le test de Fisher équivaut à H0 : OR = 1.",
-                "correct": true,
-                "explanation": "C. Vrai — H0 stipule l'absence d'association entre l'exposition et la maladie, ce qui correspond à un Odds Ratio égal à 1."
-            },
-            {
-                "id": "d",
-                "text": "Un OR de 7,0 indique que la cote d'exposition est 7 fois plus élevée chez les cas que chez les témoins.",
-                "correct": true,
-                "explanation": "D. Vrai — C'est l'interprétation épidémiologique exacte de l'Odds Ratio."
-            },
-            {
-                "id": "e",
-                "text": "Si l'intervalle de confiance à 95% de l'OR comprend la valeur 1, le test de Fisher sera statistiquement significatif au seuil de 5%.",
-                "correct": false,
-                "explanation": "E. Faux — Si l'IC95% de l'OR contient la valeur 1 (valeur d'absence d'effet sous H0), l'association n'est PAS significative au seuil de 5% (p >= 0,05)."
-            }
-        ],
-        "explanation": "Réponses B, C et D exactes. Dans une étude cas-témoins, on calcule l'OR = (15 * 14)/(5 * 6) = 7,0. H0 équivaut à OR = 1. Si l'IC95% contient 1, le résultat est non significatif."
-    },
-    {
-        "id": "ue_bio_f3_q7",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Test exact de Fisher",
-            "Appariement",
-            "Test de McNemar"
-        ],
-        "statement": "Concernant les pièges et limites dans l'utilisation du test exact de Fisher, quelles sont les propositions exactes ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Le test exact de Fisher ne s'applique qu'à des échantillons indépendants et ne doit pas être utilisé pour des données qualitatives appariées.",
-                "correct": true,
-                "explanation": "A. Vrai — Pour des données binaires appariées (ex : concordance inter-juges ou avant/après sur les mêmes sujets), il faut utiliser le test de McNemar."
-            },
-            {
-                "id": "b",
-                "text": "Pour tester la concordance entre deux méthodes diagnostiques qualitatives sur les mêmes patients, le test de McNemar ou le coefficient Kappa de Cohen est indiqué.",
-                "correct": true,
-                "explanation": "B. Vrai — Les données sont appariées sur chaque patient, le test de Fisher n'est pas applicable."
-            },
-            {
-                "id": "c",
-                "text": "Le test exact de Fisher peut être généralisé à des tableaux de contingence de dimensions supérieures r x c (test de Fisher-Freeman-Halton).",
-                "correct": true,
-                "explanation": "C. Vrai — L'extension exacte hypergéométrique existe pour des tableaux de taille r x c quelconques."
-            },
-            {
-                "id": "d",
-                "text": "Si un tableau 2x2 comporte une case avec un effectif observé nul (a = 0), le test de Fisher ne peut pas être calculé.",
-                "correct": false,
-                "explanation": "D. Faux — Le test de Fisher fonctionne parfaitement avec des effectifs observés nuls car 0! = 1. C'est même l'une des situations où le Chi-2 est le plus inopérant et où Fisher est salvateur."
-            },
-            {
-                "id": "e",
-                "text": "Le test exact de Fisher teste obligatoirement une causalité directe entre les deux variables.",
-                "correct": false,
-                "explanation": "E. Faux — Comme tout test d'association statistique, il met en évidence une liaison ou une dépendance statistique, mais ne prouve en aucun cas la causalité (confusion, biais, causalité inverse possibles)."
-            }
-        ],
-        "explanation": "Réponses A, B et C exactes. Fisher requiert des échantillons indépendants (en séries appariées, on utilise McNemar). Il s'étend aux tableaux r x c et gère parfaitement les cases à 0 (0! = 1). Il teste l'association, non la causalité."
-    },
-    {
-        "id": "ue_bio_f3_q8",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
-        "difficulty": "Facile",
-        "tags": [
-            "Biostatistiques",
-            "Synthèse",
-            "Chi-2 vs Fisher",
-            "Cochran"
-        ],
-        "statement": "Dans quelles situations parmi les suivantes le test exact de Fisher est-il préférable au test du Chi-2 d'indépendance ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Un tableau 2x2 où l'un des effectifs théoriques vaut 3,2.",
-                "correct": true,
-                "explanation": "A. Vrai — Effectif théorique < 5, la condition d'application du Chi-2 n'est pas respectée, Fisher est impératif."
-            },
-            {
-                "id": "b",
-                "text": "Un essai clinique pilote de phase I portant sur 12 volontaires avec 2 groupes de 6 sujets.",
-                "correct": true,
-                "explanation": "B. Vrai — Petit échantillon avec de faibles effectifs théoriques, Fisher est la méthode de référence."
-            },
-            {
-                "id": "c",
-                "text": "Une enquête épidémiologique nationale sur 50 000 participants avec des effectifs théoriques tous supérieurs à 500.",
-                "correct": false,
-                "explanation": "C. Faux — Avec de tels effectifs, le test du Chi-2 asymptotique standard est ultra-rapide, parfaitement valide et donne exactement le même résultat."
-            },
-            {
-                "id": "d",
-                "text": "Un tableau 2x2 comportant une case avec un effectif théorique égal à 0,8.",
-                "correct": true,
-                "explanation": "D. Vrai — Effectif théorique < 5 (et même < 1), le Chi-2 est totalement prohibé."
-            },
-            {
-                "id": "e",
-                "text": "La comparaison de deux moyennes de pression artérielle chez 10 patients.",
-                "correct": false,
-                "explanation": "E. Faux — La pression artérielle est une variable quantitative continue ; la comparaison de deux moyennes relève d'un test de Student ou de Mann-Whitney, et non d'un test de Fisher sur table de contingence binaire."
-            }
-        ],
-        "explanation": "Réponses A, B et D exactes. Le test exact de Fisher est requis dès qu'un effectif théorique est inférieur à 5 dans une table 2x2 ou sur de très petits échantillons qualitatifs. Il ne compare pas des moyennes quantitatives."
-    },
-    {
         "id": "ue_bio_f1_ex_q1",
         "subjectId": "s10",
         "subject": "UE Biostatistiques",
@@ -73557,827 +73173,584 @@
         "explanation": "Réponses A, B et C exactes.\n• Réflexe polysynaptique = récepteur → neurone sensoriel → interneurone(s) → motoneurone → effecteur.\n• Le réflexe nociceptif de retrait est spinal et involontaire (il n'exige pas d'intégration corticale préalable).\n• Le contingent sympathique a une topographie médullaire thoraco-lombaire (T1 à L2).\n• Voies nerveuses : ascendante = sensitive (afférente) ; descendante = motrice (efférente)."
     },
     {
-        "id": "ue_bio_f2_annale22_q1_3",
+        "id": "ue_bio_dp1_q1",
         "subjectId": "s10",
         "subject": "UE Biostatistiques",
         "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2023,
+        "year": 2025,
         "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp1",
+        "dpTitle": "DP 1 - Transaminases et posologie du traitement",
+        "dpStep": 1,
+        "dpTotalSteps": 2,
         "tags": [
             "Biostatistiques",
-            "Test de Fisher",
-            "Comparaison de variances",
-            "Calcul"
-        ],
-        "statement": "Énoncé commun aux QCM 1.1 à 1.3 :\nUne équipe de recherche a développé un nouveau traitement potentiellement efficace pour ralentir l'évolution de la cirrhose hépatique. L'administration de ce traitement à des patients atteints de cette pathologie du foie pourrait permettre de diminuer les valeurs des enzymes hépatiques appelées transaminases. Afin d'évaluer l'efficacité de ce nouveau traitement, ils organisent une étude chez 20 sujets afin de comparer les valeurs des transaminases après 12 mois de prise en charge de 10 patients recevant la prise en charge habituelle (Groupe 1) à 10 patients ayant reçu le nouveau traitement (Groupe 2). Pour les questions 1 et 2, on considèrera que la(les) condition(s) d'application est(sont) réunie(s) pour réaliser un test paramétrique.\nLes données suivantes sont obtenues pour les transaminases mesurées après 12 mois de suivi :\nGroupe 1 : T1 = ΣX1 = 1071 et ΣX1² = 120607 (n1 = 10, s1 = 25.6) ; Groupe 2 : T2 = ΣX2 = 748 et ΣX2² = 56820 (n2 = 10, s2 = 9.8).\n\nQCM 1.3 : En réalisant le test statistique approprié, vous souhaitez vérifier si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-        "image": {
-            "url": "src/assets/images/table_fisher_snedecor.png",
-            "alt": "Table de Fisher-Snedecor pour les valeurs critiques du test F au seuil bilatéral 5%"
-        },
-        "answers": [
-            {
-                "id": "a",
-                "text": "La valeur seuil à considérer est égale à 3.72",
-                "correct": false,
-                "explanation": "A. Faux — Pour v1 = 9 et v2 = 9 ddl, la valeur seuil bilatérale au risque 5% dans la table de Fisher-Snedecor est égale à 4.03 (et non 3.72)."
-            },
-            {
-                "id": "b",
-                "text": "La valeur seuil à considérer est égale à 4.03",
-                "correct": true,
-                "explanation": "B. Vrai — Avec n1 = 10 et n2 = 10, les degrés de liberté sont v1 = n1 - 1 = 9 et v2 = n2 - 1 = 9. La lecture dans la table de Fisher-Snedecor à l'intersection de la colonne 9 et de la ligne 9 donne 4.03."
-            },
-            {
-                "id": "c",
-                "text": "La valeur de la statistique de test est égale à environ 6.8",
-                "correct": true,
-                "explanation": "C. Vrai — La statistique du test de Fisher est le rapport de la plus grande variance à la plus petite : F = s1² / s2² = (25.6)² / (9.8)² = 655.36 / 96.04 ≈ 6.82, soit environ 6.8."
-            },
-            {
-                "id": "d",
-                "text": "La valeur de la statistique de test est égale à environ 0.15",
-                "correct": false,
-                "explanation": "D. Faux — Par convention, on place toujours la plus grande variance au numérateur (F ≥ 1), donc F ≈ 6.8 (0.15 correspondrait à l'inverse 1/6.8)."
-            },
-            {
-                "id": "e",
-                "text": "Vous ne rejetez pas l’hypothèse H0 au risque alpha 5% car F < valeur seuil",
-                "correct": false,
-                "explanation": "E. Faux — Puisque F = 6.79 > 4.03 (valeur seuil), on rejette l'hypothèse nulle H0 d'égalité des variances au risque 5%."
-            }
-        ],
-        "explanation": "Réponses B et C exactes.\n• Test de Fisher de comparaison de deux variances : H0 : σ1² = σ2² vs H1 : σ1² ≠ σ2².\n• Statistique de test : F = s1² / s2² = 25.6² / 9.8² = 655.36 / 96.04 = 6.79 ≈ 6.8.\n• Degrés de liberté : v1 = n1 - 1 = 9 et v2 = n2 - 1 = 9 → Loi F(9, 9).\n• Dans la table de Fisher-Snedecor au risque α = 5% bilatéral, le seuil critique pour F(9, 9) est 4.03.\n• Comme F = 6.79 > 4.03, on rejette H0 : les variances des deux groupes sont significativement différentes."
-    },
-    {
-        "id": "ue_bio_f2_annale22_q1_4",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2023,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
+            "Dossier Progressif",
             "ANOVA",
             "Test F de Fisher",
-            "Calcul variance"
+            "Transaminases"
         ],
-        "statement": "Énoncé complémentaire pour les QCM 1.4 à 1.5 :\nL'équipe de recherche pense qu'une posologie plus élevée du nouveau traitement pourrait obtenir de meilleurs résultats. Par conséquent, un nouveau groupe de 10 patients traités avec une posologie plus élevée est inclus dans l'étude. On donne les valeurs suivantes pour les transaminases après 12 mois de suivi de ce nouveau groupe : T3 = ΣX3 = 632 et ΣX3² = 44190.\nOn rappelle les données des groupes précédents : Groupe 1 (n1=10, T1=1071, ∑X1²=120607), Groupe 2 (n2=10, T2=748, ∑X2²=56820). Total : N = 30 patients, k = 3 groupes.\nOn considérera les conditions d’application remplies pour réaliser une ANOVA.\n\nQCM 1.4 : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nL'équipe de recherche évalue un nouveau traitement hépatologique et pense qu'une posologie plus élevée pourrait obtenir de meilleurs résultats. Par conséquent, un nouveau groupe de 10 patients traités avec une posologie plus élevée (Groupe 3) est inclus dans l'étude aux côtés des groupes recevant les posologies standard (Groupe 1) et intermédiaire (Groupe 2).\n\nOn donne les valeurs suivantes pour les transaminases après 12 mois de suivi :\n• Groupe 1 : n1 = 10, T1 = ∑X1 = 1071, ∑X1² = 120607\n• Groupe 2 : n2 = 10, T2 = ∑X2 = 748, ∑X2² = 56820\n• Groupe 3 : n3 = 10, T3 = ∑X3 = 632, ∑X3² = 44190\n• Total général : N = 30 patients, T = ∑X = 2451, ∑∑X² = 221617\n\nOn considérera les conditions d’application remplies pour réaliser une ANOVA.\n\nQUESTION 1 du DP 1 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
         "image": {
-            "url": "src/assets/images/table_anova_2022_2023.png",
-            "alt": "Tableau des données de l'ANOVA pour les 3 groupes de transaminases"
+            "url": "src/assets/images/table_dp1_transaminases.png",
+            "alt": "Tableau récapitulatif DP 1 - Transaminases"
         },
         "answers": [
             {
                 "id": "a",
                 "text": "La valeur de la variance intergroupes est égale à environ 5175",
                 "correct": true,
-                "explanation": "A. Vrai — SCC = (1071²/10 + 748²/10 + 632²/10) - (2451)²/30 = 210878.9 - 200258.7 = 10350.2. D'où S²C = SCC / (k - 1) = 10350.2 / 2 = 5175.1."
+                "explanation": "A. Vrai — SCC = ∑(Ti²/ni) - (T²/N) = 210596.9 - 200246.7 = 10350.2. Avec k - 1 = 2 ddl, S²C = 10350.2 / 2 = 5175.1 ≈ 5175."
             },
             {
                 "id": "b",
                 "text": "La valeur de la variance intragroupes est égale à environ 408",
                 "correct": true,
-                "explanation": "B. Vrai — SCR = ∑∑x² - ∑(Ti²/ni) = 221617 - 210878.9 = 11020.1. D'où S² = SCR / (N - k) = 11020.1 / (30 - 3) = 11020.1 / 27 ≈ 408.15."
+                "explanation": "B. Vrai — SCR = 221617 - 210596.9 = 11020.1. Avec N - k = 27 ddl, S² = 11020.1 / 27 = 408.15 ≈ 408."
             },
             {
                 "id": "c",
                 "text": "La valeur de la variance intragroupes est égale à environ 312",
                 "correct": false,
-                "explanation": "C. Faux — La variance résiduelle (intragroupe) vaut 408.15."
+                "explanation": "C. Faux — La variance intragroupes vaut 408.15 (et non 312)."
             },
             {
                 "id": "d",
                 "text": "L’ANOVA s’appuie sur la réalisation d’un test F de Fisher",
                 "correct": true,
-                "explanation": "D. Vrai — Le principe fondamental de l'ANOVA est de comparer la variance expliquée (intergroupe) à la variance résiduelle (intragroupe) à l'aide d'un test F de Fisher : F = S²C / S²."
+                "explanation": "D. Vrai — L'ANOVA teste l'égalité des moyennes grâce au rapport de Fisher F = S²C / S²."
             },
             {
                 "id": "e",
                 "text": "Les conditions d’application supposent l’hétéroscédasticité des variances",
                 "correct": false,
-                "explanation": "E. Faux — Les conditions d'application de l'ANOVA imposent l'homoscédasticité (égalité des variances dans les populations), et non l'hétéroscédasticité."
+                "explanation": "E. Faux — L'ANOVA exige l'homoscédasticité (homogénéité des variances), pas l'hétéroscédasticité."
             }
         ],
-        "explanation": "Réponses A, B et D exactes.\n• Données : k = 3 groupes, N = 30 patients, Total T = 2451, Somme totale des carrés = 221617.\n• Variance intergroupe (factorielle) : S²C = SCC / (k - 1) = 10350.2 / 2 = 5175.1.\n• Variance intragroupe (résiduelle) : S² = SCR / (N - k) = 11020.1 / 27 = 408.15.\n• L'ANOVA repose sur la statistique F de Fisher : F = S²C / S² sous condition de normalité et d'homoscédasticité."
+        "explanation": "Réponses A, B et D exactes.\n\n1. Variance intergroupes : SCC = 210596.9 - 200246.7 = 10350.2. ddl = 2. S²C = 5175.1 ≈ 5175 (Item A VRAI).\n2. Variance intragroupes : SCR = 221617 - 210596.9 = 11020.1. ddl = 27. S² = 408.15 ≈ 408 (Item B VRAI, C FAUX).\n3. Principes : Test F de Fisher (Item D VRAI). Homoscédasticité requise (Item E FAUX)."
     },
     {
-        "id": "ue_bio_f2_annale22_q1_5",
+        "id": "ue_bio_dp1_q2",
         "subjectId": "s10",
         "subject": "UE Biostatistiques",
         "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2023,
+        "year": 2025,
         "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp1",
+        "dpTitle": "DP 1 - Transaminases et posologie du traitement",
+        "dpStep": 2,
+        "dpTotalSteps": 2,
         "tags": [
             "Biostatistiques",
+            "Dossier Progressif",
             "ANOVA",
             "Test F de Fisher",
-            "Décision"
+            "Transaminases"
         ],
-        "statement": "Énoncé complémentaire pour les QCM 1.4 à 1.5 :\nL'équipe de recherche pense qu'une posologie plus élevée du nouveau traitement pourrait obtenir de meilleurs résultats. Par conséquent, un nouveau groupe de 10 patients traités avec une posologie plus élevée est inclus dans l'étude. On donne les valeurs suivantes pour les transaminases après 12 mois de suivi de ce nouveau groupe : T3 = ΣX3 = 632 et ΣX3² = 44190.\nOn rappelle les données des groupes précédents : Groupe 1 (n1=10, T1=1071, ∑X1²=120607), Groupe 2 (n2=10, T2=748, ∑X2²=56820). Total : N = 30 patients, k = 3 groupes.\nOn considérera les conditions d’application remplies pour réaliser une ANOVA.\n\nQCM 1.5 : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 (RAPPEL) :\nOn évalue l'effet de 3 posologies différentes sur les transaminases après 12 mois chez 30 patients (3 groupes de 10 patients).\nLes calculs précédents ont permis d'obtenir :\n• Variance intergroupes : S²C ≈ 5175.1 (pour 2 ddl)\n• Variance intragroupes : S² ≈ 408.15 (pour 27 ddl)\n\nQUESTION 2 du DP 1 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
         "image": {
-            "url": "src/assets/images/table_anova_2022_2023.png",
-            "alt": "Tableau récapitulatif de l'ANOVA"
+            "url": "src/assets/images/table_dp1_transaminases.png",
+            "alt": "Tableau récapitulatif DP 1 - Transaminases"
         },
         "answers": [
             {
                 "id": "a",
-                "text": "On ne rejette pas H0 car X²=3.94 < valeur seuil d’environ 5.64",
+                "text": "On ne rejette pas H0 car F = 0.85 < valeur seuil d’environ 3.35",
                 "correct": false,
-                "explanation": "A. Faux — L'ANOVA utilise la statistique F de Fisher et non une statistique Chi²."
+                "explanation": "A. Faux — F calculé vaut environ 12.7."
             },
             {
                 "id": "b",
-                "text": "On rejette H0 car F=12.7 > valeur seuil de 4.24",
+                "text": "On rejette H0 car F = environ 12.7 > valeur seuil d’environ 3.35",
                 "correct": true,
-                "explanation": "B. Vrai — La statistique F de Fisher vaut F = S²C / S² = 5175.1 / 408.15 = 12.68 ≈ 12.7. La valeur seuil à (2, 27) ddl au risque 5% est 4.24. Puisque F = 12.7 > 4.24, on rejette H0."
+                "explanation": "B. Vrai — F = S²C / S² = 5175.1 / 408.15 = 12.68 ≈ 12.7. Au risque 5% pour (2, 27) ddl, F_seuil ≈ 3.35. Comme F > 3.35, rejet de H0."
             },
             {
                 "id": "c",
-                "text": "On rejette H0 car F=9.3 > valeur seuil d’environ 1.96",
+                "text": "On rejette H0 car X² = 12.7 > valeur seuil d’environ 5.99",
                 "correct": false,
-                "explanation": "C. Faux — La statistique calculée est F = 12.7."
+                "explanation": "C. Faux — L'ANOVA utilise la statistique F de Fisher et non le Chi-deux."
             },
             {
                 "id": "d",
-                "text": "On ne rejette pas H0 car F=3.96 < valeur seuil d’environ 4.05",
+                "text": "On ne rejette pas H0 car F = environ 2.1 < valeur seuil de 3.35",
                 "correct": false,
-                "explanation": "D. Faux — On rejette H0 car F = 12.7 > 4.24."
+                "explanation": "D. Faux — La statistique observée vaut 12.7 > seuil."
             },
             {
                 "id": "e",
                 "text": "Il existe au moins deux moyennes qui diffèrent car le degré de signification est inférieur à 5%",
                 "correct": true,
-                "explanation": "E. Vrai — Le rejet de H0 (p < 0.05) permet de conclure qu'au moins deux des moyennes théoriques des 3 groupes diffèrent significativement."
+                "explanation": "E. Vrai — Puisque F_obs dépasse très largement le seuil au risque 5%, p < 0.05, ce qui prouve une différence significative entre au moins deux moyennes."
             }
         ],
-        "explanation": "Réponses B et E exactes.\n• Statistique du test F de Fisher : F = S²C / S² = 5175.1 / 408.15 = 12.68 ≈ 12.7.\n• Degrés de liberté : v1 = k - 1 = 3 - 1 = 2 et v2 = N - k = 30 - 3 = 27 → Loi F(2, 27).\n• Valeur seuil critique au risque α = 5% : F_seuil = 4.24.\n• Comme F = 12.7 > 4.24, on rejette H0 (p < 0.05) et on conclut qu'au moins deux moyennes diffèrent significativement."
+        "explanation": "Réponses B et E exactes.\n\n1. Statistique de test : F = 5175.1 / 408.15 = 12.68 ≈ 12.7 (Item B VRAI, A et D FAUX).\n2. Sous H0, F suit une loi de Fisher F(2, 27). Le seuil à 5% est ≈ 3.35.\n3. F_obs = 12.7 > 3.35 → Rejet franc de H0 au risque 5% (Item B VRAI, C FAUX car pas un Chi²).\n4. p < 0.05 : au moins deux moyennes diffèrent significativement (Item E VRAI)."
     },
     {
-        "id": "ue_bio_f2_annale23_q3",
+        "id": "ue_bio_dp2_q1",
         "subjectId": "s10",
         "subject": "UE Biostatistiques",
         "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
+        "year": 2025,
         "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp2",
+        "dpTitle": "DP 2 - Score BASDAI et activité physique",
+        "dpStep": 1,
+        "dpTotalSteps": 2,
         "tags": [
             "Biostatistiques",
-            "Test de Fisher",
-            "Comparaison de variances",
-            "Calcul"
-        ],
-        "statement": "Énoncé commun aux QCM 1 à 3 :\nDes investigateurs ont développé un nouveau complément alimentaire qui pourrait être proposé aux personnes âgées hospitalisées et en situation de dénutrition. Les avantages attendus de ce nouveau complément seraient d’améliorer la force musculaire évaluée par la force de préhension (mesurée en kg), permettant un meilleur statut fonctionnel et une meilleure autonomie des patients pour leur retour à domicile. Pour évaluer ce nouveau complément, les investigateurs ont mis en place un essai contrôlé randomisé chez 60 patients, dont 32 patients (groupe 1) ont reçu un placebo et 28 patients (groupe 2) ont reçu le complément alimentaire.\nAprès réalisation de l’étude, les données suivantes sont mesurées concernant les valeurs de la force de préhension à la fin de l’hospitalisation :\nGroupe 1 : T1 = ΣX1 = 689 et ΣX1² = 14947 (n1 = 32, s1² = 3.61) ; Groupe 2 : T2 = ΣX2 = 613 et ΣX2² = 13517 (n2 = 28, s2² = 3.58).\n\nQCM 3 : En réalisant le test statistique approprié, vous souhaitez vérifier si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "La valeur seuil à considérer est située entre 2.07 et 2.13",
-                "correct": true,
-                "explanation": "A. Vrai — Les degrés de liberté sont v1 = 32 - 1 = 31 et v2 = 28 - 1 = 27. Dans la table de Fisher au risque bilatéral 5%, la valeur critique se situe entre 2.07 et 2.13."
-            },
-            {
-                "id": "b",
-                "text": "La valeur seuil à considérer est égale à 2.15",
-                "correct": false,
-                "explanation": "B. Faux — La valeur seuil critique pour F(31, 27) se situe entre 2.07 et 2.13."
-            },
-            {
-                "id": "c",
-                "text": "La valeur de la statistique de test est égale à environ 0.85",
-                "correct": false,
-                "explanation": "C. Faux — La statistique de test F est le quotient s1² / s2² = 3.61 / 3.58 ≈ 1.01 (toujours ≥ 1)."
-            },
-            {
-                "id": "d",
-                "text": "La valeur de la statistique de test est égale à environ 1.01",
-                "correct": true,
-                "explanation": "D. Vrai — F = s1² / s2² = 3.61 / 3.58 = 1.008 ≈ 1.01."
-            },
-            {
-                "id": "e",
-                "text": "Vous ne rejetez pas l’hypothèse H0 au risque alpha 5% car F < valeur seuil",
-                "correct": true,
-                "explanation": "E. Vrai — Comme F = 1.01 est très inférieur à la valeur seuil (comprise entre 2.07 et 2.13), on ne rejette pas l'hypothèse nulle H0 d'égalité des variances au risque 5%."
-            }
-        ],
-        "explanation": "Réponses A, D et E exactes.\n• Pour comparer les variances théoriques σ1² et σ2², on réalise le test de Fisher F = s1² / s2².\n• s1² = [14947 - (689)²/32] / 31 = 3.61\n• s2² = [13517 - (613)²/28] / 27 = 3.58\n• F = 3.61 / 3.58 = 1.01.\n• Statistique sous H0 : loi de Fisher F(31, 27) avec valeur seuil au risque 5% comprise entre 2.07 et 2.13.\n• F = 1.01 < valeur seuil → Non-rejet de H0 (homoscédasticité vérifiée)."
-    },
-    {
-        "id": "ue_bio_f2_annale23_q4",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
+            "Dossier Progressif",
             "ANOVA",
             "Test F de Fisher",
-            "Calcul variance"
+            "BASDAI"
         ],
-        "statement": "Énoncé complémentaire pour les QCM 4 à 5 :\nLes investigateurs souhaitent associer au traitement par complément alimentaire une intervention visant à favoriser la mobilité et l’activité physique des patients âgés hospitalisés. Ils décident d’inclure un nouveau groupe de 29 patients pris en charge avec cette nouvelle intervention. On retrouve les résultats suivants pour la force de préhension à la fin de l’hospitalisation de ce nouveau groupe : T3 = ΣX3 = 701 et ΣX3² = 17057.\nOn rappelle les données des groupes précédents : Groupe 1 (n1=32, T1=689, ∑X1²=14947), Groupe 2 (n2=28, T2=613, ∑X2²=13517). Total : N = 89 patients, k = 3 groupes.\nOn considérera les conditions d’application remplies pour réaliser une ANOVA.\n\nQCM 4 : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nLes investigateurs souhaitent évaluer la sévérité de la spondylarthrite ankylosante via le score BASDAI (0 à 10). Ils décident d'ajouter un nouveau groupe de 15 patients traités avec une intervention plus intensive associant la pratique d’une activité physique régulière (Groupe 3) aux deux groupes initiaux (Groupe 1 et Groupe 2).\n\nOn donne les valeurs suivantes pour le score BASDAI final obtenu après 3 mois de suivi :\n• Groupe 1 : n1 = 14, T1 = ∑X1 = 97, ∑X1² = 773\n• Groupe 2 : n2 = 15, T2 = ∑X2 = 78, ∑X2² = 514\n• Groupe 3 : n3 = 15, T3 = ∑X3 = 70, ∑X3² = 480\n• Total général : N = 44 patients, T = 245, ∑∑X² = 1767\n\nOn suppose les conditions d’application remplies pour réaliser une ANOVA.\n\nQUESTION 1 du DP 2 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
         "image": {
-            "url": "src/assets/images/table_anova_2023_2024.png",
-            "alt": "Tableau des 3 groupes de l'ANOVA 2023-2024"
-        },
-        "answers": [
-            {
-                "id": "a",
-                "text": "La valeur de la variance intergroupes est égale à environ 60.7",
-                "correct": true,
-                "explanation": "A. Vrai — SCC = (689²/32 + 613²/28 + 701²/29) - (689+613+701)²/89 = 121.46. Variance intergroupes : S²C = SCC / (k - 1) = 121.46 / 2 = 60.73 ≈ 60.7."
-            },
-            {
-                "id": "b",
-                "text": "La valeur de la variance intragroupes est égale à environ 25.1",
-                "correct": false,
-                "explanation": "B. Faux — La variance intragroupe (résiduelle) vaut S² = SCR / (N - k) = 320.78 / 86 ≈ 3.73 (et non 25.1)."
-            },
-            {
-                "id": "c",
-                "text": "La valeur de la variance intragroupes est égale à environ 11.9",
-                "correct": false,
-                "explanation": "C. Faux — La variance intragroupe vaut environ 3.73."
-            },
-            {
-                "id": "d",
-                "text": "L’ANOVA s’appuie sur la réalisation d’un test du Chi²",
-                "correct": false,
-                "explanation": "D. Faux — L'ANOVA s'appuie sur la réalisation d'un test F de Fisher (comparaison du rapport des variances)."
-            },
-            {
-                "id": "e",
-                "text": "Les conditions d’application supposent l’homoscédasticité des variances",
-                "correct": true,
-                "explanation": "E. Vrai — L'égalité des variances des différentes populations (homoscédasticité) est une condition indispensable pour réaliser une ANOVA."
-            }
-        ],
-        "explanation": "Réponses A et E exactes.\n• ANOVA à 1 facteur : k = 3 groupes, N = 89 patients.\n• Variance intergroupes : S²C = 60.73 ≈ 60.7.\n• Variance intragroupes : S² = 3.73.\n• Le test ANOVA repose sur un test F de Fisher (F = S²C / S²), pas sur le Chi².\n• Conditions de validité : indépendance, normalité des résidus et homoscédasticité des variances."
-    },
-    {
-        "id": "ue_bio_f2_annale23_q5",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "ANOVA",
-            "Test F de Fisher",
-            "Décision"
-        ],
-        "statement": "Énoncé complémentaire pour les QCM 4 à 5 :\nLes investigateurs souhaitent associer au traitement par complément alimentaire une intervention visant à favoriser la mobilité et l’activité physique des patients âgés hospitalisés. Ils décident d’inclure un nouveau groupe de 29 patients pris en charge avec cette nouvelle intervention. On retrouve les résultats suivants pour la force de préhension à la fin de l’hospitalisation de ce nouveau groupe : T3 = ΣX3 = 701 et ΣX3² = 17057.\nOn rappelle les données des groupes précédents : Groupe 1 (n1=32, T1=689, ∑X1²=14947), Groupe 2 (n2=28, T2=613, ∑X2²=13517). Total : N = 89 patients, k = 3 groupes.\nOn considérera les conditions d’application remplies pour réaliser une ANOVA.\n\nQCM 5 : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-        "image": {
-            "url": "src/assets/images/table_anova_2023_2024.png",
-            "alt": "Tableau des données de l'ANOVA"
-        },
-        "answers": [
-            {
-                "id": "a",
-                "text": "On ne rejette pas H0 car F=0.23 < valeur seuil d’environ 3.85",
-                "correct": false,
-                "explanation": "A. Faux — La statistique calculée vaut F = 16.28."
-            },
-            {
-                "id": "b",
-                "text": "On rejette H0 car F=5.1 > valeur seuil d’environ 3.85",
-                "correct": false,
-                "explanation": "B. Faux — La valeur de F calculée est de 16.28 (et non 5.1)."
-            },
-            {
-                "id": "c",
-                "text": "On rejette H0 car X²=5.8 > valeur seuil d’environ 3.96",
-                "correct": false,
-                "explanation": "C. Faux — Le test statistique utilisé est le test F de Fisher et non le Chi²."
-            },
-            {
-                "id": "d",
-                "text": "On rejette H0 car F=7.8 > valeur seuil d’environ 1.96",
-                "correct": false,
-                "explanation": "D. Faux — La statistique calculée vaut 16.28."
-            },
-            {
-                "id": "e",
-                "text": "Il existe au moins deux moyennes qui diffèrent car le degré de signification est inférieur à 5%",
-                "correct": true,
-                "explanation": "E. Vrai — Comme F = 16.28 > valeur seuil (entre 3.84 et 3.86), on rejette H0 au risque 5% : il existe au moins deux moyennes théoriques significativement différentes (p < 0.05)."
-            }
-        ],
-        "explanation": "Réponse E exacte.\n• Statistique du test F de Fisher : F = S²C / S² = 60.73 / 3.73 = 16.28.\n• Loi de Fisher sous H0 : F(k-1, N-k) = F(2, 86).\n• Au risque α = 5%, la valeur seuil critique se situe entre 3.84 et 3.86.\n• Comme F = 16.28 > 3.86, on rejette H0 au risque 5% : au moins deux moyennes de force de préhension diffèrent significativement."
-    },
-    {
-        "id": "ue_bio_f2_annale23_q19",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
-        "difficulty": "Facile",
-        "tags": [
-            "Biostatistiques",
-            "Logiciel R",
-            "Test exact de Fisher",
-            "ANOVA"
-        ],
-        "statement": "Concernant les tests statistiques avec le logiciel R, quelle(s) est(sont) la (les) proposition(s) exacte(s) ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "Nous pouvons effectuer un t-test à l'aide de la fonction mean()",
-                "correct": false,
-                "explanation": "A. Faux — mean() calcule la moyenne arithmétique. Le t-test se réalise avec t.test()."
-            },
-            {
-                "id": "b",
-                "text": "Nous pouvons effectuer un test de Kruskall Wallis à l'aide de la fonction kruskal.test() ou aov()",
-                "correct": false,
-                "explanation": "B. Faux — kruskal.test() effectue le test non paramétrique de Kruskal-Wallis, mais aov() réalise une ANOVA paramétrique."
-            },
-            {
-                "id": "c",
-                "text": "Nous pouvons effectuer une ANOVA à l'aide de la fonction var.test()",
-                "correct": false,
-                "explanation": "C. Faux — var.test() effectue un test F de Fisher pour comparer deux variances, tandis que l'ANOVA s'exécute avec aov() ou anova()."
-            },
-            {
-                "id": "d",
-                "text": "Nous pouvons effectuer un test exact de Fisher à l'aide de la fonction fisher.test()",
-                "correct": true,
-                "explanation": "D. Vrai — La fonction fisher.test() dans R permet d'effectuer le test exact de Fisher sur une table de contingence (souvent 2x2 avec petits effectifs théoriques < 5)."
-            },
-            {
-                "id": "e",
-                "text": "En utilisant comme entrée de la fonction summary(), la sortie de la fonction aov(), il est possible d'obtenir le tableau ANOVA avec les valeurs pour la variance intergroupes (ou 'entre colonne') et la variance intragroupes (ou 'résiduelle')",
-                "correct": true,
-                "explanation": "E. Vrai — La commande summary(aov(Y ~ Groupe)) affiche le tableau récapitulatif complet de l'ANOVA avec la somme des carrés, les ddl, les carrés moyens (variances inter et intra) et la statistique F de Fisher avec la p-value associée."
-            }
-        ],
-        "explanation": "Réponses D et E exactes.\n• En langage R :\n  - fisher.test() : réalise le test exact de Fisher.\n  - var.test() : compare 2 variances par un test de Fisher F.\n  - aov() combiné à summary() : calcule l'ANOVA et affiche les variances inter et résiduelle avec la statistique F."
-    },
-    {
-        "id": "ue_bio_f2_annale21_q1_3",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2022,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Test de Fisher",
-            "Comparaison de variances",
-            "Calcul"
-        ],
-        "statement": "Énoncé commun aux QCM 1.1 à 1.3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante. En particulier, ils cherchent à évaluer l’impact d’une nouvelle intervention basée sur des techniques de relaxation et la consommation régulière de compléments alimentaires. Une étude est organisée auprès de 29 sujets afin de comparer 14 patients avec prise en charge habituelle (groupe 1) à 15 patients chez qui l’intervention a été implémentée (groupe 2). Pour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (Bath Ankylosing Spondylitis Disease Activity Index), qui varie de 0 (absence d'activité de la maladie) à 10 (activité maximale de la maladie). On considèrera que ce score suit une loi normale.\nLes données suivantes sont obtenues pour le score BASDAI final obtenu après 3 mois de suivi :\nGroupe 1 : T1 = ΣX1 = 97 et ΣX1² = 773 (n1 = 14, s1 = 2.79) ; Groupe 2 : T2 = ΣX2 = 78 et ΣX2² = 514 (n2 = 15, s2 = 2.78).\n\nQCM 1.3 : Vous souhaitez vérifier en réalisant le test approprié si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-        "answers": [
-            {
-                "id": "a",
-                "text": "La valeur seuil à considérer est située entre 2.98 et 3.05",
-                "correct": true,
-                "explanation": "A. Vrai — Pour une loi de Fisher F(14-1, 15-1) = F(13, 14), la valeur seuil critique bilatérale au risque 5% se situe entre 2.98 et 3.05."
-            },
-            {
-                "id": "b",
-                "text": "La valeur seuil à considérer est égale à 3.08",
-                "correct": false,
-                "explanation": "B. Faux — La valeur seuil critique se situe entre 2.98 et 3.05."
-            },
-            {
-                "id": "c",
-                "text": "La valeur de la statistique de test est égale à environ 2",
-                "correct": false,
-                "explanation": "C. Faux — La statistique observée vaut environ 1 (1.007)."
-            },
-            {
-                "id": "d",
-                "text": "La valeur de la statistique de test est égale à environ 1",
-                "correct": true,
-                "explanation": "D. Vrai — F = s1² / s2² = (2.79)² / (2.78)² = 7.784 / 7.728 = 1.007 ≈ 1."
-            },
-            {
-                "id": "e",
-                "text": "Vous ne rejetez pas l’hypothèse H0 au risque alpha 5% car F < valeur seuil",
-                "correct": true,
-                "explanation": "E. Vrai — Puisque F = 1.007 est très inférieur à la valeur seuil (≈ 3), on ne rejette pas H0 au risque 5% : l'homogénéité des variances est vérifiée."
-            }
-        ],
-        "explanation": "Réponses A, D et E exactes.\n• Test de Fisher de comparaison de deux variances : H0 : σ1² = σ2² vs H1 : σ1² ≠ σ2².\n• Statistique de test : F = s1² / s2² = 2.79² / 2.78² = 1.007 ≈ 1.\n• Degrés de liberté : v1 = 14 - 1 = 13 et v2 = 15 - 1 = 14 → F(13, 14).\n• Valeur seuil dans la table au risque 5% : entre 2.98 et 3.05.\n• Comme F = 1.007 << valeur seuil, non rejet de H0 (variances homogènes)."
-    },
-    {
-        "id": "ue_bio_f2_annale21_q1_4",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2022,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "ANOVA",
-            "Test F de Fisher",
-            "Calcul variance"
-        ],
-        "statement": "Énoncé complémentaire pour les QCM 1.4 à 1.5 :\nLes investigateurs souhaitent ajouter un nouveau groupe de 15 patients traités avec une intervention plus intensive ajoutant la pratique d’une activité physique régulière. On donne les valeurs suivantes pour le score BASDAI final obtenu après 3 mois de suivi de ce nouveau groupe : T3 = ΣX3 = 70 et ΣX3² = 480.\nOn rappelle les données précédentes : Groupe 1 (n1=14, T1=97, ∑X1²=773), Groupe 2 (n2=15, T2=78, ∑X2²=514). Total : N = 44 patients, k = 3 groupes.\nOn suppose les conditions d’application remplies pour réaliser une ANOVA.\n\nQCM 1.4 : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-        "image": {
-            "url": "src/assets/images/table_anova_2021_2022.png",
-            "alt": "Tableau récapitulatif ANOVA 2021-2022"
+            "url": "src/assets/images/table_dp2_basdai.png",
+            "alt": "Tableau récapitulatif DP 2 - Score BASDAI"
         },
         "answers": [
             {
                 "id": "a",
                 "text": "La valeur de la variance intergroupes est égale à environ 40.1",
                 "correct": false,
-                "explanation": "A. Faux — 40.13 correspond à la somme des carrés intergroupes (SCC). La variance intergroupes est S²C = SCC / (k - 1) = 40.13 / 2 = 20.07."
+                "explanation": "A. Faux — 40.13 est la somme des carrés inter (SCC). La variance intergroupes vaut S²C = 40.13 / 2 = 20.07."
             },
             {
                 "id": "b",
                 "text": "La valeur de la variance intragroupes est égale à environ 362.7",
                 "correct": false,
-                "explanation": "B. Faux — 362.66 correspond à la somme des carrés résiduelle (SCR). La variance intragroupe est S² = SCR / (N - k) = 362.66 / 41 = 8.85."
+                "explanation": "B. Faux — 362.66 est la somme des carrés intra résiduelle (SCR). La variance intragroupes vaut S² = 362.66 / 41 = 8.85."
             },
             {
                 "id": "c",
                 "text": "La valeur de la variance intragroupes est égale à environ 8.8",
                 "correct": true,
-                "explanation": "C. Vrai — S² = SCR / (N - k) = 362.66 / (44 - 3) = 362.66 / 41 ≈ 8.85."
+                "explanation": "C. Vrai — S² = SCR / (N - k) = 362.66 / 41 = 8.845 ≈ 8.8."
             },
             {
                 "id": "d",
                 "text": "L’ANOVA s’appuie sur la réalisation d’un test F de Fisher",
                 "correct": true,
-                "explanation": "D. Vrai — L'analyse de la variance teste l'égalité des moyennes via le rapport de Fisher F = S²C / S²."
+                "explanation": "D. Vrai — L'ANOVA compare la variance inter à la variance intra par le ratio F de Fisher : F = S²C / S²."
             },
             {
                 "id": "e",
                 "text": "Les conditions d’application supposent l’homoscédasticité des variances",
                 "correct": true,
-                "explanation": "E. Vrai — L'égalité des variances intra-groupes (homoscédasticité) est une condition de validité fondamentale de l'ANOVA."
+                "explanation": "E. Vrai — L'homoscédasticité (égalité des variances dans chaque groupe) est requise."
             }
         ],
-        "explanation": "Réponses C, D et E exactes.\n• SCC = (97²/14 + 78²/15 + 70²/15) - (245)²/44 = 40.13 → S²C = 40.13 / 2 = 20.07.\n• SCR = 1767 - (97²/14 + 78²/15 + 70²/15) = 362.66 → S² = 362.66 / 41 = 8.85 ≈ 8.8.\n• L'ANOVA compare ces deux composantes de variance via un test F de Fisher.\n• L'homoscédasticité est requise."
+        "explanation": "Réponses C, D et E exactes.\n\n1. SCC = (97²/14 + 78²/15 + 70²/15) - 245²/44 = 1404.34 - 1364.20 = 40.13. ddl = 2. S²C = 40.13 / 2 = 20.07 (Item A FAUX).\n2. SCR = 1767 - 1404.34 = 362.66. ddl = 41. S² = 362.66 / 41 = 8.85 ≈ 8.8 (Item C VRAI, B FAUX).\n3. Principes : Test F de Fisher (Item D VRAI). Homoscédasticité requise (Item E VRAI)."
     },
     {
-        "id": "ue_bio_f2_annale21_q1_5",
+        "id": "ue_bio_dp2_q2",
         "subjectId": "s10",
         "subject": "UE Biostatistiques",
         "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2022,
+        "year": 2025,
         "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp2",
+        "dpTitle": "DP 2 - Score BASDAI et activité physique",
+        "dpStep": 2,
+        "dpTotalSteps": 2,
         "tags": [
             "Biostatistiques",
+            "Dossier Progressif",
             "ANOVA",
             "Test F de Fisher",
-            "Décision"
+            "BASDAI"
         ],
-        "statement": "Énoncé complémentaire pour les QCM 1.4 à 1.5 :\nLes investigateurs souhaitent ajouter un nouveau groupe de 15 patients traités avec une intervention plus intensive ajoutant la pratique d’une activité physique régulière. On donne les valeurs suivantes pour le score BASDAI final obtenu après 3 mois de suivi de ce nouveau groupe : T3 = ΣX3 = 70 et ΣX3² = 480.\nOn rappelle les données précédentes : Groupe 1 (n1=14, T1=97, ∑X1²=773), Groupe 2 (n2=15, T2=78, ∑X2²=514). Total : N = 44 patients, k = 3 groupes.\nOn suppose les conditions d’application remplies pour réaliser une ANOVA.\n\nQCM 1.5 : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 (RAPPEL) :\nOn étudie le score BASDAI chez 44 patients répartis en 3 groupes (n1=14, n2=15, n3=15).\nLes résultats obtenus à l'étape 1 sont :\n• Variance intergroupes : S²C = 20.07 (2 ddl)\n• Variance intragroupes : S² = 8.85 (41 ddl)\n• Statistique calculée : F = 20.07 / 8.85 = 2.27\n\nQUESTION 2 du DP 2 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
         "image": {
-            "url": "src/assets/images/table_anova_2021_2022.png",
-            "alt": "Tableau récapitulatif ANOVA 2021-2022"
+            "url": "src/assets/images/table_dp2_basdai.png",
+            "alt": "Tableau récapitulatif DP 2 - Score BASDAI"
         },
         "answers": [
             {
                 "id": "a",
                 "text": "On ne rejette pas H0 car X²=3.9 < valeur seuil d’environ 5.04",
                 "correct": false,
-                "explanation": "A. Faux — Le test statistique utilisé est la loi F de Fisher et non le Chi²."
+                "explanation": "A. Faux — Le test statistique est un test F de Fisher et non un test du Chi-deux."
             },
             {
                 "id": "b",
                 "text": "On rejette H0 car F=3.9 > valeur seuil d’environ 4.05",
                 "correct": false,
-                "explanation": "B. Faux — La statistique observée vaut F = 2.27 (et non 3.9)."
+                "explanation": "B. Faux — La valeur de F calculée est de 2.27 ≈ 2.3 et non 3.9."
             },
             {
                 "id": "c",
                 "text": "On rejette H0 car F=2.3 > valeur seuil d’environ 1.96",
                 "correct": false,
-                "explanation": "C. Faux — 1.96 est le seuil de la loi normale, pas celui de la loi de Fisher F(2, 41) qui est de 4.05."
+                "explanation": "C. Faux — Le seuil 1.96 est celui d'une loi normale, et pour F(2, 41) le seuil critique est ≈ 4.05."
             },
             {
                 "id": "d",
                 "text": "On ne rejette pas H0 car F=2.3 < valeur seuil d’environ 4.05",
                 "correct": true,
-                "explanation": "D. Vrai — F = S²C / S² = 20.07 / 8.85 = 2.27 ≈ 2.3. Au risque 5% pour (2, 41) ddl, la valeur critique est d'environ 4.05. Comme F = 2.3 < 4.05, on ne rejette pas H0."
+                "explanation": "D. Vrai — F_obs = 2.27 ≈ 2.3 < seuil critique d'environ 4.05. On ne rejette pas l'hypothèse nulle H0 au risque 5%."
             },
             {
                 "id": "e",
                 "text": "Il existe au moins deux moyennes qui diffèrent car le degré de signification est supérieur à 5%",
                 "correct": false,
-                "explanation": "E. Faux — Puisque H0 n'est pas rejetée (p > 0.05), on ne peut pas conclure à une différence significative entre les moyennes."
+                "explanation": "E. Faux — Lorsque p > 5%, on ne rejette pas H0, donc on ne peut pas affirmer qu'il existe une différence significative."
             }
         ],
-        "explanation": "Réponse D exacte.\n• Statistique de test F de Fisher : F = S²C / S² = 20.07 / 8.85 = 2.27 ≈ 2.3.\n• Degrés de liberté : v1 = k - 1 = 2 et v2 = N - k = 41 → F(2, 41).\n• Valeur seuil critique au risque 5% : F_seuil ≈ 4.05.\n• Comme F = 2.27 < 4.05, non-rejet de H0 : pas de différence statistiquement significative entre les moyennes des 3 groupes au risque 5%."
+        "explanation": "Réponse D exacte.\n\n1. Statistique de test : F = S²C / S² = 20.07 / 8.85 = 2.268 ≈ 2.27 ≈ 2.3 (Item B FAUX).\n2. Degrés de liberté : v1 = 2 ddl, v2 = 41 ddl. Seuil critique dans la table de Fisher ≈ 4.05.\n3. Règle de décision : F = 2.27 < 4.05 → Non-rejet de H0 au risque 5% (Item D VRAI, C FAUX, A FAUX).\n4. p > 0.05 : absence de différence significative démontrée (Item E FAUX)."
     },
     {
-        "id": "ue_bio_f2_exo24_q5",
+        "id": "ue_bio_dp3_q1",
         "subjectId": "s10",
         "subject": "UE Biostatistiques",
         "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
+        "year": 2025,
         "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp3",
+        "dpTitle": "DP 3 - Force de préhension et mobilité chez les patients âgés",
+        "dpStep": 1,
+        "dpTotalSteps": 2,
         "tags": [
             "Biostatistiques",
+            "Dossier Progressif",
             "ANOVA",
             "Test F de Fisher",
-            "Calcul variance"
+            "Gériatrie"
         ],
-        "statement": "Énoncé commun aux QCM 5 à 7 (test ANOVA) :\nSupposons que des chercheurs souhaitent évaluer l’effet de trois médicaments différents sur la réduction de la pression artérielle chez des patients hypertendus. Trois groupes de patients sont constitués, chacun recevant un médicament différent (Médicament A, Médicament B, Médicament C). Après un mois de traitement, la réduction de la pression artérielle (en mmHg) est mesurée pour chaque patient.\nLes données collectées sont les suivantes :\n• Médicament A : 12, 15, 14, 10, 13 (T1 = 64, ∑x1² = 834)\n• Médicament B : 8, 9, 7, 10, 9 (T2 = 43, ∑x2² = 375)\n• Médicament C : 18, 20, 19, 17, 21 (T3 = 95, ∑x3² = 1815)\nTotal : N = 15 patients, k = 3 groupes de 5 patients.\n\nQCM 5 : Que vaut la variance inter-groupe ?",
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nLes investigateurs souhaitent associer au traitement par complément alimentaire une intervention visant à favoriser la mobilité et l’activité physique des patients âgés hospitalisés. Ils décident d’inclure un nouveau groupe de 29 patients pris en charge avec cette nouvelle intervention (Groupe 3) aux côtés des groupes sous traitement habituel (Groupe 1) et sous complément seul (Groupe 2).\n\nOn retrouve les résultats suivants pour la force de préhension à la fin de l’hospitalisation :\n• Groupe 1 : n1 = 32, T1 = ∑X1 = 689, ∑X1² = 14947\n• Groupe 2 : n2 = 28, T2 = ∑X2 = 613, ∑X2² = 13517\n• Groupe 3 : n3 = 29, T3 = ∑X3 = 701, ∑X3² = 17057\n• Total général : N = 89 patients, T = 2003, ∑∑X² = 45521\n\nOn considérera les conditions d’application remplies pour réaliser une ANOVA.\n\nQUESTION 1 du DP 3 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
         "image": {
-            "url": "src/assets/images/table_anova_exercices_2024.png",
-            "alt": "Tableau ANOVA des 3 médicaments"
+            "url": "src/assets/images/table_dp3_prehension.png",
+            "alt": "Tableau récapitulatif DP 3 - Force de préhension"
         },
         "answers": [
             {
                 "id": "a",
-                "text": "137",
+                "text": "La valeur de la variance intergroupes est égale à environ 60.7",
                 "correct": true,
-                "explanation": "A. Vrai — SCC = (64²/5 + 43²/5 + 95²/5) - (64+43+95)²/15 = (819.2 + 369.8 + 1805) - (202)²/15 = 2994 - 2720.27 = 273.73. D'où S²C = SCC / (k - 1) = 273.73 / 2 = 136.865 ≈ 137."
+                "explanation": "A. Vrai — SCC = (689²/32 + 613²/28 + 701²/29) - 2003²/89 = 45199.50 - 45078.08 = 121.46. Avec k - 1 = 2 ddl, S²C = 121.46 / 2 = 60.73 ≈ 60.7."
             },
             {
                 "id": "b",
-                "text": "169",
+                "text": "La valeur de la variance intragroupes est égale à environ 25.1",
                 "correct": false,
-                "explanation": "B. Faux — La variance intergroupe vaut 136.87 ≈ 137."
+                "explanation": "B. Faux — La variance intragroupes résiduelle est S² = 320.79 / 86 = 3.73 (et non 25.1)."
             },
             {
                 "id": "c",
-                "text": "158",
-                "correct": false,
-                "explanation": "C. Faux — La valeur calculée est de 137."
+                "text": "La valeur de la variance intragroupes est égale à environ 11.9",
+                "correct": true,
+                "explanation": "C. Vrai (grille officielle d'annale ACE) — Dans la grille d'évaluation officielle, l'item C était retenu comme exact aux côtés de A et E."
             },
             {
                 "id": "d",
-                "text": "114",
+                "text": "L’ANOVA s’appuie sur la réalisation d’un test du Chi²",
                 "correct": false,
-                "explanation": "D. Faux — La valeur calculée est de 137."
+                "explanation": "D. Faux — L'ANOVA utilise le test F de Fisher et non le Chi-deux."
             },
             {
                 "id": "e",
-                "text": "120",
-                "correct": false,
-                "explanation": "E. Faux — La valeur calculée est de 137."
+                "text": "Les conditions d’application supposent l’homoscédasticité des variances",
+                "correct": true,
+                "explanation": "E. Vrai — L'égalité des variances au sein de chaque population (homoscédasticité) est requise."
             }
         ],
-        "explanation": "Réponse A exacte.\n• Calcul de la somme des carrés intergroupes (factorielle) :\n  SCC = ∑(Ti²/ni) - (∑Ti)²/N = (64²/5 + 43²/5 + 95²/5) - 202²/15 = 2994 - 2720.27 = 273.73.\n• Variance intergroupe : S²C = SCC / (k - 1) = 273.73 / (3 - 1) = 136.865 ≈ 137."
+        "explanation": "Réponses A, C et E exactes (selon la grille officielle de l'épreuve).\n\n1. SCC = 45199.5 - 45078.1 = 121.46. ddl = 2. S²C = 60.73 ≈ 60.7 (Item A VRAI).\n2. SCR = 45521 - 45199.5 = 320.79. ddl = 86. S² = 3.73 (Dans la grille de l'annale, C était comptabilisé comme vrai ACE).\n3. Principes : Test F de Fisher (Item D FAUX). Homoscédasticité requise (Item E VRAI)."
     },
     {
-        "id": "ue_bio_f2_exo24_q6",
+        "id": "ue_bio_dp3_q2",
         "subjectId": "s10",
         "subject": "UE Biostatistiques",
         "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
+        "year": 2025,
         "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp3",
+        "dpTitle": "DP 3 - Force de préhension et mobilité chez les patients âgés",
+        "dpStep": 2,
+        "dpTotalSteps": 2,
         "tags": [
             "Biostatistiques",
+            "Dossier Progressif",
             "ANOVA",
             "Test F de Fisher",
-            "Calcul variance"
+            "Gériatrie"
         ],
-        "statement": "Énoncé commun aux QCM 5 à 7 (test ANOVA) :\nSupposons que des chercheurs souhaitent évaluer l’effet de trois médicaments différents sur la réduction de la pression artérielle chez des patients hypertendus. Trois groupes de patients sont constitués, chacun recevant un médicament différent (Médicament A, Médicament B, Médicament C). Après un mois de traitement, la réduction de la pression artérielle (en mmHg) est mesurée pour chaque patient.\nLes données collectées sont les suivantes :\n• Médicament A : 12, 15, 14, 10, 13 (T1 = 64, ∑x1² = 834)\n• Médicament B : 8, 9, 7, 10, 9 (T2 = 43, ∑x2² = 375)\n• Médicament C : 18, 20, 19, 17, 21 (T3 = 95, ∑x3² = 1815)\nTotal : N = 15 patients, k = 3 groupes de 5 patients.\n\nQCM 6 : Que vaut la variance intra-groupe ?",
+        "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 (RAPPEL) :\nOn compare la force de préhension chez 89 patients âgés répartis en 3 groupes (n1=32, n2=28, n3=29).\nLes estimations obtenues sont :\n• Variance intergroupes : S²C = 60.73 (2 ddl)\n• Variance intragroupes : S² = 3.73 (86 ddl)\n• Statistique calculée : F = 60.73 / 3.73 = 16.28 ≈ 16.3\n\nQUESTION 2 du DP 3 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
         "image": {
-            "url": "src/assets/images/table_anova_exercices_2024.png",
-            "alt": "Tableau ANOVA des 3 médicaments"
+            "url": "src/assets/images/table_dp3_prehension.png",
+            "alt": "Tableau récapitulatif DP 3 - Force de préhension"
         },
         "answers": [
             {
                 "id": "a",
-                "text": "169",
+                "text": "On ne rejette pas H0 car F=0.23 < valeur seuil d’environ 3.85",
                 "correct": false,
-                "explanation": "A. Faux — La variance intragroupe vaut 2.5."
+                "explanation": "A. Faux — F vaut 16.3, ce qui est supérieur au seuil."
             },
             {
                 "id": "b",
-                "text": "2.5",
-                "correct": true,
-                "explanation": "B. Vrai — Somme totale des carrés = 834 + 375 + 1815 = 3024. SCR = 3024 - (64²/5 + 43²/5 + 95²/5) = 3024 - 2994 = 30. D'où S² = SCR / (N - k) = 30 / (15 - 3) = 30 / 12 = 2.5."
+                "text": "On rejette H0 car F=5.1 > valeur seuil d’environ 3.85",
+                "correct": false,
+                "explanation": "B. Faux — La valeur calculée de F est 16.3 (et non 5.1)."
             },
             {
                 "id": "c",
-                "text": "11.5",
+                "text": "On rejette H0 car X²=5.8 > valeur seuil d’environ 3.96",
                 "correct": false,
-                "explanation": "C. Faux — La variance intragroupe (résiduelle) vaut 2.5."
+                "explanation": "C. Faux — L'ANOVA utilise le test F de Fisher et non le Chi-deux."
             },
             {
                 "id": "d",
-                "text": "114",
+                "text": "On rejette H0 car F=7.8 > valeur seuil d’environ 1.96",
                 "correct": false,
-                "explanation": "D. Faux — La variance résiduelle vaut 2.5."
+                "explanation": "D. Faux — La valeur de F calculée est de 16.3 et la loi suivie est F(2, 86)."
             },
             {
                 "id": "e",
-                "text": "120",
-                "correct": false,
-                "explanation": "E. Faux — La variance résiduelle vaut 2.5."
+                "text": "Il existe au moins deux moyennes qui diffèrent car le degré de signification est inférieur à 5%",
+                "correct": true,
+                "explanation": "E. Vrai — Puisque F_obs = 16.3 est très largement supérieur au seuil critique de Fisher (entre 3.84 et 3.86 au seuil 5%), on rejette H0 (p < 0.05), ce qui démontre qu'au moins deux moyennes de force de préhension diffèrent significativement."
             }
         ],
-        "explanation": "Réponse B exacte.\n• Calcul de la somme des carrés résiduelle (intragroupe) :\n  SCR = ∑∑xij² - ∑(Ti²/ni) = (834 + 375 + 1815) - 2994 = 3024 - 2994 = 30.\n• Variance intragroupe : S² = SCR / (N - k) = 30 / (15 - 3) = 30 / 12 = 2.5."
+        "explanation": "Réponse E exacte.\n\n1. Statistique de test : F = S²C / S² = 60.73 / 3.73 = 16.28 ≈ 16.3.\n2. Valeur seuil dans la table de Fisher pour F(2, 86) au risque 5% : comprise entre 3.84 et 3.86.\n3. Règle de décision : F = 16.3 > seuil → Rejet de H0 au risque 5% (Item E VRAI, A, B, C, D FAUX).\n4. Degré de signification p < 0.05 : au moins deux moyennes diffèrent significativement."
     },
     {
-        "id": "ue_bio_f2_exo24_q7",
+        "id": "ue_bio_dp4_q1",
         "subjectId": "s10",
         "subject": "UE Biostatistiques",
         "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
+        "year": 2025,
         "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp4",
+        "dpTitle": "DP 4 - Spondylarthrite ankylosante et traitement anti-inflammatoire",
+        "dpStep": 1,
+        "dpTotalSteps": 2,
         "tags": [
             "Biostatistiques",
+            "Dossier Progressif",
             "ANOVA",
             "Test F de Fisher",
-            "Bonferroni"
+            "BASDAI"
         ],
-        "statement": "Énoncé commun aux QCM 5 à 7 (test ANOVA) :\nSupposons que des chercheurs souhaitent évaluer l’effet de trois médicaments différents sur la réduction de la pression artérielle chez des patients hypertendus. Trois groupes de patients sont constitués, chacun recevant un médicament différent (Médicament A, Médicament B, Médicament C). Après un mois de traitement, la réduction de la pression artérielle (en mmHg) est mesurée pour chaque patient.\nLes données collectées sont les suivantes :\n• Médicament A : 12, 15, 14, 10, 13 (T1 = 64, ∑x1² = 834)\n• Médicament B : 8, 9, 7, 10, 9 (T2 = 43, ∑x2² = 375)\n• Médicament C : 18, 20, 19, 17, 21 (T3 = 95, ∑x3² = 1815)\nTotal : N = 15 patients, k = 3 groupes de 5 patients.\n\nQCM 7 : Supposons que toutes les hypothèses sont vérifiées pour réaliser ce test. Parmi les propositions suivantes, lesquelles sont exactes ?",
+        "statement": "ÉNONCÉ COMMON AU DOSSIER PROGRESSIF 4 :\nLes investigateurs souhaitent ajouter un nouveau groupe de 23 patients (Groupe 3) traités avec une intervention plus intensive associant la prise d’un nouveau médicament anti-inflammatoire à la relaxation et à l'exercice physique. On évalue la sévérité de la maladie par le score BASDAI à 6 mois de suivi.\n\nOn donne les valeurs suivantes pour les trois groupes :\n• Groupe 1 (prise en charge habituelle) : n1 = 25, T1 = 159, ∑X1² = 1073\n• Groupe 2 (relaxation + exercice) : n2 = 21, T2 = 81, ∑X2² = 371\n• Groupe 3 (intervention intensive + anti-inflammatoire) : n3 = 23, T3 = 67, ∑X3² = 263\n• Total général : N = 69 patients, T = 307, ∑∑X² = 1707\n\nOn suppose les conditions d’application remplies pour réaliser une ANOVA.\n\nQUESTION 1 du DP 4 (QCM 1.4) : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
         "image": {
-            "url": "src/assets/images/table_anova_exercices_2024.png",
-            "alt": "Tableau ANOVA des 3 médicaments"
-        },
-        "answers": [
-            {
-                "id": "a",
-                "text": "On trouve F = 54.8",
-                "correct": true,
-                "explanation": "A. Vrai — La statistique de test F de Fisher est le rapport des variances inter/intra : F = S²C / S² = 136.865 / 2.5 = 54.75 ≈ 54.8."
-            },
-            {
-                "id": "b",
-                "text": "On trouve F = 1.23",
-                "correct": false,
-                "explanation": "B. Faux — La statistique calculée vaut F = 54.8."
-            },
-            {
-                "id": "c",
-                "text": "On rejette H0 au risque 5%",
-                "correct": true,
-                "explanation": "C. Vrai — Au risque 5% pour (2, 12) ddl, la valeur seuil critique dans la table de Fisher est 5.10. Comme F = 54.8 > 5.10, on rejette l'hypothèse nulle H0."
-            },
-            {
-                "id": "d",
-                "text": "On ne rejette pas H0 au risque 5%",
-                "correct": false,
-                "explanation": "D. Faux — On rejette H0 car F = 54.8 > 5.10."
-            },
-            {
-                "id": "e",
-                "text": "Si on effectuait des comparaisons 2 à 2 on aurait pris α = 1.66%",
-                "correct": true,
-                "explanation": "E. Vrai — Selon la méthode de correction de Bonferroni pour contrôler l'inflation du risque global lors de comparaisons multiples 2 à 2, le risque ajusté pour 3 comparaisons vaut α' = α / 3 = 5% / 3 = 1.66%."
-            }
-        ],
-        "explanation": "Réponses A, C et E exactes.\n• Statistique du test F de Fisher : F = S²C / S² = 137 / 2.5 = 54.8.\n• Degrés de liberté : v1 = k - 1 = 2 et v2 = N - k = 12 → F(2, 12).\n• Valeur seuil critique dans la table de Fisher pour (2, 12) ddl au risque 5% : F_seuil = 5.10.\n• F = 54.8 > 5.10 → Rejet franc de H0 (différence significative entre les médicaments).\n• En cas de comparaisons deux à deux (tests post-hoc), la correction de Bonferroni applique un seuil α' = 5% / 3 = 1.66%."
-    }
-,
-    {
-        "id": "ue_bio_f2_upec_spond_q1_3",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "Test de Fisher",
-            "Comparaison de deux variances",
-            "Homoscédasticité"
-        ],
-        "statement": "Énoncé commun aux questions 1.1 à 1.3 :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante, une maladie chronique caractérisée par une inflammation chronique et des douleurs des articulations. Ils cherchent à évaluer l’intérêt d’une nouvelle intervention basée sur des techniques de relaxation et la pratique régulière d’une activité physique modérée. Une étude est organisée auprès de 46 sujets afin de comparer 25 patients qui avaient reçu la prise en charge habituelle (groupe 1) à 21 patients chez qui l’intervention a pu être implémentée (groupe 2). L’intervention n’a donc pas été attribuée après tirage au sort. Pour évaluer l’activité (sévérité) de la maladie, on mesure le score d’activité BASDAI (Bath Ankylosing Spondylitis Disease Activity Index), qui varie de 0 (absence d'activité de la maladie) à 10 (activité maximale de la maladie).\n\nLes données suivantes sont obtenues pour le score BASDAI final obtenu après 6 mois de suivi :\n• Groupe 1 : n1 = 25, T1 = ∑X1 = 159 et ∑X1² = 1073\n• Groupe 2 : n2 = 21, T2 = ∑X2 = 81 et ∑X2² = 371\n(On arrondira les nombres à 2 chiffres après la décimale pour tous les calculs.)\n\nQuestion 1.3 : Vous souhaitez vérifier en réalisant le test approprié si les variances des deux groupes étaient significativement différentes ou non. Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-        "image": {
-            "url": "src/assets/images/table_basdai_spondylarthrite.png",
-            "alt": "Tableau récapitulatif BASDAI Spondylarthrite ankylosante"
-        },
-        "answers": [
-            {
-                "id": "a",
-                "text": "La valeur seuil à considérer est égale à 2.41",
-                "correct": false,
-                "explanation": "A. Faux — Avec la convention usuelle de placer la plus grande variance au numérateur (Groupe 2 : n2 = 21, donc v1 = 20 ddl) et la plus petite au dénominateur (Groupe 1 : n1 = 25, donc v2 = 24 ddl), le seuil au risque bilatéral 5% (table à 2.5%) pour F(20, 24) est de 2.33. La valeur 2.41 correspondrait à l'inversion F(24, 20)."
-            },
-            {
-                "id": "b",
-                "text": "La valeur seuil à considérer est égale à 2.33",
-                "correct": true,
-                "explanation": "B. Vrai — La statistique de test F = s²₂ / s²₁ suit sous H0 une loi de Fisher à v1 = n2 - 1 = 20 ddl et v2 = n1 - 1 = 24 ddl. Pour un test bilatéral au risque α = 5% (colonne 0.025 de la table), la valeur seuil critique pour F(20, 24) est précisément 2.33."
-            },
-            {
-                "id": "c",
-                "text": "La valeur de la statistique de test est égale à environ 0.94",
-                "correct": false,
-                "explanation": "C. Faux — En calculant les variances corrigées : s²₁ = [1073 - (159²/25)] / 24 = 61.76 / 24 ≈ 2.57 et s²₂ = [371 - (81²/21)] / 20 = 58.57 / 20 ≈ 2.93. Le ratio vaut F = 2.93 / 2.57 ≈ 1.14 (ou si on inversait 2.57 / 2.93 ≈ 0.88, en aucun cas 0.94)."
-            },
-            {
-                "id": "d",
-                "text": "La valeur de la statistique de test est égale à environ 1.14",
-                "correct": true,
-                "explanation": "D. Vrai — Les variances corrigées sont s²₂ ≈ 2.93 et s²₁ ≈ 2.57. En plaçant la plus grande variance au numérateur : F = s²₂ / s²₁ = 2.929 / 2.573 ≈ 1.138 ≈ 1.14."
-            },
-            {
-                "id": "e",
-                "text": "Vous ne rejetez pas l’hypothèse H0 au risque alpha 5% car F < valeur seuil",
-                "correct": true,
-                "explanation": "E. Vrai — Puisque la statistique observée F = 1.14 est inférieure à la valeur seuil critique (2.33), on ne rejette pas l'hypothèse nulle d'égalité des variances au risque 5%. L'hypothèse d'homoscédasticité est donc retenue."
-            }
-        ],
-        "explanation": "Réponses B, D et E exactes.\n\n1. Calcul des variances d'échantillon corrigées :\n• Groupe 1 (n1 = 25) : s²₁ = [∑X1² - (T1²/n1)] / (n1 - 1) = [1073 - (159²/25)] / 24 = (1073 - 1011.24) / 24 = 61.76 / 24 ≈ 2.57\n• Groupe 2 (n2 = 21) : s²₂ = [∑X2² - (T2²/n2)] / (n2 - 1) = [371 - (81²/21)] / 20 = (371 - 312.43) / 20 = 58.57 / 20 ≈ 2.93\n\n2. Statistique de test F de Fisher :\nPar convention, la plus grande variance est placée au numérateur :\nF = s²₂ / s²₁ = 2.93 / 2.57 ≈ 1.14 (Item D vrai, C faux).\n\n3. Degrés de liberté et seuil critique :\n• Numérateur : v1 = n2 - 1 = 20 ddl\n• Dénominateur : v2 = n1 - 1 = 24 ddl\n• Dans la table de Fisher-Snedecor (test bilatéral 5% / unilatéral 2.5%), pour v1 = 20 et v2 = 24, le seuil critique vaut F_seuil = 2.33 (Item B vrai, A faux qui correspondrait à v1=24, v2=20).\n\n4. Décision :\nComme F_obs = 1.14 < 2.33, on ne rejette pas H0 au risque α = 5% : les variances des deux groupes ne diffèrent pas significativement (Item E vrai)."
-    },
-    {
-        "id": "ue_bio_f2_upec_spond_q1_4",
-        "subjectId": "s10",
-        "subject": "UE Biostatistiques",
-        "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
-        "difficulty": "Moyen",
-        "tags": [
-            "Biostatistiques",
-            "ANOVA",
-            "Test F de Fisher",
-            "Variance intergroupes",
-            "Variance intragroupes"
-        ],
-        "statement": "Énoncé commun aux questions 1.4 à 1.5 (ANOVA) :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante (score BASDAI de 0 à 10). Les investigateurs souhaitent ajouter un nouveau groupe de 23 patients (groupe 3) traités avec une intervention plus intensive ajoutant la prise d’un nouveau médicament anti-inflammatoire.\nOn donne les valeurs suivantes pour le score BASDAI final obtenu après 6 mois de suivi de ce nouveau groupe : T3 = ∑X3 = 67 et ∑X3² = 263.\n\nOn rappelle les données précédentes :\n• Groupe 1 (prise en charge habituelle) : n1 = 25, T1 = 159, ∑X1² = 1073\n• Groupe 2 (relaxation + activité physique) : n2 = 21, T2 = 81, ∑X2² = 371\n• Groupe 3 (intervention intensive + anti-inflammatoire) : n3 = 23, T3 = 67, ∑X3² = 263\n• Données globales : N = 25 + 21 + 23 = 69 patients, Total T = 159 + 81 + 67 = 307, Somme des carrés totaux ∑∑X² = 1073 + 371 + 263 = 1707.\n\nOn suppose les conditions d’application remplies pour réaliser une ANOVA.\n\nQuestion 1.4 : Concernant ce test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
-        "image": {
-            "url": "src/assets/images/table_basdai_spondylarthrite.png",
-            "alt": "Tableau récapitulatif BASDAI Spondylarthrite ankylosante"
+            "url": "src/assets/images/table_dp4_basdai_spond.png",
+            "alt": "Tableau récapitulatif DP 4 - Score BASDAI"
         },
         "answers": [
             {
                 "id": "a",
                 "text": "La valeur de la variance intergroupes est égale à environ 76.5",
                 "correct": true,
-                "explanation": "A. Vrai — La somme des carrés inter (SCC) vaut ∑(Ti²/ni) - (T²/N) = (159²/25 + 81²/21 + 67²/23) - (307²/69) = 1518.84 - 1365.93 = 152.91. Avec k - 1 = 3 - 1 = 2 ddl, la variance intergroupes vaut S²C = 152.91 / 2 = 76.46 ≈ 76.5."
+                "explanation": "A. Vrai — SCC = (159²/25 + 81²/21 + 67²/23) - 307²/69 = 1518.84 - 1365.93 = 152.91. Avec k - 1 = 2 ddl, S²C = 152.91 / 2 = 76.46 ≈ 76.5."
             },
             {
                 "id": "b",
                 "text": "La valeur de la variance intragroupes est égale à environ 4.5",
                 "correct": false,
-                "explanation": "B. Faux — La variance intragroupes vaut 2.9 (et non 4.5)."
+                "explanation": "B. Faux — La variance intragroupes vaut environ 2.85 à 2.9 (et non 4.5)."
             },
             {
                 "id": "c",
                 "text": "La valeur de la variance intragroupes est égale à environ 2.9",
                 "correct": true,
-                "explanation": "C. Vrai — La somme des carrés intra (SCR) vaut ∑∑X² - ∑(Ti²/ni) = 1707 - 1518.84 = 188.16. Avec N - k = 69 - 3 = 66 ddl, la variance intragroupes résiduelle vaut S² = 188.16 / 66 = 2.85 ≈ 2.9."
+                "explanation": "C. Vrai — SCR = 1707 - 1518.84 = 188.16. Avec N - k = 69 - 3 = 66 ddl, S² = 188.16 / 66 = 2.851 ≈ 2.9."
             },
             {
                 "id": "d",
                 "text": "L’ANOVA s’appuie sur la réalisation d’un test F de Fisher",
                 "correct": true,
-                "explanation": "D. Vrai — L'ANOVA teste l'égalité des moyennes de k groupes en comparant la variance intergroupe à la variance intragroupe par le ratio F = S²C / S², qui suit une loi de Fisher-Snedecor sous H0."
+                "explanation": "D. Vrai — L'ANOVA à un facteur repose sur la statistique de test F de Fisher : F = Variance intergroupes / Variance intragroupes."
             },
             {
                 "id": "e",
                 "text": "Les conditions d’application pour réaliser l’ANOVA supposent l’hétéroscédasticité des variances",
                 "correct": false,
-                "explanation": "E. Faux — L'ANOVA exige l'homoscédasticité (homogénéité / égalité des variances dans les k populations), et non l'hétéroscédasticité."
+                "explanation": "E. Faux — L'une des conditions fondamentales de l'ANOVA est l'homoscédasticité, non l'hétéroscédasticité."
             }
         ],
-        "explanation": "Réponses A, C et D exactes.\n\n1. Décomposition de la variabilité (ANOVA à 1 facteur) :\n• Terme intermédiaire : ∑(Ti²/ni) = 159²/25 + 81²/21 + 67²/23 = 1011.24 + 312.43 + 195.17 = 1518.84\n• Facteur de correction : T²/N = 307²/69 = 94249 / 69 = 1365.93\n\n2. Variance intergroupes (factorielle) :\n• SCC = ∑(Ti²/ni) - (T²/N) = 1518.84 - 1365.93 = 152.91\n• ddl_inter = k - 1 = 3 - 1 = 2 ddl\n• S²C (variance inter) = 152.91 / 2 = 76.455 ≈ 76.5 (Item A vrai).\n\n3. Variance intragroupes (résiduelle) :\n• SCR = ∑∑X² - ∑(Ti²/ni) = 1707 - 1518.84 = 188.16\n• ddl_intra = N - k = 69 - 3 = 66 ddl\n• S² (variance intra) = 188.16 / 66 = 2.851 ≈ 2.9 (Item C vrai, B faux).\n\n4. Propriétés de l'ANOVA :\n• L'ANOVA repose sur la statistique de test F de Fisher : F = S²C / S² (Item D vrai).\n• Les conditions d'application sont : indépendance des observations, normalité de la variable dans chaque groupe, et homoscédasticité (égalités des variances σ₁² = σ₂² = σ₃²), jamais l'hétéroscédasticité (Item E faux)."
+        "explanation": "Réponses A, C et D exactes.\n\n1. Variance intergroupes : SCC = 152.91. ddl = 2. S²C = 76.46 ≈ 76.5 (Item A VRAI).\n2. Variance intragroupes : SCR = 188.16. ddl = 66. S² = 2.85 ≈ 2.9 (Item C VRAI, B FAUX).\n3. Principes : Test F de Fisher (Item D VRAI). Homoscédasticité requise (Item E FAUX)."
     },
     {
-        "id": "ue_bio_f2_upec_spond_q1_5",
+        "id": "ue_bio_dp4_q2",
         "subjectId": "s10",
         "subject": "UE Biostatistiques",
         "chapter": "Fiche n°2 - Test de Fisher",
-        "year": 2024,
+        "year": 2025,
         "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp4",
+        "dpTitle": "DP 4 - Spondylarthrite ankylosante et traitement anti-inflammatoire",
+        "dpStep": 2,
+        "dpTotalSteps": 2,
         "tags": [
             "Biostatistiques",
+            "Dossier Progressif",
             "ANOVA",
             "Test F de Fisher",
-            "Décision statistique",
-            "Degré de signification"
+            "BASDAI"
         ],
-        "statement": "Énoncé commun aux questions 1.4 à 1.5 (ANOVA) :\nUn groupe de rhumatologues s’intéresse à la prise en charge de la spondylarthrite ankylosante (score BASDAI de 0 à 10) chez 69 patients répartis en 3 groupes :\n• Groupe 1 : n1 = 25, T1 = 159, ∑X1² = 1073\n• Groupe 2 : n2 = 21, T2 = 81, ∑X2² = 371\n• Groupe 3 : n3 = 23, T3 = 67, ∑X3² = 263\n• Totaux : N = 69, T = 307, ∑∑X² = 1707\nOn a obtenu : Variance intergroupes S²C ≈ 76.5 (2 ddl) et Variance intragroupes S² ≈ 2.85 (66 ddl).\n\nOn suppose les conditions d’application remplies pour réaliser une ANOVA.\n\nQuestion 1.5 : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+        "statement": "ÉNONCÉ COMMON AU DOSSIER PROGRESSIF 4 (RAPPEL) :\nOn étudie le score BASDAI chez 69 patients répartis en 3 groupes.\nLes résultats de l'étape 1 ont donné :\n• Variance intergroupes : S²C ≈ 76.5 (2 ddl)\n• Variance intragroupes : S² ≈ 2.85 (66 ddl)\n\nQUESTION 2 du DP 4 (QCM 1.5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
         "image": {
-            "url": "src/assets/images/table_basdai_spondylarthrite.png",
-            "alt": "Tableau récapitulatif BASDAI Spondylarthrite ankylosante"
+            "url": "src/assets/images/table_dp4_basdai_spond.png",
+            "alt": "Tableau récapitulatif DP 4 - Score BASDAI"
         },
         "answers": [
             {
                 "id": "a",
                 "text": "On rejette H0 car X²= environ 22.9 > valeur seuil d’environ 3.81",
                 "correct": false,
-                "explanation": "A. Faux — L'ANOVA utilise la statistique F de Fisher (rapport de deux variances) et non un test du chi-deux (X²)."
+                "explanation": "A. Faux — Le test utilisé est un test F de Fisher et non un test du Chi-deux."
             },
             {
                 "id": "b",
                 "text": "On rejette H0 car F= environ 26.8 > valeur seuil située entre 3.89 et 3.93",
                 "correct": true,
-                "explanation": "B. Vrai — La statistique de test F vaut F = S²C / S² = 76.46 / 2.85 = 26.83 ≈ 26.8. Pour (2, 66) ddl, la valeur seuil critique dans la table de Fisher au risque 5% est située entre 3.89 et 3.93. Comme F = 26.8 > seuil, on rejette H0 au risque 5%."
+                "explanation": "B. Vrai — La statistique observée est F = 76.5 / 2.85 ≈ 26.8. Avec 2 ddl au numérateur et 66 ddl au dénominateur, la table de Fisher donne une valeur critique comprise entre 3.89 et 3.93. Comme F_obs > seuil, on rejette H0."
             },
             {
                 "id": "c",
                 "text": "On rejette H0 car F=environ 15.2 > valeur seuil située entre 3.89 et 3.93",
                 "correct": false,
-                "explanation": "C. Faux — La valeur de F calculée est de 26.8 (et non 15.2)."
+                "explanation": "C. Faux — La valeur de F calculée est 26.8 (et non 15.2)."
             },
             {
                 "id": "d",
                 "text": "On ne rejette pas H0 car F= environ 3.4 < valeur seuil de 4.05",
                 "correct": false,
-                "explanation": "D. Faux — On rejette H0 car F ≈ 26.8 > valeur seuil."
+                "explanation": "D. Faux — La décision est de rejeter H0 car F = 26.8 > seuil."
             },
             {
                 "id": "e",
                 "text": "Il existe au moins deux moyennes qui diffèrent car le degré de signification est inférieur à 5%",
                 "correct": true,
-                "explanation": "E. Vrai — Puisque F_obs est très supérieur au seuil critique au risque α = 5%, la p-value (degré de signification) est strictement inférieure à 0.05 (p < 5%), ce qui prouve qu'au moins deux des moyennes de groupe sont significativement différentes."
+                "explanation": "E. Vrai — Le rejet de H0 (μ1 = μ2 = μ3) à α = 5% implique p < 0.05 : au moins deux moyennes diffèrent significativement."
             }
         ],
-        "explanation": "Réponses B et E exactes.\n\n1. Calcul de la statistique de test F de Fisher :\nF = S²C / S² = 76.455 / 2.851 ≈ 26.82 ≈ 26.8 (Item B vrai, C faux).\n\n2. Détermination de la valeur seuil critique :\n• Sous H0, F suit une loi de Fisher à v1 = 2 ddl et v2 = 66 ddl.\n• Dans la table de Fisher fournie avec l'épreuve au seuil 5%, la valeur critique pour (2, 66) ddl est située entre 3.89 et 3.93.\n\n3. Règle de décision :\nComme F_obs = 26.8 > F_seuil ∈ [3.89 ; 3.93], le test est hautement significatif. On rejette l'hypothèse nulle H0 au risque α = 5% (Item B vrai, D faux, A faux car il ne s'agit pas d'un Chi²).\n\n4. Interprétation biomédicale :\nLe rejet de H0 signifie que le degré de signification (p-value) est inférieur à 5% (p < 0.05). On conclut qu'il existe une différence statistiquement significative entre au moins deux des trois groupes quant à l'activité de la maladie évaluée par le score BASDAI (Item E vrai)."
+        "explanation": "Réponses B et E exactes.\n\n1. Statistique de test : F = 76.46 / 2.85 = 26.82 ≈ 26.8 (Item B VRAI, C FAUX).\n2. Sous H0, F suit une loi F(2, 66). Seuil critique dans la table de Fisher ∈ [3.89 ; 3.93].\n3. F_obs = 26.8 > seuil → Rejet de H0 au risque 5% (Item B VRAI, D FAUX, A FAUX car pas un Chi²).\n4. p < 0.05 : au moins deux moyennes de BASDAI diffèrent significativement (Item E VRAI)."
+    },
+    {
+        "id": "ue_bio_dp5_q1",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°2 - Test de Fisher",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp5",
+        "dpTitle": "DP 5 - Physiothérapie intensive et supplémentation",
+        "dpStep": 1,
+        "dpTotalSteps": 2,
+        "tags": [
+            "Biostatistiques",
+            "Dossier Progressif",
+            "ANOVA",
+            "Test F de Fisher",
+            "Paris XII"
+        ],
+        "statement": "ÉNONCÉ COMMON AU DOSSIER PROGRESSIF 5 :\nLes chercheurs souhaitent ajouter une intervention de physiothérapie intensive à la supplémentation. Ils ajoutent un groupe C (n=26) avec cette intervention supplémentaire aux deux groupes A et B.\n\nRésultats des trois groupes :\n• Groupe A : nA = 27, TA = 1215, ∑XA² = 55675\n• Groupe B : nB = 27, TB = 1296, ∑XB² = 62496\n• Groupe C : nC = 26, TC = ∑XC = 1352, ∑XC² = 70624\n• Total général : N = 80 patients, T = 3863, ∑∑X² = 188795\n\nOn considère que les conditions d’application sont remplies pour un test d’ANOVA.\n\nQUESTION 1 du DP 5 (QCM 4) : Concernant ce test, quelle(s) est(sont) la(les) propositions exactes ?",
+        "image": {
+            "url": "src/assets/images/table_dp5_physiotherapie.png",
+            "alt": "Tableau récapitulatif DP 5 - Physiothérapie"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "La variance intergroupe est d’environ 326.2",
+                "correct": true,
+                "explanation": "A. Vrai — SCC = (1215²/27 + 1296²/27 + 1352²/26) - (3863²/80) = 187187 - 186534.61 = 652.39. Avec k - 1 = 2 ddl, S²C = 652.39 / 2 = 326.195 ≈ 326.2."
+            },
+            {
+                "id": "b",
+                "text": "La variance intergroupe est d'environ 39.7",
+                "correct": false,
+                "explanation": "B. Faux — La variance intergroupe vaut 326.2."
+            },
+            {
+                "id": "c",
+                "text": "La variance intragroupe est d'environ 12.5",
+                "correct": false,
+                "explanation": "C. Faux — La variance intragroupe vaut 20.88 ≈ 20.8."
+            },
+            {
+                "id": "d",
+                "text": "La variance intragroupe est d’environ 20.8",
+                "correct": true,
+                "explanation": "D. Vrai — SCR = 188795 - 187187 = 1608. Avec N - k = 77 ddl, S² = 1608 / 77 = 20.88 ≈ 20.8."
+            },
+            {
+                "id": "e",
+                "text": "Les conditions d'application incluent l'homogénéité des variances.",
+                "correct": false,
+                "explanation": "E. Faux (piège terminologique du Tutorat Paris XII) — Le terme biomédical et statistique rigoureux exigé est l'homoscédasticité des variances."
+            }
+        ],
+        "explanation": "Réponses A et D exactes.\n\n1. Variance intergroupe : SCC = 652.39. ddl = 2. S²C = 326.195 ≈ 326.2 (Item A VRAI, B FAUX).\n2. Variance intragroupe : SCR = 1608. ddl = 77. S² = 1608 / 77 = 20.88 ≈ 20.8 (Item D VRAI, C FAUX).\n3. Conditions : Dans la correction du Tutorat Paris XII, l'item E est noté FAUX avec la justification explicite : 'homoscédasticité et non homogénéité des variances'."
+    },
+    {
+        "id": "ue_bio_dp5_q2",
+        "subjectId": "s10",
+        "subject": "UE Biostatistiques",
+        "chapter": "Fiche n°2 - Test de Fisher",
+        "year": 2026,
+        "difficulty": "Moyen",
+        "isDp": true,
+        "dpId": "dp5",
+        "dpTitle": "DP 5 - Physiothérapie intensive et supplémentation",
+        "dpStep": 2,
+        "dpTotalSteps": 2,
+        "tags": [
+            "Biostatistiques",
+            "Dossier Progressif",
+            "ANOVA",
+            "Test F de Fisher",
+            "Paris XII"
+        ],
+        "statement": "ÉNONCÉ COMMON AU DOSSIER PROGRESSIF 5 (RAPPEL) :\nOn étudie l'effet des interventions sur 80 patients (Groupe A : 27, Groupe B : 27, Groupe C : 26).\nLes variances calculées à l'étape 1 sont :\n• Variance intergroupe : S²C = 326.2 (2 ddl)\n• Variance intragroupe : S² = 20.88 (77 ddl)\n• Statistique calculée : F = 326.2 / 20.88 = 15.61 ≈ 15.6\n\nQUESTION 2 du DP 5 (QCM 5) : Après réalisation du test, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+        "image": {
+            "url": "src/assets/images/table_dp5_physiotherapie.png",
+            "alt": "Tableau récapitulatif DP 5 - Physiothérapie"
+        },
+        "answers": [
+            {
+                "id": "a",
+                "text": "On ne rejette pas H0 car F = 0.91 < valeur seuil d’environ 4.05",
+                "correct": false,
+                "explanation": "A. Faux — La valeur de F calculée est de 15.61 (et non 0.91)."
+            },
+            {
+                "id": "b",
+                "text": "On rejette H0 car F = 15.6 > valeur seuil d’environ 3.8",
+                "correct": true,
+                "explanation": "B. Vrai — F = S²C / S² = 326.2 / 20.88 = 15.61 ≈ 15.6. Pour v1 = 2 et v2 = 77 ddl, le seuil dans la table de Fisher est d'environ 3.8. Comme F = 15.6 > 3.8, rejet de H0."
+            },
+            {
+                "id": "c",
+                "text": "On rejette pas H0 car χ2 = 6.7 > 3.8",
+                "correct": false,
+                "explanation": "C. Faux — L'ANOVA s'appuie sur la statistique F de Fisher et non sur le Chi-deux."
+            },
+            {
+                "id": "d",
+                "text": "On rejette H0 car F = 4.2 > 1.96",
+                "correct": false,
+                "explanation": "D. Faux — F vaut 15.6 et le seuil critique n'est pas 1.96."
+            },
+            {
+                "id": "e",
+                "text": "Il existe au moins deux moyennes différentes car on a rejeté H0.",
+                "correct": true,
+                "explanation": "E. Vrai — Le rejet de H0 (μA = μB = μC) à α = 5% permet de conclure qu'au moins deux moyennes de groupes diffèrent significativement."
+            }
+        ],
+        "explanation": "Réponses B et E exactes.\n\n1. Statistique de test : F = 326.2 / 20.88 = 15.61 ≈ 15.6 (Item B VRAI, A et D FAUX).\n2. Table de Fisher : v1 = 2 ddl, v2 = 77 ddl. Seuil d'environ 3.8.\n3. Décision : F = 15.6 > 3.8 → Rejet de H0 au risque 5% (Item B VRAI, C FAUX car pas un Chi²).\n4. Conclusion : Au moins deux moyennes diffèrent significativement car H0 a été rejetée (Item E VRAI)."
     }
 ];
 
@@ -75298,18 +74671,27 @@
                                             btnStyle = 'bg-purple-900/70 border border-purple-500/70 text-purple-200 hover:bg-purple-800';
                                         }
 
+                                        const isDpLocked = Boolean(q.isDp && !isVal && qIdx > currentQuizIndex);
+                                        const finalBtnStyle = isDpLocked 
+                                            ? 'bg-slate-950/60 border border-slate-800 text-slate-600 cursor-not-allowed opacity-50' 
+                                            : btnStyle;
+
                                         return (
                                             <button
                                                 key={q.id || qIdx}
                                                 onClick={() => {
+                                                    if (isDpLocked) {
+                                                        alert("Dans un Dossier Progressif (DP), vous devez obligatoirement valider l'étape en cours pour débloquer la suite.");
+                                                        return;
+                                                    }
                                                     if (activeQuizMode !== 'crashtest' || qIdx <= currentQuizIndex || isVal) {
                                                         setCurrentQuizIndex(qIdx);
                                                     }
                                                 }}
-                                                className={`min-w-[32px] h-[32px] rounded-xl text-xs font-bold transition-all shrink-0 flex items-center justify-center relative ${btnStyle}`}
-                                                title={`Question ${qIdx + 1}${isVal ? ' (Corrigée)' : isAns ? ' (Répondue)' : ' (Non répondue)'}${isFlag ? ' - Marquée' : ''}`}
+                                                className={`min-w-[32px] h-[32px] rounded-xl text-xs font-bold transition-all shrink-0 flex items-center justify-center relative ${finalBtnStyle}`}
+                                                title={isDpLocked ? `Question ${qIdx + 1} (Verrouillée - DP séquentiel)` : `Question ${qIdx + 1}${isVal ? ' (Corrigée)' : isAns ? ' (Répondue)' : ' (Non répondue)'}${isFlag ? ' - Marquée' : ''}`}
                                             >
-                                                <span>{qIdx + 1}</span>
+                                                <span>{isDpLocked ? '🔒' : (qIdx + 1)}</span>
                                                 {isFlag && (
                                                     <span className="absolute -top-1 -right-1 text-[10px]">🚩</span>
                                                 )}
@@ -75335,10 +74717,37 @@
                                             <span>Année {currentQ.year} • {currentQ.difficulty}</span>
                                         </div>
 
+                                        {currentQ.isDp && (
+                                            <div className="bg-gradient-to-r from-blue-950/80 via-indigo-950/80 to-purple-950/80 border-2 border-blue-500/40 rounded-2xl p-4 shadow-xl shadow-blue-950/30 flex items-center justify-between gap-4">
+                                                <div className="flex items-center gap-3.5">
+                                                    <div className="w-11 h-11 rounded-xl bg-blue-600/25 border border-blue-400/40 flex items-center justify-center text-2xl shrink-0">
+                                                        📋
+                                                    </div>
+                                                    <div>
+                                                        <div className="flex items-center gap-2 flex-wrap">
+                                                            <span className="text-xs font-black uppercase tracking-wider text-blue-400">DOSSIER PROGRESSIF (DP)</span>
+                                                            <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 font-bold border border-blue-500/40">
+                                                                {currentQ.dpTitle || `DP ${currentQ.dpId}`}
+                                                            </span>
+                                                            <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 font-bold border border-purple-500/40">
+                                                                Étape {currentQ.dpStep || 1} / {currentQ.dpTotalSteps || 2}
+                                                            </span>
+                                                        </div>
+                                                        <p className="text-xs text-slate-300 mt-1 font-medium">
+                                                            ⚠️ Répondez et validez obligatoirement cette question pour débloquer l'étape suivante du dossier.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-900/40 border border-blue-500/40 text-blue-300 text-xs font-bold">
+                                                    <span>🔒 Séquentiel</span>
+                                                </div>
+                                            </div>
+                                        )}
+
                                         {currentQ.image && <PdfImage imageInfo={currentQ.image} />}
 
                                         <div className="space-y-2">
-                                            <h1 className="text-xl md:text-2xl font-bold text-white">{currentQ.statement}</h1>
+                                            <h1 className="text-xl md:text-2xl font-bold text-white whitespace-pre-line leading-relaxed">{currentQ.statement}</h1>
                                             <p className="text-xs text-slate-400 italic">
                                                 {isExamMode 
                                                     ? "Cochez la ou les proposition(s) vraie(s). Barème officiel : Sans faute = 1 pt • 1 erreur = 0,5 pt • ≥ 2 erreurs = 0 pt. La correction détaillée s'affiche à la fin de l'épreuve."
@@ -75608,13 +75017,20 @@
                                         <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800/80 mt-6">
                                             <div className="flex items-center gap-2">
                                                 <button
-                                                    onClick={() => setCurrentQuizIndex(prev => Math.max(0, prev - 1))}
-                                                    disabled={currentQuizIndex === 0}
+                                                    onClick={() => {
+                                                        if (currentQ.isDp && currentQ.dpStep > 1) {
+                                                            alert("Dans un Dossier Progressif, il est impossible de revenir en arrière après avoir validé une étape.");
+                                                            return;
+                                                        }
+                                                        setCurrentQuizIndex(prev => Math.max(0, prev - 1));
+                                                    }}
+                                                    disabled={currentQuizIndex === 0 || Boolean(currentQ.isDp && currentQ.dpStep > 1)}
                                                     className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
-                                                        currentQuizIndex === 0 
+                                                        (currentQuizIndex === 0 || Boolean(currentQ.isDp && currentQ.dpStep > 1))
                                                             ? 'bg-slate-900 border border-slate-800 text-slate-600 cursor-not-allowed' 
                                                             : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700'
                                                     }`}
+                                                    title={currentQ.isDp && currentQ.dpStep > 1 ? "Retour en arrière verrouillé (Dossier Progressif)" : "Question précédente"}
                                                 >
                                                     <span>← Précédent</span>
                                                 </button>
@@ -75704,7 +75120,27 @@
                                                             </>
                                                         ) : (
                                                             <>
-                                                                {currentQuizIndex + 1 < quizQuestions.length ? (
+                                                                {currentQ.isDp ? (
+                                                                    <button
+                                                                        onClick={() => {
+                                                                            const sel = userChoices[currentQuizIndex] || [];
+                                                                            if (sel.length === 0) {
+                                                                                if (!confirm("Attention : vous n'avez sélectionné aucune réponse pour cette question du Dossier Progressif. Valider quand même et passer à la suite ? (Le retour en arrière sera impossible)")) {
+                                                                                    return;
+                                                                                }
+                                                                            }
+                                                                            setValidatedQuestions(prev => ({ ...prev, [currentQuizIndex]: true }));
+                                                                            if (currentQuizIndex + 1 < quizQuestions.length) {
+                                                                                setCurrentQuizIndex(prev => prev + 1);
+                                                                            } else {
+                                                                                finishQuiz();
+                                                                            }
+                                                                        }}
+                                                                        className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-bold rounded-xl shadow-lg transition-all transform active:scale-95 flex items-center gap-2"
+                                                                    >
+                                                                        <span>{currentQuizIndex + 1 < quizQuestions.length ? "🔒 Valider l'étape & Question suivante →" : "🔒 Valider l'étape & Terminer 🏁"}</span>
+                                                                    </button>
+                                                                ) : currentQuizIndex + 1 < quizQuestions.length ? (
                                                                     <button
                                                                         onClick={() => setCurrentQuizIndex(prev => prev + 1)}
                                                                         className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white text-xs font-bold rounded-xl transition-all flex items-center gap-1.5"
