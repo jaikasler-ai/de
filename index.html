@@ -1,4 +1,652 @@
-<!DOCTYPE html>
+<!DO,
+    {
+            "id": "ue_bio_f4_dp1_q1",
+            "subjectId": "s10",
+            "subject": "UE Biostatistiques",
+            "chapter": "Fiche n°4 - Odds ratio et coefficient de régression",
+            "year": 2022,
+            "difficulty": "Moyen",
+            "isDp": true,
+            "dpId": "dp_or_1",
+            "dpTitle": "DP 1 - Cancer colorectal et consommation de café (20 ans)",
+            "dpStep": 1,
+            "dpTotalSteps": 2,
+            "tags": [
+                    "Biostatistiques",
+                    "Dossier Progressif",
+                    "Odds Ratio",
+                    "Régression logistique",
+                    "Facteurs de confusion"
+            ],
+            "image": {
+                    "url": "src/assets/images/table_dp_or_1.png",
+                    "alt": "Tableau des Odds Ratios - Cancer colorectal et café (20 ans)"
+            },
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUne étude cas-témoins vient d’être menée visant à étudier l’association entre la survenue d’un cancer colo-rectal et la consommation régulière de café au cours de la vie. Pour réaliser cette étude, les chercheurs ont inclus 50 patients porteurs d’un cancer colorectal (les cas), et 50 témoins sans cancer connu et recrutés au sein du personnel médical. Concernant la mesure de l’exposition, les cas ont été interrogés au cours d’une hospitalisation pour la prise en charge du cancer par des enquêteurs formés et les témoins ont complété et renvoyé par voie postale un questionnaire papier.\n\nTableau des mesures d'association (Consommation de café au cours des 20 dernières années) :\n• Moins de 2 tasses par jour : OR brut = 1 (référence) | OR ajusté* = 1 (référence)\n• 2 tasses ou plus par jour : OR brut = 1.35 (1.05 - 1.62) | OR ajusté* = 0.84 (0.45 - 1.69)\n*Ajustement sur l'âge, le tabagisme, le niveau d'activité physique, la consommation de fruits et légumes",
+            "subStatement": "QUESTION 1 du DP 1 : Concernant les mesures d’association données dans le tableau, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUne étude cas-témoins vient d’être menée visant à étudier l’association entre la survenue d’un cancer colo-rectal et la consommation régulière de café au cours de la vie. Pour réaliser cette étude, les chercheurs ont inclus 50 patients porteurs d’un cancer colorectal (les cas), et 50 témoins sans cancer connu et recrutés au sein du personnel médical. Concernant la mesure de l’exposition, les cas ont été interrogés au cours d’une hospitalisation pour la prise en charge du cancer par des enquêteurs formés et les témoins ont complété et renvoyé par voie postale un questionnaire papier.\n\nTableau des mesures d'association (Consommation de café au cours des 20 dernières années) :\n• Moins de 2 tasses par jour : OR brut = 1 (référence) | OR ajusté* = 1 (référence)\n• 2 tasses ou plus par jour : OR brut = 1.35 (1.05 - 1.62) | OR ajusté* = 0.84 (0.45 - 1.69)\n*Ajustement sur l'âge, le tabagisme, le niveau d'activité physique, la consommation de fruits et légumes\n\nQUESTION 1 du DP 1 : Concernant les mesures d’association données dans le tableau, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "answers": [
+                    {
+                            "id": "a",
+                            "text": "Les odds ratios ajustés permettent d’identifier les facteurs de risque indépendants de cancer",
+                            "correct": true,
+                            "explanation": "A. Vrai — L'ajustement multivarié permet de contrôler les facteurs de confusion et donc d'évaluer l'effet propre (indépendant) de chaque exposition sur le risque d'apparition de la maladie."
+                    },
+                    {
+                            "id": "b",
+                            "text": "Les odds ratios non ajustés sont influencés par les facteurs de confusion potentiels",
+                            "correct": true,
+                            "explanation": "B. Vrai — Les estimations brutes (non ajustées) reflètent à la fois l'effet de l'exposition étudiée et l'influence des variables de confusion associées à la fois à l'exposition et à la maladie."
+                    },
+                    {
+                            "id": "c",
+                            "text": "Les auteurs auraient pu donner les valeurs du risque relatif pour fournir une estimation plus précise de l’association cancer/consommation de café",
+                            "correct": false,
+                            "explanation": "C. Faux — Dans une étude cas-témoins, les incidences ne peuvent pas être calculées directement car les proportions de cas et de témoins sont fixées par le protocole. On ne peut donc pas calculer directement de Risque Relatif (RR), mais seulement un Odds Ratio (OR)."
+                    },
+                    {
+                            "id": "d",
+                            "text": "Le coefficient de régression (β) non ajusté associé à la consommation de 2 tasses ou plus par jour est égal à 0.3",
+                            "correct": true,
+                            "explanation": "D. Vrai — Dans un modèle de régression logistique, l'odds ratio est relié au coefficient de régression β par la relation OR = e^β, ce qui donne β = ln(OR). Ici, β = ln(1.35) ≈ 0.30."
+                    },
+                    {
+                            "id": "e",
+                            "text": "L’analyse multivariée par régression linéaire permet d’estimer les odds ratios ajustés",
+                            "correct": false,
+                            "explanation": "E. Faux — L'estimation des odds ratios dans le cas d'une variable dépendante binaire (malade / non malade) repose sur la régression logistique, et non sur la régression linéaire."
+                    }
+            ],
+            "explanation": "Réponses A, B et D exactes.\n\n• Item A (VRAI) : L'ajustement multivarié contrôle les facteurs de confusion pour isoler l'effet indépendant.\n• Item B (VRAI) : Les OR bruts subissent les biais de confusion.\n• Item C (FAUX) : Dans une étude cas-témoins, le risque relatif (RR) n'est pas calculable car on ne connaît pas les incidences ; seul l'Odds Ratio (OR) est estimable.\n• Item D (VRAI) : OR = exp(β) ⇔ β = ln(OR) = ln(1.35) ≈ 0.30.\n• Item E (FAUX) : Pour un événement binaire (cancer oui/non), on utilise la régression logistique, pas la régression linéaire."
+    },
+    {
+            "id": "ue_bio_f4_dp1_q2",
+            "subjectId": "s10",
+            "subject": "UE Biostatistiques",
+            "chapter": "Fiche n°4 - Odds ratio et coefficient de régression",
+            "year": 2022,
+            "difficulty": "Moyen",
+            "isDp": true,
+            "dpId": "dp_or_1",
+            "dpTitle": "DP 1 - Cancer colorectal et consommation de café (20 ans)",
+            "dpStep": 2,
+            "dpTotalSteps": 2,
+            "tags": [
+                    "Biostatistiques",
+                    "Dossier Progressif",
+                    "Odds Ratio",
+                    "Régression logistique",
+                    "Facteurs de confusion"
+            ],
+            "image": {
+                    "url": "src/assets/images/table_dp_or_1.png",
+                    "alt": "Tableau des Odds Ratios - Cancer colorectal et café (20 ans)"
+            },
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUne étude cas-témoins vient d’être menée visant à étudier l’association entre la survenue d’un cancer colo-rectal et la consommation régulière de café au cours de la vie. Pour réaliser cette étude, les chercheurs ont inclus 50 patients porteurs d’un cancer colorectal (les cas), et 50 témoins sans cancer connu et recrutés au sein du personnel médical. Concernant la mesure de l’exposition, les cas ont été interrogés au cours d’une hospitalisation pour la prise en charge du cancer par des enquêteurs formés et les témoins ont complété et renvoyé par voie postale un questionnaire papier.\n\nTableau des mesures d'association (Consommation de café au cours des 20 dernières années) :\n• Moins de 2 tasses par jour : OR brut = 1 (référence) | OR ajusté* = 1 (référence)\n• 2 tasses ou plus par jour : OR brut = 1.35 (1.05 - 1.62) | OR ajusté* = 0.84 (0.45 - 1.69)\n*Ajustement sur l'âge, le tabagisme, le niveau d'activité physique, la consommation de fruits et légumes",
+            "subStatement": "QUESTION 2 du DP 1 : À partir des données du tableau, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 1 :\nUne étude cas-témoins vient d’être menée visant à étudier l’association entre la survenue d’un cancer colo-rectal et la consommation régulière de café au cours de la vie. Pour réaliser cette étude, les chercheurs ont inclus 50 patients porteurs d’un cancer colorectal (les cas), et 50 témoins sans cancer connu et recrutés au sein du personnel médical. Concernant la mesure de l’exposition, les cas ont été interrogés au cours d’une hospitalisation pour la prise en charge du cancer par des enquêteurs formés et les témoins ont complété et renvoyé par voie postale un questionnaire papier.\n\nTableau des mesures d'association (Consommation de café au cours des 20 dernières années) :\n• Moins de 2 tasses par jour : OR brut = 1 (référence) | OR ajusté* = 1 (référence)\n• 2 tasses ou plus par jour : OR brut = 1.35 (1.05 - 1.62) | OR ajusté* = 0.84 (0.45 - 1.69)\n*Ajustement sur l'âge, le tabagisme, le niveau d'activité physique, la consommation de fruits et légumes\n\nQUESTION 2 du DP 1 : À partir des données du tableau, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "answers": [
+                    {
+                            "id": "a",
+                            "text": "La consommation de 2 tasses de café par jour ou plus est un facteur de risque indépendant de cancer",
+                            "correct": false,
+                            "explanation": "A. Faux — L'OR ajusté est de 0.84 avec un intervalle de confiance à 95% de [0.45 - 1.69]. Cet intervalle contient 1, ce qui montre que la relation n'est pas statistiquement significative après ajustement. Ce n'est donc pas un facteur de risque indépendant."
+                    },
+                    {
+                            "id": "b",
+                            "text": "La consommation de 2 tasses de café par jour ou plus est un facteur protecteur significatif de cancer",
+                            "correct": false,
+                            "explanation": "B. Faux — Bien que la valeur ponctuelle de l'OR ajusté soit inférieure à 1 (0.84), l'intervalle de confiance [0.45 - 1.69] inclut la valeur neutre 1. L'effet protecteur n'est donc pas statistiquement significatif au risque 5%."
+                    },
+                    {
+                            "id": "c",
+                            "text": "L’analyse non ajustée retrouve une relation statistiquement significative entre consommation de café et survenue d’un cancer colorectal",
+                            "correct": true,
+                            "explanation": "C. Vrai — Pour l'analyse non ajustée, l'OR brut est de 1.35 avec un intervalle de confiance à 95% de [1.05 - 1.62]. Cet intervalle ne contient pas 1 et la borne inférieure est strictement supérieure à 1, ce qui correspond à une association positive statistiquement significative au risque 5%."
+                    },
+                    {
+                            "id": "d",
+                            "text": "L’analyse ajustée retrouve une relation statistiquement significative entre consommation de café et survenue d’un cancer colorectal",
+                            "correct": false,
+                            "explanation": "D. Faux — L'IC95% de l'OR ajusté [0.45 - 1.69] contient la valeur 1, la relation ajustée n'est donc pas statistiquement significative au risque 5%."
+                    },
+                    {
+                            "id": "e",
+                            "text": "L’âge, le tabagisme, l’activité physique et la consommation de fruits et légumes sont de probables facteurs de confusion dans la relation entre café et cancer colorectal",
+                            "correct": true,
+                            "explanation": "E. Vrai — Le passage d'un OR brut significativement supérieur à 1 (1.35 [1.05 - 1.62]) à un OR ajusté inférieur à 1 et non significatif (0.84 [0.45 - 1.69]) met en évidence une modification importante de l'effet, signe d'une confusion majeure causée par ces variables d'ajustement."
+                    }
+            ],
+            "explanation": "Réponses C et E exactes.\n\n• Item A (FAUX) : L'OR ajusté (0.84, IC95% [0.45-1.69]) n'est pas significatif car l'intervalle inclut 1.\n• Item B (FAUX) : Même raison, l'IC95% inclut 1 donc aucun effet protecteur n'est prouvé.\n• Item C (VRAI) : OR brut = 1.35 [1.05 - 1.62] > 1, significatif.\n• Item D (FAUX) : L'ajustement fait perdre la significativité.\n• Item E (VRAI) : Le basculement de l'association après ajustement prouve le rôle de facteurs de confusion de l'âge, du tabac, du sport et de l'alimentation."
+    },
+    {
+            "id": "ue_bio_f4_dp2_q1",
+            "subjectId": "s10",
+            "subject": "UE Biostatistiques",
+            "chapter": "Fiche n°4 - Odds ratio et coefficient de régression",
+            "year": 2022,
+            "difficulty": "Moyen",
+            "isDp": true,
+            "dpId": "dp_or_2",
+            "dpTitle": "DP 2 - COVID-19 et persistance des symptômes",
+            "dpStep": 1,
+            "dpTotalSteps": 2,
+            "tags": [
+                    "Biostatistiques",
+                    "Dossier Progressif",
+                    "Odds Ratio",
+                    "Régression logistique",
+                    "Facteurs de confusion"
+            ],
+            "image": {
+                    "url": "src/assets/images/table_dp_or_2.png",
+                    "alt": "Tableau des Odds Ratios - COVID-19 et symptômes persistants"
+            },
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nDans le cadre de la pandémie à SARS-CoV-2, une étude de cohorte prospective vient d’être menée visant à identifier les facteurs de risque de persistance à long terme des symptômes observés chez des patients hospitalisés pour COVID-19. Pour réaliser cette étude, les chercheurs ont interrogé 234 patients sur l'existence de symptômes lors de l'hospitalisation initiale, puis ont envoyé un questionnaire par voie postale pour recueillir les symptômes après 6 mois de suivi.\n\nTableau des mesures d'association (Régression logistique) :\n• Âge ≥ 65 ans : OR brut = 0.76 [0.57 ; 0.95] | OR ajusté = 0.84 [0.65 ; 1.03]\n• Sexe féminin : OR brut = 2.01 [1.51 ; 2.68] | OR ajusté = 2.40 [1.75 ; 3.30]\n• Admis en réanimation : OR brut = 1.23 [0.89 ; 1.70] | OR ajusté = 1.55 [1.09 ; 2.18]\nIC95% : intervalle de confiance à 95%",
+            "subStatement": "QUESTION 1 du DP 2 : Concernant les mesures d’association données dans le tableau, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nDans le cadre de la pandémie à SARS-CoV-2, une étude de cohorte prospective vient d’être menée visant à identifier les facteurs de risque de persistance à long terme des symptômes observés chez des patients hospitalisés pour COVID-19. Pour réaliser cette étude, les chercheurs ont interrogé 234 patients sur l'existence de symptômes lors de l'hospitalisation initiale, puis ont envoyé un questionnaire par voie postale pour recueillir les symptômes après 6 mois de suivi.\n\nTableau des mesures d'association (Régression logistique) :\n• Âge ≥ 65 ans : OR brut = 0.76 [0.57 ; 0.95] | OR ajusté = 0.84 [0.65 ; 1.03]\n• Sexe féminin : OR brut = 2.01 [1.51 ; 2.68] | OR ajusté = 2.40 [1.75 ; 3.30]\n• Admis en réanimation : OR brut = 1.23 [0.89 ; 1.70] | OR ajusté = 1.55 [1.09 ; 2.18]\nIC95% : intervalle de confiance à 95%\n\nQUESTION 1 du DP 2 : Concernant les mesures d’association données dans le tableau, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "answers": [
+                    {
+                            "id": "a",
+                            "text": "Les odds ratios ajustés permettent d’identifier les facteurs de risque indépendants de symptômes persistants",
+                            "correct": true,
+                            "explanation": "A. Vrai — L'ajustement multivarié permet de contrôler les facteurs de confusion et d'isoler les facteurs de risque indépendants."
+                    },
+                    {
+                            "id": "b",
+                            "text": "Les auteurs auraient pu donner les valeurs du risque relatif pour fournir une estimation de l'association entre facteurs de risque et symptômes persistants",
+                            "correct": true,
+                            "explanation": "B. Vrai — Puisqu'il s'agit d'une étude de cohorte prospective, les incidences de symptômes persistants chez les exposés et non-exposés sont directement calculables, le Risque Relatif (RR) aurait donc pu être estimé."
+                    },
+                    {
+                            "id": "c",
+                            "text": "Les odds ratios non ajustés sont influencés par les facteurs de confusion potentiels",
+                            "correct": true,
+                            "explanation": "C. Vrai — Les OR bruts intègrent l'effet potentiel des variables de confusion non contrôlées."
+                    },
+                    {
+                            "id": "d",
+                            "text": "Le coefficient de régression (β) non ajusté associé à un âge supérieur ou égal à 65 ans est égal à -0.12",
+                            "correct": false,
+                            "explanation": "D. Faux — En régression logistique : OR = e^β d'où β = ln(OR). Pour l'âge non ajusté, OR = 0.76, donc β = ln(0.76) ≈ -0.27 (et non -0.12)."
+                    },
+                    {
+                            "id": "e",
+                            "text": "L’analyse multivariée par régression de Cox permet d’estimer les odds ratios ajustés",
+                            "correct": false,
+                            "explanation": "E. Faux — Le modèle de régression de Cox estime des Hazard Ratios (rapports de risques instantanés) dans les analyses de survie avec délai. Pour estimer des Odds Ratios, on utilise la régression logistique."
+                    }
+            ],
+            "explanation": "Réponses A, B et C exactes.\n\n• Item A (VRAI) : Les OR ajustés identifient les facteurs de risque indépendants.\n• Item B (VRAI) : Dans une cohorte prospective, l'incidence est mesurable, donc le Risque Relatif (RR) est tout à fait calculable.\n• Item C (VRAI) : Les estimations non ajustées sont biaisées par les facteurs de confusion.\n• Item D (FAUX) : β = ln(0.76) = -0.27.\n• Item E (FAUX) : Le modèle de Cox fournit des Hazard Ratios (HR) et non des Odds Ratios (OR, issus de la régression logistique)."
+    },
+    {
+            "id": "ue_bio_f4_dp2_q2",
+            "subjectId": "s10",
+            "subject": "UE Biostatistiques",
+            "chapter": "Fiche n°4 - Odds ratio et coefficient de régression",
+            "year": 2022,
+            "difficulty": "Moyen",
+            "isDp": true,
+            "dpId": "dp_or_2",
+            "dpTitle": "DP 2 - COVID-19 et persistance des symptômes",
+            "dpStep": 2,
+            "dpTotalSteps": 2,
+            "tags": [
+                    "Biostatistiques",
+                    "Dossier Progressif",
+                    "Odds Ratio",
+                    "Régression logistique",
+                    "Facteurs de confusion"
+            ],
+            "image": {
+                    "url": "src/assets/images/table_dp_or_2.png",
+                    "alt": "Tableau des Odds Ratios - COVID-19 et symptômes persistants"
+            },
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nDans le cadre de la pandémie à SARS-CoV-2, une étude de cohorte prospective vient d’être menée visant à identifier les facteurs de risque de persistance à long terme des symptômes observés chez des patients hospitalisés pour COVID-19. Pour réaliser cette étude, les chercheurs ont interrogé 234 patients sur l'existence de symptômes lors de l'hospitalisation initiale, puis ont envoyé un questionnaire par voie postale pour recueillir les symptômes après 6 mois de suivi.\n\nTableau des mesures d'association (Régression logistique) :\n• Âge ≥ 65 ans : OR brut = 0.76 [0.57 ; 0.95] | OR ajusté = 0.84 [0.65 ; 1.03]\n• Sexe féminin : OR brut = 2.01 [1.51 ; 2.68] | OR ajusté = 2.40 [1.75 ; 3.30]\n• Admis en réanimation : OR brut = 1.23 [0.89 ; 1.70] | OR ajusté = 1.55 [1.09 ; 2.18]\nIC95% : intervalle de confiance à 95%",
+            "subStatement": "QUESTION 2 du DP 2 : À partir des données du tableau, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 2 :\nDans le cadre de la pandémie à SARS-CoV-2, une étude de cohorte prospective vient d’être menée visant à identifier les facteurs de risque de persistance à long terme des symptômes observés chez des patients hospitalisés pour COVID-19. Pour réaliser cette étude, les chercheurs ont interrogé 234 patients sur l'existence de symptômes lors de l'hospitalisation initiale, puis ont envoyé un questionnaire par voie postale pour recueillir les symptômes après 6 mois de suivi.\n\nTableau des mesures d'association (Régression logistique) :\n• Âge ≥ 65 ans : OR brut = 0.76 [0.57 ; 0.95] | OR ajusté = 0.84 [0.65 ; 1.03]\n• Sexe féminin : OR brut = 2.01 [1.51 ; 2.68] | OR ajusté = 2.40 [1.75 ; 3.30]\n• Admis en réanimation : OR brut = 1.23 [0.89 ; 1.70] | OR ajusté = 1.55 [1.09 ; 2.18]\nIC95% : intervalle de confiance à 95%\n\nQUESTION 2 du DP 2 : À partir des données du tableau, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "answers": [
+                    {
+                            "id": "a",
+                            "text": "Un âge supérieur ou égal à 65 ans est un facteur protecteur indépendant de symptômes persistants",
+                            "correct": false,
+                            "explanation": "A. Faux — L'OR ajusté pour l'âge est de 0.84 avec IC95% [0.65 ; 1.03]. Cet intervalle inclut 1, donc la relation n'est pas statistiquement significative après ajustement."
+                    },
+                    {
+                            "id": "b",
+                            "text": "Être une femme est un facteur de risque indépendant de symptômes persistants",
+                            "correct": true,
+                            "explanation": "B. Vrai — L'OR ajusté pour le sexe féminin est de 2.40 avec IC95% [1.75 ; 3.30]. L'intervalle est strictement supérieur à 1 (ne contient pas 1), ce qui confirme que le sexe féminin est un facteur de risque indépendant."
+                    },
+                    {
+                            "id": "c",
+                            "text": "L’analyse non ajustée retrouve une relation statistiquement significative entre âge supérieur ou égal à 65 ans et symptômes persistants",
+                            "correct": true,
+                            "explanation": "C. Vrai — L'OR non ajusté est de 0.76 avec IC95% [0.57 ; 0.95]. Cet intervalle est strictement inférieur à 1 (ne comprend pas 1), l'association est donc statistiquement significative en univarié."
+                    },
+                    {
+                            "id": "d",
+                            "text": "L’analyse ajustée retrouve une relation statistiquement significative entre âge supérieur ou égal à 65 ans et symptômes persistants",
+                            "correct": false,
+                            "explanation": "D. Faux — L'IC95% ajusté [0.65 ; 1.03] inclut 1, donc l'association n'est plus significative après ajustement."
+                    },
+                    {
+                            "id": "e",
+                            "text": "L'association entre l'admission en réanimation et les symptômes persistants est statistiquement significative car l'intervalle de confiance à 95% ne comprend pas 0",
+                            "correct": false,
+                            "explanation": "E. Faux — Pour un rapport de cotes (Odds Ratio), la valeur neutre d'absence d'association est 1 (et non 0 !). La significativité s'évalue par le fait que l'IC95% ne contienne pas 1 (ici [1.09 ; 2.18] exclut 1)."
+                    }
+            ],
+            "explanation": "Réponses B et C exactes.\n\n• Item A (FAUX) : L'âge ajusté (IC95% [0.65; 1.03]) inclut 1, donc non significatif.\n• Item B (VRAI) : Sexe féminin ajusté : OR = 2.40 [1.75; 3.30] > 1, facteur de risque indépendant très significatif.\n• Item C (VRAI) : Âge non ajusté : OR = 0.76 [0.57; 0.95] < 1, statistiquement significatif en analyse brute.\n• Item D (FAUX) : Non significatif après ajustement.\n• Item E (FAUX) : Piège classique : la valeur de référence d'un OR est 1, et non 0."
+    },
+    {
+            "id": "ue_bio_f4_dp3_q1",
+            "subjectId": "s10",
+            "subject": "UE Biostatistiques",
+            "chapter": "Fiche n°4 - Odds ratio et coefficient de régression",
+            "year": 2022,
+            "difficulty": "Moyen",
+            "isDp": true,
+            "dpId": "dp_or_3",
+            "dpTitle": "DP 3 - BPCO et score de qualité alimentaire (HEI)",
+            "dpStep": 1,
+            "dpTotalSteps": 2,
+            "tags": [
+                    "Biostatistiques",
+                    "Dossier Progressif",
+                    "Odds Ratio",
+                    "Régression logistique",
+                    "Facteurs de confusion"
+            ],
+            "image": {
+                    "url": "src/assets/images/table_dp_or_3.png",
+                    "alt": "Tableau des Odds Ratios - BPCO et score HEI"
+            },
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUne étude cas-témoins a été réalisée visant à étudier l’association entre le régime alimentaire et la survenue d’une maladie pulmonaire, la bronchopneumopathie chronique obstructive (BPCO). Pour réaliser cette étude, les chercheurs ont inclus 80 cas (patients atteints de BPCO) et 100 témoins sans BPCO connue. Pour la mesure de l’exposition, les participants ont complété un questionnaire de qualité du régime alimentaire (Healthy Eating Index [HEI]) dont les valeurs vont de 1 à 120, les valeurs élevées indiquant un régime de meilleure qualité.\nOn donne les résultats suivants, en considérant deux groupes selon la valeur du HEI (inférieur ou supérieur à la médiane du score) :\n\nTableau des mesures d'association :\n• HEI inférieur à la médiane : OR brut = 1 (référence) | OR ajusté* = 1 (référence)\n• HEI supérieur à la médiane : OR brut = 0.34 [0.16 ; 0.72] | OR ajusté* = 0.45 [0.22 ; 0.98]\nIC95% : intervalle de confiance à 95%\n*Ajustement sur l'âge, le tabagisme, l'activité physique et l'indice de masse corporelle",
+            "subStatement": "QUESTION 1 du DP 3 : Concernant les mesures d’association données dans le tableau, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUne étude cas-témoins a été réalisée visant à étudier l’association entre le régime alimentaire et la survenue d’une maladie pulmonaire, la bronchopneumopathie chronique obstructive (BPCO). Pour réaliser cette étude, les chercheurs ont inclus 80 cas (patients atteints de BPCO) et 100 témoins sans BPCO connue. Pour la mesure de l’exposition, les participants ont complété un questionnaire de qualité du régime alimentaire (Healthy Eating Index [HEI]) dont les valeurs vont de 1 à 120, les valeurs élevées indiquant un régime de meilleure qualité.\nOn donne les résultats suivants, en considérant deux groupes selon la valeur du HEI (inférieur ou supérieur à la médiane du score) :\n\nTableau des mesures d'association :\n• HEI inférieur à la médiane : OR brut = 1 (référence) | OR ajusté* = 1 (référence)\n• HEI supérieur à la médiane : OR brut = 0.34 [0.16 ; 0.72] | OR ajusté* = 0.45 [0.22 ; 0.98]\nIC95% : intervalle de confiance à 95%\n*Ajustement sur l'âge, le tabagisme, l'activité physique et l'indice de masse corporelle\n\nQUESTION 1 du DP 3 : Concernant les mesures d’association données dans le tableau, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "answers": [
+                    {
+                            "id": "a",
+                            "text": "Les odds ratios ajustés permettent d’identifier les facteurs de risque indépendants de BPCO",
+                            "correct": true,
+                            "explanation": "A. Vrai — L'ajustement multivarié permet de contrôler les facteurs de confusion et d'identifier les facteurs associés indépendamment."
+                    },
+                    {
+                            "id": "b",
+                            "text": "Le coefficient de régression (β) non ajusté associé à un score HEI supérieur à la médiane est égal à -1.08",
+                            "correct": true,
+                            "explanation": "B. Vrai — En régression logistique : OR = e^β d'où β = ln(OR). Pour le score HEI supérieur à la médiane non ajusté, OR = 0.34, donc β = ln(0.34) ≈ -1.0788 ≈ -1.08."
+                    },
+                    {
+                            "id": "c",
+                            "text": "Les odds ratios non ajustés ne sont pas influencés par les facteurs de confusion potentiels",
+                            "correct": false,
+                            "explanation": "C. Faux — Les OR bruts sont au contraire influencés par les facteurs de confusion non contrôlés."
+                    },
+                    {
+                            "id": "d",
+                            "text": "L’analyse multivariée par modèle de Cox permet d’estimer les odds ratios ajustés",
+                            "correct": false,
+                            "explanation": "D. Faux — Le modèle de Cox est utilisé pour l'analyse de survie (données censurées avec délai) et estime des rapports de risques instantanés (Hazard Ratios), pas des Odds Ratios."
+                    },
+                    {
+                            "id": "e",
+                            "text": "Les auteurs auraient pu donner les valeurs du risque relatif pour fournir une estimation plus précise de l’association BPCO/qualité du régime alimentaire",
+                            "correct": false,
+                            "explanation": "E. Faux — Dans une étude cas-témoins, les incidences de la maladie ne peuvent pas être estimées directement, le Risque Relatif ne peut donc pas être calculé (seul l'Odds Ratio est accessible)."
+                    }
+            ],
+            "explanation": "Réponses A et B exactes.\n\n• Item A (VRAI) : Les OR ajustés isolent les effets indépendants.\n• Item B (VRAI) : β = ln(0.34) ≈ -1.08.\n• Item C (FAUX) : Les OR bruts sont sujets à confusion.\n• Item D (FAUX) : Régression logistique pour les OR, modèle de Cox pour les Hazard Ratios.\n• Item E (FAUX) : Dans une étude cas-témoins, le Risque Relatif n'est pas calculable."
+    },
+    {
+            "id": "ue_bio_f4_dp3_q2",
+            "subjectId": "s10",
+            "subject": "UE Biostatistiques",
+            "chapter": "Fiche n°4 - Odds ratio et coefficient de régression",
+            "year": 2022,
+            "difficulty": "Moyen",
+            "isDp": true,
+            "dpId": "dp_or_3",
+            "dpTitle": "DP 3 - BPCO et score de qualité alimentaire (HEI)",
+            "dpStep": 2,
+            "dpTotalSteps": 2,
+            "tags": [
+                    "Biostatistiques",
+                    "Dossier Progressif",
+                    "Odds Ratio",
+                    "Régression logistique",
+                    "Facteurs de confusion"
+            ],
+            "image": {
+                    "url": "src/assets/images/table_dp_or_3.png",
+                    "alt": "Tableau des Odds Ratios - BPCO et score HEI"
+            },
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUne étude cas-témoins a été réalisée visant à étudier l’association entre le régime alimentaire et la survenue d’une maladie pulmonaire, la bronchopneumopathie chronique obstructive (BPCO). Pour réaliser cette étude, les chercheurs ont inclus 80 cas (patients atteints de BPCO) et 100 témoins sans BPCO connue. Pour la mesure de l’exposition, les participants ont complété un questionnaire de qualité du régime alimentaire (Healthy Eating Index [HEI]) dont les valeurs vont de 1 à 120, les valeurs élevées indiquant un régime de meilleure qualité.\nOn donne les résultats suivants, en considérant deux groupes selon la valeur du HEI (inférieur ou supérieur à la médiane du score) :\n\nTableau des mesures d'association :\n• HEI inférieur à la médiane : OR brut = 1 (référence) | OR ajusté* = 1 (référence)\n• HEI supérieur à la médiane : OR brut = 0.34 [0.16 ; 0.72] | OR ajusté* = 0.45 [0.22 ; 0.98]\nIC95% : intervalle de confiance à 95%\n*Ajustement sur l'âge, le tabagisme, l'activité physique et l'indice de masse corporelle",
+            "subStatement": "QUESTION 2 du DP 3 : À partir des données du tableau, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 3 :\nUne étude cas-témoins a été réalisée visant à étudier l’association entre le régime alimentaire et la survenue d’une maladie pulmonaire, la bronchopneumopathie chronique obstructive (BPCO). Pour réaliser cette étude, les chercheurs ont inclus 80 cas (patients atteints de BPCO) et 100 témoins sans BPCO connue. Pour la mesure de l’exposition, les participants ont complété un questionnaire de qualité du régime alimentaire (Healthy Eating Index [HEI]) dont les valeurs vont de 1 à 120, les valeurs élevées indiquant un régime de meilleure qualité.\nOn donne les résultats suivants, en considérant deux groupes selon la valeur du HEI (inférieur ou supérieur à la médiane du score) :\n\nTableau des mesures d'association :\n• HEI inférieur à la médiane : OR brut = 1 (référence) | OR ajusté* = 1 (référence)\n• HEI supérieur à la médiane : OR brut = 0.34 [0.16 ; 0.72] | OR ajusté* = 0.45 [0.22 ; 0.98]\nIC95% : intervalle de confiance à 95%\n*Ajustement sur l'âge, le tabagisme, l'activité physique et l'indice de masse corporelle\n\nQUESTION 2 du DP 3 : À partir des données du tableau, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "answers": [
+                    {
+                            "id": "a",
+                            "text": "Un score HEI supérieur à la médiane est un facteur de risque indépendant de BPCO",
+                            "correct": false,
+                            "explanation": "A. Faux — L'OR est inférieur à 1 (0.45), c'est un facteur protecteur et non un facteur de risque."
+                    },
+                    {
+                            "id": "b",
+                            "text": "Un score HEI supérieur à la médiane est un facteur protecteur indépendant de BPCO",
+                            "correct": true,
+                            "explanation": "B. Vrai — L'OR ajusté vaut 0.45 avec un IC95% de [0.22 ; 0.98]. Comme la borne supérieure est strictement inférieure à 1 (1 exclu), il s'agit d'un facteur protecteur indépendant et statistiquement significatif au risque 5%."
+                    },
+                    {
+                            "id": "c",
+                            "text": "L’analyse non ajustée retrouve une relation statistiquement significative entre meilleure qualité du régime alimentaire et moindre survenue d’une BPCO",
+                            "correct": true,
+                            "explanation": "C. Vrai — L'OR non ajusté est de 0.34 [0.16 ; 0.72], strictement inférieur à 1 (ne contient pas 1), ce qui montre une association statistiquement significative."
+                    },
+                    {
+                            "id": "d",
+                            "text": "L’analyse ajustée retrouve une relation statistiquement significative entre meilleure qualité du régime alimentaire et moindre survenue d’une BPCO",
+                            "correct": true,
+                            "explanation": "D. Vrai — L'OR ajusté est de 0.45 [0.22 ; 0.98], dont l'IC95% ne contient pas 1 (borne sup < 1), confirmant la significativité statistique après prise en compte des facteurs de confusion."
+                    },
+                    {
+                            "id": "e",
+                            "text": "L’âge, le tabagisme, l’activité physique et l’indice de masse corporelle ont été pris en compte dans l’analyse non ajustée",
+                            "correct": false,
+                            "explanation": "E. Faux — Ces variables ont été prises en compte dans l'analyse AJUSTÉE (comme indiqué par l'astérisque *), et non dans l'analyse non ajustée (brute)."
+                    }
+            ],
+            "explanation": "Réponses B, C et D exactes.\n\n• Item A (FAUX) : OR < 1 = facteur protecteur.\n• Item B (VRAI) : OR ajusté = 0.45 [0.22; 0.98] < 1 (exclut 1), protecteur indépendant.\n• Item C (VRAI) : OR brut = 0.34 [0.16; 0.72] < 1, significatif.\n• Item D (VRAI) : OR ajusté = 0.45 [0.22; 0.98] < 1, significatif.\n• Item E (FAUX) : Les facteurs d'ajustement ne concernent que l'analyse multivariée ajustée."
+    },
+    {
+            "id": "ue_bio_f4_dp4_q1",
+            "subjectId": "s10",
+            "subject": "UE Biostatistiques",
+            "chapter": "Fiche n°4 - Odds ratio et coefficient de régression",
+            "year": 2022,
+            "difficulty": "Moyen",
+            "isDp": true,
+            "dpId": "dp_or_4",
+            "dpTitle": "DP 4 - Cancer colorectal et consommation de café (10 ans)",
+            "dpStep": 1,
+            "dpTotalSteps": 2,
+            "tags": [
+                    "Biostatistiques",
+                    "Dossier Progressif",
+                    "Odds Ratio",
+                    "Régression logistique",
+                    "Facteurs de confusion"
+            ],
+            "image": {
+                    "url": "src/assets/images/table_dp_or_4.png",
+                    "alt": "Tableau des Odds Ratios - Cancer colorectal et café (10 ans)"
+            },
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nUne étude cas-témoins vient d’être menée visant à étudier l’association entre la survenue d’un cancer colo-rectal et la consommation régulière de café au cours de la vie. Pour réaliser cette étude, les chercheurs ont inclus 100 patients porteurs d’un cancer colorectal (les cas), et 100 témoins sans cancer connu et recrutés au sein du personnel médical. Concernant la mesure de l’exposition, les cas ont été interrogés au cours d’une hospitalisation pour la prise en charge du cancer par des enquêteurs formés et les témoins ont complété et renvoyé par voie postale un questionnaire papier.\n\nTableau des mesures d'association (Consommation de café au cours des 10 dernières années) :\n• Moins de 2 tasses par jour : OR brut = 1 (référence) | OR ajusté* = 1 (référence)\n• 2 tasses ou plus par jour : OR brut = 1.44 (1.10 - 1.72) | OR ajusté* = 0.74 (0.35 - 1.15)\nIC95% : intervalle de confiance à 95%\n*Ajustement sur l'âge, le tabagisme, le niveau d'activité physique et le régime alimentaire",
+            "subStatement": "QUESTION 1 du DP 4 : Concernant les mesures d’association données dans le tableau, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nUne étude cas-témoins vient d’être menée visant à étudier l’association entre la survenue d’un cancer colo-rectal et la consommation régulière de café au cours de la vie. Pour réaliser cette étude, les chercheurs ont inclus 100 patients porteurs d’un cancer colorectal (les cas), et 100 témoins sans cancer connu et recrutés au sein du personnel médical. Concernant la mesure de l’exposition, les cas ont été interrogés au cours d’une hospitalisation pour la prise en charge du cancer par des enquêteurs formés et les témoins ont complété et renvoyé par voie postale un questionnaire papier.\n\nTableau des mesures d'association (Consommation de café au cours des 10 dernières années) :\n• Moins de 2 tasses par jour : OR brut = 1 (référence) | OR ajusté* = 1 (référence)\n• 2 tasses ou plus par jour : OR brut = 1.44 (1.10 - 1.72) | OR ajusté* = 0.74 (0.35 - 1.15)\nIC95% : intervalle de confiance à 95%\n*Ajustement sur l'âge, le tabagisme, le niveau d'activité physique et le régime alimentaire\n\nQUESTION 1 du DP 4 : Concernant les mesures d’association données dans le tableau, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "answers": [
+                    {
+                            "id": "a",
+                            "text": "Les auteurs auraient pu donner les valeurs du risque relatif pour fournir une estimation plus précise de l’association cancer/consommation de café",
+                            "correct": false,
+                            "explanation": "A. Faux — Dans une étude cas-témoins, les incidences ne peuvent pas être calculées directement car les proportions de cas et de témoins sont fixées par le protocole. On ne peut donc pas calculer directement de Risque Relatif (RR), mais seulement un Odds Ratio (OR)."
+                    },
+                    {
+                            "id": "b",
+                            "text": "Le coefficient de régression (β) non ajusté associé à la consommation de 2 tasses ou plus par jour est égal à environ 0.36",
+                            "correct": true,
+                            "explanation": "B. Vrai — Dans un modèle de régression logistique, l'odds ratio est relié au coefficient de régression β par la relation OR = e^β, ce qui donne β = ln(OR). Ici, β = ln(1.44) ≈ 0.3646 ≈ 0.36."
+                    },
+                    {
+                            "id": "c",
+                            "text": "Les odds ratios ajustés permettent d’identifier les facteurs de risque indépendants de cancer",
+                            "correct": true,
+                            "explanation": "C. Vrai — L'ajustement multivarié permet de contrôler les facteurs de confusion et donc d'évaluer l'effet propre (indépendant) de chaque exposition sur le risque d'apparition de la maladie."
+                    },
+                    {
+                            "id": "d",
+                            "text": "Les odds ratios non ajustés sont influencés par les facteurs de confusion potentiels",
+                            "correct": true,
+                            "explanation": "D. Vrai — Les estimations brutes (non ajustées) reflètent à la fois l'effet de l'exposition étudiée et l'influence des variables de confusion associées à la fois à l'exposition et à la maladie."
+                    },
+                    {
+                            "id": "e",
+                            "text": "L’analyse multivariée par régression linéaire permet d’estimer les odds ratios ajustés",
+                            "correct": false,
+                            "explanation": "E. Faux — L'estimation des odds ratios dans le cas d'une variable binaire (malade / non malade) repose sur la régression logistique, et non sur la régression linéaire."
+                    }
+            ],
+            "explanation": "Réponses B, C et D exactes.\n\n• Item A (FAUX) : Dans une étude cas-témoins, le Risque Relatif n'est pas calculable.\n• Item B (VRAI) : β = ln(1.44) ≈ 0.3646 ≈ 0.36.\n• Item C (VRAI) : L'ajustement isole les facteurs de risque indépendants.\n• Item D (VRAI) : Les OR non ajustés sont soumis aux biais de confusion.\n• Item E (FAUX) : Régression logistique requise pour les variables qualitatives binaires."
+    },
+    {
+            "id": "ue_bio_f4_dp4_q2",
+            "subjectId": "s10",
+            "subject": "UE Biostatistiques",
+            "chapter": "Fiche n°4 - Odds ratio et coefficient de régression",
+            "year": 2022,
+            "difficulty": "Moyen",
+            "isDp": true,
+            "dpId": "dp_or_4",
+            "dpTitle": "DP 4 - Cancer colorectal et consommation de café (10 ans)",
+            "dpStep": 2,
+            "dpTotalSteps": 2,
+            "tags": [
+                    "Biostatistiques",
+                    "Dossier Progressif",
+                    "Odds Ratio",
+                    "Régression logistique",
+                    "Facteurs de confusion"
+            ],
+            "image": {
+                    "url": "src/assets/images/table_dp_or_4.png",
+                    "alt": "Tableau des Odds Ratios - Cancer colorectal et café (10 ans)"
+            },
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nUne étude cas-témoins vient d’être menée visant à étudier l’association entre la survenue d’un cancer colo-rectal et la consommation régulière de café au cours de la vie. Pour réaliser cette étude, les chercheurs ont inclus 100 patients porteurs d’un cancer colorectal (les cas), et 100 témoins sans cancer connu et recrutés au sein du personnel médical. Concernant la mesure de l’exposition, les cas ont été interrogés au cours d’une hospitalisation pour la prise en charge du cancer par des enquêteurs formés et les témoins ont complété et renvoyé par voie postale un questionnaire papier.\n\nTableau des mesures d'association (Consommation de café au cours des 10 dernières années) :\n• Moins de 2 tasses par jour : OR brut = 1 (référence) | OR ajusté* = 1 (référence)\n• 2 tasses ou plus par jour : OR brut = 1.44 (1.10 - 1.72) | OR ajusté* = 0.74 (0.35 - 1.15)\nIC95% : intervalle de confiance à 95%\n*Ajustement sur l'âge, le tabagisme, le niveau d'activité physique et le régime alimentaire",
+            "subStatement": "QUESTION 2 du DP 4 : À partir des données du tableau, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 4 :\nUne étude cas-témoins vient d’être menée visant à étudier l’association entre la survenue d’un cancer colo-rectal et la consommation régulière de café au cours de la vie. Pour réaliser cette étude, les chercheurs ont inclus 100 patients porteurs d’un cancer colorectal (les cas), et 100 témoins sans cancer connu et recrutés au sein du personnel médical. Concernant la mesure de l’exposition, les cas ont été interrogés au cours d’une hospitalisation pour la prise en charge du cancer par des enquêteurs formés et les témoins ont complété et renvoyé par voie postale un questionnaire papier.\n\nTableau des mesures d'association (Consommation de café au cours des 10 dernières années) :\n• Moins de 2 tasses par jour : OR brut = 1 (référence) | OR ajusté* = 1 (référence)\n• 2 tasses ou plus par jour : OR brut = 1.44 (1.10 - 1.72) | OR ajusté* = 0.74 (0.35 - 1.15)\nIC95% : intervalle de confiance à 95%\n*Ajustement sur l'âge, le tabagisme, le niveau d'activité physique et le régime alimentaire\n\nQUESTION 2 du DP 4 : À partir des données du tableau, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "answers": [
+                    {
+                            "id": "a",
+                            "text": "La consommation de 2 tasses de café par jour ou plus est un facteur de risque indépendant de cancer",
+                            "correct": false,
+                            "explanation": "A. Faux — L'OR ajusté est de 0.74 avec un intervalle de confiance à 95% de [0.35 - 1.15]. Cet intervalle contient 1, ce qui montre que la relation n'est pas statistiquement significative après ajustement. Ce n'est donc pas un facteur de risque indépendant."
+                    },
+                    {
+                            "id": "b",
+                            "text": "L’âge, le tabagisme, l’activité physique et le régime alimentaire sont de probables facteurs de confusion dans la relation entre café et cancer colorectal",
+                            "correct": true,
+                            "explanation": "B. Vrai — Le passage d'un OR brut significativement supérieur à 1 (1.44 [1.10 - 1.72]) à un OR ajusté inférieur à 1 et non significatif (0.74 [0.35 - 1.15]) met en évidence une modification importante de l'effet, signe d'une confusion majeure causée par ces variables d'ajustement."
+                    },
+                    {
+                            "id": "c",
+                            "text": "La consommation de 2 tasses de café par jour ou plus est un facteur protecteur significatif de cancer",
+                            "correct": false,
+                            "explanation": "C. Faux — Bien que la valeur ponctuelle de l'OR ajusté soit inférieure à 1 (0.74), l'intervalle de confiance [0.35 - 1.15] inclut la valeur neutre 1. L'effet protecteur n'est donc pas statistiquement significatif au risque 5%."
+                    },
+                    {
+                            "id": "d",
+                            "text": "L’analyse non ajustée retrouve une relation statistiquement significative entre consommation de café et survenue d’un cancer colorectal",
+                            "correct": true,
+                            "explanation": "D. Vrai — Pour l'analyse non ajustée, l'OR brut est de 1.44 avec un intervalle de confiance à 95% de [1.10 - 1.72]. Cet intervalle ne contient pas 1 et la borne inférieure est strictement supérieure à 1, ce qui correspond à une association positive statistiquement significative au risque 5%."
+                    },
+                    {
+                            "id": "e",
+                            "text": "L’analyse ajustée retrouve une relation statistiquement significative entre consommation de café et survenue d’un cancer colorectal",
+                            "correct": false,
+                            "explanation": "E. Faux — L'IC95% de l'OR ajusté [0.35 - 1.15] contient la valeur 1, la relation ajustée n'est donc pas statistiquement significative au risque 5%."
+                    }
+            ],
+            "explanation": "Réponses B et D exactes.\n\n• Item A (FAUX) : L'OR ajusté [0.35 - 1.15] contient 1, donc non significatif.\n• Item B (VRAI) : Basculement de l'association de significativement délétère à non significative = phénomène de confusion majeur.\n• Item C (FAUX) : L'intervalle de confiance contient 1, pas d'effet protecteur avéré.\n• Item D (VRAI) : OR brut = 1.44 [1.10 - 1.72] > 1, significatif.\n• Item E (FAUX) : Non significatif après ajustement."
+    },
+    {
+            "id": "ue_bio_f4_dp5_q1",
+            "subjectId": "s10",
+            "subject": "UE Biostatistiques",
+            "chapter": "Fiche n°4 - Odds ratio et coefficient de régression",
+            "year": 2022,
+            "difficulty": "Moyen",
+            "isDp": true,
+            "dpId": "dp_or_5",
+            "dpTitle": "DP 5 - Régression linéaire, Facteurs de confusion & Analyse multivariée",
+            "dpStep": 1,
+            "dpTotalSteps": 3,
+            "tags": [
+                    "Biostatistiques",
+                    "Dossier Progressif",
+                    "Régression linéaire",
+                    "Facteurs de confusion",
+                    "Analyse multivariée"
+            ],
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nDans le cadre de l'évaluation de la spondylarthrite ankylosante chez 15 patients, les investigateurs souhaitent étudier la relation entre le score de qualité de vie ASQOL (considéré comme la variable à expliquer Y) et le score BASDAI (considéré comme une variable explicative quantitative X).\nL'estimation par la méthode des moindres carrés donne l'équation de la droite de régression linéaire suivante :\nY = 89.97 - 8.45 X\nOn donne les écarts-types des variables : s_Y = 18.36 et s_X = 1.85.",
+            "subStatement": "QUESTION 1 du DP 5 (Régression linéaire) : La pente de la droite de régression est-elle significativement différente de zéro ? (une ou plusieurs réponse(s) exacte(s))",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nDans le cadre de l'évaluation de la spondylarthrite ankylosante chez 15 patients, les investigateurs souhaitent étudier la relation entre le score de qualité de vie ASQOL (considéré comme la variable à expliquer Y) et le score BASDAI (considéré comme une variable explicative quantitative X).\nL'estimation par la méthode des moindres carrés donne l'équation de la droite de régression linéaire suivante :\nY = 89.97 - 8.45 X\nOn donne les écarts-types des variables : s_Y = 18.36 et s_X = 1.85.\n\nQUESTION 1 du DP 5 (Régression linéaire) : La pente de la droite de régression est-elle significativement différente de zéro ? (une ou plusieurs réponse(s) exacte(s))",
+            "answers": [
+                    {
+                            "id": "a",
+                            "text": "Oui car |t0| = 4.92 > valeur seuil de 2.16",
+                            "correct": false,
+                            "explanation": "A. Faux — La statistique observée vaut |t0| = 5.85 (et non 4.92)."
+                    },
+                    {
+                            "id": "b",
+                            "text": "Oui car |t0| = 5.85 > valeur seuil de 2.16",
+                            "correct": true,
+                            "explanation": "B. Vrai — La pente vaut b = -8.45. La variance de la pente s²b = [(sY/sX)² - b²]/(n - 2) = [(18.36/1.85)² - (-8.45)²]/(15 - 2) = [98.50 - 71.40]/13 = 2.0838. D'où sb = √2.0838 = 1.4435. La statistique de test est |t0| = |-8.45| / 1.4435 = 5.85. À 13 ddl au seuil bilatéral 5%, t_seuil = 2.160. Comme 5.85 > 2.16, on rejette H0 : la pente est significativement différente de zéro."
+                    },
+                    {
+                            "id": "c",
+                            "text": "Non car |t0| = 1.85 < valeur seuil de 2.16",
+                            "correct": false,
+                            "explanation": "C. Faux — 1.85 est l'écart-type de X (sX), pas la statistique de test."
+                    },
+                    {
+                            "id": "d",
+                            "text": "Oui car |t0| = 1.85 < valeur seuil de 2.54",
+                            "correct": false,
+                            "explanation": "D. Faux — Formulation incohérente et valeur erronée."
+                    },
+                    {
+                            "id": "e",
+                            "text": "Il existe une relation négative entre BASDAI et ASQOL",
+                            "correct": true,
+                            "explanation": "E. Vrai — Le coefficient de régression b = -8.45 est négatif et significativement différent de 0, indiquant que plus le score BASDAI (activité de la maladie) augmente, plus le score ASQOL diminue."
+                    }
+            ],
+            "explanation": "Réponses B et E exactes.\n\n1. Pente observée : b = -8.45.\n2. Variance de la pente : s²b = [(18.36 / 1.85)² - (-8.45)²] / (15 - 2) = [98.502 - 71.402] / 13 = 2.0838.\n3. Écart-type de la pente : sb = √2.0838 ≈ 1.4435.\n4. Statistique de Student : |t0| = |b| / sb = 8.45 / 1.4435 ≈ 5.85.\n5. Seuil de Student bilatéral à 13 ddl au risque 5% : t(13) = 2.160.\n6. Conclusion : |t0| = 5.85 > 2.160 → Rejet franc de H0 (la pente est significativement non nulle). Comme b < 0, il existe une relation linéaire négative significative."
+    },
+    {
+            "id": "ue_bio_f4_dp5_q2",
+            "subjectId": "s10",
+            "subject": "UE Biostatistiques",
+            "chapter": "Fiche n°4 - Odds ratio et coefficient de régression",
+            "year": 2022,
+            "difficulty": "Moyen",
+            "isDp": true,
+            "dpId": "dp_or_5",
+            "dpTitle": "DP 5 - Régression linéaire, Facteurs de confusion & Analyse multivariée",
+            "dpStep": 2,
+            "dpTotalSteps": 3,
+            "tags": [
+                    "Biostatistiques",
+                    "Dossier Progressif",
+                    "Régression linéaire",
+                    "Facteurs de confusion",
+                    "Analyse multivariée"
+            ],
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nDans le cadre de l'évaluation de la spondylarthrite ankylosante chez 15 patients, les investigateurs souhaitent étudier la relation entre le score de qualité de vie ASQOL (considéré comme la variable à expliquer Y) et le score BASDAI (considéré comme une variable explicative quantitative X).\nL'estimation par la méthode des moindres carrés donne l'équation de la droite de régression linéaire suivante :\nY = 89.97 - 8.45 X\nOn donne les écarts-types des variables : s_Y = 18.36 et s_X = 1.85.",
+            "subStatement": "QUESTION 2 du DP 5 (Facteurs de confusion) : Concernant les facteurs de confusion, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nDans le cadre de l'évaluation de la spondylarthrite ankylosante chez 15 patients, les investigateurs souhaitent étudier la relation entre le score de qualité de vie ASQOL (considéré comme la variable à expliquer Y) et le score BASDAI (considéré comme une variable explicative quantitative X).\nL'estimation par la méthode des moindres carrés donne l'équation de la droite de régression linéaire suivante :\nY = 89.97 - 8.45 X\nOn donne les écarts-types des variables : s_Y = 18.36 et s_X = 1.85.\n\nQUESTION 2 du DP 5 (Facteurs de confusion) : Concernant les facteurs de confusion, quelle(s) est (sont) la (les) réponse(s) exacte(s) ?",
+            "answers": [
+                    {
+                            "id": "a",
+                            "text": "Ils ne sont observés que dans les études cas-témoins",
+                            "correct": false,
+                            "explanation": "A. Faux — Les facteurs de confusion peuvent exister dans tout type d'étude observationnelle (cohortes, transversales, cas-témoins) et même dans les essais non randomisés."
+                    },
+                    {
+                            "id": "b",
+                            "text": "Ils peuvent être limités par l’appariement lors de la planification de l’étude",
+                            "correct": true,
+                            "explanation": "B. Vrai — L'appariement lors de la sélection des sujets est une méthode préventive classique pour contrôler les facteurs de confusion."
+                    },
+                    {
+                            "id": "c",
+                            "text": "Ils doivent être pris en compte dans les analyses multivariées",
+                            "correct": true,
+                            "explanation": "C. Vrai — L'analyse multivariée sert précisément à ajuster et neutraliser l'impact des variables de confusion."
+                    },
+                    {
+                            "id": "d",
+                            "text": "Ils peuvent être limités par la taille de l’échantillon",
+                            "correct": false,
+                            "explanation": "D. Faux — Augmenter l'effectif réduit les fluctuations d'échantillonnage mais ne corrige jamais un biais systématique de confusion."
+                    },
+                    {
+                            "id": "e",
+                            "text": "Ils peuvent fausser l’estimation de l’association statistique entre une maladie et une exposition",
+                            "correct": true,
+                            "explanation": "E. Vrai — Par définition, un facteur de confusion est associé à la fois à l'exposition et à la maladie, faussant la relation observée."
+                    }
+            ],
+            "explanation": "Réponses B, C et E exactes.\n\n• Item A (FAUX) : Présents dans toutes les études observationnelles.\n• Item B (VRAI) : L'appariement et la restriction contrôlent la confusion a priori.\n• Item C (VRAI) : La régression multivariée ajuste sur la confusion a posteriori.\n• Item D (FAUX) : L'effectif n'élimine pas un biais systématique.\n• Item E (VRAI) : Un facteur de confusion biaise l'estimation de l'effet propre."
+    },
+    {
+            "id": "ue_bio_f4_dp5_q3",
+            "subjectId": "s10",
+            "subject": "UE Biostatistiques",
+            "chapter": "Fiche n°4 - Odds ratio et coefficient de régression",
+            "year": 2022,
+            "difficulty": "Moyen",
+            "isDp": true,
+            "dpId": "dp_or_5",
+            "dpTitle": "DP 5 - Régression linéaire, Facteurs de confusion & Analyse multivariée",
+            "dpStep": 3,
+            "dpTotalSteps": 3,
+            "tags": [
+                    "Biostatistiques",
+                    "Dossier Progressif",
+                    "Régression linéaire",
+                    "Facteurs de confusion",
+                    "Analyse multivariée"
+            ],
+            "commonStatement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nDans le cadre de l'évaluation de la spondylarthrite ankylosante chez 15 patients, les investigateurs souhaitent étudier la relation entre le score de qualité de vie ASQOL (considéré comme la variable à expliquer Y) et le score BASDAI (considéré comme une variable explicative quantitative X).\nL'estimation par la méthode des moindres carrés donne l'équation de la droite de régression linéaire suivante :\nY = 89.97 - 8.45 X\nOn donne les écarts-types des variables : s_Y = 18.36 et s_X = 1.85.",
+            "subStatement": "QUESTION 3 du DP 5 (Analyse multivariée) : Parmi les propositions suivantes, la(es)quelle(s) s’applique(nt) à l’analyse multivariée ?",
+            "statement": "ÉNONCÉ COMMUN AU DOSSIER PROGRESSIF 5 :\nDans le cadre de l'évaluation de la spondylarthrite ankylosante chez 15 patients, les investigateurs souhaitent étudier la relation entre le score de qualité de vie ASQOL (considéré comme la variable à expliquer Y) et le score BASDAI (considéré comme une variable explicative quantitative X).\nL'estimation par la méthode des moindres carrés donne l'équation de la droite de régression linéaire suivante :\nY = 89.97 - 8.45 X\nOn donne les écarts-types des variables : s_Y = 18.36 et s_X = 1.85.\n\nQUESTION 3 du DP 5 (Analyse multivariée) : Parmi les propositions suivantes, la(es)quelle(s) s’applique(nt) à l’analyse multivariée ?",
+            "answers": [
+                    {
+                            "id": "a",
+                            "text": "Elle permet de prendre en compte les facteurs de confusion",
+                            "correct": true,
+                            "explanation": "A. Vrai — L'analyse multivariée modélise simultanément l'effet de plusieurs variables afin de contrôler la confusion."
+                    },
+                    {
+                            "id": "b",
+                            "text": "Elle permet de différencier les facteurs de risque des facteurs causaux de la maladie",
+                            "correct": false,
+                            "explanation": "B. Faux — L'analyse statistique ne démontre que des associations statistiques ; la causalité nécessite des critères épidémiologiques et biologiques distincts."
+                    },
+                    {
+                            "id": "c",
+                            "text": "Elle permet d’analyser l’association d’un facteur de risque avec une maladie indépendamment des autres facteurs",
+                            "correct": true,
+                            "explanation": "C. Vrai — C'est le principe même de l'effet ajusté 'toutes choses égales par ailleurs'."
+                    },
+                    {
+                            "id": "d",
+                            "text": "Elle doit être faite après l’analyse univariée",
+                            "correct": true,
+                            "explanation": "D. Vrai — L'analyse univariée préliminaire permet de sélectionner les variables à introduire dans le modèle multivarié."
+                    },
+                    {
+                            "id": "e",
+                            "text": "Son intérêt est fort dans les études observationnelles",
+                            "correct": true,
+                            "explanation": "E. Vrai — En l'absence de randomisation, les biais de confusion sont fréquents et l'analyse multivariée est incontournable."
+                    }
+            ],
+            "explanation": "Réponses A, C, D et E exactes.\n\n• Item A (VRAI) : Ajuste sur la confusion.\n• Item B (FAUX) : Une association statistique n'est pas synonyme de lien causal.\n• Item C (VRAI) : Estime l'association propre indépendante.\n• Item D (VRAI) : Succède toujours à l'analyse descriptive et univariée.\n• Item E (VRAI) : Fondamentale dans les cohortes et études cas-témoins observationnelles."
+    }CTYPE html>
 <html lang="fr" class="dark">
 <head>
     <meta charset="UTF-8">
@@ -293,11 +941,12 @@
                 icon: '📊',
                 color: 'from-blue-600 to-indigo-600',
                 progress: 0,
-                qcmCount: 33,
+                qcmCount: 44,
                 chapters: [
                     "Fiche n°1 - Tests paramétriques",
                     "Fiche n°2 - Test de Fisher",
-                    "Fiche n°3 - Tests non paramétriques"
+                    "Fiche n°3 - Tests non paramétriques",
+                    "Fiche n°4 - Odds ratio et coefficient de régression"
                 ]
             }
         ];
