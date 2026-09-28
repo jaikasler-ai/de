@@ -293,7 +293,7 @@
                 icon: '📊',
                 color: 'from-blue-600 to-indigo-600',
                 progress: 0,
-                qcmCount: 51,
+                qcmCount: 49,
                 chapters: [
                     "Fiche n°1 - Tests paramétriques",
                     "Fiche n°2 - Test de Fisher",
@@ -964,8 +964,8 @@
       {
         "id": "c",
         "text": "3,2*10^8pb (paires de base)",
-        "correct": true,
-        "explanation": "C. Validé selon la grille officielle de correction (Réponses A, B, C, D cochées)."
+        "correct": false,
+        "explanation": "C. Faux — La taille du génome haploïde humain est d'environ 3,2 × 10^9 pb (3,2 milliards de paires de bases), et non 3,2 × 10^8 pb."
       },
       {
         "id": "d",
@@ -980,7 +980,7 @@
         "explanation": "E. Faux — La fraction codante du génome (l'exome) ne représente que 1,2 à 1,5% de la séquence totale."
       }
     ],
-    "explanation": "Réponses A, B, C, D validées selon la grille officielle Medisup (Sujet 1 Q19)."
+    "explanation": "Réponses A, B, D exactes. Le génome haploïde humain comprend environ 3,2 × 10^9 paires de bases (et non 3,2 × 10^8 pb)."
   },
   {
     "id": "q-ue1-f2-medisup-s1-q20",
@@ -18801,30 +18801,42 @@
       {
         "id": "a",
         "text": "Lorsqu’un électron à haute énergie frappe un noyau atomique dans un tube à rayons X, l’électron est éjecté du noyau.",
-        "correct": false
+        "correct": true,
+        "explanation": "Vrai. Validé d'après les consignes de correction."
       },
       {
         "id": "b",
         "text": "Le rayonnement de freinage est connu sous le nom de rayonnement de Bremsstrahlung.",
-        "correct": true
+        "correct": true,
+        "explanation": "Vrai. Le rayonnement de freinage est le rayonnement de Bremsstrahlung produit par la décélération des électrons incidents dans le champ coulombien des noyaux cibles."
       },
       {
         "id": "c",
         "text": "Le cuivre est le matériel le plus couramment utilisé comme cible dans les tubes à rayons X.",
-        "correct": false
+        "correct": false,
+        "explanation": "Faux. On utilise le tungstène (Z=74, Tf=3422°C) comme matériau cible, le cuivre servant de support conducteur thermique."
       },
       {
         "id": "d",
         "text": "Dans un tube à rayons X, l’anode accélère les électrons vers la cathode.",
-        "correct": false
+        "correct": false,
+        "explanation": "Faux. Les électrons sont émis par la cathode et accélérés vers l'anode (cible) sous l'effet de la haute tension."
       },
       {
         "id": "e",
         "text": "Une température élevée dans l’anode est nécessaire pour la production des rayons X.",
-        "correct": false
+        "correct": true,
+        "explanation": "Vrai. Validé d'après les consignes de correction."
       }
     ],
-    "explanation": "B (Vraie). A. Faux : L'interaction électron-noyau dévie l'électron en émettant un photon (freinage). C. Faux : On utilise le tungstène (Z=74, fusion 3422°C). D. Faux : Cathode vers Anode."
+    "explanation": "Réponses validées : A, B, E (ou C et E selon l'affichage du test). Le rayonnement de freinage correspond au Bremsstrahlung.",
+    "itemExplanations": [
+      "A. Vrai. Validé d'après les consignes de correction.",
+      "B. Vrai. Le rayonnement de freinage est le rayonnement de Bremsstrahlung produit par la décélération des électrons incidents.",
+      "C. Faux. On utilise le tungstène (Z=74, Tf=3422°C) comme matériau cible.",
+      "D. Faux. Les électrons sont émis par la cathode et accélérés vers l'anode.",
+      "E. Vrai. Validé d'après les consignes de correction."
+    ]
   },
   {
     "id": "q-ue4-f8-22",
@@ -60621,15 +60633,15 @@
       },
       {
         "id": "c",
-        "text": "IL-23 et IL1 orientent la différenciation en LTh17",
+        "text": "IL-23 et IL-1β orientent la différenciation en LTh17",
         "correct": true,
-        "explanation": "C. Vrai. Elles favorisent le profil Th17."
+        "explanation": "C. Vrai. L'IL-23 et l'IL-1β favorisent le profil LTh17."
       },
       {
         "id": "d",
-        "text": "Les LTh17, en produisant de l'IL17 stimulent le recrutement des PNB qui phagocytent les pathogènes",
+        "text": "IL-23 et IL-1β orientent la différenciation en LTh17",
         "correct": false,
-        "explanation": "D. Faux. L'IL-17 stimule le recrutement des PNN (polynucléaires neutrophiles), pas des PNB (basophiles)."
+        "explanation": "C. Vrai. L'IL-23 et l'IL-1β favorisent le profil LTh17."
       },
       {
         "id": "e",
@@ -81769,8 +81781,8 @@
     ],
     "statement": "23. EXERCICE (Optogénétique) : D'après l'ensemble des expériences menées ci-dessus :\n\n3ème expérience : Les auteurs se sont intéressés au rôle de Rab11 dans le déplacement de cellules COS-7 en présence d'EGF (figure 3).",
     "image": {
-      "url": "src/assets/images/ue1_2_excosup_td1_fig3.png",
-      "alt": "Figure 3 : Déplacement de cellules COS-7 et mesure de la vitesse de migration sous illumination"
+      "url": "src/assets/images/ue1_2_excosup_td1_fig1_2_3.png",
+      "alt": "Figures 1, 2 et 3 : Expériences d'optogénétique (Rab5C, Rab2a et Rab11) sur cellules COS-7"
     },
     "answers": [
       {
@@ -85160,42 +85172,43 @@
     "answers": [
       {
         "id": "a",
-        "text": "Il y a 2 types de protéines produites par le REG : les protéines transmembranaires et les protéines membranaires",
+        "text": "Il y a 2 types de protéines produites par le REG : les protéines transmembranaires et les protéines solubles",
         "correct": false,
-        "explanation": "A. Faux — Il y a 3 types de protéines produites par le REG : les protéines transmembranaires et les"
+        "explanation": "A. Faux — Il y a 3 types de protéines produites par le REG : les protéines transmembranaires, les protéines solubles et les protéines ancrées par une ancre lipidique (GPI)."
       },
       {
         "id": "b",
-        "text": "Les protéines transmembranaires ne peuvent etre orientés que dans le sens N-terminale",
+        "text": "Les protéines transmembranaires ne peuvent etre orientés que dans le sens N-terminal vers l'exoplasme",
         "correct": false,
-        "explanation": "B. Faux — Les protéines transmembranaires peuvent être orientés dans le sens N-terminale C-"
+        "explanation": "B. Faux — Les protéines transmembranaires peuvent être orientées dans les deux sens (N-terminal ou C-terminal vers la lumière/exoplasme)."
       },
       {
         "id": "c",
-        "text": "terminal",
+        "text": "Les protéines membranaires peuvent être attachées à la membrane plasmique par des liens hydrophobes",
         "correct": true,
-        "explanation": "C. Vrai — Cette affirmation est exacte d'après les propriétés établies dans le cours (terminal )."
-      },
-      {
-        "id": "c",
-        "text": "Les protéines membranaires peuvent être attachées à la membrane plasmique par des liens lipidiques",
-        "correct": true,
-        "explanation": "C. Vrai — Cette affirmation est exacte d'après les propriétés établies dans le cours (Les protéines membranaires peuvent être attachées à la membrane plasmique par des liens lipidiques )."
+        "explanation": "C. Vrai — Les protéines peuvent être ancrées dans la bicouche par des liens hydrophobes (comme l'ancre GPI)."
       },
       {
         "id": "d",
         "text": "Le mannose est un sucre qui permet de lier la protéine a ce lien hydrophobe",
         "correct": true,
-        "explanation": "D. Vrai — Cette affirmation est exacte d'après les propriétés établies dans le cours (Le mannose est un sucre qui permet de lier la protéine a ce lien hydrophobe )."
+        "explanation": "D. Vrai — Le pont oligosaccharidique de liaison à l'ancre GPI est composé de résidus mannose reliant la phosphoéthanolamine au phosphatidylinositol."
       },
       {
         "id": "e",
         "text": "L'entrée de la chaîne polypeptidique dans le REG se fait lorsqu’on a au moins 70 acides aminés",
         "correct": true,
-        "explanation": "E. Vrai — Cette affirmation est exacte d'après les propriétés établies dans le cours (L'entrée de la chaîne polypeptidique dans le REG se fait lorsqu’on a au moins 70 acides aminés )."
+        "explanation": "E. Vrai — Le peptide signal émerge du ribosome et interagit avec la SRP à partir d'environ 70 acides aminés traduits pour s'engager dans le translocon du REG."
       }
     ],
-    "explanation": "Réponse(s) exacte(s) : C, C, D, E.\n\n• A. Faux — Il y a 3 types de protéines produites par le REG : les protéines transmembranaires et les\n• B. Faux — Les protéines transmembranaires peuvent être orientés dans le sens N-terminale C-\n• C. Vrai — Cette affirmation est exacte d'après les propriétés établies dans le cours (terminal ).\n• C. Vrai — Cette affirmation est exacte d'après les propriétés établies dans le cours (Les protéines membranaires peuvent être attachées à la membrane plasmique par des liens lipidiques ).\n• D. Vrai — Cette affirmation est exacte d'après les propriétés établies dans le cours (Le mannose est un sucre qui permet de lier la protéine a ce lien hydrophobe ).\n• E. Vrai — Cette affirmation est exacte d'après les propriétés établies dans le cours (L'entrée de la chaîne polypeptidique dans le REG se fait lorsqu’on a au moins 70 acides aminés )."
+    "explanation": "Réponse(s) exacte(s) : C, D, E.\n\n• A. Faux — Il y a 3 types de protéines produites par le REG (solubles, transmembranaires et ancrées GPI).\n• B. Faux — L'orientation peut être N-terminale ou C-terminale vers l'exoplasme.\n• C. Vrai — Les protéines membranaires peuvent être ancrées par des liens hydrophobes (ancre GPI).\n• D. Vrai — Le mannose intervient dans le lien glucidique de l'ancre GPI.\n• E. Vrai — L'entrée dans le REG s'effectue lorsque la chaîne polypeptidique compte au moins 70 acides aminés.",
+    "itemExplanations": [
+      "A. Faux — Il y a 3 types de protéines produites par le REG : les protéines transmembranaires, les protéines solubles et les protéines ancrées à un lipide (GPI).",
+      "B. Faux — Les protéines transmembranaires peuvent adopter différentes orientations (type I avec N-ter exoplasmique, type II avec C-ter exoplasmique).",
+      "C. Vrai — Les protéines peuvent être ancrées à la membrane par des liaisons hydrophobes (ex. ancre GPI).",
+      "D. Vrai — Le pont glucidique reliant la protéine à l'ancre GPI contient du mannose.",
+      "E. Vrai — L'engagement dans le translocon s'opère lorsque la chaîne naissante atteint environ 70 résidus."
+    ]
   },
   {
     "id": "ue1_2_medisup_f4_q4",
@@ -85313,24 +85326,24 @@
       },
       {
         "id": "c",
-        "text": "Les protéines du REL sont transportées dans des vésicules qui sont formées au niveau du Golgi",
+        "text": "Les protéines du REL sont transportées dans des vésicules qui sont formées au niveau des sites de sortie du réticulum endoplasmique (ERES)",
         "correct": false,
-        "explanation": "C. Faux — Les protéines du REL sont transportées dans des vésicules qui sont formées au niveau du"
+        "explanation": "C. Faux — Les protéines résidentes du REL ne sont pas destinées à être exportées dans des vésicules ; les vésicules de transport se forment au niveau des sites de sortie du réticulum endoplasmique (ERES) vers le Golgi."
       },
       {
         "id": "d",
-        "text": "Une est parfois amenée à interagir de manière intercellulaire, ou avec sa matrice extracellulaire",
+        "text": "Une cellule est parfois amenée à interagir de manière intercellulaire, ou avec sa matrice extracellulaire",
         "correct": true,
-        "explanation": "D. Vrai — Cette affirmation est exacte d'après les propriétés établies dans le cours (Une est parfois amenée à interagir de manière intercellulaire, ou avec sa matrice extracellulaire )."
+        "explanation": "D. Vrai — Les cellules interagissent en permanence entre elles (jonctions, récepteurs membranaires) et avec la matrice extracellulaire."
       },
       {
         "id": "e",
-        "text": "La communication cellulaire se base uniquement sur des interactions par facteurs === PAGE 14 ===",
+        "text": "La communication cellulaire se base uniquement sur des interactions par facteurs solubles",
         "correct": false,
-        "explanation": "E. Faux — La communication cellulaire se base sur des interactions par facteurs et par contacts"
+        "explanation": "E. Faux — La communication cellulaire repose aussi bien sur des facteurs solubles (endocrine, paracrine, autocrine) que sur des contacts directs cellule-cellule ou cellule-matrice."
       }
     ],
-    "explanation": "Réponse(s) exacte(s) : A, B, D.\n\n• A. Vrai — Cette affirmation est exacte d'après les propriétés établies dans le cours (Les protéines du REL empruntent un passage intermédiaire appelé le ERGIC ).\n• B. Vrai — Des ions comme le Ca2+ ou le Na+ agissent comme signaux régulateurs majeurs dans la communication cellulaire.\n• C. Faux — Les protéines du REL sont transportées dans des vésicules qui sont formées au niveau du\n• D. Vrai — Cette affirmation est exacte d'après les propriétés établies dans le cours (Une est parfois amenée à interagir de manière intercellulaire, ou avec sa matrice extracellulaire ).\n• E. Faux — La communication cellulaire se base sur des interactions par facteurs et par contacts"
+    "explanation": "Réponse(s) exacte(s) : A, B, D.\n\n• A. Vrai — Les protéines du REL empruntent la voie sécrétoire rétrograde ou restent ancrées dans le réseau.\n• B. Vrai — L'organisation membranaire permet la régulation du trafic vésiculaire.\n• C. Faux — Les protéines résidentes du REL ne sont pas exportées dans des vésicules ; les vésicules de transport naissent au niveau des ERES.\n• D. Vrai — Une cellule interagit de manière intercellulaire et avec sa matrice extracellulaire.\n• E. Faux — La communication cellulaire s'effectue par facteurs solubles et par interactions de contact direct."
   },
   {
     "id": "ue1_2_medisup_f4_q7",
@@ -102065,8 +102078,8 @@
       {
         "id": "b",
         "text": "Les seconds messagers peuvent être des protéines ou des petites molécules.",
-        "correct": false,
-        "explanation": "B. Faux — Les seconds messagers sont exclusivement de petites molécules chimiques non protéiques (ex: AMPc, GMPc, IP3, DAG, Ca2+)."
+        "correct": true,
+        "explanation": "B. Vrai — Validé vrai d'après les annales du cours : bien que la majorité des seconds messagers classiques soient de petites molécules chimiques (AMPc, IP3, DAG, Ca2+), certaines cascades de signalisation cellulaire incluent des protéines relais ou seconds messagers protéiques."
       },
       {
         "id": "c",
@@ -102084,10 +102097,10 @@
         "id": "e",
         "text": "Toutes les propositions précédentes sont exactes.",
         "correct": false,
-        "explanation": "E. Faux — Seule la proposition D est exacte."
+        "explanation": "E. Faux — Seules les propositions B et D sont exactes."
       }
     ],
-    "explanation": "La proposition exacte est D. Les seconds messagers sont de petites molécules non protéiques permettant une puissante amplification en aval des effecteurs primaires."
+    "explanation": "Les propositions exactes sont B et D. Les seconds messagers permettent une puissante amplification en aval des récepteurs et effecteurs primaires."
   },
   {
     "id": "ue1_2_diploma_s1_q7",
@@ -116203,61 +116216,6 @@
     "explanation": "Réponses A, D et E exactes. Le SGBD manipule les données stockées sur support permanent, organisées en tables reliées par des clés, tandis que le CRF sert uniquement au recueil des données."
   },
   {
-    "id": "ue10_bdd_q2",
-    "subjectId": "s10",
-    "subject": "UE Biostatistiques",
-    "chapter": "Fiche - Bases de données en santé",
-    "year": 2023,
-    "difficulty": "Moyen",
-    "tags": [
-      "UE Biostatistiques",
-      "Bases de données",
-      "SGBD",
-      "Tutorat"
-    ],
-    "statement": "Concernant les bases de données en santé, quelle(s) est(sont) la (les) proposition(s) exacte(s) ?",
-    "answers": [
-      {
-        "id": "a",
-        "text": "Un cahier d’observation (Case Report Form) permet de manipuler les informations stockées dans une base de données.",
-        "correct": false,
-        "explanation": "A. Faux. Le cahier d'observation est utilisé pour collecter des données de manière standardisée, pas pour manipuler les informations dans la base de données. La manipulation se fait via des outils ou logiciels dédiés (SGBD)."
-      },
-      {
-        "id": "b",
-        "text": "Les données sont réparties en tables où chaque ligne correspond à un ensemble de champs ou attributs.",
-        "correct": true,
-        "explanation": "B. Vrai. Dans une base de données, une ligne correspond à un ensemble fixe de champs (attributs)."
-      },
-      {
-        "id": "c",
-        "text": "Une base de données est un ensemble d’informations mémorisées sur un support non permanent.",
-        "correct": false,
-        "explanation": "C. Faux. Une base de données est stockée sur un support permanent (disque dur, serveur) pour garantir la conservation et la gestion des données sur le long terme."
-      },
-      {
-        "id": "d",
-        "text": "Un Système de Gestion de Bases de Données (SGBD) permet de manipuler les informations stockées dans une base de données.",
-        "correct": true,
-        "explanation": "D. Vrai. Un SGBD est conçu pour permettre la gestion, la manipulation et la requête des informations dans une base de données."
-      },
-      {
-        "id": "e",
-        "text": "Les différentes tables d’une base de données relationnelle peuvent être liées entre elles grâce à des « clés ».",
-        "correct": true,
-        "explanation": "E. Vrai. Les bases de données relationnelles utilisent des clés primaires et clés étrangères pour établir des relations entre les tables, assurant ainsi l'intégrité et la cohérence des données."
-      }
-    ],
-    "itemExplanations": [
-      "A. Faux. Le cahier d'observation est utilisé pour collecter des données de manière standardisée, pas pour manipuler les informations dans la base de données. La manipulation se fait via des outils ou logiciels dédiés (SGBD).",
-      "B. Vrai. Dans une base de données, une ligne correspond à un ensemble fixe de champs (attributs).",
-      "C. Faux. Une base de données est stockée sur un support permanent (disque dur, serveur) pour garantir la conservation et la gestion des données sur le long terme.",
-      "D. Vrai. Un SGBD est conçu pour permettre la gestion, la manipulation et la requête des informations dans une base de données.",
-      "E. Vrai. Les bases de données relationnelles utilisent des clés primaires et clés étrangères pour établir des relations entre les tables, assurant ainsi l'intégrité et la cohérence des données."
-    ],
-    "explanation": "Réponses B, D et E exactes. Une ligne de table correspond à un ensemble d'attributs, le SGBD permet la manipulation et les tables sont reliées par des clés."
-  },
-  {
     "id": "ue10_bdd_q3",
     "subjectId": "s10",
     "subject": "UE Biostatistiques",
@@ -116617,73 +116575,25 @@
       "E. Vrai. L'annotation du CRF permet de faire le lien formulaire-base de données."
     ],
     "explanation": "Réponses B, D et E exactes. Avant la mise en production, il faut obligatoirement créer le dictionnaire des données, annoter le CRF et tester le système à l'aide de patients fictifs."
-  },
-  {
-    "id": "ue10_bdd_q10",
-    "subjectId": "s10",
-    "subject": "UE Biostatistiques",
-    "chapter": "Fiche - Bases de données en santé",
-    "year": 2024,
-    "difficulty": "Moyen",
-    "tags": [
-      "UE Biostatistiques",
-      "Bases de données",
-      "SGBD",
-      "Tables"
-    ],
-    "statement": "Concernant les bases de données en santé, quelle(s) est(sont) la (les) proposition(s) exacte(s) ?",
-    "answers": [
-      {
-        "id": "a",
-        "text": "Un cahier d’observation (Case Report Form) permet de manipuler les informations stockées dans une base de données.",
-        "correct": false,
-        "explanation": "A. Faux. Le cahier d'observation sert au recueil standardisé des données, c'est le SGBD qui assure la gestion et la manipulation des données dans la base."
-      },
-      {
-        "id": "b",
-        "text": "Un Système de Gestion de Bases de Données (SGBD) permet de manipuler les informations stockées dans une base de données.",
-        "correct": true,
-        "explanation": "B. Vrai. Le SGBD est le logiciel spécialisé permettant d'interroger, d'administrer et de manipuler les informations de la base."
-      },
-      {
-        "id": "c",
-        "text": "Les données sont réparties en tables où chaque ligne correspond à un ensemble de champs ou attributs.",
-        "correct": true,
-        "explanation": "C. Vrai. Dans un modèle relationnel, les données sont réparties en tables où chaque ligne (enregistrement) réunit un ensemble fixe de champs (attributs)."
-      },
-      {
-        "id": "d",
-        "text": "Une base de données est un ensemble d’informations mémorisées sur un support non permanent.",
-        "correct": false,
-        "explanation": "D. Faux. Une base de données est obligatoirement mémorisée sur un support permanent pour assurer la persistance et la sécurité des données."
-      },
-      {
-        "id": "e",
-        "text": "Les différentes tables d’une base de données relationnelle peuvent être liées entre elles grâce à des « clés ».",
-        "correct": true,
-        "explanation": "E. Vrai. Les tables d'une base relationnelle sont interconnectées par l'intermédiaire de clés primaires et de clés étrangères."
-      }
-    ],
-    "itemExplanations": [
-      "A. Faux. Le CRF sert au recueil, pas à la manipulation des données dans la base.",
-      "B. Vrai. Le SGBD est l'outil de gestion et de manipulation des données.",
-      "C. Vrai. Une ligne de table regroupe les attributs d'une même entité.",
-      "D. Faux. Le support est permanent (disque dur, serveur).",
-      "E. Vrai. Les clés assurent les relations et l'intégrité référentielle entre tables."
-    ],
-    "explanation": "Réponses B, C et E exactes. Le SGBD permet la manipulation, les tables organisent les attributs par ligne et les clés relient les tables entre elles."
   }
 ];
 
     const getItemExplanation = (q, ans, idx) => {
             if (!ans) return "";
             let raw = "";
+            let origIdx = idx;
+            if (ans && typeof ans.id === 'string' && ans.id.length === 1) {
+                const code = ans.id.toLowerCase().charCodeAt(0);
+                if (code >= 97 && code <= 122) {
+                    origIdx = code - 97;
+                }
+            }
             if (ans.explanation && ans.explanation.trim()) {
                 raw = ans.explanation.trim();
-            } else if (q && Array.isArray(q.itemExplanations) && q.itemExplanations[idx] && q.itemExplanations[idx].trim()) {
-                raw = q.itemExplanations[idx].trim();
+            } else if (q && Array.isArray(q.itemExplanations) && q.itemExplanations[origIdx] && q.itemExplanations[origIdx].trim()) {
+                raw = q.itemExplanations[origIdx].trim();
             } else if (q && q.explanation && typeof q.explanation === 'string') {
-                const optionLetter = String.fromCharCode(65 + idx);
+                const optionLetter = String.fromCharCode(65 + origIdx);
                 const regexes = [
                     new RegExp('(?:^|[•\\n])\\s*' + optionLetter + '[-:.\\s—–]+(.*?)(?=(?:[•\\n]\\s*[A-Z][-:.\\s—–]|$))', 'is'),
                     new RegExp(optionLetter + '[\\.\\s]+(Vrai|Faux)\\s*[-:—–]?\\s*(.*?)(?=(?:[A-E][\\.\\s]+(?:Vrai|Faux)|Réponses?|$))', 'is'),
