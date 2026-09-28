@@ -293,12 +293,13 @@
                 icon: '📊',
                 color: 'from-blue-600 to-indigo-600',
                 progress: 0,
-                qcmCount: 41,
+                qcmCount: 51,
                 chapters: [
                     "Fiche n°1 - Tests paramétriques",
                     "Fiche n°2 - Test de Fisher",
                     "Fiche n°3 - Tests non paramétriques",
-                    "Fiche n°4 - Odds ratio et coefficient de régression"
+                    "Fiche n°4 - Odds ratio et coefficient de régression",
+                    "Fiche - Bases de données en santé"
                 ]
             }
         ,
@@ -115445,6 +115446,532 @@
       "url": "src/assets/images/ue_immuno_ccb_dec6_q31.png",
       "alt": "Puits de test ELISpot montrant les spots de sécrétion d'IFN-gamma"
     }
+  },
+  {
+    "id": "ue10_bdd_q1",
+    "subjectId": "s10",
+    "subject": "UE Biostatistiques",
+    "chapter": "Fiche - Bases de données en santé",
+    "year": 2024,
+    "difficulty": "Moyen",
+    "tags": [
+      "UE Biostatistiques",
+      "Bases de données",
+      "SGBD",
+      "CRF"
+    ],
+    "statement": "Concernant les bases de données en santé, quelle(s) est(sont) la (les) proposition(s) exacte(s) ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Un Système de Gestion de Bases de Données (SGBD) permet de manipuler les informations stockées dans une base de données.",
+        "correct": true,
+        "explanation": "A. Vrai. Le Système de Gestion de Bases de Données (SGBD) est le logiciel spécialisé permettant de structurer, stocker, interroger et manipuler les données de la base."
+      },
+      {
+        "id": "b",
+        "text": "Un cahier d’observation (Case Report Form) permet de manipuler les informations stockées dans une base de données.",
+        "correct": false,
+        "explanation": "B. Faux. Le cahier d'observation (CRF) est l'outil de recueil standardisé des données auprès des patients ou investigateurs ; c'est le SGBD qui permet de manipuler les données dans la base."
+      },
+      {
+        "id": "c",
+        "text": "Une base de données est un ensemble d’informations mémorisées sur un support non permanent.",
+        "correct": false,
+        "explanation": "C. Faux. Une base de données est un ensemble structuré d'informations mémorisées sur un support permanent (disque dur, serveur sécurisé) pour assurer la persistance et la pérennité des données."
+      },
+      {
+        "id": "d",
+        "text": "Les données sont réparties en tables où chaque ligne correspond à un ensemble de champs ou attributs.",
+        "correct": true,
+        "explanation": "D. Vrai. Dans un modèle relationnel, les données sont organisées en tables rectangulaires où chaque ligne (enregistrement ou tuple) correspond à un ensemble de champs (attributs ou colonnes)."
+      },
+      {
+        "id": "e",
+        "text": "Les différentes tables d’une base de données relationnelle peuvent être liées entre elles grâce à des « clés ».",
+        "correct": true,
+        "explanation": "E. Vrai. Les tables d'une base relationnelle sont reliées entre elles grâce à des clés (clés primaires et clés étrangères), assurant l'intégrité référentielle."
+      }
+    ],
+    "itemExplanations": [
+      "A. Vrai. Le Système de Gestion de Bases de Données (SGBD) est le logiciel spécialisé permettant de structurer, stocker, interroger et manipuler les données de la base.",
+      "B. Faux. Le cahier d'observation (CRF) est l'outil de recueil standardisé des données auprès des patients ou investigateurs ; c'est le SGBD qui permet de manipuler les données dans la base.",
+      "C. Faux. Une base de données est un ensemble structuré d'informations mémorisées sur un support permanent (disque dur, serveur sécurisé) pour assurer la persistance et la pérennité des données.",
+      "D. Vrai. Dans un modèle relationnel, les données sont organisées en tables rectangulaires où chaque ligne (enregistrement ou tuple) correspond à un ensemble de champs (attributs ou colonnes).",
+      "E. Vrai. Les tables d'une base relationnelle sont reliées entre elles grâce à des clés (clés primaires et clés étrangères), assurant l'intégrité référentielle."
+    ],
+    "explanation": "Réponses A, D et E exactes. Le SGBD manipule les données stockées sur support permanent, organisées en tables reliées par des clés, tandis que le CRF sert uniquement au recueil des données."
+  },
+  {
+    "id": "ue10_bdd_q2",
+    "subjectId": "s10",
+    "subject": "UE Biostatistiques",
+    "chapter": "Fiche - Bases de données en santé",
+    "year": 2023,
+    "difficulty": "Moyen",
+    "tags": [
+      "UE Biostatistiques",
+      "Bases de données",
+      "SGBD",
+      "Tutorat"
+    ],
+    "statement": "Concernant les bases de données en santé, quelle(s) est(sont) la (les) proposition(s) exacte(s) ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Un cahier d’observation (Case Report Form) permet de manipuler les informations stockées dans une base de données.",
+        "correct": false,
+        "explanation": "A. Faux. Le cahier d'observation est utilisé pour collecter des données de manière standardisée, pas pour manipuler les informations dans la base de données. La manipulation se fait via des outils ou logiciels dédiés (SGBD)."
+      },
+      {
+        "id": "b",
+        "text": "Les données sont réparties en tables où chaque ligne correspond à un ensemble de champs ou attributs.",
+        "correct": true,
+        "explanation": "B. Vrai. Dans une base de données, une ligne correspond à un ensemble fixe de champs (attributs)."
+      },
+      {
+        "id": "c",
+        "text": "Une base de données est un ensemble d’informations mémorisées sur un support non permanent.",
+        "correct": false,
+        "explanation": "C. Faux. Une base de données est stockée sur un support permanent (disque dur, serveur) pour garantir la conservation et la gestion des données sur le long terme."
+      },
+      {
+        "id": "d",
+        "text": "Un Système de Gestion de Bases de Données (SGBD) permet de manipuler les informations stockées dans une base de données.",
+        "correct": true,
+        "explanation": "D. Vrai. Un SGBD est conçu pour permettre la gestion, la manipulation et la requête des informations dans une base de données."
+      },
+      {
+        "id": "e",
+        "text": "Les différentes tables d’une base de données relationnelle peuvent être liées entre elles grâce à des « clés ».",
+        "correct": true,
+        "explanation": "E. Vrai. Les bases de données relationnelles utilisent des clés primaires et clés étrangères pour établir des relations entre les tables, assurant ainsi l'intégrité et la cohérence des données."
+      }
+    ],
+    "itemExplanations": [
+      "A. Faux. Le cahier d'observation est utilisé pour collecter des données de manière standardisée, pas pour manipuler les informations dans la base de données. La manipulation se fait via des outils ou logiciels dédiés (SGBD).",
+      "B. Vrai. Dans une base de données, une ligne correspond à un ensemble fixe de champs (attributs).",
+      "C. Faux. Une base de données est stockée sur un support permanent (disque dur, serveur) pour garantir la conservation et la gestion des données sur le long terme.",
+      "D. Vrai. Un SGBD est conçu pour permettre la gestion, la manipulation et la requête des informations dans une base de données.",
+      "E. Vrai. Les bases de données relationnelles utilisent des clés primaires et clés étrangères pour établir des relations entre les tables, assurant ainsi l'intégrité et la cohérence des données."
+    ],
+    "explanation": "Réponses B, D et E exactes. Une ligne de table correspond à un ensemble d'attributs, le SGBD permet la manipulation et les tables sont reliées par des clés."
+  },
+  {
+    "id": "ue10_bdd_q3",
+    "subjectId": "s10",
+    "subject": "UE Biostatistiques",
+    "chapter": "Fiche - Bases de données en santé",
+    "year": 2023,
+    "difficulty": "Moyen",
+    "tags": [
+      "UE Biostatistiques",
+      "Bases de données",
+      "CRF",
+      "eCRF"
+    ],
+    "statement": "Des investigateurs viennent vous demander conseil pour la construction de leur cahier d’observation et base de données. Quelle(s) est(sont) la (les) proposition(s) exacte(s) ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "La construction d’un dictionnaire de données permettra de lister l’ensemble des variables recueillies.",
+        "correct": true,
+        "explanation": "A. Vrai. Le dictionnaire de données est un outil essentiel pour documenter les variables, leur signification, leur type, et leurs modalités. Il est utilisé pour structurer et standardiser les données collectées."
+      },
+      {
+        "id": "b",
+        "text": "Les questions fermées permettront un traitement statistique plus simple.",
+        "correct": true,
+        "explanation": "B. Vrai. Les questions fermées génèrent des réponses standardisées (par exemple, oui/non, échelles prédéfinies), facilitant leur codage et leur analyse statistique par rapport aux réponses ouvertes."
+      },
+      {
+        "id": "c",
+        "text": "Il faudra inclure le plus grand nombre possible de questions afin de garantir la faisabilité de l’étude.",
+        "correct": false,
+        "explanation": "C. Faux. Inclure trop de questions peut compliquer le recueil des données, augmenter le taux de non-réponse et nuire à la faisabilité de l’étude. Il est préférable de se concentrer sur des questions pertinentes et nécessaires."
+      },
+      {
+        "id": "d",
+        "text": "Un cahier d’observation électronique permet de définir plusieurs profils d’utilisateurs avec des accès différents.",
+        "correct": true,
+        "explanation": "D. Vrai. Les cahiers d’observation électroniques (eCRF) permettent de définir différents niveaux d’accès (par exemple, enquêteurs, superviseurs, data managers) pour garantir la sécurité et l'intégrité des données."
+      },
+      {
+        "id": "e",
+        "text": "Un cahier d’observation papier permettra de réaliser des contrôles de saisie.",
+        "correct": false,
+        "explanation": "E. Faux. Les contrôles de saisie automatisés (validation des plages de valeurs ou détection des incohérences) ne peuvent être réalisés en temps réel que sur des systèmes électroniques. Avec un cahier papier, ces contrôles doivent être effectués manuellement après saisie."
+      }
+    ],
+    "itemExplanations": [
+      "A. Vrai. Le dictionnaire de données est un outil essentiel pour documenter les variables, leur signification, leur type, et leurs modalités. Il est utilisé pour structurer et standardiser les données collectées.",
+      "B. Vrai. Les questions fermées génèrent des réponses standardisées (par exemple, oui/non, échelles prédéfinies), facilitant leur codage et leur analyse statistique par rapport aux réponses ouvertes.",
+      "C. Faux. Inclure trop de questions peut compliquer le recueil des données, augmenter le taux de non-réponse et nuire à la faisabilité de l’étude. Il est préférable de se concentrer sur des questions pertinentes et nécessaires.",
+      "D. Vrai. Les cahiers d’observation électroniques (eCRF) permettent de définir différents niveaux d’accès (par exemple, enquêteurs, superviseurs, data managers) pour garantir la sécurité et l'intégrité des données.",
+      "E. Faux. Les contrôles de saisie automatisés ne peuvent être réalisés en temps réel que sur des systèmes électroniques (eCRF)."
+    ],
+    "explanation": "Réponses A, B et D exactes. Le dictionnaire répertorie les variables, les questions fermées facilitent les statistiques et l'eCRF permet de gérer des profils d'accès sécurisés."
+  },
+  {
+    "id": "ue10_bdd_q4",
+    "subjectId": "s10",
+    "subject": "UE Biostatistiques",
+    "chapter": "Fiche - Bases de données en santé",
+    "year": 2025,
+    "difficulty": "Facile",
+    "tags": [
+      "UE Biostatistiques",
+      "Bases de données",
+      "Définition"
+    ],
+    "statement": "Qu'est-ce qu'une base de données ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Un ensemble d'informations non structurées.",
+        "correct": false,
+        "explanation": "A. Faux. Une base de données est au contraire un ensemble hautement structuré et organisé d'informations."
+      },
+      {
+        "id": "b",
+        "text": "Un ensemble d'informations structurées stockées sur un support permanent.",
+        "correct": true,
+        "explanation": "B. Vrai. Par définition, une base de données est un ensemble structuré d'informations mémorisées sur un support permanent (disque, serveur) garantissant la persistance des données."
+      },
+      {
+        "id": "c",
+        "text": "Un logiciel de gestion d'informations.",
+        "correct": false,
+        "explanation": "C. Faux. Le logiciel permettant de gérer les informations est le SGBD, la base de données étant le conteneur structuré des données elles-mêmes."
+      },
+      {
+        "id": "d",
+        "text": "Une simple feuille Excel.",
+        "correct": false,
+        "explanation": "D. Faux. Un tableur Excel n'est pas une véritable base de données relationnelle sécurisée et ne dispose pas des mécanismes d'intégrité et de concurrence d'un SGBD."
+      }
+    ],
+    "itemExplanations": [
+      "A. Faux. Les données y sont rigoureusement structurées.",
+      "B. Vrai. C'est la définition exacte d'une base de données : ensemble d'informations structurées stockées sur un support permanent.",
+      "C. Faux. Le logiciel est le SGBD, pas la base de données.",
+      "D. Faux. Une feuille Excel est un simple tableur bureautique."
+    ],
+    "explanation": "Réponse B exacte. Une base de données est un ensemble structuré d'informations stockées sur un support permanent."
+  },
+  {
+    "id": "ue10_bdd_q5",
+    "subjectId": "s10",
+    "subject": "UE Biostatistiques",
+    "chapter": "Fiche - Bases de données en santé",
+    "year": 2025,
+    "difficulty": "Facile",
+    "tags": [
+      "UE Biostatistiques",
+      "Bases de données",
+      "CRF",
+      "Qualité"
+    ],
+    "statement": "Quels sont les critères de qualité d'un CRF (Case Report Form) ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Exhaustivité et standardisation.",
+        "correct": true,
+        "explanation": "A. Vrai. Les critères clés de qualité d'un CRF sont l'exhaustivité (recueillir toutes les variables indispensables au protocole) et la standardisation (structuration univoque et reproductible des données)."
+      },
+      {
+        "id": "b",
+        "text": "Complexité et exhaustivité.",
+        "correct": false,
+        "explanation": "B. Faux. La complexité est un défaut majeur qui favorise les erreurs et les données manquantes ; le CRF doit être ergonomique et clair."
+      },
+      {
+        "id": "c",
+        "text": "Simplicité et subjectivité.",
+        "correct": false,
+        "explanation": "C. Faux. Le CRF doit être objectif et non subjectif afin d'éviter les biais d'évaluation."
+      },
+      {
+        "id": "d",
+        "text": "Flexibilité et non-structuration.",
+        "correct": false,
+        "explanation": "D. Faux. Le CRF exige une structuration rigoureuse et standardisée pour permettre une exploitation statistique fiable."
+      }
+    ],
+    "itemExplanations": [
+      "A. Vrai. L'exhaustivité et la standardisation garantissent la qualité et la complétude du recueil.",
+      "B. Faux. La complexité nuit à la qualité du recueil.",
+      "C. Faux. Le recueil doit être objectif.",
+      "D. Faux. La non-structuration rendrait l'analyse statistique impossible."
+    ],
+    "explanation": "Réponse A exacte. Un CRF de qualité doit être exhaustif pour répondre aux objectifs du protocole et standardisé pour garantir l'homogénéité du recueil."
+  },
+  {
+    "id": "ue10_bdd_q6",
+    "subjectId": "s10",
+    "subject": "UE Biostatistiques",
+    "chapter": "Fiche - Bases de données en santé",
+    "year": 2025,
+    "difficulty": "Moyen",
+    "tags": [
+      "UE Biostatistiques",
+      "Bases de données",
+      "Audit-trail",
+      "Sécurité"
+    ],
+    "statement": "Que signifie le terme « audit-trail » dans le cadre de la gestion des bases de données ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Une méthode pour crypter les données.",
+        "correct": false,
+        "explanation": "A. Faux. Le chiffrement est une technique distincte de sécurisation cryptographique des données."
+      },
+      {
+        "id": "b",
+        "text": "Un système de suivi des modifications et des saisies dans la base de données.",
+        "correct": true,
+        "explanation": "B. Vrai. L'audit-trail (piste d'audit) est un mécanisme automatique et inaltérable qui enregistre toute action (saisie, modification, suppression) avec l'identité de l'opérateur, l'horodatage précis et la valeur antérieure."
+      },
+      {
+        "id": "c",
+        "text": "Un rapport d’analyse statistique.",
+        "correct": false,
+        "explanation": "C. Faux. L'audit-trail est un journal d'intégrité et de conformité réglementaire (Bonnes Pratiques Cliniques), pas un rapport d'analyse."
+      },
+      {
+        "id": "d",
+        "text": "Un processus de nettoyage manuel des données.",
+        "correct": false,
+        "explanation": "D. Faux. Le nettoyage manuel correspond au data-cleaning ; l'audit-trail est un système informatique automatisé de traçabilité."
+      }
+    ],
+    "itemExplanations": [
+      "A. Faux. Ce n'est pas une méthode de cryptage.",
+      "B. Vrai. L'audit-trail permet la traçabilité complète de chaque saisie, modification ou suppression dans la base de données.",
+      "C. Faux. Ce n'est pas un rapport statistique.",
+      "D. Faux. C'est un suivi automatique et non un nettoyage manuel."
+    ],
+    "explanation": "Réponse B exacte. L'audit-trail est le système de traçabilité garantissant l'enregistrement horodaté de toutes les modifications et saisies dans la base de données."
+  },
+  {
+    "id": "ue10_bdd_q7",
+    "subjectId": "s10",
+    "subject": "UE Biostatistiques",
+    "chapter": "Fiche - Bases de données en santé",
+    "year": 2025,
+    "difficulty": "Moyen",
+    "tags": [
+      "UE Biostatistiques",
+      "Bases de données",
+      "Dictionnaire de données"
+    ],
+    "statement": "Concernant le dictionnaire des données, quelles informations doit-il contenir ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Nom et type de chaque variable.",
+        "correct": true,
+        "explanation": "A. Vrai. Le dictionnaire définit le nom de la variable (code informatique), son libellé en clair et son type (numérique, texte, date, booléen)."
+      },
+      {
+        "id": "b",
+        "text": "La table où se situe la variable.",
+        "correct": true,
+        "explanation": "B. Vrai. Dans une architecture relationnelle multi-tables, il précise la table d'appartenance de chaque champ."
+      },
+      {
+        "id": "c",
+        "text": "L’unité de mesure.",
+        "correct": true,
+        "explanation": "C. Vrai. L'unité de mesure est indispensable pour interpréter correctement les variables quantitatives (ex: mmHg, g/L, kg)."
+      },
+      {
+        "id": "d",
+        "text": "La liste des codes utilisés.",
+        "correct": true,
+        "explanation": "D. Vrai. Pour les variables qualitatives ou catégorielles, il doit expliciter la nomenclature des codes (ex: 1 = Homme, 2 = Femme, 9 = Inconnu)."
+      },
+      {
+        "id": "e",
+        "text": "Les coordonnées du patient source.",
+        "correct": false,
+        "explanation": "E. Faux. Le dictionnaire de données contient les métadonnées (description technique des variables) et ne doit jamais comporter de données personnelles identifiantes de patients (règles RGPD et BPC)."
+      }
+    ],
+    "itemExplanations": [
+      "A. Vrai. Nom et type (format) sont indispensables.",
+      "B. Vrai. La table de rattachement structure la base relationnelle.",
+      "C. Vrai. L'unité de mesure permet la standardisation des grandeurs physiques.",
+      "D. Vrai. Le codage des modalités des variables catégorielles doit être explicité.",
+      "E. Faux. Aucune donnée nominative de patient ne figure dans un dictionnaire de données."
+    ],
+    "explanation": "Réponses A, B, C et D exactes. Le dictionnaire de données formalise les métadonnées (nom, type, table, unité, codage des modalités) sans jamais inclure d'informations identifiantes sur les patients."
+  },
+  {
+    "id": "ue10_bdd_q8",
+    "subjectId": "s10",
+    "subject": "UE Biostatistiques",
+    "chapter": "Fiche - Bases de données en santé",
+    "year": 2025,
+    "difficulty": "Moyen",
+    "tags": [
+      "UE Biostatistiques",
+      "Bases de données",
+      "Tableurs",
+      "Qualité"
+    ],
+    "statement": "Quelles sont les limites des tableurs (Excel, OpenOffice) pour la saisie de données cliniques ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Peu ou pas de contrôles de cohérence.",
+        "correct": true,
+        "explanation": "A. Vrai. Contrairement aux SGBD cliniques, les tableurs de base n'offrent que des contrôles très limités, facilitant les erreurs de saisie de valeurs aberrantes."
+      },
+      {
+        "id": "b",
+        "text": "Risques d’erreurs de manipulation importants.",
+        "correct": true,
+        "explanation": "B. Vrai. Les risques de tri partiel désynchronisant les lignes, d'écrasement involontaire de formules ou de cellules sont majeurs sur tableur."
+      },
+      {
+        "id": "c",
+        "text": "Reproduction fidèle du CRF possible.",
+        "correct": false,
+        "explanation": "C. Faux. La possibilité de reproduire un masque de saisie n'est pas une limite mais une caractéristique de mise en page."
+      },
+      {
+        "id": "d",
+        "text": "Impossibilité de saisie décentralisée.",
+        "correct": true,
+        "explanation": "D. Vrai. Les tableurs classiques ne permettent pas une saisie multi-centres décentralisée sécurisée avec droits d'accès différenciés et traçabilité."
+      },
+      {
+        "id": "e",
+        "text": "Contrôle automatique de la qualité des données.",
+        "correct": false,
+        "explanation": "E. Faux. Les tableurs ne disposent pas de contrôle automatique robuste de la qualité des données ; c'est précisément leur manque de contrôle qui constitue une limite."
+      }
+    ],
+    "itemExplanations": [
+      "A. Vrai. Absence ou faiblesse des contrôles de cohérence et de validation en temps réel.",
+      "B. Vrai. Risque très élevé d'erreurs de manipulation et de corruption de données.",
+      "C. Faux. Ce n'est pas une limite technique.",
+      "D. Vrai. Incapacité à gérer une saisie multi-utilisateurs décentralisée et sécurisée.",
+      "E. Faux. C'est l'absence de ce contrôle qui fait défaut aux tableurs."
+    ],
+    "explanation": "Réponses A, B et D exactes. Les tableurs souffrent de l'absence de contrôles de cohérence stricts, de risques élevés de fausses manipulations et de l'incapacité de gérer une saisie multi-site décentralisée."
+  },
+  {
+    "id": "ue10_bdd_q9",
+    "subjectId": "s10",
+    "subject": "UE Biostatistiques",
+    "chapter": "Fiche - Bases de données en santé",
+    "year": 2025,
+    "difficulty": "Moyen",
+    "tags": [
+      "UE Biostatistiques",
+      "Bases de données",
+      "Mise en production"
+    ],
+    "statement": "Quelles étapes sont nécessaires avant la mise en production d’une base de données ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Analyse statistique exploratoire.",
+        "correct": false,
+        "explanation": "A. Faux. L'analyse statistique exploratoire intervient bien après le recueil et le gel de la base, jamais avant sa mise en production."
+      },
+      {
+        "id": "b",
+        "text": "Création du dictionnaire des données.",
+        "correct": true,
+        "explanation": "B. Vrai. Le dictionnaire de données est l'étape conceptuelle préalable incontournable pour définir les variables, types et contraintes."
+      },
+      {
+        "id": "c",
+        "text": "Double saisie des patients réels.",
+        "correct": false,
+        "explanation": "C. Faux. La saisie des patients réels ne commence qu'une fois la base officiellement validée et déployée en production."
+      },
+      {
+        "id": "d",
+        "text": "Test de la base avec patients fictifs.",
+        "correct": true,
+        "explanation": "D. Vrai. La phase de recette et de validation technique avec des dossiers fictifs permet de tester les masques de saisie et les contrôles de cohérence."
+      },
+      {
+        "id": "e",
+        "text": "Annotation du CRF.",
+        "correct": true,
+        "explanation": "E. Vrai. L'annotation du CRF (faisant correspondre chaque champ du formulaire au nom de variable de la base) est indispensable avant le déploiement."
+      }
+    ],
+    "itemExplanations": [
+      "A. Faux. L'analyse statistique a lieu après le gel de la base.",
+      "B. Vrai. La formalisation du dictionnaire de données est obligatoire.",
+      "C. Faux. Aucun patient réel n'est saisi avant la mise en production.",
+      "D. Vrai. Les tests sur patients fictifs vérifient la robustesse du système.",
+      "E. Vrai. L'annotation du CRF permet de faire le lien formulaire-base de données."
+    ],
+    "explanation": "Réponses B, D et E exactes. Avant la mise en production, il faut obligatoirement créer le dictionnaire des données, annoter le CRF et tester le système à l'aide de patients fictifs."
+  },
+  {
+    "id": "ue10_bdd_q10",
+    "subjectId": "s10",
+    "subject": "UE Biostatistiques",
+    "chapter": "Fiche - Bases de données en santé",
+    "year": 2024,
+    "difficulty": "Moyen",
+    "tags": [
+      "UE Biostatistiques",
+      "Bases de données",
+      "SGBD",
+      "Tables"
+    ],
+    "statement": "Concernant les bases de données en santé, quelle(s) est(sont) la (les) proposition(s) exacte(s) ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Un cahier d’observation (Case Report Form) permet de manipuler les informations stockées dans une base de données.",
+        "correct": false,
+        "explanation": "A. Faux. Le cahier d'observation sert au recueil standardisé des données, c'est le SGBD qui assure la gestion et la manipulation des données dans la base."
+      },
+      {
+        "id": "b",
+        "text": "Un Système de Gestion de Bases de Données (SGBD) permet de manipuler les informations stockées dans une base de données.",
+        "correct": true,
+        "explanation": "B. Vrai. Le SGBD est le logiciel spécialisé permettant d'interroger, d'administrer et de manipuler les informations de la base."
+      },
+      {
+        "id": "c",
+        "text": "Les données sont réparties en tables où chaque ligne correspond à un ensemble de champs ou attributs.",
+        "correct": true,
+        "explanation": "C. Vrai. Dans un modèle relationnel, les données sont réparties en tables où chaque ligne (enregistrement) réunit un ensemble fixe de champs (attributs)."
+      },
+      {
+        "id": "d",
+        "text": "Une base de données est un ensemble d’informations mémorisées sur un support non permanent.",
+        "correct": false,
+        "explanation": "D. Faux. Une base de données est obligatoirement mémorisée sur un support permanent pour assurer la persistance et la sécurité des données."
+      },
+      {
+        "id": "e",
+        "text": "Les différentes tables d’une base de données relationnelle peuvent être liées entre elles grâce à des « clés ».",
+        "correct": true,
+        "explanation": "E. Vrai. Les tables d'une base relationnelle sont interconnectées par l'intermédiaire de clés primaires et de clés étrangères."
+      }
+    ],
+    "itemExplanations": [
+      "A. Faux. Le CRF sert au recueil, pas à la manipulation des données dans la base.",
+      "B. Vrai. Le SGBD est l'outil de gestion et de manipulation des données.",
+      "C. Vrai. Une ligne de table regroupe les attributs d'une même entité.",
+      "D. Faux. Le support est permanent (disque dur, serveur).",
+      "E. Vrai. Les clés assurent les relations et l'intégrité référentielle entre tables."
+    ],
+    "explanation": "Réponses B, C et E exactes. Le SGBD permet la manipulation, les tables organisent les attributs par ligne et les clés relient les tables entre elles."
   }
 ];
 
