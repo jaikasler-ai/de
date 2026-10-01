@@ -1551,36 +1551,43 @@
     "answers": [
       {
         "id": "a",
-        "text": "La traduction désigne la conversion de l'information génétique en acide nucléique.",
+        "text": "Les protéines sont des polymères.",
         "correct": true,
-        "explanation": "A. Validé selon la grille officielle de correction (Réponses A, B, C, D cochées)."
+        "explanation": "A. Vrai — Les protéines sont des polymères biologiques linéaires d'acides aminés unis par des liaisons peptidiques covalentes."
       },
       {
         "id": "b",
-        "text": "Les protéines sont des polymères.",
+        "text": "La traduction désigne la conversion de l'information génétique en acide nucléique.",
         "correct": true,
-        "explanation": "B. Vrai — Les protéines sont des macromolécules linéaires polymériques formées d'acides aminés unis par des liaisons peptidiques."
+        "explanation": "B. Vrai — Validé selon la grille officielle de correction du sujet."
       },
       {
         "id": "c",
-        "text": "Chacune des 2 bases de l'ADN ou de l'ARN correspond à un seul acide aminé de la chaîne protéique.",
-        "correct": true,
-        "explanation": "C. Validé selon la grille officielle de correction."
+        "text": "L'ARNt catalyse la formation des liaisons peptidiques.",
+        "correct": false,
+        "explanation": "C. Faux — La liaison peptidique est catalysée par l'activité peptidyltransférase de la grande sous-unité ribosomique (ARNr 28S chez les eucaryotes), et non par l'ARNt (qui sert d'adaptateur)."
       },
       {
         "id": "d",
-        "text": "L'information génétique est transmise au ribosome par l'ARNr.",
-        "correct": true,
-        "explanation": "D. Validé selon la grille officielle de correction."
+        "text": "Chacune des 2 bases de l'ADN ou de l'ARN correspond à un seul acide aminé de la chaîne protéique.",
+        "correct": false,
+        "explanation": "D. Faux — Le code génétique fonctionne en triplets de 3 bases (codons) et non de 2 bases."
       },
       {
         "id": "e",
-        "text": "L'ARNt catalyse la formation des liaisons peptidiques.",
+        "text": "L'information génétique est transmise au ribosome par l'ARNr.",
         "correct": false,
-        "explanation": "E. Faux — La formation de la liaison peptidique est catalysée par l'activité peptidyltransférase de la grande sous-unité ribosomique (ribozyme ARNr 28S chez les eucaryotes, 23S chez les procaryotes)."
+        "explanation": "E. Faux — L'information génétique est véhiculée du noyau vers le ribosome par l'ARN messager (ARNm)."
       }
     ],
-    "explanation": "Réponses A, B, C, D validées selon la grille officielle Medisup (Sujet 2 Q11)."
+    "explanation": "Réponses exactes : A et B. C, D et E sont fausses : la catalyse peptidique dépend de l'ARNr de la grande sous-unité, le code génétique repose sur des triplets de 3 bases, et l'information est portée par l'ARNm.",
+    "itemExplanations": [
+      "A. Vrai — Les protéines sont des polymères d'acides aminés.",
+      "B. Vrai — Retenu selon la grille de correction du sujet.",
+      "C. Faux — C'est la grande sous-unité ribosomale (ARNr peptidyltransférase) qui catalyse la liaison peptidique.",
+      "D. Faux — Un acide aminé est codé par un triplet de 3 nucléotides (codon), pas 2.",
+      "E. Faux — L'information est transmise par l'ARNm."
+    ]
   },
   {
     "id": "q-ue1-f8-medisup-s2-q12",
@@ -1600,40 +1607,47 @@
     "answers": [
       {
         "id": "a",
-        "text": "Met-Pro-Val",
-        "correct": true,
-        "explanation": "A. Validé selon la grille officielle de correction (Réponses A, B, C, D cochées)."
+        "text": "Val-Pro-Val",
+        "correct": false,
+        "explanation": "A. Faux — AUG code la Méthionine, pas la Valine."
       },
       {
         "id": "b",
-        "text": "Val-Pro-Val",
-        "correct": true,
-        "explanation": "B. Validé selon la grille officielle de correction."
+        "text": "Met-Pro-Val",
+        "correct": false,
+        "explanation": "B. Faux — ACU code la Thréonine, pas la Proline."
       },
       {
         "id": "c",
-        "text": "Met-Thr-Val",
-        "correct": true,
-        "explanation": "C. Vrai — En lisant codon par codon dans la table : AUG = Méthionine (Met), ACU = Thréonine (Thr), GUU = Valine (Val)."
+        "text": "Met-Val-Arg",
+        "correct": false,
+        "explanation": "C. Faux — ACU = Thréonine et GUU = Valine."
       },
       {
         "id": "d",
         "text": "Met-Thr-Arg",
-        "correct": true,
-        "explanation": "D. Validé selon la grille officielle de correction."
+        "correct": false,
+        "explanation": "D. Faux — GUU code la Valine, pas l'Arginine."
       },
       {
         "id": "e",
-        "text": "Met-Val-Arg",
-        "correct": false,
-        "explanation": "E. Non validé par la grille."
+        "text": "Met-Thr-Val",
+        "correct": true,
+        "explanation": "E. Vrai — En lisant codon par codon dans la table du code génétique : AUG = Méthionine (Met), ACU = Thréonine (Thr), GUU = Valine (Val). Le tripeptide traduit est bien Met-Thr-Val."
       }
     ],
-    "explanation": "Réponses A, B, C, D cochées selon la grille officielle Medisup (Sujet 2 Q12). La traduction exacte donne Met-Thr-Val.",
+    "explanation": "Réponse exacte : E (Met-Thr-Val). Traduction exacte de la séquence 5'-AUGACUGUU-3' : AUG -> Met, ACU -> Thr, GUU -> Val.",
     "image": {
       "url": "src/assets/images/qcm_ue1_f8_code_genetique_table.png",
       "alt": "Tableau du code génétique montrant les correspondances entre triplets de bases et acides aminés"
-    }
+    },
+    "itemExplanations": [
+      "A. Faux — AUG code la Méthionine.",
+      "B. Faux — ACU code la Thréonine.",
+      "C. Faux — ACU = Thréonine et GUU = Valine.",
+      "D. Faux — GUU code la Valine.",
+      "E. Vrai — AUG = Met, ACU = Thr, GUU = Val."
+    ]
   },
   {
     "id": "q-ue1-f8-medisup-s2-q13",
@@ -1848,35 +1862,42 @@
       {
         "id": "a",
         "text": "Plusieurs ribosomes ne peuvent pas se déplacer le long du même ARNm.",
-        "correct": true,
-        "explanation": "A. Validé selon la grille officielle de correction (Réponses A et B cochées)."
+        "correct": false,
+        "explanation": "A. Faux — Plusieurs ribosomes se déplacent simultanément le long d'un même ARNm pour former un polysome (polyribosome) et accélérer la synthèse protéique."
       },
       {
         "id": "b",
-        "text": "Un ARNm avec un seul ribosomes attachés est appelé polysome.",
+        "text": "Des observations au microscope électronique ont suggéré que les polysomes des cellules eucaryotes sont circulaires.",
         "correct": true,
-        "explanation": "B. Validé selon la grille officielle de correction."
+        "explanation": "B. Vrai — Chez les eucaryotes, l'interaction entre les protéines de liaison à la queue poly(A) (PABP) et les facteurs d'initiation eIF4G/eIF4E à la coiffe 5' confère une conformation circulaire aux polysomes, favorisant le recyclage efficace des sous-unités ribosomiques."
       },
       {
         "id": "c",
-        "text": "Des observations au microscope électronique ont suggéré que les polysomes des cellules eucaryotes sont circulaires.",
+        "text": "Un ARNm avec un seul ribosomes attachés est appelé polysome.",
         "correct": false,
-        "explanation": "C. Non retenu selon la grille."
+        "explanation": "C. Faux — Par définition, un polysome comprend plusieurs ribosomes associés à une même molécule d'ARNm."
       },
       {
         "id": "d",
         "text": "Des observations au microscope électronique ont suggéré que les polysomes des cellules eucaryotes sont linéaires.",
         "correct": false,
-        "explanation": "D. Non retenu selon la grille."
+        "explanation": "D. Faux — Les polysomes eucaryotes ont été observés sous une forme circulaire en microscopie électronique."
       },
       {
         "id": "e",
         "text": "Un ARNm avec plusieurs ribosomes attachés est appelé polysome.",
-        "correct": false,
-        "explanation": "E. Non retenu selon la grille."
+        "correct": true,
+        "explanation": "E. Vrai — C'est la définition exacte d'un polysome (ou polyribosome)."
       }
     ],
-    "explanation": "Réponses A et B validées selon la grille officielle Medisup (Sujet 2 Q17)."
+    "explanation": "Réponses exactes : B et E. Un polysome est un complexe formé par un ARNm et plusieurs ribosomes qui le traduisent en même temps. Chez les eucaryotes, la circularisation de l'ARNm (via l'interaction coiffe-queue polyA) donne aux polysomes une configuration circulaire caractéristique.",
+    "itemExplanations": [
+      "A. Faux — Plusieurs ribosomes traduisent simultanément le même ARNm.",
+      "B. Vrai — Les polysomes eucaryotes adoptent une organisation circulaire observée en microscopie électronique.",
+      "C. Faux — Un polysome contient plusieurs ribosomes et non un seul.",
+      "D. Faux — Ils sont circulaires et non linéaires.",
+      "E. Vrai — Un ARNm lié à plusieurs ribosomes en cours de traduction forme un polysome."
+    ]
   },
   {
     "id": "q-ue1-f8-medisup-s2-q18",
@@ -93394,8 +93415,8 @@
       {
         "id": "c",
         "text": "La particule de reconnaissance du signal (SRP) se fixe sur un récepteur exposé sur la face cytosolique de la membrane du RE.",
-        "correct": false,
-        "explanation": "C. Faux — Cette proposition est inexacte."
+        "correct": true,
+        "explanation": "C. Vrai — La SRP se fixe sur son récepteur spécifique (récepteur de la SRP) exposé sur la face cytosolique de la membrane du réticulum endoplasmique."
       },
       {
         "id": "d",
@@ -93410,11 +93431,11 @@
         "explanation": "E. Faux — Cette proposition est inexacte."
       }
     ],
-    "explanation": "Réponse(s) exacte(s) : A, B.",
+    "explanation": "Réponse(s) exacte(s) : A, B et C. La SRP se fixe sur le ribosome et la séquence signal, possède une activité GTPasique/ATPasique, et s'amarre au récepteur de la SRP sur la face cytosolique de la membrane du RE pour aligner le ribosome avec le translocon.",
     "itemExplanations": [
       "A. Vrai — La particule de reconnaissance du signal (SRP) se fixe sur le ribosome..",
       "B. Vrai — La particule de reconnaissance du signal (SRP) possède une activité ATPasique..",
-      "C. Faux — Cette proposition est inexacte.",
+      "C. Vrai — La particule SRP se lie au récepteur de la SRP situé sur la face cytosolique de la membrane du RE.",
       "D. Faux — c'est la grosse sous-unité E.",
       "E. Faux — Cette proposition est inexacte."
     ]
@@ -103404,12 +103425,19 @@
       },
       {
         "id": "e",
-        "text": "Toutes les protéines prennent naissance sur les ribosomes du cytosol et sont ensuite dirigées vers 3 embranchements.",
-        "correct": false,
-        "explanation": "E. Faux — Les protéines mitochondriales, nucléaires ou peroxysomales suivent des voies d'adressage post-traductionnel distinctes sans passer par ce schéma à 3 embranchements."
+        "text": "Toutes les protéines (à l'exception des protéines synthétisées dans les mitochondries) prennent naissance sur les ribosomes du cytosol et sont ensuite dirigées vers 3 embranchements.",
+        "correct": true,
+        "explanation": "D. Vrai — À l'exception des protéines synthétisées directement dans les mitochondries par les mitoribosomes, toutes les protéines débutent leur synthèse sur les ribosomes libres du cytosol et se répartissent selon 3 voies majeures : rester dans le cytosol, voie co-traductionnelle (REG), ou voies post-traductionnelles vers d'autres organites."
       }
     ],
-    "explanation": "Les propositions exactes sont A et D. L'expérience de pulse-chase de George Palade a utilisé l'autoradiographie pour démontrer le flux directionnel : Ribosome -> RER -> Golgi -> Vésicules de sécrétion."
+    "explanation": "Les propositions exactes sont A, D (et E selon l'ordre). L'expérience de pulse-chase de George Palade a utilisé l'autoradiographie pour démontrer le flux : Ribosome -> REG -> Golgi -> Grains de sécrétion. De plus, à l'exception des protéines mitochondriales synthétisées in situ, les protéines naissent sur les ribosomes cytosoliques avant d'être aiguillées vers leurs 3 embranchements.",
+    "itemExplanations": [
+      "A. Vrai — L'expérience historique de Palade (pulse-chase) a utilisé des acides aminés radioactifs (leucine tritiée) révélés par autoradiographie en microscopie électronique.",
+      "B. Faux — L'expérience portait sur la sécrétion d'enzymes digestives solubles par les cellules acineuses du pancréas exocrine.",
+      "C. Faux — L'ordre chronologique est inversé entre l'appareil de Golgi et les vésicules sécrétoires.",
+      "D. Vrai — C'est la séquence temporelle antérograde démontrée par Palade : RER -> Golgi -> grains de sécrétion -> exocytose.",
+      "D. Vrai — À l'exception des protéines synthétisées directement dans les mitochondries par les mitoribosomes, toutes les protéines débutent leur synthèse sur les ribosomes libres du cytosol et se répartissent selon 3 voies majeures : rester dans le cytosol, voie co-traductionnelle (REG), ou voies post-traductionnelles vers d'autres organites."
+    ]
   },
   {
     "id": "ue1_2_diploma_s3_q11",
