@@ -255,7 +255,7 @@
                 icon: '🧪', 
                 color: 'from-cyan-600 to-blue-500', 
                 progress: 82, 
-                qcmCount: 107, 
+                qcmCount: 108, 
                 chapters: [
                     "Fiche n°1 - Biochimie analytique en médecine.pdf",
                     "Fiche n°2 - Caractères généraux des enzymes.pdf",
@@ -62721,6 +62721,63 @@
       "D. Faux — Elle soulage et compense l'acidose.",
       "E. Vrai — Compensation respiratoire physiologique."
     ]
+  },
+  {
+    "id": "ue8_exo_q27",
+    "subjectId": "s8",
+    "subject": "UE 8 Biochimie",
+    "chapter": "Fiche ( exercice pratique )",
+    "year": 2024,
+    "difficulty": "Difficile",
+    "tags": [
+      "UE 8",
+      "Biochimie",
+      "Exercice",
+      "pH du sang",
+      "Système tampon",
+      "Acide lactique"
+    ],
+    "statement": "QCM : pH du sang et système tampon bicarbonate\nDonnées : Ke = 2,40·10⁻¹⁴ ; Ka(H₂CO₃/HCO₃⁻) = 4,30·10⁻⁷ ; Ka(HB/B⁻) = 1,26·10⁻⁴.\nPlusieurs réponses peuvent être justes.",
+    "answers": [
+      {
+        "id": "a",
+        "text": "(Q1 et Q2) La constante d'acidité du couple est définie par la réaction H₂CO₃ + H₂O ⇌ HCO₃⁻ + H₃O⁺, avec Ka = [HCO₃⁻][H₃O⁺]/[H₂CO₃]. La constante de basicité est définie par HCO₃⁻ + H₂O ⇌ H₂CO₃ + HO⁻, avec Kb = [HCO₃⁻][HO⁻]/[H₂CO₃].",
+        "correct": false,
+        "explanation": "A. Faux — La réaction d'acidité et l'expression de Ka sont correctes. En revanche, l'expression de Kb est fausse : au numérateur se trouvent les produits formés, donc Kb = [H₂CO₃][HO⁻] / [HCO₃⁻] (et non [HCO₃⁻][HO⁻] / [H₂CO₃])."
+      },
+      {
+        "id": "b",
+        "text": "(Q3) Les constantes d'acidité et de basicité d'un même couple vérifient Ka × Kb = Ke.",
+        "correct": true,
+        "explanation": "B. Vrai — Ka × Kb = ([HCO₃⁻][H₃O⁺]/[H₂CO₃]) × ([H₂CO₃][HO⁻]/[HCO₃⁻]) = [H₃O⁺][HO⁻] = Ke. On a donc Kb = Ke / Ka = 2,40·10⁻¹⁴ / 4,30·10⁻⁷ ≈ 5,58·10⁻⁸."
+      },
+      {
+        "id": "c",
+        "text": "(Q4) À pH = 7,40 et Ct = 0,0280 mol·L⁻¹, on trouve [H₂CO₃] ≈ 2,37·10⁻³ mol·L⁻¹ et [HCO₃⁻] ≈ 2,56·10⁻² mol·L⁻¹.",
+        "correct": true,
+        "explanation": "C. Vrai — pKa = −log(4,30·10⁻⁷) = 6,37. D'après Henderson-Hasselbalch, [HCO₃⁻]/[H₂CO₃] = 10^(pH − pKa) = 10^(7,40 − 6,3665) ≈ 10,8. Avec Ct = [H₂CO₃] + [HCO₃⁻] = [H₂CO₃](1 + 10,8) = 0,0280 mol·L⁻¹, on trouve [H₂CO₃] = 0,0280 / 11,8 ≈ 2,37·10⁻³ mol·L⁻¹ et [HCO₃⁻] = 0,0280 − 0,00237 ≈ 2,56·10⁻² mol·L⁻¹."
+      },
+      {
+        "id": "d",
+        "text": "(Q5) La réaction HB + HCO₃⁻ → B⁻ + H₂CO₃ a une constante telle qu'elle peut être considérée comme totale. Après l'apport de 2,00·10⁻³ mol·L⁻¹ d'acide lactique, le pH vaut environ 7,10, valeur parfaitement compatible avec la vie.",
+        "correct": false,
+        "explanation": "D. Faux — K = Ka(HB)/Ka(H₂CO₃) = 1,26·10⁻⁴ / 4,30·10⁻⁷ ≈ 2,93·10² (réaction quasi-totale). Après apport de 2,00·10⁻³ mol·L⁻¹ de HB : [HCO₃⁻] = 2,56·10⁻² − 0,20·10⁻² = 2,36·10⁻² mol·L⁻¹ et [H₂CO₃] = 2,37·10⁻³ + 2,00·10⁻³ = 4,37·10⁻³ mol·L⁻¹. pH = 6,37 + log(2,36·10⁻² / 4,37·10⁻³) ≈ 7,10. Cependant, un pH de 7,10 correspond à une acidose métabolique sévère décompensée, incompatible avec la vie à l'état physiologique normal sans réanimation immédiate. C'est la mention 'parfaitement compatible avec la vie' qui rend l'item faux."
+      },
+      {
+        "id": "e",
+        "text": "(Q6) Si la respiration maintient [H₂CO₃] constante, le pH après l'apport d'acide lactique vaut environ 7,28.",
+        "correct": false,
+        "explanation": "E. Faux — Si la respiration élimine le CO₂ et maintient [H₂CO₃] constante à 2,37·10⁻³ mol·L⁻¹, avec [HCO₃⁻] = 2,36·10⁻² mol·L⁻¹, on obtient : pH = 6,37 + log(2,36·10⁻² / 2,37·10⁻³) = 6,37 + log(9,96) ≈ 7,36 (et non 7,28). La compensation respiratoire permet ainsi de maintenir le pH dans les limites physiologiques."
+      }
+    ],
+    "itemExplanations": [
+      "A. Faux — L'expression de Kb est fausse : Kb = [H₂CO₃][HO⁻] / [HCO₃⁻].",
+      "B. Vrai — Pour tout couple acide/base dans l'eau, Ka × Kb = Ke.",
+      "C. Vrai — [H₂CO₃] ≈ 2,37·10⁻³ mol·L⁻¹ et [HCO₃⁻] ≈ 2,56·10⁻² mol·L⁻¹ à pH 7,40.",
+      "D. Faux — Le pH calculé vaut bien 7,10, mais cette valeur d'acidose sévère n'est pas 'parfaitement compatible avec la vie'.",
+      "E. Faux — Avec [H₂CO₃] maintenue constante par la ventilation pulmonaire, le pH vaut environ 7,36 (et non 7,28)."
+    ],
+    "explanation": "Réponses justes : B et C. Les affirmations A, D et E sont fausses.\n\nA. FAUX. La réaction d'acidité et Ka sont corrects. En revanche, l'expression de Kb est fausse : au numérateur on trouve les espèces formées, donc Kb = [H₂CO₃][HO⁻]/[HCO₃⁻] (et non [HCO₃⁻][HO⁻]/[H₂CO₃]).\nB. VRAI. Ka × Kb = [H₃O⁺][HO⁻] = Ke. Donc Kb = Ke/Ka = 2,40·10⁻¹⁴ / 4,30·10⁻⁷ ≈ 5,58·10⁻⁸.\nC. VRAI.\npKa = −log(4,30·10⁻⁷) = 6,37.\n[HCO₃⁻]/[H₂CO₃] = 10^(pH − pKa) = 10^(7,40 − 6,3665) ≈ 10,8.\n[H₂CO₃] = Ct / (1 + 10,8) = 0,0280 / 11,8 ≈ 2,37·10⁻³ mol·L⁻¹.\n[HCO₃⁻] = 0,0280 − 0,00237 ≈ 2,56·10⁻² mol·L⁻¹.\nD. FAUX.\nK = Ka(HB)/Ka(H₂CO₃) = 1,26·10⁻⁴ / 4,30·10⁻⁷ ≈ 2,93·10² : la réaction est bien quasi totale, cette partie est juste.\nAprès l'apport de 2,00·10⁻³ mol·L⁻¹ de HB : [HCO₃⁻] = 0,02563 − 0,00200 = 2,36·10⁻² mol·L⁻¹ et [H₂CO₃] = 0,00237 + 0,00200 = 4,37·10⁻³ mol·L⁻¹.\npH = 6,37 + log(2,36·10⁻² / 4,37·10⁻³) ≈ 7,10.\nCe pH est inférieur à la plage physiologique (7,35 – 7,45). Il correspond à une acidose sévère : il n'est pas compatible avec la vie. C'est la fin de l'affirmation qui est fausse.\nE. FAUX.\nSi [H₂CO₃] reste constante à 2,37·10⁻³ mol·L⁻¹, alors [HCO₃⁻] = 2,36·10⁻² mol·L⁻¹.\npH = 6,37 + log(2,36·10⁻² / 2,37·10⁻³) ≈ 7,36, et non 7,28.\nCette valeur reste dans la plage physiologique : la respiration limite donc la baisse du pH."
   },
   {
     "id": "ue7_sp_intro_q1",
