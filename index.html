@@ -135683,6 +135683,29 @@ const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
                 const pctHalfPt = ((countHalfPt / totalQCount) * 100).toFixed(1).replace('.0', '');
                 const pct0Pt = ((count0Pt / totalQCount) * 100).toFixed(1).replace('.0', '');
 
+                // Statistiques détaillées par fiche de cours pour les séries globales
+                const ficheMap = {};
+                userAnswersHistory.forEach(h => {
+                    const chap = (h.question && h.question.chapter) ? h.question.chapter : 'Général';
+                    if (!ficheMap[chap]) {
+                        ficheMap[chap] = {
+                            chapter: chap,
+                            totalQ: 0,
+                            totalPts: 0,
+                            count1: 0,
+                            countHalf: 0,
+                            count0: 0
+                        };
+                    }
+                    const pts = h.points ?? 0;
+                    ficheMap[chap].totalQ += 1;
+                    ficheMap[chap].totalPts += pts;
+                    if (pts === 1.0) ficheMap[chap].count1 += 1;
+                    else if (pts === 0.5) ficheMap[chap].countHalf += 1;
+                    else ficheMap[chap].count0 += 1;
+                });
+                const ficheList = Object.values(ficheMap);
+
                 const answeredCount = Object.keys(userChoices).filter(k => (userChoices[k] || []).length > 0).length;
 
                 return (
@@ -136991,6 +137014,135 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                             </div>
                                         </div>
                                     </div>
+
+                                    {/* BILAN DÉTAILLÉ PAR FICHE DE COURS (SÉRIES GLOBALES) */}
+                                    {ficheList.length > 0 && (
+                                        <div className="p-6 rounded-3xl bg-slate-900 border border-slate-800 space-y-4 shadow-xl text-left">
+                                            <div className="flex items-center justify-between pb-3 border-b border-slate-800 flex-wrap gap-2">
+                                                <div className="flex items-center gap-2.5">
+                                                    <div className="w-8 h-8 rounded-xl bg-orange-950/60 border border-orange-500/40 flex items-center justify-center text-sm">
+                                                        📊
+                                                    </div>
+                                                    <div>
+                                                        <h3 className="text-sm font-black text-white uppercase tracking-wider">
+                                                            {ficheList.length > 1 ? `Résultats par Fiche de Cours (${ficheList.length} fiches)` : 'Résultat par Fiche de Cours'}
+                                                        </h3>
+                                                        <p className="text-[11px] text-slate-400">
+                                                            Taux de réussite et répartition des notes (1 / 1 · 0,5 / 1 · 0 / 1)
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div className="flex items-center gap-2 text-xs">
+                                                    <span className="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 font-semibold">
+                                                        {userAnswersHistory.length} QCM{userAnswersHistory.length > 1 ? 's' : ''} traités
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div className="space-y-3">
+                                                {ficheList.map((f, fIdx) => {
+                                                    const pct = Math.round((f.totalPts / f.totalQ) * 100);
+                                                    const isGreen = pct >= 70;
+                                                    const isAmber = pct >= 50 && pct < 70;
+                                                    const badgeStyle = isGreen
+                                                        ? 'text-emerald-300 bg-emerald-950/80 border-emerald-500/50'
+                                                        : isAmber
+                                                            ? 'text-amber-300 bg-amber-950/80 border-amber-500/50'
+                                                            : 'text-red-300 bg-red-950/80 border-red-500/50';
+
+                                                    const pct1 = Math.round((f.count1 / f.totalQ) * 100);
+                                                    const pctHalf = Math.round((f.countHalf / f.totalQ) * 100);
+                                                    const pct0 = Math.round((f.count0 / f.totalQ) * 100);
+                                                    const cleanTitle = f.chapter.replace(/\.pdf$/i, '');
+
+                                                    return (
+                                                        <div 
+                                                            key={fIdx} 
+                                                            className="p-3.5 bg-slate-950/70 border border-slate-800/80 rounded-2xl space-y-2.5 hover:border-slate-700/80 transition-all"
+                                                        >
+                                                            {/* Titre et Score global de la fiche */}
+                                                            <div className="flex items-center justify-between gap-3 flex-wrap">
+                                                                <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                                                                    <span className="text-[11px] font-extrabold px-2 py-0.5 rounded-md bg-slate-800 text-orange-400 shrink-0 border border-slate-700/60">
+                                                                        Fiche {fIdx + 1}
+                                                                    </span>
+                                                                    <span className="text-xs font-bold text-slate-200 truncate" title={cleanTitle}>
+                                                                        {cleanTitle}
+                                                                    </span>
+                                                                </div>
+                                                                <div className="flex items-center gap-2 shrink-0">
+                                                                    <span className="text-xs font-bold text-slate-300 bg-slate-900 px-2 py-1 rounded-lg border border-slate-800">
+                                                                        {f.totalPts} / {f.totalQ} pt{f.totalQ > 1 ? 's' : ''}
+                                                                    </span>
+                                                                    <span className={`text-xs font-black px-2.5 py-1 rounded-lg border ${badgeStyle}`}>
+                                                                        {pct}%
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+
+                                                            {/* Jauge visuelle tricolore */}
+                                                            <div className="w-full h-2 bg-slate-900 rounded-full overflow-hidden flex border border-slate-800/60">
+                                                                {f.count1 > 0 && (
+                                                                    <div 
+                                                                        style={{ width: `${(f.count1 / f.totalQ) * 100}%` }} 
+                                                                        className="bg-emerald-500 h-full transition-all" 
+                                                                        title={`1 / 1 : ${f.count1} QCM (${pct1}%)`}
+                                                                    />
+                                                                )}
+                                                                {f.countHalf > 0 && (
+                                                                    <div 
+                                                                        style={{ width: `${(f.countHalf / f.totalQ) * 100}%` }} 
+                                                                        className="bg-amber-500 h-full transition-all" 
+                                                                        title={`0,5 / 1 : ${f.countHalf} QCM (${pctHalf}%)`}
+                                                                    />
+                                                                )}
+                                                                {f.count0 > 0 && (
+                                                                    <div 
+                                                                        style={{ width: `${(f.count0 / f.totalQ) * 100}%` }} 
+                                                                        className="bg-red-500 h-full transition-all" 
+                                                                        title={`0 / 1 : ${f.count0} QCM (${pct0}%)`}
+                                                                    />
+                                                                )}
+                                                            </div>
+
+                                                            {/* Détail 1/1, 0.5/1, 0/1 */}
+                                                            <div className="grid grid-cols-3 gap-2 pt-1 text-center">
+                                                                <div className="p-1.5 rounded-xl bg-emerald-950/30 border border-emerald-500/25 flex flex-col items-center justify-center">
+                                                                    <span className="text-[10px] text-emerald-400 font-extrabold uppercase flex items-center gap-1">
+                                                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                                                        1 / 1
+                                                                    </span>
+                                                                    <span className="text-xs font-black text-emerald-300 mt-0.5">
+                                                                        {f.count1} <span className="text-[10px] text-emerald-400/70 font-semibold">({pct1}%)</span>
+                                                                    </span>
+                                                                </div>
+
+                                                                <div className="p-1.5 rounded-xl bg-amber-950/30 border border-amber-500/25 flex flex-col items-center justify-center">
+                                                                    <span className="text-[10px] text-amber-400 font-extrabold uppercase flex items-center gap-1">
+                                                                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                                                        0,5 / 1
+                                                                    </span>
+                                                                    <span className="text-xs font-black text-amber-300 mt-0.5">
+                                                                        {f.countHalf} <span className="text-[10px] text-amber-400/70 font-semibold">({pctHalf}%)</span>
+                                                                    </span>
+                                                                </div>
+
+                                                                <div className="p-1.5 rounded-xl bg-red-950/30 border border-red-500/25 flex flex-col items-center justify-center">
+                                                                    <span className="text-[10px] text-red-400 font-extrabold uppercase flex items-center gap-1">
+                                                                        <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                                                        0 / 1
+                                                                    </span>
+                                                                    <span className="text-xs font-black text-red-300 mt-0.5">
+                                                                        {f.count0} <span className="text-[10px] text-red-400/70 font-semibold">({pct0}%)</span>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
+                                    )}
 
                                     {/* DETAILED CORRECTION LIST */}
                                     <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2 scrollbar-thin">
