@@ -350,6 +350,47 @@
                     'Concours Blanc 2024-2025 - UE1 Biologie Moléculaire.pdf',
                     'ED2 Biomol 2025-2026 - UE1 Biologie Moléculaire.pdf'
                 ]
+                        },
+            {
+                id: 's12',
+                name: 'UE SHS - Sciences Humaines et Sociales',
+                code: 'SHS',
+                icon: '🏛️',
+                color: 'from-amber-600 to-rose-500',
+                progress: 0,
+                qcmCount: 0,
+                chapters: [
+                    "Fiche n°1 - Histoire de la pensée : le vivant",
+                    "Fiche n°2 - Le vitalisme en philosophie et histoire de la médecine",
+                    "Fiche n°3 - L'individuation du vivant en philosophie de la biologie",
+                    "Fiche n°4 - L'historicité du vivant : l'anthropocène",
+                    "Fiche n°5 - La biologie comme science autonome",
+                    "Fiche n°6 - L'ère de la biopolitique",
+                    "Fiche n°7 - Pensée typologique et pensée populationnelle en biologie",
+                    "Fiche n°8 - Le concept d'immunité",
+                    "Fiche n°9 - Biologie évolutive et biologie fonctionnelle : entre histoire et fixité",
+                    "Fiche n°10 - Enjeux éthiques de la vaccination",
+                    "Fiche n°11 - Introduction à l'éthique de l'environnement",
+                    "Fiche n°12 - Humains - animaux : One Health",
+                    "Fiche n°13 - La notion d'exposome - BPCO",
+                    "Fiche n°14 - Épistémologie de la biologie moléculaire"
+                ],
+                chapterDetails: {
+                    "Fiche n°1 - Histoire de la pensée : le vivant": { date: "12/10/2026", time: "10h45-12h45", teacher: "Élodie Boublil", mode: "Distanciel asynchrone (capsules Cristolink)" },
+                    "Fiche n°2 - Le vitalisme en philosophie et histoire de la médecine": { date: "13/10/2026", time: "13h00-15h00", teacher: "Élodie Boublil", mode: "Distanciel asynchrone (capsules Cristolink)" },
+                    "Fiche n°3 - L'individuation du vivant en philosophie de la biologie": { date: "19/10/2026", time: "10h45-12h45", teacher: "Élodie Boublil", mode: "Distanciel asynchrone (capsules Cristolink)" },
+                    "Fiche n°4 - L'historicité du vivant : l'anthropocène": { date: "20/10/2026", time: "13h00-15h00", teacher: "Élodie Boublil", mode: "Distanciel asynchrone (capsules Cristolink)" },
+                    "Fiche n°5 - La biologie comme science autonome": { date: "22/10/2026", time: "8h30-10h30", teacher: "David Simard", mode: "Présentiel UFR de santé (Amphi 3 et 4)" },
+                    "Fiche n°6 - L'ère de la biopolitique": { date: "26/10/2026", time: "10h45-12h45", teacher: "Élodie Boublil", mode: "Distanciel asynchrone (capsules Cristolink)" },
+                    "Fiche n°7 - Pensée typologique et pensée populationnelle en biologie": { date: "27/10/2026", time: "13h00-15h00", teacher: "David Simard", mode: "Présentiel UFR de santé (Amphi 1 et 2)" },
+                    "Fiche n°8 - Le concept d'immunité": { date: "02/11/2026", time: "10h45-12h45", teacher: "Élodie Boublil", mode: "Distanciel asynchrone (capsules Cristolink)" },
+                    "Fiche n°9 - Biologie évolutive et biologie fonctionnelle : entre histoire et fixité": { date: "16/11/2026", time: "10h45-12h45", teacher: "David Simard", mode: "Présentiel UFR de santé (Amphis 3)" },
+                    "Fiche n°10 - Enjeux éthiques de la vaccination": { date: "17/11/2026", time: "13h00-15h00", teacher: "Élodie Boublil", mode: "Distanciel asynchrone (capsules Cristolink)" },
+                    "Fiche n°11 - Introduction à l'éthique de l'environnement": { date: "23/11/2026", time: "10h45-12h45", teacher: "Élodie Boublil", mode: "Distanciel asynchrone (capsules Cristolink)" },
+                    "Fiche n°12 - Humains - animaux : One Health": { date: "24/11/2026", time: "13h00-15h00", teacher: "Élodie Boublil", mode: "Distanciel asynchrone (capsules Cristolink)" },
+                    "Fiche n°13 - La notion d'exposome - BPCO": { date: "01/12/2026", time: "13h00-15h00", teacher: "Pascal Andujar", mode: "Synchrone Live Zoom" },
+                    "Fiche n°14 - Épistémologie de la biologie moléculaire": { date: "02/12/2026", time: "13h45-15h45", teacher: "David Simard", mode: "Présentiel UFR de santé (Amphi 1 et 2)" }
+                }
             }
         ];
 
@@ -126293,7 +126334,8 @@
                     pool = questions.filter(q => q.subjectId === selectedSubjectForQuiz.id);
                 }
                 if (pool.length === 0) {
-                    pool = [...questions];
+                    alert("Aucun QCM n'est encore disponible pour cette fiche ou matière. Les 14 fiches de cours sont créées et prêtes pour l'import de vos prochains QCMs !");
+                    return;
                 }
                 pool.sort(() => Math.random() - 0.5);
                 let finalLimit = pool.length;
@@ -128461,9 +128503,24 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                         <div className="space-y-3 pt-4">
                                             {selectedDetailedSubject.chapters.map((chap, idx) => (
                                                 <div key={idx} className="p-4 bg-slate-950 border border-slate-800 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
-                                                    <div className="flex items-center gap-3">
-                                                        <span className="w-8 h-8 rounded-xl bg-slate-900 flex items-center justify-center text-xs font-bold text-red-400 shrink-0">{idx + 1}</span>
-                                                        <span className="text-sm font-medium text-slate-200">{chap}</span>
+                                                    <div className="flex items-start md:items-center gap-3">
+                                                        <span className="w-8 h-8 rounded-xl bg-slate-900 flex items-center justify-center text-xs font-bold text-red-400 shrink-0 mt-0.5 md:mt-0">{idx + 1}</span>
+                                                        <div>
+                                                            <span className="text-sm font-medium text-slate-200 block">{chap}</span>
+                                                            {selectedDetailedSubject.chapterDetails && selectedDetailedSubject.chapterDetails[chap] && (
+                                                                <div className="flex items-center gap-2 flex-wrap text-[11px] text-slate-400 mt-1.5 font-medium">
+                                                                    <span className="px-2 py-0.5 rounded-md bg-slate-900/90 text-amber-300 border border-slate-800 flex items-center gap-1">
+                                                                        📅 {selectedDetailedSubject.chapterDetails[chap].date} • {selectedDetailedSubject.chapterDetails[chap].time}
+                                                                    </span>
+                                                                    <span className="px-2 py-0.5 rounded-md bg-slate-900/90 text-indigo-300 border border-slate-800 flex items-center gap-1">
+                                                                        👤 {selectedDetailedSubject.chapterDetails[chap].teacher}
+                                                                    </span>
+                                                                    <span className="px-2 py-0.5 rounded-md bg-slate-900/90 text-emerald-300 border border-slate-800 flex items-center gap-1">
+                                                                        {selectedDetailedSubject.chapterDetails[chap].mode.includes('Présentiel') ? '🏛️' : (selectedDetailedSubject.chapterDetails[chap].mode.includes('Zoom') ? '🎥' : '💻')} {selectedDetailedSubject.chapterDetails[chap].mode}
+                                                                    </span>
+                                                                </div>
+                                                            )}
+                                                        </div>
                                                     </div>
                                                     <div className="flex items-center gap-2 self-end md:self-auto">
                                                         <button onClick={() => { setSelectedBankSubject(selectedDetailedSubject.id); setSearchQuery(chap); setCurrentView('bank'); }} className="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-xs text-slate-300 rounded-xl">
