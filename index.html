@@ -282,7 +282,7 @@
                 icon: '🧪', 
                 color: 'from-cyan-600 to-blue-500', 
                 progress: 82, 
-                qcmCount: 180, 
+                qcmCount: 183, 
                 chapters: [
                     "Fiche n°1 - Biochimie analytique en médecine.pdf",
                     "Fiche n°2 - Caractères généraux des enzymes.pdf",
@@ -290,7 +290,8 @@
                     "Fiche n°4 - Immunonutrition _ Partie 1.pdf",
                     "Fiche n°5 - Immunonutrition _ Partie 2.pdf",
                     "Fiche ( exercice pratique )",
-                    "Fiche Métabolisme"
+                    "Fiche Métabolisme",
+                    "Fiche TD 2 enzymologie"
                 ] 
             },
             {
@@ -161256,6 +161257,194 @@
       "Santé Publique",
       "CH12"
     ]
+  },
+  {
+    "id": "ue8_td2_q1",
+    "subjectId": "s8",
+    "subject": "UE 8 Biochimie",
+    "chapter": "Fiche TD 2 enzymologie",
+    "year": 2024,
+    "difficulty": "Difficile",
+    "tags": [
+      "UE 8",
+      "Biochimie",
+      "Enzymologie",
+      "Glycolyse",
+      "Thermodynamique",
+      "ΔG",
+      "Aldolase",
+      "Hexokinase"
+    ],
+    "image": {
+      "url": "src/assets/images/ue8_td2_p1.png",
+      "alt": "Réactions hexokinase et aldolase avec concentrations cellulaires mesurées"
+    },
+    "statement": "QCM 1 : Glycolyse (hexokinase et aldolase)\n\nDonnées :\n• ΔG°'(hexokinase) = −16,7 kJ/mol ; ΔG°'(aldolase) = +23,8 kJ/mol\n• T = 310 K ; R = 8,314 J·K⁻¹·mol⁻¹\n• ΔG°'(hydrolyse ATP) = −30,5 kJ/mol ; ΔG°'(hydrolyse G6P) = −13,8 kJ/mol\n\nPlusieurs réponses peuvent être justes :",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Une réaction exergonique a un ΔG < 0, une réaction endergonique un ΔG > 0, et une réaction à l'équilibre un ΔG = 0. ΔG°' est la variation d'énergie libre dans les conditions réelles de la cellule, tandis que ΔG' est celle dans les conditions standard biochimiques. Dans les conditions standard, la réaction 1 est exergonique et la réaction 4 endergonique ; l'aldolase peut fonctionner dans le sens glycolytique in vitro à partir de concentrations 1 M.",
+        "correct": false,
+        "explanation": "A. Faux — Les rôles de ΔG°' et ΔG' sont inversés : ΔG°' est la variation standard biochimique (pH 7, 25 °C, 1 M) tandis que ΔG' correspond aux conditions réelles cellulaires (ΔG' = ΔG°' + RT ln Q). De plus, à 1 M (Q = 1), ΔG' = ΔG°' = +23,8 kJ/mol > 0 : l'aldolase fonctionne in vitro dans le sens inverse (condensation DHAP + GAP → F1,6-BP) et non dans le sens glycolytique."
+      },
+      {
+        "id": "b",
+        "text": "À 310 K, K'eq(1) ≈ 6,5·10² et K'eq(4) ≈ 9,8·10⁻⁵.",
+        "correct": true,
+        "explanation": "B. Vrai — RT = 8,314 × 310 = 2577 J/mol ≈ 2,577 kJ/mol. K'eq = exp(−ΔG°'/RT). Pour la réaction 1 : K'eq(1) = exp(16,7 / 2,577) = exp(6,48) ≈ 6,5·10². Pour la réaction 4 : K'eq(4) = exp(−23,8 / 2,577) = exp(−9,23) ≈ 9,8·10⁻⁵."
+      },
+      {
+        "id": "c",
+        "text": "Dans l'érythrocyte, Q₁ ≈ 1,26·10⁻³ et ΔG'₁ ≈ −33,9 kJ/mol ; Q₄ ≈ 8,6·10⁻⁵ et ΔG'₄ ≈ +23,5 kJ/mol.",
+        "correct": false,
+        "explanation": "C. Faux — Pour la réaction 4 : Q₄ = [DHAP][GAP] / [F1,6-BP] = (0,14·10⁻³ × 0,019·10⁻³) / (0,031·10⁻³) ≈ 8,6·10⁻⁵. ΔG'₄ = +23,8 + 2,577 × ln(8,6·10⁻⁵) = +23,8 − 24,1 ≈ −0,3 kJ/mol (et non +23,5 kJ/mol). C'est cette valeur qui rend la proposition fausse."
+      },
+      {
+        "id": "d",
+        "text": "Dans la cellule, la réaction 1 est proche de l'équilibre donc réversible, alors que la réaction 4 est fortement déplacée dans le sens direct : c'est donc la réaction 4 qui constitue l'étape de régulation.",
+        "correct": false,
+        "explanation": "D. Faux — Les rôles sont inversés : la réaction 1 (hexokinase) a un ΔG' = −33,9 kJ/mol (très négatif et éloigné de 0), elle est donc irréversible et régulatrice. La réaction 4 (aldolase) a un ΔG' ≈ −0,3 kJ/mol (proche de 0), elle est donc proche de l'équilibre et réversible dans la cellule."
+      },
+      {
+        "id": "e",
+        "text": "L'hexokinase couple l'hydrolyse de l'ATP à la phosphorylation du glucose : ΔG°' = −16,7 kJ/mol.",
+        "correct": true,
+        "explanation": "E. Vrai — Glucose + Pi → G6P + H₂O : ΔG°' = +13,8 kJ/mol (inverse de l'hydrolyse du G6P). ATP + H₂O → ADP + Pi : ΔG°' = −30,5 kJ/mol. Somme : ΔG°' = +13,8 − 30,5 = −16,7 kJ/mol. Couplage énergétique parfait rendant la réaction favorable."
+      }
+    ],
+    "itemExplanations": [
+      "A. Faux — Rôles de ΔG°' et ΔG' inversés ; l'aldolase fonctionne in vitro à 1 M dans le sens de la condensation.",
+      "B. Vrai — K'eq(1) ≈ 6,5·10² et K'eq(4) ≈ 9,8·10⁻⁵ à 310 K.",
+      "C. Faux — Dans l'érythrocyte, ΔG'₄ ≈ −0,3 kJ/mol (et non +23,5 kJ/mol).",
+      "D. Faux — La réaction 1 (ΔG' = −33,9 kJ/mol) est irréversible et régulatrice, tandis que la réaction 4 (ΔG' ≈ −0,3 kJ/mol) est réversible.",
+      "E. Vrai — Couplage énergétique : ΔG°' = +13,8 − 30,5 = −16,7 kJ/mol."
+    ],
+    "explanation": "Réponses exactes : B et E. Les affirmations A, C et D sont fausses.\n• A : Inversion entre ΔG°' (standard) et ΔG' (réel) ; in vitro à 1 M, ΔG' = +23,8 kJ/mol donc l'aldolase catalyse la réaction inverse.\n• B : RT = 2,577 kJ/mol. K'eq = exp(−ΔG°'/RT), validé pour les deux réactions.\n• C : Q₄ ≈ 8,6·10⁻⁵ donne ΔG'₄ ≈ −0,3 kJ/mol.\n• D : La réaction 1 est très exergonique (irréversible, étape de régulation) ; la réaction 4 est proche de l'équilibre.\n• E : L'hydrolyse de l'ATP compense la réaction endergonique de phosphorylation."
+  },
+  {
+    "id": "ue8_td2_q2",
+    "subjectId": "s8",
+    "subject": "UE 8 Biochimie",
+    "chapter": "Fiche TD 2 enzymologie",
+    "year": 2024,
+    "difficulty": "Difficile",
+    "tags": [
+      "UE 8",
+      "Biochimie",
+      "Enzymologie",
+      "Lineweaver-Burk",
+      "Inhibition compétitive",
+      "ADH",
+      "Fomépizole",
+      "Méthanol"
+    ],
+    "image": {
+      "url": "src/assets/images/ue8_td2_p3.png",
+      "alt": "Cinétique de l'alcool déshydrogénase (ADH) et représentation de Lineweaver-Burk"
+    },
+    "statement": "QCM 2 : Alcool déshydrogénase et fomépizole\n\nDonnées :\n• [E]₀ = 0,1 µM ; KM(méthanol) ≈ 10 mM\n• Équations de Lineweaver-Burk (x en mM⁻¹, y en min·µM⁻¹) :\n   - sans inhibiteur : y = 0,0833x + 0,0833\n   - avec 0,5 µM de fomépizole : y = 0,500x + 0,0833\n   - avec 1 µM de fomépizole : y = 0,917x + 0,0833\n\nPlusieurs réponses peuvent être justes :",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Graphiquement, Vmax ≈ 12 µM/min et KM ≈ 1 mM, KM étant la concentration en substrat pour laquelle v₀ = Vmax/2. On en déduit kcat = Vmax/[E]₀ = 12 min⁻¹ = 0,2 s⁻¹, ce qui signifie que chaque site actif transforme 0,2 molécule d'éthanol par seconde à saturation.",
+        "correct": false,
+        "explanation": "A. Faux — Vmax = 12 µM/min et KM = 1 mM sont justes, mais kcat = Vmax / [E]₀ = 12 µM·min⁻¹ / 0,1 µM = 120 min⁻¹ = 2 s⁻¹ (et non 12 min⁻¹ = 0,2 s⁻¹). À saturation, chaque site actif transforme 2 molécules d'éthanol par seconde."
+      },
+      {
+        "id": "b",
+        "text": "L'efficacité catalytique kcat/KM vaut environ 2·10³ M⁻¹·s⁻¹. Cette valeur est très inférieure à la limite de diffusion (10⁸ à 10⁹ M⁻¹·s⁻¹) : l'ADH n'est donc pas une enzyme « parfaite ».",
+        "correct": true,
+        "explanation": "B. Vrai — kcat/KM = 2 s⁻¹ / 1·10⁻³ M = 2·10³ M⁻¹·s⁻¹. Cette valeur est 10⁵ à 10⁶ fois inférieure à la limite diffusionnelle (10⁸-10⁹ M⁻¹·s⁻¹). La vitesse de réaction est limitée par l'étape chimique et non par la rencontre enzyme-substrat : ce n'est pas une enzyme cinétiquement parfaite."
+      },
+      {
+        "id": "c",
+        "text": "Les trois droites ont la même ordonnée à l'origine, donc l'inhibition est compétitive. On trouve KM' = 0,5 mM et KM'' = 0,917 mM, d'où KI = 1 µM pour le fomépizole.",
+        "correct": false,
+        "explanation": "C. Faux — La pente vaut KM/Vmax ⇒ KM = pente × Vmax (avec Vmax = 12 µM/min). Sans inhibiteur : KM = 0,0833 × 12 = 1 mM. Avec 0,5 µM : KM' = 0,500 × 12 = 6 mM (et non 0,5 mM). Avec 1 µM : KM'' = 0,917 × 12 = 11 mM. De plus, 6 = 1 × (1 + 0,5/KI) ⇒ KI = 0,1 µM (et non 1 µM)."
+      },
+      {
+        "id": "d",
+        "text": "Le fomépizole, inhibiteur compétitif de l'ADH, empêche l'oxydation du méthanol en formaldéhyde toxique. L'éthanol peut aussi servir d'antidote, car l'ADH a plus d'affinité pour lui (KM plus faible) que pour le méthanol : il entre en compétition avec le méthanol.",
+        "correct": true,
+        "explanation": "D. Vrai — Le fomépizole bloque très efficacement l'ADH (KI = 0,1 µM). Par ailleurs, KM(éthanol) = 1 mM < KM(méthanol) = 10 mM : l'enzyme est 10 fois plus affine pour l'éthanol, qui entre en compétition avec le méthanol et évite la formation de formaldéhyde toxique."
+      },
+      {
+        "id": "e",
+        "text": "Un inhibiteur compétitif diminue Vmax, car il réduit le nombre d'enzymes libres. L'inhibition ne peut pas être levée en augmentant [S], comme le montre l'équation de Michaelis-Menten.",
+        "correct": false,
+        "explanation": "E. Faux — Un inhibiteur compétitif ne modifie PAS Vmax (1/Vmax inchangé à l'ordonnée à l'origine). Il augmente le KM apparent. L'inhibition peut être totalement levée en augmentant [S] car le substrat déplace l'inhibiteur du site actif."
+      }
+    ],
+    "itemExplanations": [
+      "A. Faux — kcat = 12 / 0,1 = 120 min⁻¹ = 2 s⁻¹ (turnover de 2 molécules par seconde).",
+      "B. Vrai — Efficacité catalytique kcat/KM = 2·10³ M⁻¹·s⁻¹, bien inférieure à la limite de diffusion.",
+      "C. Faux — KM' = 6 mM et KM'' = 11 mM, ce qui donne KI = 0,1 µM (et non 1 µM).",
+      "D. Vrai — Le fomépizole et l'éthanol (KM = 1 mM vs 10 mM) empêchent l'oxydation toxique du méthanol.",
+      "E. Faux — Un inhibiteur compétitif laisse Vmax inchangée et son inhibition est levée par excès de substrat."
+    ],
+    "explanation": "Réponses exactes : B et D. Les affirmations A, C et E sont fausses.\n• A : Erreur sur le calcul de kcat (120 min⁻¹ = 2 s⁻¹).\n• B : kcat/KM = 2·10³ M⁻¹·s⁻¹ confirme que l'ADH n'est pas une enzyme parfaite.\n• C : Attention à la relation pente = KM/Vmax ⇒ KM = pente × 12. KI = 0,1 µM.\n• D : Fomépizole et éthanol sont des antidotes compétitifs majeurs lors d'intoxication au méthanol.\n• E : L'inhibition compétitive n'altère pas Vmax et est réversible par excès de [S]."
+  },
+  {
+    "id": "ue8_td2_q3",
+    "subjectId": "s8",
+    "subject": "UE 8 Biochimie",
+    "chapter": "Fiche TD 2 enzymologie",
+    "year": 2024,
+    "difficulty": "Difficile",
+    "tags": [
+      "UE 8",
+      "Biochimie",
+      "Enzymologie",
+      "Inhibition incompétitive",
+      "IMPase",
+      "Lithium",
+      "Lineweaver-Burk"
+    ],
+    "image": {
+      "url": "src/assets/images/ue8_td2_p5.png",
+      "alt": "Inhibition incompétitive de l'IMPase par le lithium (Lineweaver-Burk droites parallèles)"
+    },
+    "statement": "QCM 3 : Inositol monophosphatase (IMPase) et lithium\n\nDonnées :\n• Équations de Lineweaver-Burk (x en mM⁻¹, y en min·µM⁻¹) :\n   - sans Li⁺ : y = 0,0100x + 0,050\n   - avec 1 mM de Li⁺ : y = 0,0100x + 0,100\n   - avec 3 mM de Li⁺ : y = 0,0100x + 0,200\n• Concentration plasmatique thérapeutique du lithium : 0,6 à 1,2 mM.\n\nPlusieurs réponses peuvent être justes :",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Les trois droites ont la même pente et des ordonnées à l'origine différentes : l'inhibition est compétitive. Le lithium se fixe sur l'enzyme libre à la place du substrat, selon le schéma E + I ⇌ EI.",
+        "correct": false,
+        "explanation": "A. Faux — Des droites parallèles (même pente KM/Vmax = 0,0100) caractérisent une inhibition incompétitive (ou anticompétitive), et non compétitive. Le lithium se fixe exclusivement sur le complexe enzyme-substrat ES pour former le complexe inactif ESI (E + S ⇌ ES + I ⇌ ESI)."
+      },
+      {
+        "id": "b",
+        "text": "Sans Li⁺, Vmax = 20 µM/min et KM = 0,2 mM. Avec 1 mM de Li⁺, Vmax' = 10 µM/min et KM' = 0,1 mM. Avec 3 mM de Li⁺, Vmax'' = 5 µM/min et KM'' = 0,05 mM.",
+        "correct": true,
+        "explanation": "B. Vrai — L'ordonnée à l'origine vaut 1/Vmax et la pente KM/Vmax ⇒ KM = pente × Vmax :\n• Sans Li⁺ : Vmax = 1/0,050 = 20 µM/min ; KM = 0,0100 × 20 = 0,2 mM.\n• Avec 1 mM Li⁺ : Vmax' = 1/0,100 = 10 µM/min ; KM' = 0,0100 × 10 = 0,1 mM.\n• Avec 3 mM Li⁺ : Vmax'' = 1/0,200 = 5 µM/min ; KM'' = 0,0100 × 5 = 0,05 mM."
+      },
+      {
+        "id": "c",
+        "text": "Le KI du lithium vaut environ 0,5 mM, valeur inférieure à la concentration thérapeutique (0,6 à 1,2 mM).",
+        "correct": false,
+        "explanation": "C. Faux — Vmax' = Vmax / α' avec α' = 1 + [I]/KI. À 1 mM : α' = 20/10 = 2 ⇒ 1 + 1/KI = 2 ⇒ KI = 1 mM. À 3 mM : α' = 20/5 = 4 ⇒ 1 + 3/KI = 4 ⇒ KI = 1 mM. KI vaut 1 mM (et non 0,5 mM), ce qui se situe au milieu de la fenêtre thérapeutique (0,6 à 1,2 mM)."
+      },
+      {
+        "id": "d",
+        "text": "Ce type d'inhibition est efficace in vivo car le substrat qui s'accumule en amont déplace le lithium du site actif et rétablit l'activité de l'enzyme.",
+        "correct": false,
+        "explanation": "D. Faux — Dans l'inhibition incompétitive, l'inhibiteur se fixe sur le complexe ES. L'accumulation de substrat favorise la formation de ES, ce qui augmente la formation de ESI : l'inhibition est renforcée par le substrat et ne peut pas être levée."
+      },
+      {
+        "id": "e",
+        "text": "Si les trois droites s'étaient coupées sur l'axe des abscisses en x = −5 mM⁻¹, l'inhibition aurait été non compétitive pure (Vmax diminue, KM inchangé). Par comparaison, l'inhibition compétitive laisse Vmax inchangé et augmente KM. L'inhibition incompétitive diminue Vmax et KM, en laissant Vmax/KM inchangé.",
+        "correct": true,
+        "explanation": "E. Vrai — Une intersection en −1/KM fixe (−5 mM⁻¹ ⇒ KM = 0,2 mM inchangé) avec des 1/Vmax variables traduit une inhibition non compétitive pure. Le rappel des caractéristiques des 3 types d'inhibition est rigoureusement exact."
+      }
+    ],
+    "itemExplanations": [
+      "A. Faux — Droites parallèles = inhibition incompétitive (fixation de I sur ES uniquement).",
+      "B. Vrai — Vmax et KM diminuent tous deux d'un facteur 2 (à 1 mM) puis 4 (à 3 mM).",
+      "C. Faux — KI = 1 mM (et non 0,5 mM), situé au milieu de la plage thérapeutique (0,6 à 1,2 mM).",
+      "D. Faux — L'inhibition incompétitive est renforcée par l'accumulation de substrat en amont.",
+      "E. Vrai — Intersection sur l'axe des abscisses = inhibition non compétitive pure."
+    ],
+    "explanation": "Réponses exactes : B et E. Les affirmations A, C et D sont fausses.\n• A : Pentes identiques = droites parallèles = inhibition incompétitive.\n• B : Calculs rigoureux de Vmax et KM en accord avec les équations de Lineweaver-Burk.\n• C : α' = 2 à 1 mM ⇒ KI = 1 mM.\n• D : Contrairement à l'inhibition compétitive, l'incompétitive ne peut pas être levée par le substrat.\n• E : Résumé classique des modes d'inhibition réversible."
   }
 ];
 
