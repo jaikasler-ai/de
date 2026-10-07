@@ -161513,15 +161513,15 @@
     "answers": [
       {
         "id": "a",
-        "text": "Graphiquement, Vmax ≈ 12 µM/min et KM ≈ 1 mM, KM étant la concentration en substrat pour laquelle v₀ = Vmax/2. On en déduit kcat = Vmax/[E]₀ = 12 min⁻¹ = 0,2 s⁻¹, ce qui signifie que chaque site actif transforme 0,2 molécule d'éthanol par seconde à saturation.",
+        "text": "Graphiquement, Vmax ≈ 12 µM/min et KM ≈ 1 mM, KM étant la concentration en substrat pour laquelle v₀ = Vmax/2. On en déduit kcat = 12 min⁻¹ = 0,2 s⁻¹, ce qui signifie que chaque site actif transforme 0,2 molécule d'éthanol par seconde à saturation.",
         "correct": false,
-        "explanation": "A. Faux — Vmax = 12 µM/min et KM = 1 mM sont justes, mais kcat = Vmax / [E]₀ = 12 µM·min⁻¹ / 0,1 µM = 120 min⁻¹ = 2 s⁻¹ (et non 12 min⁻¹ = 0,2 s⁻¹). À saturation, chaque site actif transforme 2 molécules d'éthanol par seconde."
+        "explanation": "A. Faux — Vmax = 12 µM/min et KM = 1 mM sont exacts, mais la constante catalytique se calcule par kcat = Vmax / [E]₀ = 12 µM·min⁻¹ / 0,1 µM = 120 min⁻¹ = 2 s⁻¹ (et non 12 min⁻¹ = 0,2 s⁻¹). À saturation, chaque site actif transforme donc 2 molécules d'éthanol par seconde (et non 0,2)."
       },
       {
         "id": "b",
-        "text": "L'efficacité catalytique kcat/KM vaut environ 2·10³ M⁻¹·s⁻¹. Cette valeur est très inférieure à la limite de diffusion (10⁸ à 10⁹ M⁻¹·s⁻¹) : l'ADH n'est donc pas une enzyme « parfaite ».",
+        "text": "L'efficacité catalytique vaut environ 2·10³ M⁻¹·s⁻¹. Cette valeur est très inférieure à la limite de diffusion (10⁸ à 10⁹ M⁻¹·s⁻¹) : l'ADH n'est donc pas une enzyme « parfaite ».",
         "correct": true,
-        "explanation": "B. Vrai — kcat/KM = 2 s⁻¹ / 1·10⁻³ M = 2·10³ M⁻¹·s⁻¹. Cette valeur est 10⁵ à 10⁶ fois inférieure à la limite diffusionnelle (10⁸-10⁹ M⁻¹·s⁻¹). La vitesse de réaction est limitée par l'étape chimique et non par la rencontre enzyme-substrat : ce n'est pas une enzyme cinétiquement parfaite."
+        "explanation": "B. Vrai — L'efficacité catalytique est définie par le rapport kcat / KM = 2 s⁻¹ / 1·10⁻³ M = 2·10³ M⁻¹·s⁻¹. Cette valeur est 10⁵ à 10⁶ fois inférieure à la limite diffusionnelle (10⁸-10⁹ M⁻¹·s⁻¹), l'ADH n'est donc pas une enzyme « parfaite »."
       },
       {
         "id": "c",
@@ -161543,13 +161543,13 @@
       }
     ],
     "itemExplanations": [
-      "A. Faux — kcat = 12 / 0,1 = 120 min⁻¹ = 2 s⁻¹ (turnover de 2 molécules par seconde).",
-      "B. Vrai — Efficacité catalytique kcat/KM = 2·10³ M⁻¹·s⁻¹, bien inférieure à la limite de diffusion.",
+      "A. Faux — kcat = Vmax / [E]₀ = 12 / 0,1 = 120 min⁻¹ = 2 s⁻¹ (et non 0,2 s⁻¹).",
+      "B. Vrai — Efficacité catalytique kcat / KM = 2 / 10⁻³ = 2·10³ M⁻¹·s⁻¹, très inférieure à la limite de diffusion.",
       "C. Faux — KM' = 6 mM et KM'' = 11 mM, ce qui donne KI = 0,1 µM (et non 1 µM).",
       "D. Vrai — Le fomépizole et l'éthanol (KM = 1 mM vs 10 mM) empêchent l'oxydation toxique du méthanol.",
       "E. Faux — Un inhibiteur compétitif laisse Vmax inchangée et son inhibition est levée par excès de substrat."
     ],
-    "explanation": "Réponses exactes : B et D. Les affirmations A, C et E sont fausses.\n• A : Erreur sur le calcul de kcat (120 min⁻¹ = 2 s⁻¹).\n• B : kcat/KM = 2·10³ M⁻¹·s⁻¹ confirme que l'ADH n'est pas une enzyme parfaite.\n• C : Attention à la relation pente = KM/Vmax ⇒ KM = pente × 12. KI = 0,1 µM.\n• D : Fomépizole et éthanol sont des antidotes compétitifs majeurs lors d'intoxication au méthanol.\n• E : L'inhibition compétitive n'altère pas Vmax et est réversible par excès de [S]."
+    "explanation": "Réponses justes : B et D. Les affirmations A, C et E sont fausses.\n• A : Erreur sur le calcul de kcat qui nécessite de diviser Vmax par [E]₀ (12 / 0,1 = 120 min⁻¹ = 2 s⁻¹).\n• B : Efficacité catalytique kcat / KM = 2·10³ M⁻¹·s⁻¹ (l'ADH est limitée par l'étape chimique, enzyme imparfaite).\n• C : Pente = KM/Vmax ⇒ KM = pente × 12 ⇒ KM' = 6 mM, KM'' = 11 mM, ce qui donne KI = 0,1 µM.\n• D : Fomépizole et éthanol sont des compétiteurs efficaces empêchant la transformation en formaldéhyde toxique.\n• E : L'inhibition compétitive n'altère pas Vmax et est levée par un excès de substrat [S]."
   },
   {
     "id": "ue8_td2_q3",
