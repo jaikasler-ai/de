@@ -282,7 +282,7 @@
                 icon: '🧪', 
                 color: 'from-cyan-600 to-blue-500', 
                 progress: 82, 
-                qcmCount: 183, 
+                qcmCount: 185, 
                 chapters: [
                     "Fiche n°1 - Biochimie analytique en médecine.pdf",
                     "Fiche n°2 - Caractères généraux des enzymes.pdf",
@@ -161612,6 +161612,132 @@
       "E. Vrai — Intersection sur l'axe des abscisses = inhibition non compétitive pure."
     ],
     "explanation": "Réponses exactes : B et E. Les affirmations A, C et D sont fausses.\n• A : Pentes identiques = droites parallèles = inhibition incompétitive.\n• B : Calculs rigoureux de Vmax et KM en accord avec les équations de Lineweaver-Burk.\n• C : α' = 2 à 1 mM ⇒ KI = 1 mM.\n• D : Contrairement à l'inhibition compétitive, l'incompétitive ne peut pas être levée par le substrat.\n• E : Résumé classique des modes d'inhibition réversible."
+  },
+  {
+    "id": "ue8_td2_q4",
+    "subjectId": "s8",
+    "subject": "UE 8 Biochimie",
+    "chapter": "Fiche TD 2 enzymologie",
+    "year": 2024,
+    "difficulty": "Difficile",
+    "tags": [
+      "UE 8",
+      "Biochimie",
+      "Enzymologie",
+      "Glycolyse",
+      "Thermodynamique",
+      "Phosphofructokinase",
+      "ΔG",
+      "K'eq"
+    ],
+    "image": {
+      "url": "src/assets/images/ue8_td2_glycolyse_pgi_pfk.png",
+      "alt": "Glucose-6-phosphate isomérase et phosphofructokinase avec tableau de concentrations"
+    },
+    "statement": "QCM : Glycolyse — Glucose-6-phosphate isomérase (2) et Phosphofructokinase (3)\n\nDonnées :\n• pH = 7 ; T = 310 K ; R = 8,32 J·K⁻¹·mol⁻¹ ; RT ≈ 2,579 kJ/mol\n• ΔG°'(2) = +1,7 kJ/mol ; ΔG°'(3) = −14,2 kJ/mol\n• Concentrations cellulaires (mM) :\n   - [G6P] = 300,4889 mM\n   - [F6P] = 300 mM\n   - [ATP] = 60 mM\n   - [ADP] = 10 mM\n   - [F1,6-BP] = 1794,4902 mM\n\nPlusieurs réponses peuvent être justes :",
+    "answers": [
+      {
+        "id": "a",
+        "text": "(Q a) K'φ(2) = [F6P]/[G6P] ≈ 0,998 et K'φ(3) = [F1,6-BP]·[ATP] / ([F6P]·[ADP]) ≈ 35,9.",
+        "correct": false,
+        "explanation": "A. Faux — Pour la réaction (3) [F6P + ATP → F1,6-BP + ADP], l'expression de K'φ est inversée pour ATP et ADP : les produits sont au numérateur et les réactifs au dénominateur : K'φ(3) = [F1,6-BP]·[ADP] / ([F6P]·[ATP]) = (1794,4902 × 10) / (300 × 60) ≈ 0,997 (et non 35,9)."
+      },
+      {
+        "id": "b",
+        "text": "(Q a) À 310 K, K'eq(2) = exp(−ΔG°'/RT) ≈ 0,517 et K'eq(3) ≈ 2,46·10².",
+        "correct": true,
+        "explanation": "B. Vrai — RT = 8,32 × 310 = 2579,2 J/mol ≈ 2,579 kJ/mol. K'eq = exp(−ΔG°'/RT). Pour la réaction (2) : K'eq(2) = exp(−1,7 / 2,579) = exp(−0,659) ≈ 0,517. Pour la réaction (3) : K'eq(3) = exp(14,2 / 2,579) = exp(5,506) ≈ 2,46·10²."
+      },
+      {
+        "id": "c",
+        "text": "(Q b) Dans la cellule, la réaction (2) est à l'équilibre (ΔG'(2) ≈ 0 kJ/mol), alors que ΔG'(3) ≈ −14,2 kJ/mol.",
+        "correct": false,
+        "explanation": "C. Faux — ΔG'(2) = ΔG°'(2) + RT ln K'φ(2) = 1,7 + 2,579 × ln(0,998) = 1,7 − 0,004 ≈ +1,70 kJ/mol (et non 0). Une réaction n'est à l'équilibre que si K'φ = K'eq ; or K'φ(2) ≈ 0,998 ≠ K'eq(2) ≈ 0,517."
+      },
+      {
+        "id": "d",
+        "text": "(Q c) La réaction (2) est irréversible dans la cellule et constitue l'étape de régulation, tandis que la réaction (3) est proche de l'équilibre et donc réversible.",
+        "correct": false,
+        "explanation": "D. Faux — Les rôles sont inversés : la réaction (2) a un ΔG' faible (+1,70 kJ/mol) proche de 0, elle est donc réversible. La réaction (3) a un ΔG' très négatif (−14,21 kJ/mol) éloigné de 0, elle est donc irréversible et constitue l'étape clé de régulation (PFK-1)."
+      },
+      {
+        "id": "e",
+        "text": "(Q c) Dans la cellule, ΔG'(2) ≈ +1,70 kJ/mol, valeur faible : la réaction (2) est réversible. ΔG'(3) ≈ −14,2 kJ/mol, valeur très négative : la réaction (3) est irréversible et constitue une étape de régulation.",
+        "correct": true,
+        "explanation": "E. Vrai — ΔG'(2) ≈ +1,70 kJ/mol : proche de 0, réaction réversible dont le sens dépend des concentrations. ΔG'(3) ≈ −14,21 kJ/mol : réaction fortement déplacée dans le sens direct, irréversible in vivo et régulée (PFK-1 est l'enzyme clé de la glycolyse couplée à l'hydrolyse de l'ATP)."
+      }
+    ],
+    "itemExplanations": [
+      "A. Faux — K'φ(3) = [F1,6-BP]·[ADP] / ([F6P]·[ATP]) ≈ 0,997 (ATP et ADP étaient inversés).",
+      "B. Vrai — K'eq(2) = exp(−1,7 / 2,579) ≈ 0,517 et K'eq(3) = exp(14,2 / 2,579) ≈ 2,46·10².",
+      "C. Faux — ΔG'(2) ≈ +1,70 kJ/mol (et non 0 kJ/mol), la réaction n'est pas strictement à l'équilibre.",
+      "D. Faux — La réaction (2) est réversible (ΔG' ≈ +1,7 kJ/mol) ; la réaction (3) est irréversible et régulatrice (ΔG' ≈ −14,2 kJ/mol).",
+      "E. Vrai — Réaction (2) réversible et réaction (3) irréversible / régulatrice majeure de la glycolyse."
+    ],
+    "explanation": "Réponses exactes : B et E. Les affirmations A, C et D sont fausses.\n• A : Inversion de l'ATP et de l'ADP dans le rapport réactionnel ; K'φ(3) ≈ 0,997.\n• B : Calculs des constantes d'équilibre K'eq à 310 K parfaitement vérifiés.\n• C : ΔG' = ΔG°' + RT ln K'φ donne +1,70 kJ/mol pour la réaction (2).\n• D : La phosphoglucose isomérase catalyse une réaction réversible proche de l'équilibre, tandis que la phosphofructokinase (PFK) est l'enzyme clé irréversible et régulée.\n• E : Résumé thermodynamique et physiologique exact."
+  },
+  {
+    "id": "ue8_td2_q5",
+    "subjectId": "s8",
+    "subject": "UE 8 Biochimie",
+    "chapter": "Fiche TD 2 enzymologie",
+    "year": 2024,
+    "difficulty": "Difficile",
+    "tags": [
+      "UE 8",
+      "Biochimie",
+      "Enzymologie",
+      "Lineweaver-Burk",
+      "Inhibition compétitive",
+      "Trypsine",
+      "Pectine",
+      "Constante d'inhibition KI"
+    ],
+    "image": {
+      "url": "src/assets/images/ue8_td2_trypsine_pectine.png",
+      "alt": "Courbes de Michaelis-Menten et droites de Lineweaver-Burk de la trypsine avec pectine"
+    },
+    "statement": "QCM : Trypsine et pectine\n\nDonnées :\nÉquations de Lineweaver-Burk (x = 1/[S] en µM⁻¹, y = 1/v en min·µM⁻¹) :\n• sans inhibiteur : y = 0,0569x + 0,0607\n• avec 4 µM de pectine : y = 0,1441x + 0,0582\n• avec 6 µM de pectine : y = 0,2741x + 0,0511\n\nPlusieurs réponses peuvent être justes :",
+    "answers": [
+      {
+        "id": "a",
+        "text": "(Q a) Graphiquement, sans inhibiteur, Vmax = 1/0,0607 ≈ 16,5 µM/min et KM = pente/ordonnée à l'origine ≈ 0,94 µM, KM étant la concentration en substrat pour laquelle v₀ = Vmax.",
+        "correct": false,
+        "explanation": "A. Faux — Les valeurs numériques sont correctes (Vmax ≈ 16,5 µM/min et KM ≈ 0,94 µM), mais la définition est fausse : KM est la concentration en substrat pour laquelle v₀ = Vmax/2 (et non Vmax). Vmax n'est atteinte qu'asymptotiquement à saturation ([S] ≫ KM)."
+      },
+      {
+        "id": "b",
+        "text": "(Q b) Les trois droites ont des ordonnées à l'origine voisines (0,0607 ; 0,0582 ; 0,0511) et se coupent près de l'axe des ordonnées : l'inhibition par la pectine est compétitive. La pectine se fixe sur l'enzyme libre, à la place de la protéine substrat.",
+        "correct": true,
+        "explanation": "B. Vrai — Les ordonnées à l'origine (1/Vmax) sont quasi identiques, montrant que Vmax ne varie pratiquement pas. Les pentes augmentent avec [I], signant une augmentation du KM apparent : c'est la caractéristique d'une inhibition compétitive où le substrat et la pectine se disputent le même site actif de l'enzyme libre (E + I ⇌ EI)."
+      },
+      {
+        "id": "c",
+        "text": "(Q c) Avec la pectine, KM' = 0,1441 µM (4 µM de pectine) et KM'' = 0,2741 µM (6 µM de pectine), c'est-à-dire que KM diminue quand la concentration en inhibiteur augmente.",
+        "correct": false,
+        "explanation": "C. Faux — La pente vaut KM/Vmax et non KM ! Pour obtenir le KM apparent, il faut diviser la pente par l'ordonnée à l'origine : à 4 µM, KM' = 0,1441 / 0,0582 ≈ 2,5 µM ; à 6 µM, KM'' = 0,2741 / 0,0511 ≈ 5,4 µM. Le KM apparent augmente avec la concentration d'inhibiteur."
+      },
+      {
+        "id": "d",
+        "text": "(Q d) Avec KM' = KM(1 + [I]/KI), on trouve KI de l'ordre de 2 µM, valeur supérieure au KM du substrat (0,94 µM). La pectine a donc une plus grande affinité pour la trypsine que le substrat lui-même.",
+        "correct": false,
+        "explanation": "D. Faux — KI ≈ 2 µM est correct, mais la conclusion sur l'affinité est inversée : KI est la constante de dissociation du complexe EI. Plus la constante de dissociation est grande, plus l'affinité est faible ! Comme KI (≈ 2 µM) > KM (0,94 µM), la pectine a une affinité plus faible pour la trypsine que le substrat."
+      },
+      {
+        "id": "e",
+        "text": "(Q e et f) Un inhibiteur compétitif ne modifie pas Vmax mais augmente le KM apparent. L'inhibition peut être levée en augmentant [S], comme le montre l'équation v = Vmax[S] / (KM(1 + [I]/KI) + [S]) : si [S] ≫ KM', alors v → Vmax.",
+        "correct": true,
+        "explanation": "E. Vrai — En présence d'un inhibiteur compétitif, un excès suffisant de substrat ([S] ≫ KM,app) déplace totalement l'inhibiteur du site actif, permettant d'atteindre Vmax inchangée (convergence visible sur les courbes à 30 µM de substrat)."
+      }
+    ],
+    "itemExplanations": [
+      "A. Faux — KM correspond à la vitesse demi-maximale v₀ = Vmax/2 (et non Vmax).",
+      "B. Vrai — Ordonnées à l'origine quasi constantes et pentes croissantes = inhibition compétitive sur l'enzyme libre.",
+      "C. Faux — Pente = KM/Vmax. KM' ≈ 2,5 µM et KM'' ≈ 5,4 µM (KM augmente avec [I]).",
+      "D. Faux — KI est une constante de dissociation : KI > KM signifie que l'affinité de l'inhibiteur est plus faible que celle du substrat.",
+      "E. Vrai — L'inhibition compétitive est entièrement levée à forte concentration en substrat."
+    ],
+    "explanation": "Réponses exactes : B et E. Les affirmations A, C et D sont fausses.\n• A : Erreur classique de définition : KM est la concentration pour v₀ = Vmax/2.\n• B : Les droites se coupent sur l'axe des ordonnées (Vmax constante), confirmant une inhibition compétitive.\n• C : Ne pas confondre la pente (KM/Vmax) avec le KM lui-même.\n• D : Attention, constante de dissociation élevée = affinité plus faible.\n• E : L'excès de substrat lève l'inhibition compétitive en déplaçant l'inhibiteur du site catalytique."
   }
 ];
 
