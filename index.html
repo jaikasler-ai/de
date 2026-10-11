@@ -329,7 +329,7 @@
                 icon: '📊',
                 color: 'from-blue-600 to-indigo-600',
                 progress: 0,
-                qcmCount: 64,
+                qcmCount: 66,
                 chapters: [
                     "Fiche n°1 - Tests paramétriques",
                     "Fiche n°2 - Test de Fisher",
@@ -69636,389 +69636,6 @@
     }
   ],
   "explanation": "Réponses A, D et E exactes. L'atteinte des muscles respiratoires complique la dénutrition, l'impédancemétrie évalue la masse maigre et la nutrition par sonde pallie les affections ORL ou anorexies."
-},
-{
-  "id": "ue_bio_f2_q1",
-  "subjectId": "s10",
-  "subject": "UE Biostatistiques",
-  "chapter": "Fiche n°3 - Tests non paramétriques",
-  "year": 2024,
-  "difficulty": "Moyen",
-  "tags": [
-    "Biostatistiques",
-    "Tests non paramétriques",
-    "Rangs",
-    "Généralités"
-  ],
-  "statement": "Concernant les caractéristiques fondamentales des tests statistiques non paramétriques, quelles sont les propositions exactes ?",
-  "answers": [
-    {
-      "id": "a",
-      "text": "Ils sont qualifiés de tests à 'distribution libre' (distribution-free) car ils n'exigent aucune hypothèse sur la forme analytique de la distribution sous-jacente.",
-      "correct": true,
-      "explanation": "A. Vrai — Contrairement aux tests paramétriques, ils ne supposent pas que les données suivent une loi normale."
-    },
-    {
-      "id": "b",
-      "text": "Ils transforment généralement les valeurs quantitatives brutes en rangs ordinaux.",
-      "correct": true,
-      "explanation": "B. Vrai — La majorité des tests non paramétriques (Mann-Whitney, Wilcoxon, Kruskal-Wallis) repose sur l'analyse des rangs obtenus après tri croissant des données."
-    },
-    {
-      "id": "c",
-      "text": "Ils sont particulièrement indiqués lorsque la taille des échantillons est faible (n < 30) et que la distribution n'est pas gaussienne.",
-      "correct": true,
-      "explanation": "C. Vrai — C'est leur indication reine, car le théorème central limite ne peut pas compenser l'asymétrie sur de petits effectifs."
-    },
-    {
-      "id": "d",
-      "text": "Ils sont extrêmement sensibles aux valeurs aberrantes (outliers) qui faussent grandement leurs résultats.",
-      "correct": false,
-      "explanation": "D. Faux — Au contraire, ils sont très robustes face aux valeurs aberrantes, car une valeur extrême n'occupe que le rang maximal ou minimal sans peser démesurément par sa valeur numérique brute."
-    },
-    {
-      "id": "e",
-      "text": "Ils peuvent s'appliquer à des variables qualitatives ordinales (ex : stades d'une maladie, échelle de douleur).",
-      "correct": true,
-      "explanation": "E. Vrai — Les variables ordinales possèdent un ordre intrinsèque qui permet immédiatement l'attribution de rangs."
-    }
-  ],
-  "explanation": "Réponses A, B, C et E exactes. Les tests non paramétriques sont à distribution libre, reposent sur les rangs, conviennent aux petits effectifs sans normalité et aux données ordinales, et sont très robustes aux outliers."
-},
-{
-  "id": "ue_bio_f2_q2",
-  "subjectId": "s10",
-  "subject": "UE Biostatistiques",
-  "chapter": "Fiche n°3 - Tests non paramétriques",
-  "year": 2024,
-  "difficulty": "Moyen",
-  "tags": [
-    "Biostatistiques",
-    "Wilcoxon-Mann-Whitney",
-    "Échantillons indépendants",
-    "Statistique U"
-  ],
-  "statement": "Concernant le test de Mann-Whitney (ou test de la somme des rangs de Wilcoxon pour 2 échantillons indépendants), quelles sont les propositions exactes ?",
-  "answers": [
-    {
-      "id": "a",
-      "text": "Il constitue l'alternative non paramétrique directe au test t de Student pour échantillons indépendants.",
-      "correct": true,
-      "explanation": "A. Vrai — Il compare les distributions (et notamment les médianes sous hypothèse de formes similaires) de deux groupes indépendants."
-    },
-    {
-      "id": "b",
-      "text": "Pour attribuer les rangs, on classe séparément les observations de chaque groupe de 1 à n_A puis de 1 à n_B.",
-      "correct": false,
-      "explanation": "B. Faux — Pour attribuer les rangs, on réunit l'ensemble des N = n_A + n_B observations dans un même échantillon commun, on les ordonne par ordre croissant de 1 à N, puis on calcule la somme des rangs de chaque groupe."
-    },
-    {
-      "id": "c",
-      "text": "En cas d'ex-aequo (valeurs identiques), on attribue à chaque valeur identique le rang moyen des positions qu'elles occupent.",
-      "correct": true,
-      "explanation": "C. Vrai — C'est la méthode conventionnelle des rangs moyens (mid-ranks)."
-    },
-    {
-      "id": "d",
-      "text": "La somme des statistiques U_A et U_B de Mann-Whitney vérifie l'égalité : U_A + U_B = n_A * n_B.",
-      "correct": true,
-      "explanation": "D. Vrai — C'est une propriété mathématique fondamentale de la statistique U de Mann-Whitney : le produit des effectifs est égal à la somme des deux statistiques U."
-    },
-    {
-      "id": "e",
-      "text": "L'hypothèse nulle H0 postule que les deux distributions sont identiques.",
-      "correct": true,
-      "explanation": "E. Vrai — H0 stipule que la probabilité qu'une observation du groupe A dépasse une observation du groupe B est égale à 0,5 (distributions superposables)."
-    }
-  ],
-  "explanation": "Réponses A, C, D et E exactes. Mann-Whitney est l'analogue non paramétrique du Student indépendant. Les rangs sont attribués sur l'échantillon global réuni (avec rangs moyens pour les ex-aequo), et U_A + U_B = n_A * n_B."
-},
-{
-  "id": "ue_bio_f2_q3",
-  "subjectId": "s10",
-  "subject": "UE Biostatistiques",
-  "chapter": "Fiche n°3 - Tests non paramétriques",
-  "year": 2024,
-  "difficulty": "Difficile",
-  "tags": [
-    "Biostatistiques",
-    "Wilcoxon",
-    "Séries appariées",
-    "Rangs signés"
-  ],
-  "statement": "Concernant le test des rangs signés de Wilcoxon pour séries appariées, quelles sont les propositions exactes ?",
-  "answers": [
-    {
-      "id": "a",
-      "text": "Il s'applique pour comparer deux séries de données appariées lorsque la distribution des différences n'est pas normale.",
-      "correct": true,
-      "explanation": "A. Vrai — C'est l'équivalent non paramétrique du test de Student sur séries appariées."
-    },
-    {
-      "id": "b",
-      "text": "Les paires dont la différence est strictement nulle (d_i = 0) sont éliminées de l'analyse et l'effectif n est réduit d'autant.",
-      "correct": true,
-      "explanation": "B. Vrai — Selon la procédure standard de Wilcoxon, les différences nulles n'apportent pas d'information sur la direction du changement et sont retirées du calcul."
-    },
-    {
-      "id": "c",
-      "text": "Les rangs sont attribués en ordonnant les différences d_i de la plus négative à la plus positive.",
-      "correct": false,
-      "explanation": "C. Faux — Les rangs sont attribués en ordonnant les VALEURS ABSOLUES des différences |d_i| de 1 à n_réduit, puis on réaffecte à chaque rang le signe de la différence initiale (d'où le nom 'rangs signés')."
-    },
-    {
-      "id": "d",
-      "text": "La statistique W est calculée à partir de la somme des rangs positifs W+ et de la somme des rangs négatifs W-.",
-      "correct": true,
-      "explanation": "D. Vrai — Sous H0, la somme des rangs positifs et la somme des rangs négatifs doivent être proches."
-    },
-    {
-      "id": "e",
-      "text": "Le test des signes est un test non paramétrique encore plus simple que le test des rangs signés, ne prenant en compte que le signe (+ ou -) sans considération d'amplitude.",
-      "correct": true,
-      "explanation": "E. Vrai — Le test des signes repose sur une loi binomiale B(n, 1/2) et ne tient compte que du signe des différences, ce qui le rend moins puissant que le test des rangs signés de Wilcoxon."
-    }
-  ],
-  "explanation": "Réponses A, B, D et E exactes. Le test des rangs signés classe les valeurs absolues |d_i|, supprime les différences nulles, compare W+ et W-, et surpasse en puissance le simple test des signes."
-},
-{
-  "id": "ue_bio_f2_q4",
-  "subjectId": "s10",
-  "subject": "UE Biostatistiques",
-  "chapter": "Fiche n°3 - Tests non paramétriques",
-  "year": 2024,
-  "difficulty": "Moyen",
-  "tags": [
-    "Biostatistiques",
-    "Kruskal-Wallis",
-    "ANOVA non paramétrique",
-    "Chi-2"
-  ],
-  "statement": "Concernant le test de Kruskal-Wallis, quelles sont les propositions exactes ?",
-  "answers": [
-    {
-      "id": "a",
-      "text": "Il correspond à l'équivalent non paramétrique de l'ANOVA à un facteur pour k >= 3 groupes indépendants.",
-      "correct": true,
-      "explanation": "A. Vrai — Kruskal-Wallis généralise le test de Mann-Whitney à plus de deux groupes indépendants."
-    },
-    {
-      "id": "b",
-      "text": "Il nécessite que les effectifs des k groupes soient rigoureusement identiques.",
-      "correct": false,
-      "explanation": "B. Faux — Le test de Kruskal-Wallis s'applique tout à fait avec des effectifs inégaux entre les groupes (n_i différents)."
-    },
-    {
-      "id": "c",
-      "text": "Pour des tailles d'échantillons suffisantes, la statistique H de Kruskal-Wallis suit approximativement une loi du Chi-2.",
-      "correct": true,
-      "explanation": "C. Vrai — Asymptotiquement, la statistique H suit une loi du Chi-2."
-    },
-    {
-      "id": "d",
-      "text": "Le nombre de degrés de liberté de la loi du Chi-2 suivie par la statistique H est k - 1 (où k est le nombre de groupes).",
-      "correct": true,
-      "explanation": "D. Vrai — ddl = k - 1, comme le nombre de degrés de liberté inter-groupes dans une ANOVA."
-    },
-    {
-      "id": "e",
-      "text": "Pour des mesures répétées sur les mêmes sujets pour k >= 3 conditions, l'équivalent non paramétrique est le test de Friedman.",
-      "correct": true,
-      "explanation": "E. Vrai — Le test de Friedman est l'analogue non paramétrique de l'ANOVA pour mesures répétées (groupes appariés)."
-    }
-  ],
-  "explanation": "Réponses A, C, D et E exactes. Kruskal-Wallis compare k groupes indépendants sur les rangs (statistique H suivant un Chi-2 à k - 1 ddl). En cas de mesures répétées, on utilise le test de Friedman."
-},
-{
-  "id": "ue_bio_f2_q5",
-  "subjectId": "s10",
-  "subject": "UE Biostatistiques",
-  "chapter": "Fiche n°3 - Tests non paramétriques",
-  "year": 2024,
-  "difficulty": "Moyen",
-  "tags": [
-    "Biostatistiques",
-    "Corrélation de Spearman",
-    "Corrélation de Pearson",
-    "Rangs"
-  ],
-  "statement": "Concernant la corrélation non paramétrique de Spearman (rho) comparativement à la corrélation linéaire de Pearson (r), quelles sont les propositions exactes ?",
-  "answers": [
-    {
-      "id": "a",
-      "text": "Le coefficient r de Pearson mesure l'intensité d'une relation strictement linéaire entre deux variables quantitatives gaussiennes.",
-      "correct": true,
-      "explanation": "A. Vrai — Le coefficient r de Pearson suppose la normalité bivariée et évalue la composante linéaire."
-    },
-    {
-      "id": "b",
-      "text": "Le coefficient rho de Spearman est le coefficient de corrélation linéaire de Pearson calculé sur les rangs des variables.",
-      "correct": true,
-      "explanation": "B. Vrai — Par définition, le rho de Spearman correspond exactement au coefficient r appliqué aux données converties en rangs."
-    },
-    {
-      "id": "c",
-      "text": "Le coefficient de Spearman peut détecter une relation monotone non linéaire (ex : exponentielle, logarithmique).",
-      "correct": true,
-      "explanation": "C. Vrai — Si Y croît de manière monotone avec X (même sans être une droite), les rangs de Y suivent parfaitement les rangs de X, donnant rho = +1."
-    },
-    {
-      "id": "d",
-      "text": "Le coefficient rho de Spearman est borné entre 0 et +1.",
-      "correct": false,
-      "explanation": "D. Faux — Le coefficient rho de Spearman est borné entre -1 et +1 (comme le r de Pearson), où -1 indique une relation monotone décroissante parfaite."
-    },
-    {
-      "id": "e",
-      "text": "Un coefficient rho égal à 0 implique obligatoirement une indépendance stochastique totale entre les deux variables.",
-      "correct": false,
-      "explanation": "E. Faux — Un coefficient nul indique l'absence de relation monotone, mais n'exclut pas une relation non monotone complexe (ex: relation en U ou parabole)."
-    }
-  ],
-  "explanation": "Réponses A, B et C exactes. Spearman calcule la corrélation sur les rangs, varie de -1 à +1, mesure toute relation monotone (linéaire ou non) et ne nécessite pas la normalité bivariée."
-},
-{
-  "id": "ue_bio_f2_q6",
-  "subjectId": "s10",
-  "subject": "UE Biostatistiques",
-  "chapter": "Fiche n°3 - Tests non paramétriques",
-  "year": 2024,
-  "difficulty": "Facile",
-  "tags": [
-    "Biostatistiques",
-    "Choix de test",
-    "Arbre décisionnel"
-  ],
-  "statement": "Quel test statistique est le plus approprié dans chacune des situations cliniques suivantes ?",
-  "answers": [
-    {
-      "id": "a",
-      "text": "Comparer un score d'anxiété ordinal mesuré sur 12 patients avant et après une séance de relaxation : test des rangs signés de Wilcoxon.",
-      "correct": true,
-      "explanation": "A. Vrai — Variable ordinale, séries appariées (avant/après), petit effectif (n = 12) : le test des rangs signés de Wilcoxon est parfaitement indiqué."
-    },
-    {
-      "id": "b",
-      "text": "Comparer la calcémie moyenne entre 200 hommes et 200 femmes sains : test de Mann-Whitney obligatoirement.",
-      "correct": false,
-      "explanation": "B. Faux — Avec n = 200 par groupe, le théorème central limite garantit la normalité de la moyenne, le test paramétrique t de Student pour échantillons indépendants est le test de choix."
-    },
-    {
-      "id": "c",
-      "text": "Comparer le niveau de douleur (EVA de 0 à 10, non normale) entre 3 groupes de 15 patients recevant des antalgiques différents : test de Kruskal-Wallis.",
-      "correct": true,
-      "explanation": "C. Vrai — Variable non normale, k = 3 groupes indépendants, petits échantillons : test de Kruskal-Wallis."
-    },
-    {
-      "id": "d",
-      "text": "Comparer deux proportions observées sur deux échantillons indépendants de 500 sujets : test de Wilcoxon.",
-      "correct": false,
-      "explanation": "D. Faux — Pour comparer deux proportions qualitatives, on utilise un test du Chi-2 ou un test z de comparaison de proportions, et non un test de Wilcoxon (qui compare des rangs de variables quantitatives/ordinales)."
-    },
-    {
-      "id": "e",
-      "text": "Tester la corrélation entre le stade tumoral TNM (I, II, III, IV) et le taux sérique d'un biomarqueur très asymétrique : coefficient de Spearman.",
-      "correct": true,
-      "explanation": "E. Vrai — Variable ordinale (stade TNM) et variable asymétrique : corrélation sur les rangs de Spearman idéale."
-    }
-  ],
-  "explanation": "Réponses A, C et E exactes. Séries appariées ordinales -> Wilcoxon apparié ; 3 groupes indépendants non gaussiens -> Kruskal-Wallis ; variable ordinale & asymétrique -> corrélation de Spearman."
-},
-{
-  "id": "ue_bio_f2_q7",
-  "subjectId": "s10",
-  "subject": "UE Biostatistiques",
-  "chapter": "Fiche n°3 - Tests non paramétriques",
-  "year": 2024,
-  "difficulty": "Moyen",
-  "tags": [
-    "Biostatistiques",
-    "Puissance asymptotique",
-    "Efficacité relative",
-    "Tests non paramétriques"
-  ],
-  "statement": "Concernant l'efficacité relative et les limites des tests non paramétriques, quelles propositions sont exactes ?",
-  "answers": [
-    {
-      "id": "a",
-      "text": "L'efficacité relative asymptotique (ERA) du test de Wilcoxon par rapport au test de Student lorsque la loi parente est parfaitement normale est d'environ 95% (3/pi).",
-      "correct": true,
-      "explanation": "A. Vrai — Même en situation de normalité stricte, le test de Wilcoxon ne perd qu'environ 5% de puissance par rapport au Student optimal (ERA = 3/pi ≈ 0,955)."
-    },
-    {
-      "id": "b",
-      "text": "Si la distribution sous-jacente présente des queues épaisses ou des valeurs extrêmes, l'ERA du test de Wilcoxon peut dépasser 100% par rapport au test de Student.",
-      "correct": true,
-      "explanation": "B. Vrai — En présence de distributions à queues lourdes (ex: loi logistique ou de Cauchy), le test de Wilcoxon devient plus puissant que le test de Student car il est protégé contre l'explosion de la variance due aux extrêmes."
-    },
-    {
-      "id": "c",
-      "text": "Les tests non paramétriques permettent d'estimer avec une grande précision la valeur de la différence des moyennes dans la population.",
-      "correct": false,
-      "explanation": "C. Faux — Les tests non paramétriques testent l'hypothèse de distributions identiques ou comparent des rangs / médianes, mais ne fournissent pas directement un intervalle de confiance classique sur la différence des moyennes paramétriques."
-    },
-    {
-      "id": "d",
-      "text": "Pour des échantillons de très grande taille (ex : n = 10 000), les tests non paramétriques sont totalement interdits.",
-      "correct": false,
-      "explanation": "D. Faux — Ils ne sont pas interdits ; ils restent valides, bien qu'un test paramétrique ou une approximation normale soit généralement préféré pour des raisons de coût de calcul ou d'interprétabilité."
-    },
-    {
-      "id": "e",
-      "text": "Les tests non paramétriques s'étendent plus difficilement aux modèles multivariés complexes avec interactions multiples que les modèles paramétriques linéaires.",
-      "correct": true,
-      "explanation": "E. Vrai — L'ajustement multivarié et les régressions avec interactions sont beaucoup plus simples et modulables dans le cadre paramétrique (modèles linéaires généralisés)."
-    }
-  ],
-  "explanation": "Réponses A, B et E exactes. L'ERA de Wilcoxon vs Student est de ~95% sous normalité et peut dépasser 100% sur distributions à queues épaisses. Les tests non paramétriques ne fournissent pas d'estimation directe de la moyenne et sont plus complexes à étendre en multivarié."
-},
-{
-  "id": "ue_bio_f2_q8",
-  "subjectId": "s10",
-  "subject": "UE Biostatistiques",
-  "chapter": "Fiche n°3 - Tests non paramétriques",
-  "year": 2024,
-  "difficulty": "Moyen",
-  "tags": [
-    "Biostatistiques",
-    "Calcul de rangs",
-    "Ex-aequo",
-    "Mann-Whitney"
-  ],
-  "statement": "On mesure une variable chez 4 patients du groupe A : (2, 5, 5, 8) et 3 patients du groupe B : (3, 5, 9). Quelles propositions concernant l'attribution des rangs sont exactes ?",
-  "answers": [
-    {
-      "id": "a",
-      "text": "L'effectif total combiné est N = 7.",
-      "correct": true,
-      "explanation": "A. Vrai — n_A = 4, n_B = 3, N = 4 + 3 = 7."
-    },
-    {
-      "id": "b",
-      "text": "La valeur minimale 2 reçoit le rang 1.",
-      "correct": true,
-      "explanation": "B. Vrai — C'est la plus petite valeur de la série ordonnée (2, 3, 5, 5, 5, 8, 9)."
-    },
-    {
-      "id": "c",
-      "text": "La valeur 3 reçoit le rang 2.",
-      "correct": true,
-      "explanation": "C. Vrai — En position 2 dans la série ordonnée, le rang 2 lui est attribué."
-    },
-    {
-      "id": "d",
-      "text": "Les trois valeurs ex-aequo égales à 5 occupent les positions 3, 4 et 5 et reçoivent chacune le rang moyen 4.",
-      "correct": true,
-      "explanation": "D. Vrai — Rang moyen = (3 + 4 + 5) / 3 = 12 / 3 = 4."
-    },
-    {
-      "id": "e",
-      "text": "La somme de tous les rangs attribués de 1 à N est égale à N(N+1)/2 = 7 * 8 / 2 = 28.",
-      "correct": true,
-      "explanation": "E. Vrai — La somme des rangs de 1 à N vaut toujours N(N+1)/2, même en présence d'ex-aequo (1 + 2 + 4 + 4 + 4 + 6 + 7 = 28)."
-    }
-  ],
-  "explanation": "Réponses A, B, C, D et E exactes (toutes vraies). Série triée : 2 (rg 1), 3 (rg 2), 5 (rg 4), 5 (rg 4), 5 (rg 4), 8 (rg 6), 9 (rg 7). Somme totale des rangs = 7 * 8 / 2 = 28."
 },
 {
   "id": "ue9_f12_snp_q1",
@@ -180827,6 +180444,676 @@
     "E. Vrai — L'augmentation du volume et la neuroplasticité de l'hippocampe induites par l'ECT sont considérées comme un mécanisme clé sous-tendant l'efficacité antidépressive."
   ],
   "explanation": "Réponse(s) exacte(s) : A, E."
+},
+{
+  "id": "ue_bio_f3_dp1_q1",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche n°3 - Tests non paramétriques",
+  "year": 2025,
+  "difficulty": "Moyen",
+  "isDp": true,
+  "dpId": "dp_nonparam_1",
+  "dpTitle": "DP 1 - Qualité de vie ASQOL et Spondylarthrite (15 patients)",
+  "dpStep": 1,
+  "dpTotalSteps": 2,
+  "tags": [
+    "Biostatistiques",
+    "Dossier Progressif",
+    "Tests non paramétriques",
+    "Kruskal-Wallis",
+    "Rangs"
+  ],
+  "commonStatement": "ÉNONCÉ DU DOSSIER PROGRESSIF 1 :\nLes investigateurs décident de mener une étude afin de mesurer l’effet de deux interventions sur un score de qualité de vie mesuré chez 15 patients (5 patients pour chacun des 3 groupes). Le score ASQOL (Ankylosing Spondylitis Quality of Life) utilisé varie de 0 à 100 (meilleure qualité de vie possible). On ne peut pas faire d’hypothèse sur la normalité du score ASQOL et on réalisera donc un test non paramétrique.\nLa table de résultats donne pour les 15 patients les scores ASQOL et les rangs associés.",
+  "subStatement": "Question 1 (QCM 1.6) : Concernant la table de résultats, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "statement": "ÉNONCÉ DU DOSSIER PROGRESSIF 1 :\nLes investigateurs décident de mener une étude afin de mesurer l’effet de deux interventions sur un score de qualité de vie mesuré chez 15 patients (5 patients pour chacun des 3 groupes). Le score ASQOL (Ankylosing Spondylitis Quality of Life) utilisé varie de 0 à 100 (meilleure qualité de vie possible). On ne peut pas faire d’hypothèse sur la normalité du score ASQOL et on réalisera donc un test non paramétrique.\nLa table de résultats donne pour les 15 patients les scores ASQOL et les rangs associés.\n\nQuestion 1 (QCM 1.6) : Concernant la table de résultats, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "image": {
+    "url": "src/assets/images/table_dp_nonparam_1.png",
+    "alt": "DP 1 - Tableau des scores ASQOL et rangs (15 patients)"
+  },
+  "answers": [
+    {
+      "id": "a",
+      "text": "Le rang moyen du groupe 1 est 5.4",
+      "correct": true,
+      "explanation": "A. Vrai — Somme des rangs du Groupe 1 : R1 = 1 + 5.5 + 10.5 + 7 + 3 = 27. Rang moyen : R̄1 = 27 / 5 = 5.4."
+    },
+    {
+      "id": "b",
+      "text": "Le rang moyen du groupe 2 est 36",
+      "correct": false,
+      "explanation": "B. Faux — 36 est la somme des rangs du groupe 2. Le rang moyen est R̄2 = 36 / 5 = 7.2."
+    },
+    {
+      "id": "c",
+      "text": "Le rang moyen du groupe 3 est 12.4",
+      "correct": false,
+      "explanation": "C. Faux — Somme des rangs du groupe 3 : R3 = 57. Le rang moyen est R̄3 = 57 / 5 = 11.4."
+    },
+    {
+      "id": "d",
+      "text": "La valeur du chiffre X dans le tableau est 11",
+      "correct": false,
+      "explanation": "D. Faux — Les ex-aequo au score 45 (patients 2 et 13) se partagent les rangs 5 et 6, d'où un rang moyen de (5 + 6)/2 = 5.5."
+    },
+    {
+      "id": "e",
+      "text": "La valeur du chiffre Y dans le tableau est 10.5",
+      "correct": true,
+      "explanation": "E. Vrai — Les ex-aequo au score 60 (patients 3 et 11) occupent les rangs 10 et 11, d'où le rang moyen attribué Y = (10 + 11)/2 = 10.5."
+    }
+  ],
+  "itemExplanations": [
+    "A. Vrai — R̄1 = 27 / 5 = 5.4.",
+    "B. Faux — 36 est la somme des rangs, le rang moyen est 7.2.",
+    "C. Faux — Le rang moyen du groupe 3 est 11.4 (57 / 5).",
+    "D. Faux — Le rang moyen des ex-aequo pour le score 45 est 5.5.",
+    "E. Vrai — Pour le score 60, rangs 10 et 11 : moyenne Y = 10.5."
+  ],
+  "explanation": "Réponses exactes : A et E.\n\n• Somme des rangs :\n  - Groupe 1 : R1 = 27 → Rang moyen R̄1 = 27 / 5 = 5.4 (Item A VRAI).\n  - Groupe 2 : R2 = 36 → Rang moyen R̄2 = 36 / 5 = 7.2 (Item B FAUX).\n  - Groupe 3 : R3 = 57 → Rang moyen R̄3 = 57 / 5 = 11.4 (Item C FAUX).\n• Ex-aequo au score 60 (patients 3 et 11) : rangs 10 et 11 → moyenne Y = 10.5 (Item E VRAI)."
+},
+{
+  "id": "ue_bio_f3_dp1_q2",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche n°3 - Tests non paramétriques",
+  "year": 2025,
+  "difficulty": "Moyen",
+  "isDp": true,
+  "dpId": "dp_nonparam_1",
+  "dpTitle": "DP 1 - Qualité de vie ASQOL et Spondylarthrite (15 patients)",
+  "dpStep": 2,
+  "dpTotalSteps": 2,
+  "tags": [
+    "Biostatistiques",
+    "Dossier Progressif",
+    "Tests non paramétriques",
+    "Kruskal-Wallis",
+    "Chi-deux"
+  ],
+  "commonStatement": "ÉNONCÉ DU DOSSIER PROGRESSIF 1 :\nLes investigateurs décident de mener une étude afin de mesurer l’effet de deux interventions sur un score de qualité de vie mesuré chez 15 patients (5 patients pour chacun des 3 groupes). Le score ASQOL (Ankylosing Spondylitis Quality of Life) utilisé varie de 0 à 100 (meilleure qualité de vie possible). On ne peut pas faire d’hypothèse sur la normalité du score ASQOL et on réalisera donc un test non paramétrique.\nLa table de résultats donne pour les 15 patients les scores ASQOL et les rangs associés.",
+  "subStatement": "Question 2 (QCM 1.7) : On réalise un test de Kruskal-Wallis au seuil 5%. Quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "statement": "ÉNONCÉ DU DOSSIER PROGRESSIF 1 :\nLes investigateurs décident de mener une étude afin de mesurer l’effet de deux interventions sur un score de qualité de vie mesuré chez 15 patients (5 patients pour chacun des 3 groupes). Le score ASQOL (Ankylosing Spondylitis Quality of Life) utilisé varie de 0 à 100 (meilleure qualité de vie possible). On ne peut pas faire d’hypothèse sur la normalité du score ASQOL et on réalisera donc un test non paramétrique.\nLa table de résultats donne pour les 15 patients les scores ASQOL et les rangs associés.\n\nQuestion 2 (QCM 1.7) : On réalise un test de Kruskal-Wallis au seuil 5%. Quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "image": {
+    "url": "src/assets/images/table_dp_nonparam_1.png",
+    "alt": "DP 1 - Tableau des scores ASQOL et rangs (15 patients)"
+  },
+  "answers": [
+    {
+      "id": "a",
+      "text": "On rejette H0 car χ² = 6.74 > valeur seuil de 5.99",
+      "correct": false,
+      "explanation": "A. Faux — La statistique observée vaut χ² = 4.74 < 5.99."
+    },
+    {
+      "id": "b",
+      "text": "On rejette H0 car F = 6.74 > valeur seuil de 5.99",
+      "correct": false,
+      "explanation": "B. Faux — Le test de Kruskal-Wallis s'appuie sur une loi du Chi-deux à k - 1 ddl, et non sur un test F."
+    },
+    {
+      "id": "c",
+      "text": "On ne rejette pas H0 car χ² = 4.74 < valeur seuil de 5.99",
+      "correct": true,
+      "explanation": "C. Vrai — Statistique H = [12 / (15 × 16)] × [5 × 5.4² + 5 × 7.2² + 5 × 11.4²] - 3 × 16 = [12 / 240] × [145.8 + 259.2 + 649.8] - 48 = 0.05 × 1054.8 - 48 = 52.74 - 48 = 4.74. Au seuil 5% à 2 ddl, la valeur seuil du Chi² est 5.991. Comme 4.74 < 5.99, on ne rejette pas H0."
+    },
+    {
+      "id": "d",
+      "text": "La valeur du degré de signification est située entre 5% et 10% (entre 0.05 et 0.10)",
+      "correct": true,
+      "explanation": "D. Vrai — À 2 ddl : χ²(0.10) = 4.605 et χ²(0.05) = 5.991. Comme 4.605 < 4.74 < 5.991, le degré de signification p est compris entre 0.05 et 0.10."
+    },
+    {
+      "id": "e",
+      "text": "Aucune réponse exacte",
+      "correct": false,
+      "explanation": "E. Faux — Les propositions C et D sont exactes."
+    }
+  ],
+  "itemExplanations": [
+    "A. Faux — χ² = 4.74 < 5.991.",
+    "B. Faux — Le test utilise la loi du Chi-deux, pas la loi de Fisher F.",
+    "C. Vrai — χ² = 4.74 < valeur critique de 5.991 à 2 ddl : non-rejet de H0.",
+    "D. Vrai — 4.605 < 4.74 < 5.991, donc p est compris entre 0.05 et 0.10.",
+    "E. Faux — C et D sont vraies."
+  ],
+  "explanation": "Réponses exactes : C et D.\n\n• Calcul de la statistique H (Chi-deux de Kruskal-Wallis) :\n  H = [12 / (N × (N + 1))] × ∑ [n_i × R̄_i²] - 3(N + 1)\n  H = [12 / (15 × 16)] × [5 × (5.4)² + 5 × (7.2)² + 5 × (11.4)²] - 3 × 16\n  H = [12 / 240] × [145.8 + 259.2 + 649.8] - 48 = 0.05 × 1054.8 - 48 = 4.74.\n• Valeur critique : Pour k - 1 = 3 - 1 = 2 ddl au risque α = 5%, χ²_seuil = 5.991.\n• Décision : H = 4.74 < 5.991 → On ne rejette pas H0 (Item C VRAI).\n• Degré de signification : Dans la table du Chi² à 2 ddl, χ²(0.10) = 4.605 et χ²(0.05) = 5.991 → 0.05 < p < 0.10 (Item D VRAI)."
+},
+{
+  "id": "ue_bio_f3_dp2_q1",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche n°3 - Tests non paramétriques",
+  "year": 2025,
+  "difficulty": "Moyen",
+  "isDp": true,
+  "dpId": "dp_nonparam_2",
+  "dpTitle": "DP 2 - Score ASQOL après 3 mois de suivi (15 patients)",
+  "dpStep": 1,
+  "dpTotalSteps": 2,
+  "tags": [
+    "Biostatistiques",
+    "Dossier Progressif",
+    "Tests non paramétriques",
+    "Kruskal-Wallis",
+    "Rangs"
+  ],
+  "commonStatement": "ÉNONCÉ DU DOSSIER PROGRESSIF 2 :\nLes investigateurs décident de mener une nouvelle étude afin cette fois de mesurer l’effet des deux interventions sur un score de qualité de vie mesuré chez 15 patients (5 patients pour chacun des 3 groupes). Le score ASQOL (Ankylosing Spondylitis Quality of Life) utilisé varie de 0 à 100 (meilleure qualité de vie possible). On ne peut pas faire d’hypothèse sur la normalité du score ASQOL et on réalisera donc un test non paramétrique.\nLes résultats individuels sont présentés dans la table de résultats ci-dessous.",
+  "subStatement": "Question 1 (QCM 1.6) : Concernant la table de résultats, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "statement": "ÉNONCÉ DU DOSSIER PROGRESSIF 2 :\nLes investigateurs décident de mener une nouvelle étude afin cette fois de mesurer l’effet des deux interventions sur un score de qualité de vie mesuré chez 15 patients (5 patients pour chacun des 3 groupes). Le score ASQOL (Ankylosing Spondylitis Quality of Life) utilisé varie de 0 à 100 (meilleure qualité de vie possible). On ne peut pas faire d’hypothèse sur la normalité du score ASQOL et on réalisera donc un test non paramétrique.\nLes résultats individuels sont présentés dans la table de résultats ci-dessous.\n\nQuestion 1 (QCM 1.6) : Concernant la table de résultats, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "image": {
+    "url": "src/assets/images/table_dp_nonparam_2.png",
+    "alt": "DP 2 - Tableau des scores ASQOL et rangs (15 patients)"
+  },
+  "answers": [
+    {
+      "id": "a",
+      "text": "Le rang moyen du groupe 1 est 5.4",
+      "correct": true,
+      "explanation": "A. Vrai — R1 = 1 + 5.5 + 10.5 + 7 + 3 = 27 → R̄1 = 27 / 5 = 5.4."
+    },
+    {
+      "id": "b",
+      "text": "Le rang moyen du groupe 2 est 36",
+      "correct": false,
+      "explanation": "B. Faux — 36 est la somme des rangs, le rang moyen est 36 / 5 = 7.2."
+    },
+    {
+      "id": "c",
+      "text": "Le rang moyen du groupe 3 est 12.4",
+      "correct": false,
+      "explanation": "C. Faux — R3 = 57 → R̄3 = 57 / 5 = 11.4."
+    },
+    {
+      "id": "d",
+      "text": "La valeur du chiffre X dans le tableau est 11",
+      "correct": false,
+      "explanation": "D. Faux — Pour le score 45, rang moyen = (5 + 6)/2 = 5.5."
+    },
+    {
+      "id": "e",
+      "text": "La valeur du chiffre Y dans le tableau est 10.5",
+      "correct": true,
+      "explanation": "E. Vrai — Score 60 ex-aequo (patients 3 et 11) : rangs 10 et 11 → Y = 10.5."
+    }
+  ],
+  "itemExplanations": [
+    "A. Vrai — R̄1 = 5.4.",
+    "B. Faux — 36 est la somme des rangs (R̄2 = 7.2).",
+    "C. Faux — R̄3 = 11.4.",
+    "D. Faux — Score 45 : rang 5.5.",
+    "E. Vrai — Y = 10.5 pour le score 60."
+  ],
+  "explanation": "Réponses exactes : A et E.\n\n• Rang moyen Groupe 1 = 27 / 5 = 5.4 (Item A VRAI).\n• Rang moyen Groupe 2 = 36 / 5 = 7.2 (Item B FAUX).\n• Rang moyen Groupe 3 = 57 / 5 = 11.4 (Item C FAUX).\n• Y = (10 + 11)/2 = 10.5 (Item E VRAI)."
+},
+{
+  "id": "ue_bio_f3_dp2_q2",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche n°3 - Tests non paramétriques",
+  "year": 2025,
+  "difficulty": "Moyen",
+  "isDp": true,
+  "dpId": "dp_nonparam_2",
+  "dpTitle": "DP 2 - Score ASQOL après 3 mois de suivi (15 patients)",
+  "dpStep": 2,
+  "dpTotalSteps": 2,
+  "tags": [
+    "Biostatistiques",
+    "Dossier Progressif",
+    "Tests non paramétriques",
+    "Kruskal-Wallis",
+    "Chi-deux"
+  ],
+  "commonStatement": "ÉNONCÉ DU DOSSIER PROGRESSIF 2 :\nLes investigateurs décident de mener une nouvelle étude afin cette fois de mesurer l’effet des deux interventions sur un score de qualité de vie mesuré chez 15 patients (5 patients pour chacun des 3 groupes). Le score ASQOL (Ankylosing Spondylitis Quality of Life) utilisé varie de 0 à 100 (meilleure qualité de vie possible). On ne peut pas faire d’hypothèse sur la normalité du score ASQOL et on réalisera donc un test non paramétrique.\nLes résultats individuels sont présentés dans la table de résultats ci-dessous.",
+  "subStatement": "Question 2 (QCM 1.7) : On réalise un test de Kruskal-Wallis au seuil 5%. Quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "statement": "ÉNONCÉ DU DOSSIER PROGRESSIF 2 :\nLes investigateurs décident de mener une nouvelle étude afin cette fois de mesurer l’effet des deux interventions sur un score de qualité de vie mesuré chez 15 patients (5 patients pour chacun des 3 groupes). Le score ASQOL (Ankylosing Spondylitis Quality of Life) utilisé varie de 0 à 100 (meilleure qualité de vie possible). On ne peut pas faire d’hypothèse sur la normalité du score ASQOL et on réalisera donc un test non paramétrique.\nLes résultats individuels sont présentés dans la table de résultats ci-dessous.\n\nQuestion 2 (QCM 1.7) : On réalise un test de Kruskal-Wallis au seuil 5%. Quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "image": {
+    "url": "src/assets/images/table_dp_nonparam_2.png",
+    "alt": "DP 2 - Tableau des scores ASQOL et rangs (15 patients)"
+  },
+  "answers": [
+    {
+      "id": "a",
+      "text": "On rejette H0 car χ² = 6.74 > valeur seuil de 5.99",
+      "correct": false,
+      "explanation": "A. Faux — La valeur de la statistique est χ² = 4.74 < 5.99."
+    },
+    {
+      "id": "b",
+      "text": "On rejette H0 car F = 6.74 > valeur seuil de 5.99",
+      "correct": false,
+      "explanation": "B. Faux — Kruskal-Wallis suit asymptotiquement une loi du Chi-deux, pas de Fisher F."
+    },
+    {
+      "id": "c",
+      "text": "On ne rejette pas H0 car χ² = 4.74 < valeur seuil de 5.99",
+      "correct": true,
+      "explanation": "C. Vrai — H = [12/(15×16)] × [5×5.4² + 5×7.2² + 5×11.4²] - 48 = 4.74 < 5.991."
+    },
+    {
+      "id": "d",
+      "text": "La valeur du degré de signification est située entre 5% et 10% (entre 0.05 et 0.10)",
+      "correct": true,
+      "explanation": "D. Vrai — χ²(0.10) = 4.605 < 4.74 < χ²(0.05) = 5.991, d'où 0.05 < p < 0.10."
+    },
+    {
+      "id": "e",
+      "text": "Aucune réponse exacte",
+      "correct": false,
+      "explanation": "E. Faux — C et D sont exactes."
+    }
+  ],
+  "itemExplanations": [
+    "A. Faux — χ² = 4.74 < 5.991.",
+    "B. Faux — Test Chi-deux, pas F de Fisher.",
+    "C. Vrai — χ² = 4.74 < seuil 5.991 : on ne rejette pas H0.",
+    "D. Vrai — p est situé entre 5% et 10%.",
+    "E. Faux — C et D sont vraies."
+  ],
+  "explanation": "Réponses exactes : C et D.\n\n• H = 4.74 < 5.991 (valeur seuil du Chi² à 2 ddl au risque 5%) → Non-rejet de H0 (Item C VRAI).\n• 4.605 < 4.74 < 5.991 → p ∈ [0.05 ; 0.10] (Item D VRAI)."
+},
+{
+  "id": "ue_bio_f3_dp3_q1",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche n°3 - Tests non paramétriques",
+  "year": 2025,
+  "difficulty": "Moyen",
+  "isDp": true,
+  "dpId": "dp_nonparam_3",
+  "dpTitle": "DP 3 - Score ASQOL après 6 mois de suivi (18 patients)",
+  "dpStep": 1,
+  "dpTotalSteps": 2,
+  "tags": [
+    "Biostatistiques",
+    "Dossier Progressif",
+    "Tests non paramétriques",
+    "Kruskal-Wallis",
+    "Rangs"
+  ],
+  "commonStatement": "ÉNONCÉ DU DOSSIER PROGRESSIF 3 :\nLes investigateurs décident de mener une nouvelle étude afin cette fois de mesurer l’effet des deux interventions sur un score de qualité de vie mesuré chez 18 patients (6 patients pour chacun des 3 groupes). Le score ASQOL (Ankylosing Spondylitis Quality of Life) utilisé varie de 0 à 100 (meilleure qualité de vie possible). On ne peut pas faire d’hypothèse sur la normalité du score ASQOL et on réalisera donc un test non paramétrique.\nOn donne les résultats individuels et les rangs dans la table ci-dessous (X et Y représentent des valeurs de rangs à déterminer).",
+  "subStatement": "Question 1 (Question 1.6) : Concernant la table de résultats, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "statement": "ÉNONCÉ DU DOSSIER PROGRESSIF 3 :\nLes investigateurs décident de mener une nouvelle étude afin cette fois de mesurer l’effet des deux interventions sur un score de qualité de vie mesuré chez 18 patients (6 patients pour chacun des 3 groupes). Le score ASQOL (Ankylosing Spondylitis Quality of Life) utilisé varie de 0 à 100 (meilleure qualité de vie possible). On ne peut pas faire d’hypothèse sur la normalité du score ASQOL et on réalisera donc un test non paramétrique.\nOn donne les résultats individuels et les rangs dans la table ci-dessous (X et Y représentent des valeurs de rangs à déterminer).\n\nQuestion 1 (Question 1.6) : Concernant la table de résultats, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "image": {
+    "url": "src/assets/images/table_dp_nonparam_3.png",
+    "alt": "DP 3 - Tableau des scores ASQOL et rangs (18 patients)"
+  },
+  "answers": [
+    {
+      "id": "a",
+      "text": "Le rang moyen du groupe 2 est environ 8.75",
+      "correct": true,
+      "explanation": "A. Vrai — Rangs du Groupe 2 : 11 + 3 + 10 + 15 + 5 + 8.5 = 52.5. Rang moyen : R̄2 = 52.5 / 6 = 8.75."
+    },
+    {
+      "id": "b",
+      "text": "Le rang moyen du groupe 3 est environ 14.33",
+      "correct": true,
+      "explanation": "B. Vrai — Pour le Groupe 3 : les deux scores 79 occupent les rangs 16 et 17, soit X = (16+17)/2 = 16.5 ; le score 80 est le plus élevé, soit Y = 18. Somme des rangs R3 = 12.5 + 16.5 + 8.5 + 14 + 18 + 16.5 = 86. Rang moyen : R̄3 = 86 / 6 = 14.33."
+    },
+    {
+      "id": "c",
+      "text": "Le rang moyen du groupe 3 est environ 16.51",
+      "correct": false,
+      "explanation": "C. Faux — Le rang moyen du groupe 3 est 14.33."
+    },
+    {
+      "id": "d",
+      "text": "La valeur du chiffre X dans le tableau est 17",
+      "correct": false,
+      "explanation": "D. Faux — X est la moyenne des rangs 16 et 17 pour le score 79, soit X = 16.5 (et non 17)."
+    },
+    {
+      "id": "e",
+      "text": "La valeur du chiffre Y dans le tableau est 18",
+      "correct": true,
+      "explanation": "E. Vrai — Le score 80 est la valeur maximale parmi les 18 patients, son rang est Y = 18."
+    }
+  ],
+  "itemExplanations": [
+    "A. Vrai — R̄2 = 52.5 / 6 = 8.75.",
+    "B. Vrai — R̄3 = 86 / 6 = 14.33.",
+    "C. Faux — R̄3 vaut 14.33 et non 16.51.",
+    "D. Faux — Pour les deux patients ayant un score de 79, le rang moyen est X = (16 + 17)/2 = 16.5.",
+    "E. Vrai — Le score de 80 est le plus élevé de tout l'échantillon : rang Y = 18."
+  ],
+  "explanation": "Réponses exactes : A, B et E.\n\n• Somme et rangs moyens :\n  - Groupe 1 : R1 = 1 + 6 + 12.5 + 7 + 4 + 2 = 32.5 → R̄1 = 32.5 / 6 = 5.42.\n  - Groupe 2 : R2 = 11 + 3 + 10 + 15 + 5 + 8.5 = 52.5 → R̄2 = 52.5 / 6 = 8.75 (Item A VRAI).\n  - Groupe 3 : X = 16.5 (moyenne des rangs 16 et 17), Y = 18 (score max). Somme R3 = 12.5 + 16.5 + 8.5 + 14 + 18 + 16.5 = 86 → R̄3 = 86 / 6 = 14.33 (Item B VRAI, Item E VRAI, Items C et D FAUX)."
+},
+{
+  "id": "ue_bio_f3_dp3_q2",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche n°3 - Tests non paramétriques",
+  "year": 2025,
+  "difficulty": "Moyen",
+  "isDp": true,
+  "dpId": "dp_nonparam_3",
+  "dpTitle": "DP 3 - Score ASQOL après 6 mois de suivi (18 patients)",
+  "dpStep": 2,
+  "dpTotalSteps": 2,
+  "tags": [
+    "Biostatistiques",
+    "Dossier Progressif",
+    "Tests non paramétriques",
+    "Kruskal-Wallis",
+    "Chi-deux"
+  ],
+  "commonStatement": "ÉNONCÉ DU DOSSIER PROGRESSIF 3 :\nLes investigateurs décident de mener une nouvelle étude afin cette fois de mesurer l’effet des deux interventions sur un score de qualité de vie mesuré chez 18 patients (6 patients pour chacun des 3 groupes). Le score ASQOL (Ankylosing Spondylitis Quality of Life) utilisé varie de 0 à 100 (meilleure qualité de vie possible). On ne peut pas faire d’hypothèse sur la normalité du score ASQOL et on réalisera donc un test non paramétrique.\nOn donne les résultats individuels et les rangs dans la table ci-dessous (X et Y représentent des valeurs de rangs à déterminer).",
+  "subStatement": "Question 2 (Question 1.7) : On réalise un test de Kruskal-Wallis au seuil 5%. Quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "statement": "ÉNONCÉ DU DOSSIER PROGRESSIF 3 :\nLes investigateurs décident de mener une nouvelle étude afin cette fois de mesurer l’effet des deux interventions sur un score de qualité de vie mesuré chez 18 patients (6 patients pour chacun des 3 groupes). Le score ASQOL (Ankylosing Spondylitis Quality of Life) utilisé varie de 0 à 100 (meilleure qualité de vie possible). On ne peut pas faire d’hypothèse sur la normalité du score ASQOL et on réalisera donc un test non paramétrique.\nOn donne les résultats individuels et les rangs dans la table ci-dessous (X et Y représentent des valeurs de rangs à déterminer).\n\nQuestion 2 (Question 1.7) : On réalise un test de Kruskal-Wallis au seuil 5%. Quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "image": {
+    "url": "src/assets/images/table_dp_nonparam_3.png",
+    "alt": "DP 3 - Tableau des scores ASQOL et rangs (18 patients)"
+  },
+  "answers": [
+    {
+      "id": "a",
+      "text": "On rejette H0 car χ² = environ 6.74 > valeur seuil de 5.991",
+      "correct": false,
+      "explanation": "A. Faux — La statistique observée vaut χ² ≈ 8.55."
+    },
+    {
+      "id": "b",
+      "text": "On rejette H0 car χ² = environ 8.55 > valeur seuil de 5.991",
+      "correct": true,
+      "explanation": "B. Vrai — H = [12 / (18 × 19)] × [6 × (5.42)² + 6 × (8.75)² + 6 × (14.33)²] - 3 × 19 = [12 / 342] × [176.04 + 459.38 + 1232.07] - 57 = 0.035088 × 1867.49 - 57 ≈ 65.55 - 57 = 8.55. Comme 8.55 > 5.991 (seuil Chi² à 2 ddl au risque 5%), on rejette H0."
+    },
+    {
+      "id": "c",
+      "text": "On ne rejette pas H0 car χ² = environ 5.22 < valeur seuil de 5.991",
+      "correct": false,
+      "explanation": "C. Faux — La statistique vaut 8.55 et dépasse la valeur critique."
+    },
+    {
+      "id": "d",
+      "text": "La valeur du degré de signification est située entre 1% et 2% (entre 0.01 et 0.02)",
+      "correct": true,
+      "explanation": "D. Vrai — À 2 ddl dans la table du Chi² : χ²(0.02) = 7.824 et χ²(0.01) = 9.210. Comme 7.824 < 8.55 < 9.210, le degré de signification p est compris entre 0.01 et 0.02 (1% et 2%)."
+    },
+    {
+      "id": "e",
+      "text": "Aucune réponse exacte",
+      "correct": false,
+      "explanation": "E. Faux — Les propositions B et D sont exactes."
+    }
+  ],
+  "itemExplanations": [
+    "A. Faux — La valeur de la statistique est de 8.55.",
+    "B. Vrai — χ²_obs ≈ 8.55 > 5.991 : on rejette H0 au risque 5%.",
+    "C. Faux — On rejette H0.",
+    "D. Vrai — 7.824 < 8.55 < 9.210 → p est situé entre 1% et 2% (0.01 < p < 0.02).",
+    "E. Faux — B et D sont vraies."
+  ],
+  "explanation": "Réponses exactes : B et D.\n\n• Calcul de la statistique de Kruskal-Wallis H :\n  H = [12 / (18 × 19)] × [6 × (5.417)² + 6 × (8.750)² + 6 × (14.333)²] - 3 × 19\n  H = [12 / 342] × [176.04 + 459.38 + 1232.67] - 57 = [12 / 342] × 1868.09 - 57 ≈ 65.55 - 57 = 8.55.\n• Décision : H = 8.55 > valeur seuil de 5.991 (table du Chi² à 2 ddl, α = 5%) → On rejette H0 (Item B VRAI).\n• Degré de signification : Dans la table du Chi² à 2 ddl, χ²(0.02) = 7.824 et χ²(0.01) = 9.210. Comme 7.824 < 8.55 < 9.210, p est compris entre 0.01 et 0.02 (Item D VRAI)."
+},
+{
+  "id": "ue_bio_f3_dp4_q1",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche n°3 - Tests non paramétriques",
+  "year": 2025,
+  "difficulty": "Moyen",
+  "isDp": true,
+  "dpId": "dp_nonparam_4",
+  "dpTitle": "DP 4 - Qualité de vie post-hospitalisation (31 patients)",
+  "dpStep": 1,
+  "dpTotalSteps": 2,
+  "tags": [
+    "Biostatistiques",
+    "Dossier Progressif",
+    "Tests non paramétriques",
+    "Kruskal-Wallis",
+    "Rangs"
+  ],
+  "commonStatement": "ÉNONCÉ DU DOSSIER PROGRESSIF 4 :\nL’équipe de recherche a pu également mesurer la qualité de vie de certains des patients inclus dans l’étude à l’aide d’un questionnaire mesurant la qualité de vie sur une échelle de 0 à 100 (les valeurs les plus élevées indiquant une meilleure qualité de vie).\nLes résultats sont donnés dans le tableau suivant pour 31 patients (12 issus du groupe 1, 9 issus du groupe 2 et 10 issus du groupe 3). On souhaite comparer la qualité de vie à l’issue de l’hospitalisation entre les trois groupes à l’aide d’un test non paramétrique.\n(X et Y représentent des valeurs de rangs à déterminer).",
+  "subStatement": "Question 1 (QCM 6) : Concernant la table de résultats, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "statement": "ÉNONCÉ DU DOSSIER PROGRESSIF 4 :\nL’équipe de recherche a pu également mesurer la qualité de vie de certains des patients inclus dans l’étude à l’aide d’un questionnaire mesurant la qualité de vie sur une échelle de 0 à 100 (les valeurs les plus élevées indiquant une meilleure qualité de vie).\nLes résultats sont donnés dans le tableau suivant pour 31 patients (12 issus du groupe 1, 9 issus du groupe 2 et 10 issus du groupe 3). On souhaite comparer la qualité de vie à l’issue de l’hospitalisation entre les trois groupes à l’aide d’un test non paramétrique.\n(X et Y représentent des valeurs de rangs à déterminer).\n\nQuestion 1 (QCM 6) : Concernant la table de résultats, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "image": {
+    "url": "src/assets/images/table_dp_nonparam_4.png",
+    "alt": "DP 4 - Tableau des scores et rangs (31 patients)"
+  },
+  "answers": [
+    {
+      "id": "a",
+      "text": "Le rang moyen du groupe 1 est 12.5",
+      "correct": false,
+      "explanation": "A. Faux — Somme des rangs Groupe 1 : R1 = 1 + 21.5 + 6 + 10 + 2.5 + 4 + 24.5 + 19 + 5 + 21.5 + 11 + 2.5 = 128. Rang moyen R̄1 = 128 / 12 ≈ 10.7 (et non 12.5)."
+    },
+    {
+      "id": "b",
+      "text": "Le rang moyen du groupe 2 est 18.9",
+      "correct": true,
+      "explanation": "B. Vrai — Somme des rangs Groupe 2 : R2 = 8 + 17.5 + 27 + 13.5 + 28.5 + 15.5 + 21.5 + 21.5 + 17.5 = 170. Rang moyen : R̄2 = 170 / 9 ≈ 18.9."
+    },
+    {
+      "id": "c",
+      "text": "Le rang moyen du groupe 3 est 19.7",
+      "correct": true,
+      "explanation": "C. Vrai — Somme des rangs Groupe 3 : R3 = 8 + 13.5 + 15.5 + 24.5 + 28.5 + 8 + 30 + 31 + 26 + 12 = 197. Rang moyen : R̄3 = 197 / 10 = 19.7."
+    },
+    {
+      "id": "d",
+      "text": "La valeur du chiffre X dans le tableau est 21.5",
+      "correct": false,
+      "explanation": "D. Faux — Le score 69 apparaît deux fois (patients 7 et 25), aux rangs 24 et 25 : rang moyen X = (24 + 25)/2 = 24.5."
+    },
+    {
+      "id": "e",
+      "text": "La valeur du chiffre Y dans le tableau est 66.5",
+      "correct": false,
+      "explanation": "E. Faux — Le score 78 est le score le plus élevé de l'échantillon (patient 29), il s'agit donc du rang Y = 31."
+    }
+  ],
+  "itemExplanations": [
+    "A. Faux — R̄1 = 128 / 12 ≈ 10.7.",
+    "B. Vrai — R̄2 = 170 / 9 ≈ 18.9.",
+    "C. Vrai — R̄3 = 197 / 10 = 19.7.",
+    "D. Faux — X = 24.5 (ex-aequo pour le score 69).",
+    "E. Faux — Y = 31 (valeur maximale de la série de 31 patients)."
+  ],
+  "explanation": "Réponses exactes : B et C.\n\n• Rang moyen Groupe 1 : R1 = 128 → R̄1 = 128 / 12 = 10.67 ≈ 10.7 (Item A FAUX).\n• Rang moyen Groupe 2 : R2 = 170 → R̄2 = 170 / 9 = 18.89 ≈ 18.9 (Item B VRAI).\n• Rang moyen Groupe 3 : R3 = 197 → R̄3 = 197 / 10 = 19.7 (Item C VRAI).\n• Valeur de X : ex-aequo au score 69 (rangs 24 et 25) → X = 24.5 (Item D FAUX).\n• Valeur de Y : score 78 = maximum → Y = 31 (Item E FAUX)."
+},
+{
+  "id": "ue_bio_f3_dp4_q2",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche n°3 - Tests non paramétriques",
+  "year": 2025,
+  "difficulty": "Moyen",
+  "isDp": true,
+  "dpId": "dp_nonparam_4",
+  "dpTitle": "DP 4 - Qualité de vie post-hospitalisation (31 patients)",
+  "dpStep": 2,
+  "dpTotalSteps": 2,
+  "tags": [
+    "Biostatistiques",
+    "Dossier Progressif",
+    "Tests non paramétriques",
+    "Kruskal-Wallis",
+    "Chi-deux"
+  ],
+  "commonStatement": "ÉNONCÉ DU DOSSIER PROGRESSIF 4 :\nL’équipe de recherche a pu également mesurer la qualité de vie de certains des patients inclus dans l’étude à l’aide d’un questionnaire mesurant la qualité de vie sur une échelle de 0 à 100 (les valeurs les plus élevées indiquant une meilleure qualité de vie).\nLes résultats sont donnés dans le tableau suivant pour 31 patients (12 issus du groupe 1, 9 issus du groupe 2 et 10 issus du groupe 3). On souhaite comparer la qualité de vie à l’issue de l’hospitalisation entre les trois groupes à l’aide d’un test non paramétrique.\n(X et Y représentent des valeurs de rangs à déterminer).",
+  "subStatement": "Question 2 (QCM 7) : On réalise un test de Kruskal-Wallis au seuil 5%. Quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "statement": "ÉNONCÉ DU DOSSIER PROGRESSIF 4 :\nL’équipe de recherche a pu également mesurer la qualité de vie de certains des patients inclus dans l’étude à l’aide d’un questionnaire mesurant la qualité de vie sur une échelle de 0 à 100 (les valeurs les plus élevées indiquant une meilleure qualité de vie).\nLes résultats sont donnés dans le tableau suivant pour 31 patients (12 issus du groupe 1, 9 issus du groupe 2 et 10 issus du groupe 3). On souhaite comparer la qualité de vie à l’issue de l’hospitalisation entre les trois groupes à l’aide d’un test non paramétrique.\n(X et Y représentent des valeurs de rangs à déterminer).\n\nQuestion 2 (QCM 7) : On réalise un test de Kruskal-Wallis au seuil 5%. Quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "image": {
+    "url": "src/assets/images/table_dp_nonparam_4.png",
+    "alt": "DP 4 - Tableau des scores et rangs (31 patients)"
+  },
+  "answers": [
+    {
+      "id": "a",
+      "text": "On rejette H0 car F = 8.4 > valeur seuil de 5.991",
+      "correct": false,
+      "explanation": "A. Faux — Le test de Kruskal-Wallis suit asymptotiquement une loi du Chi-deux à k - 1 = 2 ddl, et non une loi de Fisher F."
+    },
+    {
+      "id": "b",
+      "text": "On ne rejette pas H0 car χ² = 4.8 < valeur seuil de 5.991",
+      "correct": false,
+      "explanation": "B. Faux — La statistique observée est H = 6.48 (arrondie à 6.7 ou 6.5) > 5.991."
+    },
+    {
+      "id": "c",
+      "text": "On rejette H0 car χ² = 6.7 > valeur seuil de 5.991",
+      "correct": true,
+      "explanation": "C. Vrai — H = [12 / (31 × 32)] × [12 × (10.67)² + 9 × (18.89)² + 10 × (19.70)²] - 3 × 32 = 0.0121 × [1366 + 3211 + 3881] - 96 = 0.0121 × 8458 - 96 ≈ 102.34 - 96 = 6.48 ≈ 6.7. Comme 6.48 > 5.991 (valeur critique du Chi² à 2 ddl au risque 5%), on rejette H0."
+    },
+    {
+      "id": "d",
+      "text": "La valeur du degré de signification est située entre 0.02 et 0.05",
+      "correct": true,
+      "explanation": "D. Vrai — Dans la table du Chi² à 2 ddl : χ²(0.05) = 5.991 et χ²(0.02) = 7.824. Comme 5.991 < 6.48 < 7.824, le degré de signification p est situé entre 0.02 et 0.05."
+    },
+    {
+      "id": "e",
+      "text": "La valeur du degré de signification est située entre 0.01 et 0.02",
+      "correct": false,
+      "explanation": "E. Faux — p > 0.02 car 6.48 < 7.824."
+    }
+  ],
+  "itemExplanations": [
+    "A. Faux — La statistique suit une loi du Chi-deux, pas F de Fisher.",
+    "B. Faux — H ≈ 6.5 à 6.7 > 5.991 : on rejette H0.",
+    "C. Vrai — H ≈ 6.7 > 5.991 : rejet de H0 au risque 5%.",
+    "D. Vrai — 5.991 < H < 7.824 → 0.02 < p < 0.05.",
+    "E. Faux — p est compris entre 0.02 et 0.05."
+  ],
+  "explanation": "Réponses exactes : C et D.\n\n• Statistique H de Kruskal-Wallis :\n  H = [12 / (31 × 32)] × [12 × (10.67)² + 9 × (18.89)² + 10 × (19.70)²] - 3 × (31 + 1)\n  H = [12 / 992] × [1365.8 + 3211.4 + 3880.9] - 96 = 0.012097 × 8458.1 - 96 ≈ 102.32 - 96 = 6.48 (compté 6.7 selon l'arrondi).\n• Seuil critique du Chi² à 2 ddl au risque 5% = 5.991.\n• H > 5.991 → Rejet de H0 (Item C VRAI).\n• Degré de signification : χ²(0.05) = 5.991 et χ²(0.02) = 7.824 → 0.02 < p < 0.05 (Item D VRAI)."
+},
+{
+  "id": "ue_bio_f3_dp5_q1",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche n°3 - Tests non paramétriques",
+  "year": 2025,
+  "difficulty": "Moyen",
+  "isDp": true,
+  "dpId": "dp_nonparam_5",
+  "dpTitle": "DP 5 - Évaluation d’un nouveau traitement (30 patients)",
+  "dpStep": 1,
+  "dpTotalSteps": 2,
+  "tags": [
+    "Biostatistiques",
+    "Dossier Progressif",
+    "Tests non paramétriques",
+    "Kruskal-Wallis",
+    "Rangs"
+  ],
+  "commonStatement": "ÉNONCÉ DU DOSSIER PROGRESSIF 5 :\nLes investigateurs décident finalement de réaliser un test non paramétrique pour comparer l'effet du nouveau traitement entre les 3 groupes (10 patients par groupe, soit 30 patients au total).\nLa table de résultats ci-dessous donne les scores observés et les rangs attribués dans l'échantillon global réuni (X et Y représentent des valeurs de rangs à déterminer).",
+  "subStatement": "Question 1 (QCM 1.6) : Concernant la table de résultats, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "statement": "ÉNONCÉ DU DOSSIER PROGRESSIF 5 :\nLes investigateurs décident finalement de réaliser un test non paramétrique pour comparer l'effet du nouveau traitement entre les 3 groupes (10 patients par groupe, soit 30 patients au total).\nLa table de résultats ci-dessous donne les scores observés et les rangs attribués dans l'échantillon global réuni (X et Y représentent des valeurs de rangs à déterminer).\n\nQuestion 1 (QCM 1.6) : Concernant la table de résultats, quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "image": {
+    "url": "src/assets/images/table_dp_nonparam_5.png",
+    "alt": "DP 5 - Tableau des scores et rangs (30 patients)"
+  },
+  "answers": [
+    {
+      "id": "a",
+      "text": "Le rang moyen du groupe 1 est 24.6",
+      "correct": true,
+      "explanation": "A. Vrai — Somme des rangs Groupe 1 = 246. Rang moyen : R̄1 = 246 / 10 = 24.6."
+    },
+    {
+      "id": "b",
+      "text": "Le rang moyen du groupe 2 est 14.2",
+      "correct": true,
+      "explanation": "B. Vrai — Somme des rangs Groupe 2 = 142. Rang moyen : R̄2 = 142 / 10 = 14.2."
+    },
+    {
+      "id": "c",
+      "text": "Le rang moyen du groupe 3 est 6.7",
+      "correct": false,
+      "explanation": "C. Faux — Somme des rangs Groupe 3 = 77. Rang moyen : R̄3 = 77 / 10 = 7.7 (et non 6.7)."
+    },
+    {
+      "id": "d",
+      "text": "La valeur du chiffre X dans le tableau est 29",
+      "correct": false,
+      "explanation": "D. Faux — Le score maximal 140 est au rang 30, le score 137 est au rang 29."
+    },
+    {
+      "id": "e",
+      "text": "La valeur du chiffre Y dans le tableau est 19",
+      "correct": true,
+      "explanation": "E. Vrai — Les ex-aequo pour le score 77 (patients 7, 10 et 23) se partagent les rangs 18, 19 et 20, soit un rang moyen Y = (18 + 19 + 20)/3 = 19."
+    }
+  ],
+  "itemExplanations": [
+    "A. Vrai — R̄1 = 246 / 10 = 24.6.",
+    "B. Vrai — R̄2 = 142 / 10 = 14.2.",
+    "C. Faux — R̄3 = 77 / 10 = 7.7.",
+    "D. Faux — Score 140 est au rang 30.",
+    "E. Vrai — Pour le score 77 (3 ex-aequo) : rang moyen Y = 19."
+  ],
+  "explanation": "Réponses exactes : A, B et E.\n\n• Rang moyen Groupe 1 : 246 / 10 = 24.6 (Item A VRAI).\n• Rang moyen Groupe 2 : 142 / 10 = 14.2 (Item B VRAI).\n• Rang moyen Groupe 3 : 77 / 10 = 7.7 (Item C FAUX).\n• Ex-aequo au score 77 (3 patients : 7, 10, 23) : rangs 18, 19, 20 → moyenne Y = 19 (Item E VRAI)."
+},
+{
+  "id": "ue_bio_f3_dp5_q2",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche n°3 - Tests non paramétriques",
+  "year": 2025,
+  "difficulty": "Moyen",
+  "isDp": true,
+  "dpId": "dp_nonparam_5",
+  "dpTitle": "DP 5 - Évaluation d’un nouveau traitement (30 patients)",
+  "dpStep": 2,
+  "dpTotalSteps": 2,
+  "tags": [
+    "Biostatistiques",
+    "Dossier Progressif",
+    "Tests non paramétriques",
+    "Kruskal-Wallis",
+    "Chi-deux"
+  ],
+  "commonStatement": "ÉNONCÉ DU DOSSIER PROGRESSIF 5 :\nLes investigateurs décident finalement de réaliser un test non paramétrique pour comparer l'effet du nouveau traitement entre les 3 groupes (10 patients par groupe, soit 30 patients au total).\nLa table de résultats ci-dessous donne les scores observés et les rangs attribués dans l'échantillon global réuni (X et Y représentent des valeurs de rangs à déterminer).",
+  "subStatement": "Question 2 (QCM 1.7) : On réalise un test de Kruskal-Wallis au seuil 5%. Quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "statement": "ÉNONCÉ DU DOSSIER PROGRESSIF 5 :\nLes investigateurs décident finalement de réaliser un test non paramétrique pour comparer l'effet du nouveau traitement entre les 3 groupes (10 patients par groupe, soit 30 patients au total).\nLa table de résultats ci-dessous donne les scores observés et les rangs attribués dans l'échantillon global réuni (X et Y représentent des valeurs de rangs à déterminer).\n\nQuestion 2 (QCM 1.7) : On réalise un test de Kruskal-Wallis au seuil 5%. Quelle(s) est(sont) la(les) proposition(s) exacte(s) ?",
+  "image": {
+    "url": "src/assets/images/table_dp_nonparam_5.png",
+    "alt": "DP 5 - Tableau des scores et rangs (30 patients)"
+  },
+  "answers": [
+    {
+      "id": "a",
+      "text": "On rejette H0 car χ² = 18.8 > valeur seuil de 5.99",
+      "correct": true,
+      "explanation": "A. Vrai — Statistique H = [12 / (30 × 31)] × [10 × 24.6² + 10 × 14.2² + 10 × 7.7²] - 3 × 31 = [12 / 930] × [6051.6 + 2016.4 + 592.9] - 93 = 0.012903 × 8660.9 - 93 = 111.75 - 93 = 18.75 ≈ 18.8. Comme 18.75 > 5.991 (valeur seuil du Chi² à 2 ddl au risque 5%), on rejette H0."
+    },
+    {
+      "id": "b",
+      "text": "On rejette H0 car F = 16.7 > valeur seuil de 5.99",
+      "correct": false,
+      "explanation": "B. Faux — Le test de Kruskal-Wallis ne suit pas une loi de Fisher F mais une loi du Chi-deux."
+    },
+    {
+      "id": "c",
+      "text": "On ne rejette pas H0 car χ² = 3.94 < valeur seuil de 5.99",
+      "correct": false,
+      "explanation": "C. Faux — La statistique observée est 18.75 et est très largement significative."
+    },
+    {
+      "id": "d",
+      "text": "La valeur du degré de signification est inférieure à 0.001",
+      "correct": true,
+      "explanation": "D. Vrai — Dans la table du Chi² à 2 ddl, la valeur pour p = 0.001 est 13.815. Comme H = 18.75 > 13.815, le degré de signification p est inférieur à 0.001 (p < 0.001)."
+    },
+    {
+      "id": "e",
+      "text": "Aucune réponse exacte",
+      "correct": false,
+      "explanation": "E. Faux — Les propositions A et D sont exactes."
+    }
+  ],
+  "itemExplanations": [
+    "A. Vrai — χ²_obs = 18.75 ≈ 18.8 > 5.991 : on rejette H0 au risque 5%.",
+    "B. Faux — Test Chi-deux, pas F de Fisher.",
+    "C. Faux — On rejette très nettement H0.",
+    "D. Vrai — H = 18.75 > 13.815 (seuil pour p = 0.001) → p < 0.001.",
+    "E. Faux — A et D sont vraies."
+  ],
+  "explanation": "Réponses exactes : A et D.\n\n• Calcul de la statistique H de Kruskal-Wallis :\n  H = [12 / (30 × 31)] × [10 × (24.6)² + 10 × (14.2)² + 10 × (7.7)²] - 3 × 31\n  H = [12 / 930] × [6051.6 + 2016.4 + 592.9] - 93 = [12 / 930] × 8660.9 - 93 = 111.75 - 93 = 18.75.\n• Décision : H = 18.75 > 5.991 (seuil à 2 ddl, α = 5%) → On rejette H0 (Item A VRAI).\n• Degré de signification : Dans la table du Chi-deux à 2 ddl, le seuil pour α = 0.1% (0.001) est 13.815. Comme H = 18.75 > 13.815, on a p < 0.001 (Item D VRAI)."
 }
 ];
 
