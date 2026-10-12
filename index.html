@@ -328,8 +328,9 @@
                 icon: '📊',
                 color: 'from-blue-600 to-indigo-600',
                 progress: 0,
-                qcmCount: 66,
+                qcmCount: 77,
                 chapters: [
+                    "Fiche intro biostat R",
                     "Fiche n°1 - Tests paramétriques",
                     "Fiche n°2 - Test de Fisher",
                     "Fiche n°3 - Tests non paramétriques",
@@ -181121,6 +181122,613 @@
     "E. Faux — C est vraie."
   ],
   "explanation": "Réponse exacte : C.\n\n• Rangs moyens par groupe :\n  - Groupe 1 = 9.67\n  - Groupe 2 = 11.25\n  - Groupe 3 = 7.58\n• Degrés de liberté : ddl = k - 1 = 3 - 1 = 2.\n• Statistique du test de Kruskal-Wallis :\n  χ² = [(12 / (18 × 19)) × (6 × 9.67² + 6 × 11.25² + 6 × 7.58²)] - 3 × 19 = 1.43\n• Seuil à 2 ddl au risque α = 5% : 5.991.\n  1.43 < 5.991 -> On ne rejette donc pas l'hypothèse nulle H0.\n  Il n'y a pas de différence statistiquement significative entre les 3 groupes au seuil de 5%.\n• Degré de signification : dans la table du Chi² à 2 ddl, 1.43 se situe entre 1.074 et 1.642, ce qui correspond à 0.20 < p < 0.30."
+}
+,
+{
+  "id": "ue_bio_r_q1",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche intro biostat R",
+  "year": 2023,
+  "difficulty": "Facile",
+  "tags": [
+    "UE Biostatistiques",
+    "Logiciel R",
+    "Vecteurs",
+    "Booléens"
+  ],
+  "statement": "Soit le vecteur suivant : monvector = c(1, 7, 5, 3, 2).\nQuelle(s) est(sont) la(les) commande(s) qui renvoie(nt) une valeur booléenne TRUE ?",
+  "answers": [
+    {
+      "id": "a",
+      "text": "monvector[2] == 7",
+      "correct": true,
+      "explanation": "A. VRAI — monvector[2] accède au 2e élément qui vaut 7, donc 7 == 7 renvoie TRUE."
+    },
+    {
+      "id": "b",
+      "text": "monvector[2] > monvector[3]",
+      "correct": true,
+      "explanation": "B. VRAI — monvector[2] vaut 7 et monvector[3] vaut 5, 7 > 5 renvoie TRUE."
+    },
+    {
+      "id": "c",
+      "text": "monvector[1] == monvector[5]-1",
+      "correct": true,
+      "explanation": "C. VRAI — monvector[1] vaut 1 et monvector[5] vaut 2 ; 2 - 1 = 1, donc 1 == 1 renvoie TRUE."
+    },
+    {
+      "id": "d",
+      "text": "monvector[2] != 3",
+      "correct": true,
+      "explanation": "D. VRAI — monvector[2] vaut 7, et 7 != 3 est vrai, donc renvoie TRUE."
+    },
+    {
+      "id": "e",
+      "text": "monvector[5] == 3",
+      "correct": false,
+      "explanation": "E. FAUX — monvector[5] vaut 2, or 2 == 3 renvoie FALSE."
+    }
+  ],
+  "itemExplanations": [
+    "A. VRAI — monvector[2] extrait le 2e élément (7). 7 == 7 renvoie TRUE.",
+    "B. VRAI — monvector[2] = 7 et monvector[3] = 5. 7 > 5 renvoie TRUE.",
+    "C. VRAI — monvector[1] = 1 et monvector[5] = 2. 2 - 1 = 1, donc 1 == 1 est TRUE.",
+    "D. VRAI — monvector[2] = 7 != 3 renvoie TRUE.",
+    "E. FAUX — monvector[5] = 2 != 3 renvoie FALSE."
+  ],
+  "explanation": "Réponse(s) exacte(s) : A, B, C, D.\n\nEn R, l'indexation des vecteurs commence à 1 :\n• monvector[1] = 1, monvector[2] = 7, monvector[3] = 5, monvector[4] = 3, monvector[5] = 2.\n• A : 7 == 7 -> TRUE.\n• B : 7 > 5 -> TRUE.\n• C : 1 == (2 - 1) -> TRUE.\n• D : 7 != 3 -> TRUE.\n• E : 2 == 3 -> FALSE."
+},
+{
+  "id": "ue_bio_r_q2",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche intro biostat R",
+  "year": 2023,
+  "difficulty": "Moyen",
+  "tags": [
+    "UE Biostatistiques",
+    "Logiciel R",
+    "Syntaxe",
+    "Erreurs"
+  ],
+  "statement": "Parmi les commandes suivantes, laquelle(lesquelles) donne(donnent) lieu à une erreur dans R ?",
+  "answers": [
+    {
+      "id": "a",
+      "text": "mat = matrix(data = 1:4, nrow = 2, ncol = 2)",
+      "correct": false,
+      "explanation": "A. FAUX (ne donne pas d'erreur) — Syntaxe valide de création d'une matrice 2x2 avec les entiers de 1 à 4."
+    },
+    {
+      "id": "b",
+      "text": "2+4*5-7",
+      "correct": false,
+      "explanation": "B. FAUX (ne donne pas d'erreur) — Opération arithmétique standard valide respectant les priorités opératoires (donne 15)."
+    },
+    {
+      "id": "c",
+      "text": "1234 = c(1,2,3,4)",
+      "correct": true,
+      "explanation": "C. VRAI (donne une erreur) — Un nom d'objet/variable en R ne peut pas commencer par un chiffre (ou être constitué uniquement de chiffres)."
+    },
+    {
+      "id": "d",
+      "text": "santé1 = c(\"Santé\",\"Médicine\")",
+      "correct": true,
+      "explanation": "D. VRAI (donne une erreur) — L'utilisation de caractères accentués (é) dans les noms d'identifiants/variables pose des problèmes d'encodage et provoque une erreur de syntaxe sous R."
+    },
+    {
+      "id": "e",
+      "text": "monvector = c(\"Santé\",\"Médicine\")",
+      "correct": false,
+      "explanation": "E. FAUX (ne donne pas d'erreur) — Nom de variable valide en caractères ASCII sans accent, assignant un vecteur de 2 chaînes de caractères."
+    }
+  ],
+  "itemExplanations": [
+    "A. FAUX — Commande valide pour créer une matrice 2x2.",
+    "B. FAUX — Calcul arithmétique tout à fait valide en R (résultat = 15).",
+    "C. VRAI — Erreur : les noms de variables ne peuvent pas commencer par un chiffre.",
+    "D. VRAI — Erreur : les caractères accentués ne sont pas autorisés dans les noms d'identifiants.",
+    "E. FAUX — Commande parfaitement valide."
+  ],
+  "explanation": "Réponse(s) exacte(s) : C, D.\n\nRègles de nommage des objets en R :\n• Les noms doivent commencer par une lettre ou un point non suivi d'un chiffre.\n• Ils ne peuvent pas commencer par un chiffre (1234 provoque une erreur de syntaxe).\n• Les caractères accentués et caractères spéciaux sont prohibés pour nommer des variables (santé1 provoque une erreur)."
+},
+{
+  "id": "ue_bio_r_q3",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche intro biostat R",
+  "year": 2023,
+  "difficulty": "Facile",
+  "tags": [
+    "UE Biostatistiques",
+    "Logiciel R",
+    "Dataframe",
+    "Commandes"
+  ],
+  "statement": "Soit le dataframe appelé df qui contient 10 lignes et 4 colonnes sur R. Parmi ces commandes, laquelle(lesquelles) ne produit(produisent) pas d'erreur ?",
+  "answers": [
+    {
+      "id": "a",
+      "text": "dim(df)",
+      "correct": true,
+      "explanation": "A. VRAI — dim(df) renvoie les dimensions du dataframe sous la forme c(10, 4) sans erreur."
+    },
+    {
+      "id": "b",
+      "text": "top(df)",
+      "correct": false,
+      "explanation": "B. FAUX (produit une erreur) — La fonction top() n'existe pas en R de base (on utilise head())."
+    },
+    {
+      "id": "c",
+      "text": "head(df)",
+      "correct": true,
+      "explanation": "C. VRAI — head(df) affiche les premières lignes du dataframe sans erreur."
+    },
+    {
+      "id": "d",
+      "text": "$df",
+      "correct": false,
+      "explanation": "D. FAUX (produit une erreur) — Syntaxe invalide : l'opérateur $ s'utilise sous la forme nom_df$nom_colonne et ne peut pas être préfixé seul."
+    },
+    {
+      "id": "e",
+      "text": "summary(df)",
+      "correct": true,
+      "explanation": "E. VRAI — summary(df) produit un résumé statistique descriptif des variables du dataframe sans erreur."
+    }
+  ],
+  "itemExplanations": [
+    "A. VRAI — dim(df) retourne les dimensions c(10, 4).",
+    "B. FAUX — top() n'est pas une fonction R de base.",
+    "C. VRAI — head(df) affiche les 6 premières lignes du tableau.",
+    "D. FAUX — Erreur de syntaxe : $ requiert objet$variable.",
+    "E. VRAI — summary(df) résume les colonnes du dataframe."
+  ],
+  "explanation": "Réponse(s) exacte(s) : A, C, E.\n\nFonctions descriptives usuelles sur les dataframes :\n• dim(df) : dimensions (lignes, colonnes).\n• head(df) : affiche les premières observations (par défaut 6).\n• summary(df) : résumé statistique (moyenne, quartiles, etc.).\n• top() n'existe pas et $df est une erreur de syntaxe."
+},
+{
+  "id": "ue_bio_r_q4",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche intro biostat R",
+  "year": 2022,
+  "difficulty": "Moyen",
+  "tags": [
+    "UE Biostatistiques",
+    "Logiciel R",
+    "Syntaxe",
+    "Variables"
+  ],
+  "statement": "Parmi les commandes suivantes, laquelle(lesquelles) donne(donnent) lieu à une erreur dans R ?",
+  "answers": [
+    {
+      "id": "a",
+      "text": "monvecteur = c(\"A\", 1, \"4\", 70)",
+      "correct": false,
+      "explanation": "A. FAUX (valide) — Valide : R applique une coercition automatique et transforme tous les éléments en chaînes de caractères (type 'character')."
+    },
+    {
+      "id": "b",
+      "text": "5éléments = c(\"Bois\", \"Feu\", \"Métal\", \"Eau\", \"Terre\")",
+      "correct": true,
+      "explanation": "B. VRAI (donne une erreur) — Un nom de variable ne peut pas commencer par un chiffre ('5') et ne doit pas contenir de caractères accentués ('é')."
+    },
+    {
+      "id": "c",
+      "text": "mon élément = \"Bois\"",
+      "correct": true,
+      "explanation": "C. VRAI (donne une erreur) — Un nom de variable ne peut pas contenir d'espace ('mon élément' provoque une erreur de syntaxe)."
+    },
+    {
+      "id": "d",
+      "text": "x = 1 ; y = 3 ; z = \"Bois\"",
+      "correct": false,
+      "explanation": "D. FAUX (valide) — Le point-virgule ';' permet de séparer plusieurs instructions valides sur une même ligne."
+    },
+    {
+      "id": "e",
+      "text": "x = 1, 2, 3, 4",
+      "correct": true,
+      "explanation": "E. VRAI (donne une erreur) — Erreur : pour créer un vecteur de plusieurs valeurs, il faut obligatoirement utiliser la fonction de concaténation c() : c(1, 2, 3, 4)."
+    }
+  ],
+  "itemExplanations": [
+    "A. FAUX — Valide grâce à la coercition automatique en chaîne de caractères.",
+    "B. VRAI — Erreur : commence par un chiffre et contient un accent.",
+    "C. VRAI — Erreur : présence d'un espace dans le nom de la variable.",
+    "D. FAUX — Valide : le point-virgule sépare plusieurs affectations.",
+    "E. VRAI — Erreur : la syntaxe requiert la fonction c(1, 2, 3, 4)."
+  ],
+  "explanation": "Réponse(s) exacte(s) : B, C, E.\n\nEn R :\n• Les noms de variables ne peuvent comporter ni espaces (C), ni commencer par un chiffre (B).\n• Une série de valeurs doit être combinée à l'aide de la fonction c() (E : x = c(1, 2, 3, 4))."
+},
+{
+  "id": "ue_bio_r_q5",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche intro biostat R",
+  "year": 2023,
+  "difficulty": "Facile",
+  "tags": [
+    "UE Biostatistiques",
+    "Logiciel R",
+    "Graphiques",
+    "Fonctions"
+  ],
+  "statement": "Parmi ces fonctions sur R, laquelle(lesquelles) peut(peuvent) produire un graphique ?",
+  "answers": [
+    {
+      "id": "a",
+      "text": "iris",
+      "correct": false,
+      "explanation": "A. FAUX — 'iris' est un jeu de données (dataframe) pré-intégré dans R, ce n'est pas une fonction graphique."
+    },
+    {
+      "id": "b",
+      "text": "graphique()",
+      "correct": false,
+      "explanation": "B. FAUX — La fonction 'graphique()' n'existe pas dans le langage R de base."
+    },
+    {
+      "id": "c",
+      "text": "plot()",
+      "correct": true,
+      "explanation": "C. VRAI — plot() est la fonction générique fondamentale pour tracer des graphiques (nuages de points, courbes, etc.)."
+    },
+    {
+      "id": "d",
+      "text": "head()",
+      "correct": false,
+      "explanation": "D. FAUX — head() affiche les premières lignes d'un tableau sous forme textuelle."
+    },
+    {
+      "id": "e",
+      "text": "boxplot()",
+      "correct": true,
+      "explanation": "E. VRAI — boxplot() produit des diagrammes en boîte (boîtes à moustaches)."
+    }
+  ],
+  "itemExplanations": [
+    "A. FAUX — iris est un jeu de données.",
+    "B. FAUX — graphique() n'existe pas en R.",
+    "C. VRAI — plot() est la fonction graphique de base.",
+    "D. FAUX — head() affiche du texte/données tabulaires.",
+    "E. VRAI — boxplot() trace des boîtes à moustaches."
+  ],
+  "explanation": "Réponse(s) exacte(s) : C, E.\n\nLes fonctions graphiques usuelles en R de base comprennent plot(), hist(), boxplot(), barplot(), pie(), etc."
+},
+{
+  "id": "ue_bio_r_q6",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche intro biostat R",
+  "year": 2024,
+  "difficulty": "Facile",
+  "tags": [
+    "UE Biostatistiques",
+    "Logiciel R",
+    "Syntaxe",
+    "Dataframe",
+    "Vecteurs"
+  ],
+  "statement": "Concernant le logiciel R, quelle(s) est(sont) la(les) réponse(s) correcte(s) ?",
+  "answers": [
+    {
+      "id": "a",
+      "text": "Les appels aux fonctions sont indiqués par la présence de crochets.",
+      "correct": false,
+      "explanation": "A. FAUX — Les appels de fonctions utilisent des parenthèses : nom_fonction(arguments). Les crochets [ ] servent à l'indexation."
+    },
+    {
+      "id": "b",
+      "text": "Les appels aux fonctions sont indiqués par la présence de parenthèses.",
+      "correct": true,
+      "explanation": "B. VRAI — En R, toute fonction est appelée avec des parenthèses (ex: sum(), plot())."
+    },
+    {
+      "id": "c",
+      "text": "Les vecteurs permettent de mélanger des données différentes.",
+      "correct": false,
+      "explanation": "C. FAUX — Les vecteurs atomiques sont homogènes (un seul type). Ce sont les dataframes et les listes qui permettent de mélanger des types différents."
+    },
+    {
+      "id": "d",
+      "text": "Il est possible d'accéder aux données d'un dataframe à l'aide d'indices.",
+      "correct": true,
+      "explanation": "D. VRAI — On peut indexer un dataframe par ses coordonnées [ligne, colonne], par exemple df[1, 2]."
+    },
+    {
+      "id": "e",
+      "text": "Il est possible d'accéder aux données d'un vecteur à l'aide d'indices.",
+      "correct": true,
+      "explanation": "E. VRAI — On extrait les valeurs d'un vecteur avec les crochets et des indices numériques, ex: mon_vecteur[1]."
+    }
+  ],
+  "itemExplanations": [
+    "A. FAUX — Les parenthèses indiquent les appels de fonctions.",
+    "B. VRAI — Syntaxe fondamentale de R.",
+    "C. FAUX — Les vecteurs atomiques sont homogènes.",
+    "D. VRAI — Indexation matricielle [i, j] sur les dataframes.",
+    "E. VRAI — Indexation [i] sur les vecteurs."
+  ],
+  "explanation": "Réponse(s) exacte(s) : B, D, E.\n\n• Fonctions : appelées avec () : nom(args).\n• Indexation : effectuée avec [] : vecteur[i], df[i, j].\n• Vecteurs : stockent des données homogènes ; Dataframes : stockent des colonnes de types différents."
+},
+{
+  "id": "ue_bio_r_q7",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche intro biostat R",
+  "year": 2024,
+  "difficulty": "Moyen",
+  "tags": [
+    "UE Biostatistiques",
+    "Logiciel R",
+    "Matrices",
+    "Indexation"
+  ],
+  "statement": "Concernant les matrices sous R, quelle(s) est(sont) la(les) réponse(s) correcte(s) ?",
+  "answers": [
+    {
+      "id": "a",
+      "text": "La fonction matrix(1:8, 4, 2) crée une matrice de 2 rangées et 4 colonnes.",
+      "correct": false,
+      "explanation": "A. FAUX — matrix(data, nrow, ncol) : matrix(1:8, 4, 2) crée une matrice de 4 rangées (lignes) et 2 colonnes."
+    },
+    {
+      "id": "b",
+      "text": "mat[3,1] : l'indice \"1\" est la rangée de la matrice.",
+      "correct": false,
+      "explanation": "B. FAUX — Dans mat[i, j], l'indice 'i' (ici 3) est la rangée (ligne) et l'indice 'j' (ici 1) est la colonne."
+    },
+    {
+      "id": "c",
+      "text": "mat[3,1] : l'indice \"3\" est la rangée de la matrice.",
+      "correct": true,
+      "explanation": "C. VRAI — Le premier indice désigne toujours la ligne (rangée) : ligne 3, colonne 1."
+    },
+    {
+      "id": "d",
+      "text": "Les matrices permettent de stocker des données sur deux dimensions.",
+      "correct": true,
+      "explanation": "D. VRAI — Une matrice en R est une structure de données bidimensionnelle (lignes x colonnes) de type homogène."
+    },
+    {
+      "id": "e",
+      "text": "Les matrices permettent de stocker une série de données, les unes après les autres.",
+      "correct": false,
+      "explanation": "E. FAUX — C'est le rôle des vecteurs (structure unidimensionnelle 1D)."
+    }
+  ],
+  "itemExplanations": [
+    "A. FAUX — 4 rangées et 2 colonnes (nrow=4, ncol=2).",
+    "B. FAUX — 1 est la colonne.",
+    "C. VRAI — 3 correspond à la ligne (rangée).",
+    "D. VRAI — Structure 2D homogène.",
+    "E. FAUX — C'est la définition des vecteurs."
+  ],
+  "explanation": "Réponse(s) exacte(s) : C, D.\n\n• matrix(data, nrow, ncol) : premier argument de dimension = lignes (nrow), deuxième = colonnes (ncol).\n• Indexation d'une matrice : mat[ligne, colonne] (rangée en premier, colonne en second).\n• Les matrices sont des structures à 2 dimensions, tandis que les vecteurs sont à 1 dimension."
+},
+{
+  "id": "ue_bio_r_q8",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche intro biostat R",
+  "year": 2024,
+  "difficulty": "Facile",
+  "tags": [
+    "UE Biostatistiques",
+    "Logiciel R",
+    "Opérateurs logiques",
+    "Conditions"
+  ],
+  "statement": "Concernant les expressions logiques sur R, quelle(s) est(sont) la(les) réponse(s) correcte(s) ?",
+  "answers": [
+    {
+      "id": "a",
+      "text": "\"4 < 5\" va afficher le résultat \"TRUE\"",
+      "correct": true,
+      "explanation": "A. VRAI — 4 est strictement inférieur à 5, l'évaluation renvoie le booléen TRUE."
+    },
+    {
+      "id": "b",
+      "text": "\"4 != 5\" va afficher le résultat \"TRUE\"",
+      "correct": true,
+      "explanation": "B. VRAI — != est l'opérateur de non-égalité. Comme 4 est différent de 5, l'expression renvoie TRUE."
+    },
+    {
+      "id": "c",
+      "text": "La fonction which() retourne un élément vrai dans un vecteur logique",
+      "correct": true,
+      "explanation": "C. VRAI — which(x) retourne les indices (positions) des éléments valant TRUE dans un vecteur logique."
+    },
+    {
+      "id": "d",
+      "text": "OU est le OR logique",
+      "correct": false,
+      "explanation": "D. FAUX — Le symbole du OR logique en R est la barre verticale | (pipe), pas 'OU'."
+    },
+    {
+      "id": "e",
+      "text": "& est le AND logique",
+      "correct": true,
+      "explanation": "E. VRAI — & est bien l'opérateur AND logique élément par élément en R."
+    }
+  ],
+  "itemExplanations": [
+    "A. VRAI — 4 < 5 s'évalue en TRUE.",
+    "B. VRAI — != teste la différence et renvoie TRUE.",
+    "C. VRAI — which() donne les indices où la condition est TRUE.",
+    "D. FAUX — L'opérateur OR logique est le symbole pipe |.",
+    "E. VRAI — L'opérateur AND logique est &."
+  ],
+  "explanation": "Réponse(s) exacte(s) : A, B, C, E.\n\nOpérateurs relationnels et logiques en R :\n• <, <=, >, >= : comparaisons d'ordre.\n• == : égalité, != : différence.\n• & : ET logique (AND).\n• | : OU logique (OR).\n• which(condition) retourne la position des valeurs vraies."
+},
+{
+  "id": "ue_bio_r_q9",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche intro biostat R",
+  "year": 2024,
+  "difficulty": "Facile",
+  "tags": [
+    "UE Biostatistiques",
+    "Logiciel R",
+    "Généralités",
+    "Open-source"
+  ],
+  "statement": "Quelles affirmations sont correctes concernant le logiciel R ?",
+  "answers": [
+    {
+      "id": "a",
+      "text": "R est un logiciel open-source et gratuit.",
+      "correct": true,
+      "explanation": "A. VRAI — R est distribué sous licence libre GNU GPL, ce qui le rend totalement gratuit et open-source."
+    },
+    {
+      "id": "b",
+      "text": "R ne permet pas de réaliser des graphiques.",
+      "correct": false,
+      "explanation": "B. FAUX — R possède d'excellentes capacités graphiques natives (plot(), hist(), boxplot()) et avancées (ggplot2)."
+    },
+    {
+      "id": "c",
+      "text": "R est principalement utilisé pour des analyses simples uniquement.",
+      "correct": false,
+      "explanation": "C. FAUX — R est un environnement puissant utilisé pour les biostatistiques avancées, le machine learning et les mégadonnées."
+    },
+    {
+      "id": "d",
+      "text": "R dispose d’une grande communauté d'utilisateurs pour le support.",
+      "correct": true,
+      "explanation": "D. VRAI — R bénéficie d'une communauté mondiale très active (CRAN, Bioconductor, Stack Overflow) avec une vaste documentation."
+    },
+    {
+      "id": "e",
+      "text": "R requiert une interface graphique pour être utilisé.",
+      "correct": false,
+      "explanation": "E. FAUX — R s'exécute parfaitement en pure ligne de commande (console de terminal) ; les interfaces comme RStudio sont optionnelles."
+    }
+  ],
+  "itemExplanations": [
+    "A. VRAI — Licence GNU GPL libre et gratuite.",
+    "B. FAUX — R est l'un des logiciels de référence pour les graphiques statistiques.",
+    "C. FAUX — Adapté aux modélisations statistiques les plus complexes.",
+    "D. VRAI — Immense communauté internationale.",
+    "E. FAUX — Fonctionne nativement en ligne de commande dans un terminal."
+  ],
+  "explanation": "Réponse(s) exacte(s) : A, D.\n\n• R est un langage et environnement open-source pour le calcul statistique et les graphiques.\n• Il fonctionne en ligne de commande ou via des EDI (RStudio), dispose d'une riche communauté et de milliers de packages (CRAN)."
+},
+{
+  "id": "ue_bio_r_q10",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche intro biostat R",
+  "year": 2024,
+  "difficulty": "Moyen",
+  "tags": [
+    "UE Biostatistiques",
+    "Logiciel R",
+    "Vecteurs",
+    "Recyclage"
+  ],
+  "statement": "Quelles affirmations sont correctes à propos des vecteurs dans le langage R ?",
+  "answers": [
+    {
+      "id": "a",
+      "text": "Les vecteurs en R peuvent contenir des données de différents types (textes et numériques).",
+      "correct": false,
+      "explanation": "A. FAUX — Un vecteur atomique est rigoureusement homogène. En cas de mélange, R force une conversion automatique (coercition)."
+    },
+    {
+      "id": "b",
+      "text": "Un vecteur de longueur 1 peut être considéré comme une variable.",
+      "correct": true,
+      "explanation": "B. VRAI — Les scalaires n'existent pas séparément en R : une constante ou variable simple est un vecteur de longueur 1."
+    },
+    {
+      "id": "c",
+      "text": "Les fonctions sum() et length() permettent de résumer les valeurs dans un vecteur.",
+      "correct": true,
+      "explanation": "C. VRAI — sum() calcule la somme des composantes et length() fournit le nombre d'éléments."
+    },
+    {
+      "id": "d",
+      "text": "Les noms des vecteurs peuvent commencer par des chiffres.",
+      "correct": false,
+      "explanation": "D. FAUX — Les noms d'objets en R doivent impérativement commencer par une lettre ou un point."
+    },
+    {
+      "id": "e",
+      "text": "Lorsqu’un vecteur est combiné avec un autre de taille différente, le plus petit est recyclé.",
+      "correct": true,
+      "explanation": "E. VRAI — C'est la règle de recyclage (recycling rule) : R répète en boucle les éléments du plus court vecteur lors d'opérations vectorielles."
+    }
+  ],
+  "itemExplanations": [
+    "A. FAUX — Les vecteurs atomiques sont homogènes (un seul type).",
+    "B. VRAI — Tout scalaire est un vecteur de longueur 1.",
+    "C. VRAI — sum() calcule la somme, length() la taille.",
+    "D. FAUX — Un nom ne peut jamais commencer par un chiffre.",
+    "E. VRAI — Règle fondamentale du recyclage des vecteurs en R."
+  ],
+  "explanation": "Réponse(s) exacte(s) : B, C, E.\n\n• Un vecteur atomique ne contient qu'un seul type de données (homogénéité).\n• Longueur 1 = variable unitaire / scalaire.\n• Règle de recyclage : si deux vecteurs ont des longueurs inégales, R réutilise les valeurs du plus court."
+},
+{
+  "id": "ue_bio_r_q11",
+  "subjectId": "s10",
+  "subject": "UE Biostatistiques",
+  "chapter": "Fiche intro biostat R",
+  "year": 2024,
+  "difficulty": "Moyen",
+  "tags": [
+    "UE Biostatistiques",
+    "Logiciel R",
+    "Graphiques",
+    "Paramètres graphiques"
+  ],
+  "statement": "Quelles options ou commandes sont utilisées pour créer et personnaliser des graphiques dans R ?",
+  "answers": [
+    {
+      "id": "a",
+      "text": "plot() permet de générer un graphique simple avec un vecteur.",
+      "correct": true,
+      "explanation": "A. VRAI — plot(x) ou plot(x, y) est la commande graphique universelle de base pour tracer des points ou des courbes."
+    },
+    {
+      "id": "b",
+      "text": "barplot() est utilisé pour créer des diagrammes en boîte.",
+      "correct": false,
+      "explanation": "B. FAUX — barplot() crée des diagrammes en bâtons / barres. Les diagrammes en boîte sont créés avec boxplot()."
+    },
+    {
+      "id": "c",
+      "text": "L'option pch = permet de définir le type de symbole des points sur un graphique.",
+      "correct": true,
+      "explanation": "C. VRAI — L'argument pch (plotting character) définit la forme des points (rond, carré, triangle, croix, etc.)."
+    },
+    {
+      "id": "d",
+      "text": "La commande boxplot() est utilisée pour des diagrammes à barres.",
+      "correct": false,
+      "explanation": "D. FAUX — boxplot() sert à tracer des boîtes à moustaches (diagrammes en boîte), pas des diagrammes à barres."
+    },
+    {
+      "id": "e",
+      "text": "las = contrôle l’orientation des valeurs sur les axes.",
+      "correct": true,
+      "explanation": "E. VRAI — L'argument las (0, 1, 2, 3) oriente les étiquettes des graduations des axes (parallèles ou perpendiculaires)."
+    }
+  ],
+  "itemExplanations": [
+    "A. VRAI — plot() génère un graphique de dispersion ou de série.",
+    "B. FAUX — barplot() = diagramme en barres, pas diagramme en boîte.",
+    "C. VRAI — pch sélectionne le symbole des points.",
+    "D. FAUX — boxplot() = boîtes à moustaches.",
+    "E. VRAI — las ajuste l'orientation des étiquettes d'axe."
+  ],
+  "explanation": "Réponse(s) exacte(s) : A, C, E.\n\n• Commandes graphiques de base : plot() (nuage de points), barplot() (diagramme à barres), boxplot() (boîte à moustaches).\n• Paramètres graphiques classiques : pch (symbole des points), col (couleur), las (orientation des graduations d'axes), main/xlab/ylab (titres et axes)."
 }
 ];
 
