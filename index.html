@@ -183801,6 +183801,35 @@
             }, [selectedSubjectForQuiz, selectedChapterForQuiz, selectedDifficultyForQuiz, selectedChaptersForGlobal, questions]);
             const [quizQuestionLimit, setQuizQuestionLimit] = useState('all'); // '5', '10', '20', '50', or 'all', 'custom'
             const [customQuestionCount, setCustomQuestionCount] = useState('');
+            const [customStandaloneCount, setCustomStandaloneCount] = useState('');
+            const [customDpCount, setCustomDpCount] = useState('');
+
+            const biostatBreakdown = useMemo(() => {
+                if (!selectedSubjectForQuiz) return { standaloneCount: 0, dpCount: 0, dpQuestionsCount: 0 };
+                const isBio = selectedSubjectForQuiz.id === 's10' || selectedSubjectForQuiz.name?.toLowerCase().includes('biostat');
+                if (!isBio) return { standaloneCount: 0, dpCount: 0, dpQuestionsCount: 0 };
+
+                let pool = questions.filter(q => q.subjectId === selectedSubjectForQuiz.id);
+                if (selectedChapterForQuiz) {
+                    pool = pool.filter(q => q.chapter === selectedChapterForQuiz);
+                } else if (selectedChaptersForGlobal && selectedChaptersForGlobal.length > 0) {
+                    pool = pool.filter(q => selectedChaptersForGlobal.includes(q.chapter));
+                } else {
+                    return { standaloneCount: 0, dpCount: 0, dpQuestionsCount: 0 };
+                }
+                if (selectedDifficultyForQuiz && selectedDifficultyForQuiz !== 'all') {
+                    pool = pool.filter(q => q.difficulty === selectedDifficultyForQuiz);
+                }
+                const standaloneCount = pool.filter(q => !q.isDp).length;
+                const dpQuestions = pool.filter(q => q.isDp);
+                const dpIds = new Set(dpQuestions.map(q => q.dpId || q.dpTitle || ('dp_' + q.id)));
+                return {
+                    standaloneCount,
+                    dpCount: dpIds.size,
+                    dpQuestionsCount: dpQuestions.length
+                };
+            }, [selectedSubjectForQuiz, selectedChapterForQuiz, selectedDifficultyForQuiz, selectedChaptersForGlobal, questions]);
+
             const [quizTimerSeconds, setQuizTimerSeconds] = useState(0);
 
             // Chronometer & Exam Countdown timer effect
@@ -184122,6 +184151,8 @@
                 setSelectedDifficultyForQuiz(difficulty);
                 setQuizQuestionLimit('all');
                 setCustomQuestionCount('');
+                setCustomStandaloneCount('');
+                setCustomDpCount('');
                 setIsCrash70Eliminated(false);
                 setEliminatedAtQuestionIndex(null);
                 setEliminatedStats(null);
@@ -184190,8 +184221,62 @@
 
                 let pickedPool = [];
 
+                // Cas 0 : Série Globale Biostatistiques avec personnalisation séparée (Nombre de QCM et/ou Nombre de DP)
+                const isBiostatGlobal = !selectedChapterForQuiz && selectedSubjectForQuiz && (selectedSubjectForQuiz.id === 's10' || selectedSubjectForQuiz.name?.toLowerCase().includes('biostat'));
+                if (isBiostatGlobal && (customStandaloneCount !== '' || customDpCount !== '')) {
+                    const reqStandalone = (customStandaloneCount !== '' && !isNaN(parseInt(customStandaloneCount, 10))) 
+                        ? parseInt(customStandaloneCount, 10) 
+                        : (customDpCount !== '' ? 0 : null);
+                    const reqDp = (customDpCount !== '' && !isNaN(parseInt(customDpCount, 10))) 
+                        ? parseInt(customDpCount, 10) 
+                        : (customStandaloneCount !== '' ? 0 : null);
+
+                    // Séparer les QCM simples et les QCMs de Dossiers Progressifs
+                    const standalonePool = baseSubjectQuestions.filter(q => !q.isDp).sort(() => Math.random() - 0.5);
+                    const dpQuestions = baseSubjectQuestions.filter(q => q.isDp);
+
+                    // Grouper les questions DP par dossier (dpId ou dpTitle)
+                    const dpGroupsMap = {};
+                    const distinctDpKeys = [];
+                    dpQuestions.forEach(q => {
+                        const dKey = q.dpId || q.dpTitle || ('dp_' + q.id);
+                        if (!dpGroupsMap[dKey]) {
+                            dpGroupsMap[dKey] = [];
+                            distinctDpKeys.push(dKey);
+                        }
+                        dpGroupsMap[dKey].push(q);
+                    });
+                    distinctDpKeys.sort(() => Math.random() - 0.5);
+
+                    // 1. Sélectionner les QCM simples demandés
+                    let chosenStandalone = [];
+                    if (reqStandalone !== null) {
+                        const count = Math.max(0, Math.min(reqStandalone, standalonePool.length));
+                        chosenStandalone = standalonePool.slice(0, count);
+                    }
+
+                    // 2. Sélectionner les dossiers progressifs demandés (en gardant les étapes ordonnées par dpStep)
+                    let chosenDpQuestions = [];
+                    if (reqDp !== null) {
+                        const countDp = Math.max(0, Math.min(reqDp, distinctDpKeys.length));
+                        const selectedKeys = distinctDpKeys.slice(0, countDp);
+                        selectedKeys.forEach(k => {
+                            const sortedSteps = [...dpGroupsMap[k]].sort((a, b) => (a.dpStep || 1) - (b.dpStep || 1));
+                            chosenDpQuestions.push(...sortedSteps);
+                        });
+                    }
+
+                    // Combiner : placer les QCM simples et les dossiers complets
+                    pickedPool = [...chosenStandalone, ...chosenDpQuestions];
+                    if (pickedPool.length === 0) {
+                        alert("La sélection demandée donne 0 question. Veuillez ajuster le nombre de QCM simples ou de dossiers progressifs.");
+                        return;
+                    }
+                    finalLimit = pickedPool.length;
+                }
+
                 // Cas 1 : Série Globale avec pondération / pourcentage personnalisé par fiche
-                if (!selectedChapterForQuiz && useCustomFicheWeights && selectedSubjectForQuiz.chapters) {
+                if (pickedPool.length === 0 && !selectedChapterForQuiz && useCustomFicheWeights && selectedSubjectForQuiz.chapters) {
                     const chapsWithWeights = selectedSubjectForQuiz.chapters.filter(ch => selectedChaptersForGlobal.includes(ch) && (Number(chapterPercentages[ch]) || 0) > 0);
                     const sumPct = chapsWithWeights.reduce((acc, ch) => acc + (Number(chapterPercentages[ch]) || 0), 0);
 
@@ -184254,7 +184339,35 @@
                     pickedPool = pool.slice(0, finalLimit);
                 }
 
-                pickedPool.sort(() => Math.random() - 0.5);
+                // Mélanger en préservant l'intégrité et l'ordre des étapes de chaque Dossier Progressif
+                const standaloneInPicked = pickedPool.filter(q => !q.isDp).sort(() => Math.random() - 0.5);
+                const dpInPicked = pickedPool.filter(q => q.isDp);
+                let orderedPicked = [];
+
+                if (dpInPicked.length > 0) {
+                    const dpGroups = {};
+                    const dpGroupKeys = [];
+                    dpInPicked.forEach(q => {
+                        const dKey = q.dpId || q.dpTitle || ('dp_' + q.id);
+                        if (!dpGroups[dKey]) {
+                            dpGroups[dKey] = [];
+                            dpGroupKeys.push(dKey);
+                        }
+                        dpGroups[dKey].push(q);
+                    });
+                    // Trier chaque dossier par son étape (dpStep)
+                    const sortedDps = [];
+                    dpGroupKeys.forEach(k => {
+                        const steps = [...dpGroups[k]].sort((a, b) => (a.dpStep || 1) - (b.dpStep || 1));
+                        sortedDps.push(steps);
+                    });
+                    // Standalone d'abord, puis les Dossiers Progressifs complets
+                    orderedPicked = [...standaloneInPicked, ...sortedDps.flat()];
+                } else {
+                    orderedPicked = standaloneInPicked;
+                }
+
+                pickedPool = orderedPicked;
 
                 const randomizedPool = pickedPool.map(q => ({
                     ...q,
@@ -187267,6 +187380,182 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                         </div>
                                     </div>
 
+                                    {/* 2.5 Configuration spécifique Biostatistiques (Série Globale) */}
+                                    {!selectedChapterForQuiz && selectedSubjectForQuiz && (selectedSubjectForQuiz.id === 's10' || (selectedSubjectForQuiz.name && selectedSubjectForQuiz.name.toLowerCase().includes('biostat'))) && (
+                                        <div className="p-4 rounded-2xl bg-gradient-to-br from-indigo-950/70 via-slate-900 to-purple-950/50 border border-indigo-700/60 space-y-3.5 shadow-xl">
+                                            <div className="flex items-center justify-between">
+                                                <div className="flex items-center gap-2.5">
+                                                    <span className="text-xl">🧬</span>
+                                                    <div>
+                                                        <h4 className="text-xs font-bold text-indigo-200">Composition Biostatistiques</h4>
+                                                        <p className="text-[11px] text-slate-400">Configurez séparément les QCM simples et les Dossiers Progressifs (DP)</p>
+                                                    </div>
+                                                </div>
+                                                <span className="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-indigo-900/80 border border-indigo-700 text-indigo-300">
+                                                    Série Globale
+                                                </span>
+                                            </div>
+
+                                            {/* Raccourcis / Presets */}
+                                            <div className="flex items-center gap-1.5 flex-wrap pt-0.5">
+                                                <span className="text-[10px] uppercase font-bold text-slate-400 mr-1">Raccourcis :</span>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        setCustomStandaloneCount(String(Math.min(10, biostatBreakdown.standaloneCount)));
+                                                        setCustomDpCount(String(Math.min(2, biostatBreakdown.dpCount)));
+                                                        setQuizQuestionLimit('custom');
+                                                    }}
+                                                    className="px-2.5 py-1 rounded-lg bg-indigo-900/60 hover:bg-indigo-800 border border-indigo-700/80 text-indigo-200 text-[11px] font-semibold transition-all cursor-pointer"
+                                                >
+                                                    ⚡ Mix Standard (10 QCM + 2 DP)
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        setCustomStandaloneCount('0');
+                                                        setCustomDpCount(String(biostatBreakdown.dpCount));
+                                                        setQuizQuestionLimit('custom');
+                                                    }}
+                                                    className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-purple-300 text-[11px] font-semibold transition-all cursor-pointer"
+                                                >
+                                                    📂 DP Seuls ({biostatBreakdown.dpCount})
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        setCustomStandaloneCount(String(biostatBreakdown.standaloneCount));
+                                                        setCustomDpCount('0');
+                                                        setQuizQuestionLimit('custom');
+                                                    }}
+                                                    className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 text-[11px] font-semibold transition-all cursor-pointer"
+                                                >
+                                                    📝 QCM Simples Seuls ({biostatBreakdown.standaloneCount})
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        setCustomStandaloneCount('');
+                                                        setCustomDpCount('');
+                                                    }}
+                                                    className="px-2 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-400 hover:text-slate-200 text-[11px] font-semibold transition-all cursor-pointer"
+                                                    title="Réinitialiser pour utiliser le sélecteur général"
+                                                >
+                                                    🔄 Réinitialiser
+                                                </button>
+                                            </div>
+
+                                            {/* Deux entrées : QCM simples & DP */}
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                                {/* Carte QCM simples */}
+                                                <div className="p-3 rounded-xl bg-slate-950/70 border border-slate-800/80 space-y-2">
+                                                    <div className="flex items-center justify-between">
+                                                        <span className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
+                                                            <span>📝</span> QCM Simples
+                                                        </span>
+                                                        <span className="text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded-full border border-slate-800">
+                                                            {biostatBreakdown.standaloneCount} disponibles
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex items-center gap-1.5">
+                                                        <input
+                                                            type="number"
+                                                            min="0"
+                                                            max={biostatBreakdown.standaloneCount}
+                                                            placeholder={`Max: ${biostatBreakdown.standaloneCount}`}
+                                                            value={customStandaloneCount}
+                                                            onChange={(e) => {
+                                                                setCustomStandaloneCount(e.target.value);
+                                                                setQuizQuestionLimit('custom');
+                                                            }}
+                                                            className="w-full px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-xl text-xs font-bold text-white focus:outline-none focus:border-indigo-500"
+                                                        />
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => {
+                                                                setCustomStandaloneCount(String(biostatBreakdown.standaloneCount));
+                                                                setQuizQuestionLimit('custom');
+                                                            }}
+                                                            className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-[11px] font-bold border border-slate-700 cursor-pointer"
+                                                        >
+                                                            Tous
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => {
+                                                                setCustomStandaloneCount('0');
+                                                                setQuizQuestionLimit('custom');
+                                                            }}
+                                                            className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-400 rounded-xl text-[11px] font-bold border border-slate-700 cursor-pointer"
+                                                        >
+                                                            0
+                                                        </button>
+                                                    </div>
+                                                    <p className="text-[10px] text-slate-500">Questions indépendantes hors dossiers.</p>
+                                                </div>
+
+                                                {/* Carte Dossiers Progressifs */}
+                                                <div className="p-3 rounded-xl bg-slate-950/70 border border-purple-900/40 space-y-2">
+                                                    <div className="flex items-center justify-between">
+                                                        <span className="text-xs font-bold text-purple-300 flex items-center gap-1.5">
+                                                            <span>📂</span> Dossiers Progressifs
+                                                        </span>
+                                                        <span className="text-[10px] text-purple-300 bg-purple-950/80 px-2 py-0.5 rounded-full border border-purple-800/80">
+                                                            {biostatBreakdown.dpCount} DP ({biostatBreakdown.dpQuestionsCount} Q)
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex items-center gap-1.5">
+                                                        <input
+                                                            type="number"
+                                                            min="0"
+                                                            max={biostatBreakdown.dpCount}
+                                                            placeholder={`Max: ${biostatBreakdown.dpCount}`}
+                                                            value={customDpCount}
+                                                            onChange={(e) => {
+                                                                setCustomDpCount(e.target.value);
+                                                                setQuizQuestionLimit('custom');
+                                                            }}
+                                                            className="w-full px-3 py-1.5 bg-slate-900 border border-purple-700/80 rounded-xl text-xs font-bold text-white focus:outline-none focus:border-purple-500"
+                                                        />
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => {
+                                                                setCustomDpCount(String(biostatBreakdown.dpCount));
+                                                                setQuizQuestionLimit('custom');
+                                                            }}
+                                                            className="px-2 py-1.5 bg-purple-950/80 hover:bg-purple-900 text-purple-200 rounded-xl text-[11px] font-bold border border-purple-800 cursor-pointer"
+                                                        >
+                                                            Tous
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => {
+                                                                setCustomDpCount('0');
+                                                                setQuizQuestionLimit('custom');
+                                                            }}
+                                                            className="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-400 rounded-xl text-[11px] font-bold border border-slate-700 cursor-pointer"
+                                                        >
+                                                            0
+                                                        </button>
+                                                    </div>
+                                                    <p className="text-[10px] text-purple-400/80">Étapes groupées et ordonnées (1, 2, ...).</p>
+                                                </div>
+                                            </div>
+
+                                            {/* Résumé de sélection active */}
+                                            {(customStandaloneCount !== '' || customDpCount !== '') && (
+                                                <div className="p-2.5 rounded-xl bg-indigo-950/60 border border-indigo-800/80 flex items-center justify-between text-xs">
+                                                    <span className="text-indigo-200 font-semibold text-[11px]">
+                                                        🎯 Session configurée : {customStandaloneCount !== '' ? `${customStandaloneCount} QCM simple${customStandaloneCount !== '1' ? 's' : ''}` : 'tous les QCM simples'} + {customDpCount !== '' ? `${customDpCount} dossier${customDpCount !== '1' ? 's' : ''} progressif${customDpCount !== '1' ? 's' : ''}` : 'tous les DP'}
+                                                    </span>
+                                                    <span className="text-[10px] text-emerald-400 font-bold bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-800">
+                                                        ✓ Personnalisé
+                                                    </span>
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
+
                                     {/* 3. Nombre de QCM à inclure */}
                                     <div className="space-y-2.5">
                                         <div className="flex justify-between items-center">
@@ -187279,11 +187568,16 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                         <div className="flex flex-wrap gap-2">
                                             {[5, 10, 20, 50].map(cnt => {
                                                 if (cnt > availableQuizCount && availableQuizCount <= 5) return null;
-                                                const isSelected = quizQuestionLimit === String(cnt);
+                                                const isSelected = quizQuestionLimit === String(cnt) && customStandaloneCount === '' && customDpCount === '';
                                                 return (
                                                     <button
                                                         key={cnt}
-                                                        onClick={() => { setQuizQuestionLimit(String(cnt)); setCustomQuestionCount(''); }}
+                                                        onClick={() => { 
+                                                            setQuizQuestionLimit(String(cnt)); 
+                                                            setCustomQuestionCount(''); 
+                                                            setCustomStandaloneCount(''); 
+                                                            setCustomDpCount(''); 
+                                                        }}
                                                         className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all ${isSelected ? 'bg-orange-600 border-orange-500 text-white shadow-md ring-2 ring-orange-500/30' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'}`}
                                                     >
                                                         {cnt} QCM
@@ -187291,8 +187585,13 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                                 );
                                             })}
                                             <button
-                                                onClick={() => { setQuizQuestionLimit('all'); setCustomQuestionCount(''); }}
-                                                className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all ${quizQuestionLimit === 'all' ? 'bg-orange-600 border-orange-500 text-white shadow-md ring-2 ring-orange-500/30' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'}`}
+                                                onClick={() => { 
+                                                    setQuizQuestionLimit('all'); 
+                                                    setCustomQuestionCount(''); 
+                                                    setCustomStandaloneCount(''); 
+                                                    setCustomDpCount(''); 
+                                                }}
+                                                className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all ${quizQuestionLimit === 'all' && customStandaloneCount === '' && customDpCount === '' ? 'bg-orange-600 border-orange-500 text-white shadow-md ring-2 ring-orange-500/30' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'}`}
                                             >
                                                 Tous ({availableQuizCount})
                                             </button>
@@ -187310,8 +187609,10 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                                 onChange={(e) => {
                                                     setCustomQuestionCount(e.target.value);
                                                     setQuizQuestionLimit('custom');
+                                                    setCustomStandaloneCount('');
+                                                    setCustomDpCount('');
                                                 }}
-                                                className={`w-24 px-3 py-1.5 bg-slate-950 border text-xs font-bold text-white rounded-xl focus:outline-none transition-all ${quizQuestionLimit === 'custom' ? 'border-orange-500 ring-2 ring-orange-500/30' : 'border-slate-800'}`}
+                                                className={`w-24 px-3 py-1.5 bg-slate-950 border text-xs font-bold text-white rounded-xl focus:outline-none transition-all ${quizQuestionLimit === 'custom' && customQuestionCount ? 'border-orange-500 ring-2 ring-orange-500/30' : 'border-slate-800'}`}
                                             />
                                             <span className="text-xs text-slate-500 font-semibold">QCM</span>
                                         </div>
