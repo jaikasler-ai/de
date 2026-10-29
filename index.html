@@ -328,8 +328,9 @@
                 icon: '📊',
                 color: 'from-blue-600 to-indigo-600',
                 progress: 0,
-                qcmCount: 83,
+                qcmCount: 87,
                 chapters: [
+                    "Fiche Biostat R - Applications",
                     "Fiche intro biostat R",
                     "Fiche n°1 - Tests paramétriques",
                     "Fiche n°2 - Test de Fisher",
@@ -208178,6 +208179,199 @@
       }
     ],
     "explanation": "Réponse(s) exacte(s) : A, B, C, D.\n\nA. VRAI – = permet l'affectation tout comme <-.\nB. VRAI – which() retourne les indices des éléments vrais.\nC. VRAI – & = AND logique, | = OR logique.\nD. VRAI – 4 != 5 renvoie TRUE.\nE. FAUX – L'indexation logique est couramment utilisée pour filtrer des dataframes."
+  },
+  {
+    "id": "ue_bio_r_app_q1",
+    "subjectId": "s10",
+    "chapter": "Fiche Biostat R - Applications",
+    "year": 2026,
+    "difficulty": "Moyen",
+    "tags": [
+      "Biostatistiques",
+      "R",
+      "Régression linéaire",
+      "Applications"
+    ],
+    "statement": "1.19 Quelles sont les propositions qui sont vraies à propos de la régression linéaire sur R ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "On peut représenter graphiquement un nuage de points entre deux variables numériques en utilisant la fonction plot() ou boxplot()",
+        "correct": false,
+        "explanation": "A. FAUX – La fonction plot() permet de tracer un nuage de points (scatter plot) entre deux variables quantitatives continues, mais boxplot() produit des boîtes à moustaches pour représenter la distribution d'une variable selon les modalités d'un facteur qualitatif, et non un nuage de points."
+      },
+      {
+        "id": "b",
+        "text": "La fonction lm() donne en sortie les coefficients de la droite de régression",
+        "correct": true,
+        "explanation": "B. VRAI – La fonction lm() (pour linear model) ajuste le modèle linéaire par la méthode des moindres carrés ordinaires et retourne en sortie principale les estimations des coefficients de la droite (intercept et pente)."
+      },
+      {
+        "id": "c",
+        "text": "Pour obtenir des informations supplémentaires telles que la p-value ou le R2, nous utilisons la fonction summary() sur la sortie des coefficients de la droite",
+        "correct": true,
+        "explanation": "C. VRAI – L'application de la fonction summary() à l'objet résultant de lm() fournit le tableau complet des paramètres statistiques : erreurs standards, t-valeurs, p-values, coefficient de détermination R² (multiple et ajusté) et la statistique de Fisher globale."
+      },
+      {
+        "id": "d",
+        "text": "La méthode choisie doit être sélectionnée à l'aide de l'argument method=\"pearson\" ou \"spearman\".",
+        "correct": false,
+        "explanation": "D. FAUX – L'argument method=\"pearson\" ou \"spearman\" s'utilise avec la fonction cor.test() pour estimer un coefficient de corrélation, et non dans la fonction lm() qui applique la méthode des moindres carrés ordinaires."
+      },
+      {
+        "id": "e",
+        "text": "On peut obtenir les valeurs des résidus (distance entre l'ordonnée du point du nuage et celle du point de la droite) en utilisant la fonction abline()",
+        "correct": false,
+        "explanation": "E. FAUX – La fonction abline() sert uniquement à tracer graphiquement une droite sur un plot existant. Pour obtenir les valeurs numériques des résidus, on utilise la fonction residuals() / resid() ou l'attribut $residuals du modèle."
+      }
+    ],
+    "explanation": "Réponse(s) exacte(s) : B, C.\n\nB. VRAI – lm() fournit les coefficients de la droite de régression (ordonnée à l'origine et pente).\nC. VRAI – summary(modele) fournit les statistiques détaillées (p-values des coefficients, R²).\nA. FAUX – plot() trace un nuage de points mais boxplot() trace des boîtes à moustaches.\nD. FAUX – method='pearson' s'utilise dans cor.test() et non dans lm().\nE. FAUX – abline() trace une droite graphique ; pour les résidus on utilise residuals() ou $residuals."
+  },
+  {
+    "id": "ue_bio_r_app_q2",
+    "subjectId": "s10",
+    "chapter": "Fiche Biostat R - Applications",
+    "year": 2026,
+    "difficulty": "Moyen",
+    "tags": [
+      "Biostatistiques",
+      "R",
+      "Tests statistiques",
+      "ANOVA",
+      "Fisher",
+      "Applications"
+    ],
+    "statement": "1.19 Concernant les tests statistiques avec R, quelle(s) est(sont) la (les) proposition(s) exacte(s) ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "nous pouvons effectuer un t-test à l'aide de la fonction mean()",
+        "correct": false,
+        "explanation": "A. FAUX – La fonction mean() calcule simplement la moyenne arithmétique. Pour réaliser un test de Student (t-test), on utilise la fonction t.test()."
+      },
+      {
+        "id": "b",
+        "text": "nous pouvons effectuer un test de Kruskall Wallis à l'aide de la fonction kruskal.test() ou aov()",
+        "correct": false,
+        "explanation": "B. FAUX – Le test non paramétrique de Kruskal-Wallis s'effectue avec la fonction kruskal.test(). La fonction aov() réalise une analyse de variance paramétrique (ANOVA) et non le test de Kruskal-Wallis."
+      },
+      {
+        "id": "c",
+        "text": "nous pouvons effectuer une ANOVA à l'aide de la fonction var.test()",
+        "correct": false,
+        "explanation": "C. FAUX – La fonction var.test() permet de comparer les variances de deux échantillons normaux (test de Fisher-Snedecor d'égalité de deux variances). L'analyse de variance à plusieurs groupes s'effectue avec aov() ou anova(lm())."
+      },
+      {
+        "id": "d",
+        "text": "nous pouvons effectuer un test exact de Fisher à l'aide de la fonction fisher.test()",
+        "correct": true,
+        "explanation": "D. VRAI – La fonction fisher.test() calcule la probabilité exacte selon la loi hypergéométrique pour un tableau de contingence (test exact de Fisher)."
+      },
+      {
+        "id": "e",
+        "text": "en utilisant comme entrée de la fonction summary(), la sortie de la fonction aov(), il est possible d'obtenir le tableau ANOVA avec les valeurs pour la variance intergroupes (ou “entre colonne”) et la variance intragroupes (ou “résiduelle”)",
+        "correct": true,
+        "explanation": "E. VRAI – L'exécution de summary(aov(...)) génère le tableau d'analyse de variance standard avec la décomposition de la somme des carrés, les degrés de liberté, les carrés moyens (variances intergroupe et résiduelle intragroupe), la statistique F et la p-value."
+      }
+    ],
+    "explanation": "Réponse(s) exacte(s) : D, E.\n\nD. VRAI – fisher.test() réalise le test exact de Fisher.\nE. VRAI – summary(aov(...)) produit le tableau complet d'ANOVA (variances intergroupe et intragroupe résiduelle).\nA. FAUX – Le t-test se fait avec t.test() et non mean().\nB. FAUX – aov() fait une ANOVA paramétrique, pas un Kruskal-Wallis.\nC. FAUX – var.test() compare deux variances d'échantillons, alors que l'ANOVA s'effectue avec aov()."
+  },
+  {
+    "id": "ue_bio_r_app_q3",
+    "subjectId": "s10",
+    "chapter": "Fiche Biostat R - Applications",
+    "year": 2026,
+    "difficulty": "Facile",
+    "tags": [
+      "Biostatistiques",
+      "R",
+      "Comparaison de moyennes",
+      "Student",
+      "ANOVA",
+      "Applications"
+    ],
+    "statement": "1.20 Parmi ces fonctions sur R, laquelle(lesquelles) est(sont) utilisée(s) pour les tests de comparaison de moyennes ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "t.test()",
+        "correct": true,
+        "explanation": "A. VRAI – La fonction t.test() est la fonction de référence pour les tests de comparaison de moyennes (test de Student à un échantillon, pour échantillons indépendants ou appariés)."
+      },
+      {
+        "id": "b",
+        "text": "mean()",
+        "correct": false,
+        "explanation": "B. FAUX – mean() est une fonction de statistique descriptive calculant la moyenne d'un vecteur, pas un test d'hypothèse statistique."
+      },
+      {
+        "id": "c",
+        "text": "chisq.test()",
+        "correct": false,
+        "explanation": "C. FAUX – chisq.test() réalise le test du Chi-deux (test d'indépendance ou d'homogénéité de variables qualitatives / proportions), pas un test de moyennes."
+      },
+      {
+        "id": "d",
+        "text": "aov()",
+        "correct": true,
+        "explanation": "D. VRAI – La fonction aov() (analysis of variance) réalise l'ANOVA permettant de comparer simultanément les moyennes de 3 groupes ou plus."
+      },
+      {
+        "id": "e",
+        "text": "prop.test()",
+        "correct": false,
+        "explanation": "E. FAUX – prop.test() est utilisé pour tester l'égalité de proportions (pourcentages), et non de moyennes."
+      }
+    ],
+    "explanation": "Réponse(s) exacte(s) : A, D.\n\nA. VRAI – t.test() compare 1 ou 2 moyennes (test de Student).\nD. VRAI – aov() compare 2 moyennes ou plus (ANOVA).\nB. FAUX – mean() calcule simplement la moyenne descriptive.\nC. FAUX – chisq.test() teste des variables qualitatives (Chi-deux).\nE. FAUX – prop.test() compare des proportions."
+  },
+  {
+    "id": "ue_bio_r_app_q4",
+    "subjectId": "s10",
+    "chapter": "Fiche Biostat R - Applications",
+    "year": 2026,
+    "difficulty": "Moyen",
+    "tags": [
+      "Biostatistiques",
+      "R",
+      "Régression linéaire",
+      "Moindres carrés",
+      "Applications"
+    ],
+    "statement": "QCM 15 : Quelles sont les propositions qui sont vraies à propos de la régression linéaire sur R ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "La fonction lm() donne en sortie les coefficients de la droite de régression.",
+        "correct": true,
+        "explanation": "A. VRAI – La fonction lm() (linear model) ajuste le modèle linéaire par la méthode des moindres carrés ordinaires et renvoie par défaut les estimations des coefficients de la droite (l'ordonnée à l'origine / intercept et la pente)."
+      },
+      {
+        "id": "b",
+        "text": "On peut représenter graphiquement un nuage de points entre deux variables numériques en utilisant la fonction plot() ou boxplot().",
+        "correct": false,
+        "explanation": "B. FAUX – plot() permet bien de tracer un nuage de points entre deux variables quantitatives continues (scatter plot), mais boxplot() produit des boîtes à moustaches (adaptées pour visualiser une variable quantitative selon les modalités d'une variable qualitative, et non pour un nuage de points entre deux variables numériques)."
+      },
+      {
+        "id": "c",
+        "text": "On peut obtenir les valeurs des résidus (distance entre l'ordonnée du point du nuage et celle du point de la droite) en utilisant la fonction abline().",
+        "correct": false,
+        "explanation": "C. FAUX – abline() sert à superposer une droite sur un graphique existant (par exemple abline(mon_modele)). Pour obtenir les résidus du modèle, on utilise la fonction residuals() ou resid(), ou l'élément $residuals de l'objet issu de lm()."
+      },
+      {
+        "id": "d",
+        "text": "La méthode choisie doit être sélectionnée à l'aide de l'argument method=\"pearson\" ou \"spearman\".",
+        "correct": false,
+        "explanation": "D. FAUX – L'argument method=\"pearson\" ou \"spearman\" s'utilise avec la fonction cor.test() pour tester des corrélations, pas avec lm(). La régression linéaire classique sous R repose sur la méthode des moindres carrés ordinaires (OLS)."
+      },
+      {
+        "id": "e",
+        "text": "Pour obtenir des informations supplémentaires telles que la p-value ou le R2, nous utilisons la fonction summary() sur la sortie des coefficients de la droite.",
+        "correct": true,
+        "explanation": "E. VRAI – Appliquer summary() sur l'objet renvoyé par lm() fournit le tableau complet des résultats : résidus, erreurs standards, t-statistiques, p-values associées aux coefficients, coefficient de détermination R2 (multiple et ajusté) ainsi que le test F global."
+      }
+    ],
+    "explanation": "Réponses correctes : A, E.\n\nA. VRAI – lm() ajuste le modèle linéaire et renvoie les coefficients de la droite.\nE. VRAI – summary() appliqué au modèle fournit les p-values, R², erreurs-types et test F.\nB. FAUX – boxplot() trace des boîtes à moustaches, seul plot() trace le nuage de points.\nC. FAUX – abline() trace la droite ; les résidus s'obtiennent avec residuals() ou $residuals.\nD. FAUX – method=\"pearson\" s'utilise avec cor.test() et non avec lm()."
   }
 ];
 
