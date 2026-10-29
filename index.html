@@ -328,7 +328,7 @@
                 icon: '📊',
                 color: 'from-blue-600 to-indigo-600',
                 progress: 0,
-                qcmCount: 77,
+                qcmCount: 83,
                 chapters: [
                     "Fiche intro biostat R",
                     "Fiche n°1 - Tests paramétriques",
@@ -207890,6 +207890,291 @@
     "image": {
       "url": "src/assets/images/ed_bioch_2026_p3_q4_inhibition.png"
     }
+  },
+  {
+    "id": "ue_bio_r_2026_q1",
+    "subjectId": "s10",
+    "chapter": "Fiche intro biostat R",
+    "year": 2026,
+    "difficulty": "Moyen",
+    "tags": [
+      "Biostatistiques",
+      "2026-2027",
+      "Épidémiologie",
+      "Causalité"
+    ],
+    "statement": "QCM 1. Concernant les approches épidémiologiques et les liens de causalités, quelle(s) réponse(s) est/sont correcte(s) ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "L’approche observationnelle permet de conclure de façon quasi certaine à la relation causale entre 2 variables.",
+        "correct": false,
+        "explanation": "A. FAUX – L'approche observationnelle met en évidence des associations statistiques ou corrélations, mais ne permet jamais de conclure avec certitude à un lien de causalité (corrélation ne vaut pas causalité, risque élevé de biais et de facteurs de confusion résiduels)."
+      },
+      {
+        "id": "b",
+        "text": "L’approche observationnelle ne permet pas de conclure de façon quasi certaine à la relation causale entre 2 variables.",
+        "correct": true,
+        "explanation": "B. VRAI – Corrélation ne vaut pas causalité : les études observationnelles sont sujettes aux facteurs de confusion résiduels et aux biais qui empêchent d'affirmer avec certitude une relation causale directe."
+      },
+      {
+        "id": "c",
+        "text": "L’approche expérimentale permet de conclure de façon quasi certaine à la relation entre 2 variables.",
+        "correct": true,
+        "explanation": "C. VRAI – L'approche expérimentale (notamment l'essai contrôlé randomisé) est le gold standard méthodologique pour établir formellement un lien de causalité entre deux variables."
+      },
+      {
+        "id": "d",
+        "text": "L’approche expérimentale ne permet pas de conclure de façon quasi certaine à la relation entre 2 variables.",
+        "correct": false,
+        "explanation": "D. FAUX – L'approche expérimentale permet au contraire d'isoler l'effet du traitement/exposition et d'établir la causalité."
+      },
+      {
+        "id": "e",
+        "text": "L’approche expérimentale nécessite une répartition aléatoire.",
+        "correct": true,
+        "explanation": "E. VRAI – La randomisation (tirage au sort / répartition aléatoire) est le principe clé de l'essai comparatif expérimental, garantissant la comparabilité initiale des groupes sur les facteurs connus et inconnus."
+      }
+    ],
+    "explanation": "Réponse(s) exacte(s) : B, C, E.\n\nB. VRAI – L'approche observationnelle ne permet pas de conclure de façon quasi certaine à la relation causale entre 2 variables (corrélation ne vaut pas causalité, persistance de facteurs de confusion résiduels).\nC. VRAI – L'approche expérimentale permet de conclure de façon quasi certaine à la relation entre 2 variables (c'est le gold standard pour établir la causalité).\nE. VRAI – L'approche expérimentale nécessite une répartition aléatoire (la randomisation est le principe clé de l'essai contrôlé randomisé).\nA & D. FAUX."
+  },
+  {
+    "id": "ue_bio_r_2026_q2",
+    "subjectId": "s10",
+    "chapter": "Fiche intro biostat R",
+    "year": 2026,
+    "difficulty": "Moyen",
+    "tags": [
+      "Biostatistiques",
+      "2026-2027",
+      "Mesures d'association",
+      "Cohorte",
+      "Cas-témoins"
+    ],
+    "statement": "QCM 2. Concernant les mesures d’associations, quelle(s) réponse(s) est/sont correcte(s) ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Dans une étude de cohorte, on étudie des sujets sains séparés dans 2 groupes : les exposés et les non exposés.",
+        "correct": true,
+        "explanation": "A. VRAI – Une étude de cohorte inclut des sujets initialement indemnes de la maladie d'intérêt (sains vis-à-vis de l'événement étudié) et les classe selon leur statut d'exposition (exposés vs non exposés) avant de les suivre."
+      },
+      {
+        "id": "b",
+        "text": "Une étude de cohorte permet de calculer le risque relatif RR.",
+        "correct": true,
+        "explanation": "B. VRAI – Le suivi tempologique prospectif des cohortes permet de mesurer directement l'incidence de la maladie dans chaque groupe, et donc de calculer leur rapport : le Risque Relatif (RR = R1 / R0)."
+      },
+      {
+        "id": "c",
+        "text": "Une étude de cas témoins n’inclut pas de sujet malade contrairement à l’étude de cohorte.",
+        "correct": false,
+        "explanation": "C. FAUX – L'étude cas-témoins part précisément de la sélection d'un groupe de sujets malades (les cas) comparé à un groupe de sujets non malades (les témoins)."
+      },
+      {
+        "id": "d",
+        "text": "Une étude de cas témoins permet de calculer le risque relatif RR.",
+        "correct": false,
+        "explanation": "D. FAUX – Dans une étude cas-témoins, le nombre de cas et de témoins est fixé arbitrairement par l'investigateur, ce qui empêche tout calcul direct de l'incidence. On ne peut donc pas calculer le Risque Relatif (RR), mais uniquement l'Odds Ratio (OR)."
+      },
+      {
+        "id": "e",
+        "text": "Les études de cohorte sont moins longues et coûteuses que les études cas témoins.",
+        "correct": false,
+        "explanation": "E. FAUX – Les études de cohorte sont longitudinales/prospectives avec un suivi prolongé dans le temps, ce qui les rend beaucoup plus longues, complexes et coûteuses que les études cas-témoins (souvent rétrospectives et plus rapides)."
+      }
+    ],
+    "explanation": "Réponse(s) exacte(s) : A, B.\n\nA. VRAI – Dans une étude de cohorte, on étudie des sujets sains séparés dans 2 groupes : les exposés et les non exposés (initialement indemnes de la maladie d'intérêt, classés selon leur statut d'exposition).\nB. VRAI – Une étude de cohorte permet de calculer le risque relatif RR (le suivi permet de calculer des incidences cumulées et donc leur ratio).\nC. FAUX – Une étude de cas témoins part précisément de sujets malades (les cas).\nD. FAUX – On calcule un Odds Ratio (OR) et non un RR car l'incidence n'est pas mesurable.\nE. FAUX – Les cohortes nécessitent un suivi long et sont nettement plus coûteuses."
+  },
+  {
+    "id": "ue_bio_r_2026_q3",
+    "subjectId": "s10",
+    "chapter": "Fiche intro biostat R",
+    "year": 2026,
+    "difficulty": "Moyen",
+    "tags": [
+      "Biostatistiques",
+      "2026-2027",
+      "Étude de cohorte",
+      "Risque Relatif",
+      "Calcul"
+    ],
+    "statement": "QCM 3. On réalise une étude de cohorte : dans cette étude on suit 2 000 sujets pendant 5 ans pour étudier le lien entre une exposition E et le développement d'une maladie M.\n• Sur les 1 000 sujets exposés, 250 ont développé la maladie.\n• Sur les 1 000 sujets non exposés, 125 ont développé la maladie.\nQuelle(s) réponse(s) est/sont correcte(s) ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Le risque chez les personnes exposées est R1 = 0,25.",
+        "correct": true,
+        "explanation": "A. VRAI – R1 = 250 / 1 000 = 0,25 (soit une incidence cumulée de 25% chez les exposés)."
+      },
+      {
+        "id": "b",
+        "text": "Le risque chez les personnes non exposées est R0 = 0,125.",
+        "correct": true,
+        "explanation": "B. VRAI – R0 = 125 / 1 000 = 0,125 (soit une incidence cumulée de 12,5% chez les non-exposés)."
+      },
+      {
+        "id": "c",
+        "text": "Le risque relatif est RR = 2,0.",
+        "correct": true,
+        "explanation": "C. VRAI – RR = R1 / R0 = 0,25 / 0,125 = 2,0."
+      },
+      {
+        "id": "d",
+        "text": "Le risque relatif est RR = 0,5.",
+        "correct": false,
+        "explanation": "D. FAUX – RR = 0,25 / 0,125 = 2,0 (et non 0,5)."
+      },
+      {
+        "id": "e",
+        "text": "Le fait d’être exposé multiplie donc par 2 le risque de contracter la maladie.",
+        "correct": true,
+        "explanation": "E. VRAI – Par définition de l'interprétation épidémiologique d'un risque relatif de 2,0 : l'exposition multiplie exactement par 2 le risque de survenue de la maladie."
+      }
+    ],
+    "explanation": "Réponse(s) exacte(s) : A, B, C, E.\n\nDétail des calculs :\n• Risque chez les exposés : R1 = 250 / 1000 = 0,25 (Item A vrai)\n• Risque chez les non-exposés : R0 = 125 / 1000 = 0,125 (Item B vrai)\n• Risque relatif : RR = R1 / R0 = 0,25 / 0,125 = 2,0 (Item C vrai, Item D faux)\n• Interprétation : RR = 2,0 signifie bien que l'exposition multiplie par 2 le risque de développer la maladie (Item E vrai)."
+  },
+  {
+    "id": "ue_bio_r_2026_q4",
+    "subjectId": "s10",
+    "chapter": "Fiche intro biostat R",
+    "year": 2026,
+    "difficulty": "Moyen",
+    "tags": [
+      "Biostatistiques",
+      "2026-2027",
+      "Cas-témoins",
+      "Odds Ratio",
+      "Calcul"
+    ],
+    "statement": "QCM 4. On a réalisé une étude de cas-témoins pour étudier la relation entre la prise d’un médicament X et la survenue d’une maladie rénale.\n• Sur les 100 sujets malades : 60 ont été exposés au médicament et 40 ne l'ont pas été.\n• Sur les 200 sujets sains : 50 ont été exposés au médicament et 150 ne l'ont pas été.\nQuelle(s) réponse(s) est/sont correcte(s) ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Je peux calculer le risque relatif RR.",
+        "correct": false,
+        "explanation": "A. FAUX – Dans une étude cas-témoins, les effectifs de cas et de témoins sont fixés par le protocole et ne reflètent pas l'incidence de la maladie dans la population générale, ce qui interdit le calcul du Risque Relatif (RR)."
+      },
+      {
+        "id": "b",
+        "text": "Je peux calculer l’Odds ratio OR.",
+        "correct": true,
+        "explanation": "B. VRAI – L'Odds Ratio (rapport de cotes d'exposition entre les cas et les témoins) est la mesure d'association standard et valide dans les études cas-témoins."
+      },
+      {
+        "id": "c",
+        "text": "Le risque relatif est RR = 2,59.",
+        "correct": false,
+        "explanation": "C. FAUX – Le RR ne peut pas être calculé dans un schéma d'étude cas-témoins."
+      },
+      {
+        "id": "d",
+        "text": "L'odds ratio est OR = 2,59.",
+        "correct": false,
+        "explanation": "D. FAUX – Le calcul exact de l'OR donne 4,5 (voir détail du calcul dans l'explication générale)."
+      },
+      {
+        "id": "e",
+        "text": "L'odds ratio est OR = 4,5.",
+        "correct": true,
+        "explanation": "E. VRAI – Tableau de contingence : a = 60 (malades exposés), c = 40 (malades non exposés), b = 50 (témoins exposés), d = 150 (témoins non exposés). OR = (a × d) / (b × c) = (60 × 150) / (50 × 40) = 9 000 / 2 000 = 4,5."
+      }
+    ],
+    "explanation": "Réponse(s) exacte(s) : B, E.\n\nDétail des calculs et justifications :\nDans une étude cas-témoins, les effectifs marginaux de la maladie sont déterminés a priori, ce qui empêche le calcul direct de l'incidence et donc du Risque Relatif (RR). On ne calcule que l'Odds Ratio (OR).\nTableau de contingence 2x2 :\n• Malades exposés (a) = 60\n• Malades non exposés (c) = 40\n• Sains / Témoins exposés (b) = 50\n• Sains / Témoins non exposés (d) = 150\nCalcul du rapport de cotes (Odds Ratio des cas vs témoins) :\nOR = (a * d) / (b * c) = (60 * 150) / (50 * 40) = 9000 / 2000 = 4,5."
+  },
+  {
+    "id": "ue_bio_r_2026_q5",
+    "subjectId": "s10",
+    "chapter": "Fiche intro biostat R",
+    "year": 2026,
+    "difficulty": "Moyen",
+    "tags": [
+      "Biostatistiques",
+      "2026-2027",
+      "Biais de confusion",
+      "Ajustement"
+    ],
+    "statement": "QCM 5. Concernant les biais de confusion, quelle(s) réponse(s) est/sont correcte(s) ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Les biais de confusions peuvent fausser l’estimation de l’association statistique entre une maladie et une exposition.",
+        "correct": true,
+        "explanation": "A. VRAI – Un facteur de confusion peut créer une association artificielle, la masquer, ou en inverser le sens entre une exposition et la maladie."
+      },
+      {
+        "id": "b",
+        "text": "Ils doivent être pris en compte lors d’une analyse multivariée.",
+        "correct": true,
+        "explanation": "B. VRAI – L'un des objectifs fondamentaux de l'analyse multivariée est précisément de contrôler simultanément plusieurs facteurs de confusion par ajustement."
+      },
+      {
+        "id": "c",
+        "text": "La randomisation permet de limiter les biais de confusion.",
+        "correct": true,
+        "explanation": "C. VRAI – Au niveau de la conception d'une étude expérimentale, la randomisation répartit équitablement les facteurs de confusion potentiels (connus comme inconnus) entre les groupes."
+      },
+      {
+        "id": "d",
+        "text": "L’appariement permet de limiter les biais de confusion.",
+        "correct": true,
+        "explanation": "D. VRAI – Lors de la constitution de l'échantillon (notamment dans les études cas-témoins), l'appariement des témoins aux cas sur un facteur (ex: âge, sexe) neutralise son effet confondant."
+      },
+      {
+        "id": "e",
+        "text": "Pour contrôler les biais de confusion on peut utiliser une méthode d’ajustement.",
+        "correct": true,
+        "explanation": "E. VRAI – Lors de la phase d'analyse statistique, on peut contrôler la confusion par stratification (ex: Mantel-Haenszel) ou par modélisation/ajustement multivarié (régression)."
+      }
+    ],
+    "explanation": "Réponse(s) exacte(s) : A, B, C, D, E.\n\nToutes les propositions de ce QCM sont exactes :\n• A. VRAI : les biais de confusion faussent l'estimation de l'association.\n• B. VRAI : pris en compte en analyse multivariée.\n• C. VRAI : la randomisation équilibre les facteurs connus et inconnus.\n• D. VRAI : l'appariement au design neutralise la confusion.\n• E. VRAI : l'ajustement statistique contrôle la confusion à l'analyse."
+  },
+  {
+    "id": "ue_bio_r_2026_q6",
+    "subjectId": "s10",
+    "chapter": "Fiche intro biostat R",
+    "year": 2026,
+    "difficulty": "Moyen",
+    "tags": [
+      "Biostatistiques",
+      "2026-2027",
+      "Analyses multivariées",
+      "Modèles statistiques"
+    ],
+    "statement": "QCM 6. Concernant les analyses multivariées, quelle(s) réponse(s) est/sont correcte(s) ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Les analyses multivariées permettent de prendre en compte les facteurs de confusion.",
+        "correct": true,
+        "explanation": "A. VRAI – L'ajustement multivarié permet d'estimer l'effet propre de la variable d'intérêt en neutralisant les variations des autres covariables/facteurs de confusion."
+      },
+      {
+        "id": "b",
+        "text": "En général, avant de faire une étude multivariée on étudie la relation univariée.",
+        "correct": true,
+        "explanation": "B. VRAI – L'étape univariée préliminaire permet d'explorer les associations une par une et de présélectionner les variables candidates (souvent avec un seuil p < 0,10 ou 0,20) avant de construire le modèle multivarié."
+      },
+      {
+        "id": "c",
+        "text": "Quand Y est quantitatif on utilise la régression logistique dont la mesure d’association est β.",
+        "correct": false,
+        "explanation": "C. FAUX – Lorsque la variable à expliquer Y est quantitative continue, on utilise le modèle de régression linéaire (la régression logistique est réservée aux variables qualitatives/binaires)."
+      },
+      {
+        "id": "d",
+        "text": "Quand Y est binaire on utilise la régression logistique dont la mesure d’association est β.",
+        "correct": false,
+        "explanation": "D. FAUX – Pour un Y binaire, on utilise bien la régression logistique, mais sa mesure d'association usuelle est l'Odds Ratio (OR), obtenu par exponentiation du coefficient de régression : OR = exp(β). β représente la variation du logit (log-odds)."
+      },
+      {
+        "id": "e",
+        "text": "Quand Y est un événement censuré, on utilise le modèle de Cox dont la mesure d’association est le Hazard Ratio.",
+        "correct": true,
+        "explanation": "E. VRAI – Pour des données de survie / temps jusqu'à événement avec censures, le modèle à risques proportionnels de Cox est la référence et fournit le Hazard Ratio (HR ou rapport de risque instantané)."
+      }
+    ],
+    "explanation": "Réponse(s) exacte(s) : A, B, E.\n\nA. VRAI – Les analyses multivariées permettent de prendre en compte les facteurs de confusion (par ajustement simultané sur plusieurs covariables).\nB. VRAI – En général, avant de faire une étude multivariée on étudie la relation univariée (étape de tri préliminaire des variables candidates).\nE. VRAI – Quand Y est un événement censuré, on utilise le modèle de Cox dont la mesure d’association est le Hazard Ratio (analyse de survie avec données censurées).\nC. FAUX – Pour Y quantitatif, on utilise la régression linéaire.\nD. FAUX – Pour Y binaire, la régression logistique donne comme mesure d'association rapportée l'Odds Ratio (exp(β)) et non directement β."
   }
 ];
 
