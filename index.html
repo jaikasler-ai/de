@@ -328,7 +328,7 @@
                 icon: '📊',
                 color: 'from-blue-600 to-indigo-600',
                 progress: 0,
-                qcmCount: 77,
+                qcmCount: 83,
                 chapters: [
                     "Fiche intro biostat R",
                     "Fiche n°1 - Tests paramétriques",
@@ -207890,6 +207890,294 @@
     "image": {
       "url": "src/assets/images/ed_bioch_2026_p3_q4_inhibition.png"
     }
+  },
+  {
+    "id": "ue_bio_r_2026_q1",
+    "subjectId": "s10",
+    "chapter": "Fiche intro biostat R",
+    "year": 2026,
+    "difficulty": "Moyen",
+    "tags": [
+      "Biostatistiques",
+      "R",
+      "Matrices",
+      "Indexation",
+      "2026-2027"
+    ],
+    "statement": "QCM 1) Quelles affirmations sont correctes concernant l'indexation et la manipulation des matrices dans R ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Pour accéder à un élément d'une matrice, l'ordre des indices entre crochets est toujours [colonne, ligne].",
+        "correct": false,
+        "explanation": "A. FAUX – Dans R, l'ordre d'indexation conventionnel entre crochets est toujours [ligne, colonne]."
+      },
+      {
+        "id": "b",
+        "text": "L'expression mat[ 1, ] permet d'extraire la première ligne entière de la matrice ainsi que toutes ses colonnes.",
+        "correct": true,
+        "explanation": "B. VRAI – Laisser l'espace vide après la virgule (mat[1, ]) indique à R de sélectionner l'intégralité des colonnes de la première ligne."
+      },
+      {
+        "id": "c",
+        "text": "Si une matrice possède des noms de lignes et de colonnes, il est impossible de les utiliser pour l'indexation (seuls les indices numériques fonctionnent).",
+        "correct": false,
+        "explanation": "C. FAUX – Si des noms ont été assignés via rownames() ou colnames(), ils peuvent être directement utilisés entre guillemets pour l'indexation (ex: mat[\"L1\", \"C2\"])."
+      },
+      {
+        "id": "d",
+        "text": "La fonction matrix(data = 1:8, nrow = 4, ncol = 2) permet de créer une matrice de 4 lignes et 2 colonnes.",
+        "correct": true,
+        "explanation": "D. VRAI – Les arguments nrow = 4 et ncol = 2 distribuent correctement les 8 valeurs du vecteur 1:8 en 4 lignes et 2 colonnes."
+      },
+      {
+        "id": "e",
+        "text": "Les matrices sous R peuvent stocker simultanément des données numériques et des chaînes de caractères dans la même structure.",
+        "correct": false,
+        "explanation": "E. FAUX – Une matrice sous R est une structure atomique obligatoirement homogène. Si on mélange des nombres et des chaînes de caractères, R force une conversion automatique (coercion) de tous les éléments en chaînes de caractères."
+      }
+    ],
+    "explanation": "Réponse(s) exacte(s) : B, D.\n\nB. VRAI – L'expression mat[1, ] extrait la première ligne et toutes les colonnes.\nD. VRAI – matrix(data = 1:8, nrow = 4, ncol = 2) crée une matrice à 4 lignes et 2 colonnes.\nA. FAUX – L'ordre est toujours [ligne, colonne].\nC. FAUX – Les noms de lignes et colonnes peuvent servir à l'indexation.\nE. FAUX – Les matrices sont strictement homogènes (coercion en caractères en cas de mélange)."
+  },
+  {
+    "id": "ue_bio_r_2026_q2",
+    "subjectId": "s10",
+    "chapter": "Fiche intro biostat R",
+    "year": 2026,
+    "difficulty": "Moyen",
+    "tags": [
+      "Biostatistiques",
+      "R",
+      "Vecteurs",
+      "Recyclage",
+      "2026-2027"
+    ],
+    "statement": "QCM 2) Quelles affirmations sont correctes à propos du recyclage des vecteurs et des opérations mathématiques dans R ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Lorsqu'on applique une fonction mathématique ou une opération à un vecteur, l'opération est réalisée élément par élément.",
+        "correct": true,
+        "explanation": "A. VRAI – R fonctionne selon le principe de vectorisation : les opérations arithmétiques standard s'exécutent terme à terme (élément par élément)."
+      },
+      {
+        "id": "b",
+        "text": "Si deux vecteurs de longueurs différentes sont combinés lors d'une opération, le vecteur le plus court est automatiquement \"recyclé\" pour s'ajuster à la longueur du plus long.",
+        "correct": true,
+        "explanation": "B. VRAI – C'est la règle de recyclage (recycling rule) de R : les éléments du vecteur court sont réutilisés en boucle pour correspondre à la taille du plus long."
+      },
+      {
+        "id": "c",
+        "text": "Un nombre isolé (comme note <- 15) est considéré par R comme un vecteur de longueur 1.",
+        "correct": true,
+        "explanation": "C. VRAI – Dans R, il n'existe pas de type scalaire pur ; toute valeur isolée est représentée sous la forme d'un vecteur atomique de longueur 1."
+      },
+      {
+        "id": "d",
+        "text": "Le résultat de l'opération c(0, 2) ajoutée à un vecteur imc de 6 éléments va alterner l'ajout de 0 (sur les positions impaires) et de 2 (sur les positions paires).",
+        "correct": true,
+        "explanation": "D. VRAI – Le vecteur c(0, 2) de longueur 2 est recyclé 3 fois pour former (0, 2, 0, 2, 0, 2), ajoutant ainsi 0 aux positions impaires (1, 3, 5) et 2 aux positions paires (2, 4, 6)."
+      },
+      {
+        "id": "e",
+        "text": "Il est interdit d'utiliser un vecteur pour faire des calculs de moyenne ou de somme.",
+        "correct": false,
+        "explanation": "E. FAUX – Les fonctions statistiques de base telles que mean() et sum() prennent directement et préférentiellement des vecteurs numériques en argument."
+      }
+    ],
+    "explanation": "Réponse(s) exacte(s) : A, B, C, D.\n\nA. VRAI – Vectorisation : calcul élément par élément.\nB. VRAI – Règle du recyclage des vecteurs courts.\nC. VRAI – Une valeur isolée est un vecteur de longueur 1.\nD. VRAI – Le motif c(0, 2) est répété 3 fois sur un vecteur de longueur 6.\nE. FAUX – mean() et sum() s'appliquent directement aux vecteurs."
+  },
+  {
+    "id": "ue_bio_r_2026_q3",
+    "subjectId": "s10",
+    "chapter": "Fiche intro biostat R",
+    "year": 2026,
+    "difficulty": "Moyen",
+    "tags": [
+      "Biostatistiques",
+      "R",
+      "Dataframe",
+      "Extraction",
+      "2026-2027"
+    ],
+    "statement": "QCM 3) Quelles affirmations sont correctes concernant les Dataframes et l'extraction de données ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Chaque colonne d'un dataframe correspond à un vecteur et doit contenir obligatoirement le même type de données (par exemple, que du texte ou que du numérique).",
+        "correct": true,
+        "explanation": "A. VRAI – Un dataframe est une liste de vecteurs de même longueur ; chaque vecteur colonne est donc nécessairement homogène en type."
+      },
+      {
+        "id": "b",
+        "text": "Le symbole $ permet d'extraire une colonne spécifique d'un dataframe en l'appelant par son nom (par exemple, dat$patient).",
+        "correct": true,
+        "explanation": "B. VRAI – L'opérateur $ permet d'accéder directement à une variable/colonne par son nom et renvoie les données sous forme de vecteur."
+      },
+      {
+        "id": "c",
+        "text": "La commande d[, \"Sex\"] est strictement équivalente à l'utilisation de d$Sex pour un dataframe d.",
+        "correct": true,
+        "explanation": "C. VRAI – Dans un dataframe standard de base R, l'indexation d[, \"Sex\"] applique par défaut l'argument drop = TRUE et renvoie le même vecteur que d$Sex."
+      },
+      {
+        "id": "d",
+        "text": "Un dataframe ne peut contenir que des données numériques, contrairement au format matrice qui accepte le texte.",
+        "correct": false,
+        "explanation": "D. FAUX – C'est l'inverse : le dataframe est une structure hétérogène capable d'associer des colonnes de types différents (numériques, facteurs, caractères, logiques), alors que la matrice est obligatoirement homogène."
+      },
+      {
+        "id": "e",
+        "text": "La fonction data.frame() permet de créer un tableau de données hétérogènes en combinant plusieurs vecteurs en arguments.",
+        "correct": true,
+        "explanation": "E. VRAI – La fonction data.frame(col1, col2, ...) assemble plusieurs vecteurs de même longueur pour former un tableau bidimensionnel."
+      }
+    ],
+    "explanation": "Réponse(s) exacte(s) : A, B, C, E.\n\nA. VRAI – Chaque colonne est un vecteur homogène.\nB. VRAI – L'opérateur $ extrait une colonne sous forme de vecteur.\nC. VRAI – d[, \"Sex\"] équivaut à d$Sex avec drop = TRUE par défaut.\nD. FAUX – Le dataframe gère les données hétérogènes entre colonnes.\nE. VRAI – data.frame() assemble des vecteurs en tableau."
+  },
+  {
+    "id": "ue_bio_r_2026_q4",
+    "subjectId": "s10",
+    "chapter": "Fiche intro biostat R",
+    "year": 2026,
+    "difficulty": "Moyen",
+    "tags": [
+      "Biostatistiques",
+      "R",
+      "Dataframe",
+      "Matrices",
+      "2026-2027"
+    ],
+    "statement": "QCM 4) Quelles affirmations sont correctes concernant les Dataframes et les Matrices dans R ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Les matrices sous R permettent de stocker des données sur deux dimensions (lignes et colonnes).",
+        "correct": true,
+        "explanation": "A. VRAI – Les matrices sont des structures bidimensionnelles définies par une dimension dim (nombre de lignes et de colonnes)."
+      },
+      {
+        "id": "b",
+        "text": "Contrairement aux matrices, les dataframes permettent de mélanger des types de données hétérogènes (numériques, chaînes de caractères...).",
+        "correct": true,
+        "explanation": "B. VRAI – Un dataframe peut contenir des colonnes numériques, des colonnes de texte et des booléens, alors qu'une matrice impose un type unique à l'ensemble de ses éléments."
+      },
+      {
+        "id": "c",
+        "text": "Dans un dataframe, chaque colonne peut contenir des types de données complètement différents au sein d'une même colonne.",
+        "correct": false,
+        "explanation": "C. FAUX – L'hétérogénéité d'un dataframe est inter-colonnes. Chaque colonne prise individuellement est un vecteur atomique et doit donc être strictement homogène."
+      },
+      {
+        "id": "d",
+        "text": "Le symbole $ permet d'extraire une colonne spécifique d'un dataframe (ce qui n'est pas le cas pour une matrice).",
+        "correct": true,
+        "explanation": "D. VRAI – L'opérateur $ est conçu pour les listes et dataframes ; son utilisation sur une matrice atomique classique renvoie une erreur (erreur : $ operator is invalid for atomic vectors)."
+      },
+      {
+        "id": "e",
+        "text": "Les fonctions rownames() et colnames() ne peuvent être utilisées que sur les dataframes et jamais sur les matrices.",
+        "correct": false,
+        "explanation": "E. FAUX – Les fonctions rownames() et colnames() s'appliquent indifféremment et couramment aux matrices comme aux dataframes."
+      }
+    ],
+    "explanation": "Réponse(s) exacte(s) : A, B, D.\n\nA. VRAI – Structure bidimensionnelle (lignes, colonnes).\nB. VRAI – Hétérogénéité des types entre colonnes du dataframe.\nC. FAUX – Une colonne donnée reste un vecteur strictement homogène.\nD. VRAI – L'opérateur $ ne fonctionne pas sur les matrices atomiques standard.\nE. FAUX – rownames() et colnames() fonctionnent sur les deux structures."
+  },
+  {
+    "id": "ue_bio_r_2026_q5",
+    "subjectId": "s10",
+    "chapter": "Fiche intro biostat R",
+    "year": 2026,
+    "difficulty": "Moyen",
+    "tags": [
+      "Biostatistiques",
+      "R",
+      "Statistiques descriptives",
+      "Fonctions",
+      "2026-2027"
+    ],
+    "statement": "QCM 5) Quelles affirmations sont correctes concernant les fonctions et les statistiques descriptives dans R ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "La fonction summary() appliquée à un vecteur numérique affiche par défaut la moyenne, la variance, la médiane ainsi que les quartiles.",
+        "correct": false,
+        "explanation": "A. FAUX – La fonction summary() affiche le minimum, le 1er quartile, la médiane, la moyenne, le 3e quartile et le maximum, mais ne calcule jamais la variance (qui nécessite la fonction var())."
+      },
+      {
+        "id": "b",
+        "text": "La fonction table() est utilisée pour construire un tableau de contingence croisant les catégories de variables.",
+        "correct": true,
+        "explanation": "B. VRAI – La fonction table(var1, var2) calcule les effectifs conjoints et produit le tableau de contingence croisé."
+      },
+      {
+        "id": "c",
+        "text": "La fonction str() permet d'obtenir un aperçu de la structure d'un objet (type d'objet, typologie des variables).",
+        "correct": true,
+        "explanation": "C. VRAI – La fonction str() (pour structure) fournit un résumé concis de la classe de l'objet, du nombre d'observations et du type de chaque variable."
+      },
+      {
+        "id": "d",
+        "text": "Pour obtenir l'aide d'une fonction, on peut utiliser la commande help(sujet) ou l'opérateur ?sujet.",
+        "correct": true,
+        "explanation": "D. VRAI – help(nom_fonction) et ?nom_fonction sont deux syntaxes strictement équivalentes pour afficher la documentation d'aide sous R."
+      },
+      {
+        "id": "e",
+        "text": "La fonction prop.table() permet de transformer un tableau de contingence en effectifs pour obtenir des proportions.",
+        "correct": true,
+        "explanation": "E. VRAI – prop.table() prend en argument un tableau d'effectifs généré par table() et convertit les fréquences absolues en fréquences relatives (proportions)."
+      }
+    ],
+    "explanation": "Réponse(s) exacte(s) : B, C, D, E.\n\nB. VRAI – table() produit les tableaux de contingence.\nC. VRAI – str() affiche la structure interne de l'objet.\nD. VRAI – help(x) et ?x ouvrent la page d'aide.\nE. VRAI – prop.table() calcule les proportions à partir des effectifs.\nA. FAUX – summary() ne donne pas la variance."
+  },
+  {
+    "id": "ue_bio_r_2026_q6",
+    "subjectId": "s10",
+    "chapter": "Fiche intro biostat R",
+    "year": 2026,
+    "difficulty": "Moyen",
+    "tags": [
+      "Biostatistiques",
+      "R",
+      "Logique",
+      "Indexation",
+      "2026-2027"
+    ],
+    "statement": "QCM 6) Quelles affirmations sont correctes concernant les expressions logiques et l'indexation dans R ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "L'opérateur = est utilisé pour l'affectation d'une valeur à une variable, de la même manière que <-.",
+        "correct": true,
+        "explanation": "A. VRAI – Bien que la flèche <- soit la convention d'assignation recommandée dans R, le symbole = est également un opérateur d'assignation valide au niveau supérieur."
+      },
+      {
+        "id": "b",
+        "text": "La fonction which() permet de retourner les positions (indices) des éléments d'un vecteur logique qui satisfont une condition (valeurs VRAI).",
+        "correct": true,
+        "explanation": "B. VRAI – which(condition) extrait les indices entiers des éléments pour lesquels la condition booléenne est TRUE."
+      },
+      {
+        "id": "c",
+        "text": "L'opérateur & correspond au \"AND\" logique et l'opérateur | correspond au \"OR\" logique.",
+        "correct": true,
+        "explanation": "C. VRAI – En R, & et | sont les opérateurs logiques élément par élément pour le ET et le OU vectoriels."
+      },
+      {
+        "id": "d",
+        "text": "L'expression 4 != 5 évalue si 4 est différent de 5 et renvoie TRUE.",
+        "correct": true,
+        "explanation": "D. VRAI – L'opérateur != teste la non-égalité : 4 étant différent de 5, l'expression retourne la valeur logique TRUE."
+      },
+      {
+        "id": "e",
+        "text": "Les vecteurs d'index logiques ne peuvent pas être utilisés pour filtrer ou sélectionner des lignes dans un dataframe comme mtcars.",
+        "correct": false,
+        "explanation": "E. FAUX – L'indexation par vecteur booléen est l'une des techniques de filtrage les plus courantes et puissantes sous R (ex: mtcars[mtcars$mpg > 20, ])."
+      }
+    ],
+    "explanation": "Réponse(s) exacte(s) : A, B, C, D.\n\nA. VRAI – = permet l'affectation tout comme <-.\nB. VRAI – which() retourne les indices des éléments vrais.\nC. VRAI – & = AND logique, | = OR logique.\nD. VRAI – 4 != 5 renvoie TRUE.\nE. FAUX – L'indexation logique est couramment utilisée pour filtrer des dataframes."
   }
 ];
 
