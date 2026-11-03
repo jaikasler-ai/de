@@ -218700,10 +218700,7 @@
                 finalLimit = Math.max(1, Math.min(finalLimit, pool.length));
                 const slicedPool = pool.slice(0, finalLimit);
 
-                const randomizedPool = slicedPool.map(q => ({
-                    ...q,
-                    answers: [...q.answers].sort(() => Math.random() - 0.5)
-                }));
+                const randomizedPool = slicedPool.map(prepareQuestionForQuiz)
                 setQuizQuestions(randomizedPool);
                 setCurrentQuizIndex(0);
                 setQuizScore(0);
@@ -218714,6 +218711,28 @@
                 setUserAnswersHistory([]);
                 setValidatedQuestions({});
                 setActiveQuizMode('ancrage');
+            };
+
+            // Normalise les imports historiques avant leur entrée dans le moteur de série.
+            // Certains imports utilisaient `options` au lieu de `answers`, ce qui faisait
+            // planter le lancement sur [...q.answers].
+            const prepareQuestionForQuiz = (question) => {
+                const rawAnswers = Array.isArray(question?.answers)
+                    ? question.answers
+                    : (Array.isArray(question?.options) ? question.options : []);
+                const answers = rawAnswers.map((answer, index) => {
+                    if (typeof answer === 'string') {
+                        return { id: String.fromCharCode(97 + index), text: answer, correct: false, explanation: '' };
+                    }
+                    return {
+                        ...answer,
+                        id: answer?.id || String.fromCharCode(97 + index),
+                        text: answer?.text ?? answer?.label ?? '',
+                        correct: Boolean(answer?.correct),
+                        explanation: answer?.explanation || ''
+                    };
+                });
+                return { ...question, answers: answers.sort(() => Math.random() - 0.5) };
             };
 
             const openUEConfig = (subject, chapter = null, difficulty = 'all') => {
@@ -219002,10 +219021,7 @@
 
                 pickedPool = orderedPicked;
 
-                const randomizedPool = pickedPool.map(q => ({
-                    ...q,
-                    answers: [...q.answers].sort(() => Math.random() - 0.5)
-                }));
+                const randomizedPool = pickedPool.map(prepareQuestionForQuiz);
 
                 setQuizQuestions(randomizedPool);
                 setCurrentQuizIndex(0);
@@ -219058,10 +219074,7 @@
                 finalLimit = Math.max(1, Math.min(finalLimit, pool.length));
                 const slicedPool = pool.slice(0, finalLimit);
 
-                const randomizedPool = slicedPool.map(q => ({
-                    ...q,
-                    answers: [...q.answers].sort(() => Math.random() - 0.5)
-                }));
+                const randomizedPool = slicedPool.map(prepareQuestionForQuiz)
                 setQuizQuestions(randomizedPool);
                 setCurrentQuizIndex(0);
                 setQuizScore(0);
@@ -221469,7 +221482,7 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                                             </span>
                                                             <button 
                                                                 onClick={() => {
-                                                                    const testQ = { ...q, _ancrageEntryId: item.entryId, answers: [...q.answers].sort(() => Math.random() - 0.5) };
+                                                                    const testQ = { ...prepareQuestionForQuiz(q), _ancrageEntryId: item.entryId };
                                                                     setQuizQuestions([testQ]);
                                                                     setCurrentQuizIndex(0); setQuizScore(0); setSelectedAnswers([]); setIsSubmitted(false); setQuizFinished(false); setQuizTimerSeconds(0); setUserAnswersHistory([]); setActiveQuizMode('ancrage');
                                                                 }}
@@ -221628,7 +221641,7 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
 
                                                                     <button
                                                                         onClick={() => {
-                                                                            const testQ = { ...q, _ancrageEntryId: item.entryId, answers: [...q.answers].sort(() => Math.random() - 0.5) };
+                                                                            const testQ = { ...prepareQuestionForQuiz(q), _ancrageEntryId: item.entryId };
                                                                             setQuizQuestions([testQ]);
                                                                             setCurrentQuizIndex(0);
                                                                             setQuizScore(0);
