@@ -224712,7 +224712,19 @@
   }
 ];
 
-        /* __SP_STRICT_REBUILT__ */ const getItemExplanation = (q, ans, idx) => {
+                /* __SP_EXP_CLEAN__ */
+        const cleanItemExpLabel = (raw) => {
+            // La pilule de la carte fournit déjà le libellé VRAI/FAUX en couleur :
+            // on retire tout libellé (« Vrai. », « FAUX – », « VRAIE — »…) ou lettre
+            // d'option (« A. ») redondant en tête de texte. « E. coli » est préservé.
+            const lbl = /^(?:\s*(?:VRAIE?S?|FAUSSES?|FAUX)(?![A-Za-zÀ-ÿ])\s*[.:—–\-()]+[ \t]*)+/i;
+            const lettr = /^[A-Ea-e][.:)\-–—][ \t]*(?=(?:vraie?s?|fausse?s?|faux)\b)/i;
+            let out = raw.replace(lbl, '').trim();
+            out = out.replace(lettr, '').trim();
+            return out.replace(lbl, '').trim();
+        };
+
+/* __SP_STRICT_REBUILT__ */ const getItemExplanation = (q, ans, idx) => {
             if (!ans) return "";
             let raw = "";
             let origIdx = idx;
@@ -226481,11 +226493,9 @@ const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
                                                                     }
 
                                                                     const itemExpRaw = getItemExplanation(subQ, ans, aIdx);
-                                                                    // Les séries strictement reconstruites portent leur propre libellé (VRAIE/FAUSSE
-                                                                    // ou VRAI/FAUX) : on le retire, la pilule de la carte fournit le sien en couleur.
-                                                                    const itemExp = (typeof ans.factuallyCorrect === 'boolean')
-                                                                        ? itemExpRaw.replace(/^(?:[ \t]*(?:VRAIE?|FAUSSE?|FAUX)[.:—–\-]*[ \t]*)+/i, '')
-                                                                        : itemExpRaw;
+                                                                    // 1 affirmation = 1 explication : la pilule de la carte fournit le libellé
+                                                                    // VRAI/FAUX en couleur ; on retire tout libellé/lettre redondant en tête.
+                                                                    const itemExp = cleanItemExpLabel(itemExpRaw);
                                                                     let cardWrapperClass = '';
                                                                     let textClass = '';
                                                                     let checkboxIcon = null;
@@ -226895,11 +226905,9 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
 
                                                 // VALIDATED STATE : EXACT LAYOUT AS IN REFERENCE SCREENSHOT
                                                 const itemExpRaw = getItemExplanation(currentQ, ans, idx);
-                                                // Les séries strictement reconstruites portent leur propre libellé (VRAIE/FAUSSE
-                                                // ou VRAI/FAUX) : on le retire, la pilule de la carte fournit le sien en couleur.
-                                                const itemExp = (typeof ans.factuallyCorrect === 'boolean')
-                                                    ? itemExpRaw.replace(/^(?:[ \t]*(?:VRAIE?|FAUSSE?|FAUX)[.:—–\-]*[ \t]*)+/i, '')
-                                                    : itemExpRaw;
+                                                // 1 affirmation = 1 explication : la pilule de la carte fournit le libellé
+                                                // VRAI/FAUX en couleur ; on retire tout libellé/lettre redondant en tête.
+                                                const itemExp = cleanItemExpLabel(itemExpRaw);
 
                                                 let cardWrapperClass = '';
                                                 let textClass = '';
@@ -227651,11 +227659,9 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                                             const isCorrectAns = Boolean(ans.correct);
                                                             const isReverseQ = /fausse/i.test(String(q.statement || q.subStatement || '').toLowerCase());
                                                             const itemExpRaw = getItemExplanation(q, ans, aIdx);
-                                                            // Les séries strictement reconstruites portent leur propre libellé (VRAIE/FAUSSE
-                                                            // ou VRAI/FAUX) : on le retire, la pilule de la carte fournit le sien en couleur.
-                                                            const itemExp = (typeof ans.factuallyCorrect === 'boolean')
-                                                                ? itemExpRaw.replace(/^(?:[ \t]*(?:VRAIE?|FAUSSE?|FAUX)[.:—–\-]*[ \t]*)+/i, '')
-                                                                : itemExpRaw;
+                                                            // 1 affirmation = 1 explication : la pilule de la carte fournit le libellé
+                                                            // VRAI/FAUX en couleur ; on retire tout libellé/lettre redondant en tête.
+                                                            const itemExp = cleanItemExpLabel(itemExpRaw);
 
                                                             let cardWrapperClass = '';
                                                             let textClass = '';
