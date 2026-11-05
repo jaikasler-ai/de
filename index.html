@@ -225857,13 +225857,13 @@ const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
 
                     // Barème officiel PASS / LAS :
                     // 0 erreur = 1.0 pt
-                    // 1 erreur = -0.5 pt
+                    // 1 erreur = 0.5 pt
                     // >= 2 erreurs = 0.0 pt
                     let questionPoints = 0.0;
                     if (errorsCount === 0) {
                         questionPoints = 1.0;
                     } else if (errorsCount === 1) {
-                        questionPoints = -0.5;
+                        questionPoints = 0.5;
                     } else {
                         questionPoints = 0.0;
                     }
@@ -226012,7 +226012,7 @@ const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
                 userAnswersHistory.forEach(h => {
                     const pts = h.points ?? 0;
                     if (pts === 1.0) count1Pt++;
-                    else if (pts === -0.5) countHalfPt++;
+                    else if (pts === 0.5) countHalfPt++;
                     else count0Pt++;
                 });
 
@@ -226038,7 +226038,7 @@ const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
                     ficheMap[chap].totalQ += 1;
                     ficheMap[chap].totalPts += pts;
                     if (pts === 1.0) ficheMap[chap].count1 += 1;
-                    else if (pts === -0.5) ficheMap[chap].countHalf += 1;
+                    else if (pts === 0.5) ficheMap[chap].countHalf += 1;
                     else ficheMap[chap].count0 += 1;
                 });
                 const ficheList = Object.values(ficheMap);
@@ -226361,7 +226361,7 @@ const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
                                                         if ((ans.correct && !isChecked) || (!ans.correct && isChecked)) errs++;
                                                     });
                                                     dpTotalErrs += errs;
-                                                    dpTotalPts += (errs === 0 ? 1.0 : (errs === 1 ? -0.5 : 0.0));
+                                                    dpTotalPts += (errs === 0 ? 1.0 : (errs === 1 ? 0.5 : 0.0));
                                                 });
                                                 const maxPts = dpIndices.length;
 
@@ -226400,7 +226400,7 @@ const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
                                                         const isChecked = subSelected.includes(aIdx);
                                                         if ((ans.correct && !isChecked) || (!ans.correct && isChecked)) subErrors++;
                                                     });
-                                                    const subPoints = subErrors === 0 ? 1.0 : (subErrors === 1 ? -0.5 : 0.0);
+                                                    const subPoints = subErrors === 0 ? 1.0 : (subErrors === 1 ? 0.5 : 0.0);
 
                                                     return (
                                                         <div key={subQ.id || qIdx} className="bg-slate-900/70 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-6 shadow-2xl">
@@ -226432,10 +226432,10 @@ const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
                                                                     {isSubVal && (
                                                                         <span className={`px-3 py-1 rounded-xl text-xs font-black border ${
                                                                             subPoints === 1.0 ? 'bg-emerald-950 text-emerald-300 border-emerald-500/60' :
-                                                                            subPoints === -0.5 ? 'bg-amber-950 text-amber-300 border-amber-500/60' :
+                                                                            subPoints === 0.5 ? 'bg-amber-950 text-amber-300 border-amber-500/60' :
                                                                             'bg-red-950 text-red-300 border-red-500/60'
                                                                         }`}>
-                                                                            {subPoints === 1.0 ? '1,0 / 1 pt (Sans faute)' : subPoints === -0.5 ? '-0,5 / 1 pt (1 erreur)' : '0,0 / 1 pt (≥ 2 erreurs)'}
+                                                                            {subPoints === 1.0 ? '1,0 / 1 pt (Sans faute)' : subPoints === 0.5 ? '0,5 / 1 pt (1 erreur)' : '0,0 / 1 pt (≥ 2 erreurs)'}
                                                                         </span>
                                                                     )}
                                                                 </div>
@@ -226448,7 +226448,7 @@ const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
                                                                 </h3>
                                                                 <p className="text-xs text-slate-400 italic">
                                                                     {isExamMode
-                                                                        ? "Cochez la ou les proposition(s) vraie(s). Barème officiel : 0 err = 1 pt • 1 err = -0,5 pt • ≥2 err = 0 pt."
+                                                                        ? "Cochez la ou les proposition(s) vraie(s). Barème officiel : 0 err = 1 pt • 1 err = 0,5 pt • ≥2 err = 0 pt."
                                                                         : isSubVal
                                                                             ? "Correction détaillée de cette question affichée ci-dessous :"
                                                                             : "Cochez la ou les proposition(s) vraie(s) pour cette question."}
@@ -226859,10 +226859,10 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                             <h1 className="text-xl md:text-2xl font-bold text-white whitespace-pre-line leading-relaxed">{currentQ.statement}</h1>
                                             <p className="text-xs text-slate-400 italic">
                                                 {isExamMode 
-                                                    ? "Cochez la ou les proposition(s) vraie(s). Barème officiel : Sans faute = 1 pt • 1 erreur = -0,5 pt • ≥ 2 erreurs = 0 pt. La correction détaillée s'affiche à la fin de l'épreuve."
+                                                    ? "Cochez la ou les proposition(s) vraie(s). Barème officiel : Sans faute = 1 pt • 1 erreur = 0,5 pt • ≥ 2 erreurs = 0 pt. La correction détaillée s'affiche à la fin de l'épreuve."
                                                     : isValidated 
                                                         ? "Correction détaillée du QCM affichée ci-dessous. Consultez les explications item par item."
-                                                        : "Cochez la ou les proposition(s) vraie(s). Barème officiel : Sans faute = 1 pt • 1 erreur = -0,5 pt • ≥ 2 erreurs = 0 pt. Cliquez sur « Valider ma réponse » pour afficher la correction immédiate."}
+                                                        : "Cochez la ou les proposition(s) vraie(s). Barème officiel : Sans faute = 1 pt • 1 erreur = 0,5 pt • ≥ 2 erreurs = 0 pt. Cliquez sur « Valider ma réponse » pour afficher la correction immédiate."}
                                             </p>
                                         </div>
 
@@ -227119,7 +227119,7 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                                 const isChecked = sel.includes(aIdx);
                                                 if ((ans.correct && !isChecked) || (!ans.correct && isChecked)) curErrors++;
                                             });
-                                            const qPoints = curErrors === 0 ? 1.0 : (curErrors === 1 ? -0.5 : 0.0);
+                                            const qPoints = curErrors === 0 ? 1.0 : (curErrors === 1 ? 0.5 : 0.0);
                                             const isGameOver = activeQuizMode === 'crashtest' && remainingHearts <= 0;
 
                                             return (
@@ -227145,7 +227145,7 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                                                             : `${curErrors} erreurs commises sur ce QCM.`}
                                                                 </div>
                                                                 <div className="text-xs opacity-80 mt-0.5">
-                                                                    Barème officiel PASS : {qPoints === 1 ? '+1,0 pt' : qPoints === -0.5 ? '-0,5 pt' : '+0,0 pt'}
+                                                                    Barème officiel PASS : {qPoints === 1 ? '+1,0 pt' : qPoints === 0.5 ? '0,5 pt' : '+0,0 pt'}
                                                                     {activeQuizMode === 'crashtest' && (
                                                                         curErrors === 0 
                                                                             ? ' • ❤️ Aucun cœur perdu' 
@@ -227156,7 +227156,7 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                                         </div>
 
                                                         <div className="text-right font-black text-lg">
-                                                            {qPoints === 1 ? '1,0 / 1 pt' : qPoints === -0.5 ? '-0,5 / 1 pt' : '0,0 / 1 pt'}
+                                                            {qPoints === 1 ? '1,0 / 1 pt' : qPoints === 0.5 ? '0,5 / 1 pt' : '0,0 / 1 pt'}
                                                         </div>
                                                     </div>
 
@@ -227457,7 +227457,7 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                             <div className="bg-amber-950/40 border border-amber-500/40 rounded-2xl p-3.5 space-y-1">
                                                 <div className="text-[11px] text-amber-400 font-bold uppercase tracking-wider flex items-center gap-1">
                                                     <span>🟡</span>
-                                                    <span>-0,5 pt (1 erreur)</span>
+                                                    <span>0,5 pt (1 erreur)</span>
                                                 </div>
                                                 <div className="text-xl font-extrabold text-amber-300">
                                                     {countHalfPt} <span className="text-xs text-amber-400/70 font-medium">({pctHalfPt}%)</span>
@@ -227495,7 +227495,7 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                                             {ficheList.length > 1 ? `Résultats par Fiche de Cours (${ficheList.length} fiches)` : 'Résultat par Fiche de Cours'}
                                                         </h3>
                                                         <p className="text-[11px] text-slate-400">
-                                                            Taux de réussite et répartition des notes (1 / 1 · -0,5 / 1 · 0 / 1)
+                                                            Taux de réussite et répartition des notes (1 / 1 · 0,5 / 1 · 0 / 1)
                                                         </p>
                                                     </div>
                                                 </div>
@@ -227560,7 +227560,7 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                                                     <div 
                                                                         style={{ width: `${(f.countHalf / f.totalQ) * 100}%` }} 
                                                                         className="bg-amber-500 h-full transition-all" 
-                                                                        title={`-0,5 / 1 : ${f.countHalf} QCM (${pctHalf}%)`}
+                                                                        title={`0,5 / 1 : ${f.countHalf} QCM (${pctHalf}%)`}
                                                                     />
                                                                 )}
                                                                 {f.count0 > 0 && (
@@ -227587,7 +227587,7 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                                                 <div className="p-1.5 rounded-xl bg-amber-950/30 border border-amber-500/25 flex flex-col items-center justify-center">
                                                                     <span className="text-[10px] text-amber-400 font-extrabold uppercase flex items-center gap-1">
                                                                         <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                                                                        -0,5 / 1
+                                                                        0,5 / 1
                                                                     </span>
                                                                     <span className="text-xs font-black text-amber-300 mt-0.5">
                                                                         {f.countHalf} <span className="text-[10px] text-amber-400/70 font-semibold">({pctHalf}%)</span>
@@ -227628,15 +227628,15 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                             let badge = <span className="text-red-400 bg-red-950/80 px-2.5 py-1 rounded-lg border border-red-800/80 text-xs font-bold">✕ 0 pt ({errs} faute{errs !== 1 ? 's' : ''})</span>;
                                             if (pts === 1.0) {
                                                 badge = <span className="text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-lg border border-emerald-800/80 text-xs font-bold">✓ +1 pt (Sans faute)</span>;
-                                            } else if (pts === -0.5) {
-                                                badge = <span className="text-amber-400 bg-amber-950/80 px-2.5 py-1 rounded-lg border border-amber-800/80 text-xs font-bold">⚠️ -0,5 pt (1 faute)</span>;
+                                            } else if (pts === 0.5) {
+                                                badge = <span className="text-amber-400 bg-amber-950/80 px-2.5 py-1 rounded-lg border border-amber-800/80 text-xs font-bold">⚠️ 0,5 pt (1 faute)</span>;
                                             }
 
                                             return (
                                                 <div key={q.id || qIdx} className={`p-5 rounded-2xl border space-y-3 ${
                                                     pts === 1 
                                                         ? 'bg-emerald-950/15 border-emerald-500/30' 
-                                                        : pts === -0.5
+                                                        : pts === 0.5
                                                             ? 'bg-amber-950/15 border-amber-500/30' 
                                                             : 'bg-red-950/15 border-red-500/30'
                                                 }`}>
