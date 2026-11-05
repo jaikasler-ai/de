@@ -224712,7 +224712,20 @@
   }
 ];
 
-                /* __SP_EXP_CLEAN__ */
+                // Une coche incorrecte et un oubli sont chacun une erreur, à additionner.
+        const getQcmScore = (answers, selected = []) => {
+            let wrongChecks = 0;
+            let omissions = 0;
+            answers.forEach((answer, index) => {
+                const checked = selected.includes(index);
+                if (answer.correct && !checked) omissions++;
+                if (!answer.correct && checked) wrongChecks++;
+            });
+            const errors = wrongChecks + omissions;
+            return { wrongChecks, omissions, errors, points: errors === 0 ? 1 : errors === 1 ? 0.5 : 0 };
+        };
+
+        /* __SP_EXP_CLEAN__ */
         const cleanItemExpLabel = (raw) => {
             // La pilule de la carte fournit déjà le libellé VRAI/FAUX en couleur :
             // on retire tout libellé (« Vrai. », « FAUX – », « VRAIE — »…) ou lettre
@@ -225847,26 +225860,7 @@ const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
 
                 treatedList.forEach((q, qIdx) => {
                     const selected = userChoices[qIdx] || [];
-                    let errorsCount = 0;
-                    q.answers.forEach((ans, aIdx) => {
-                        const isChecked = selected.includes(aIdx);
-                        if ((ans.correct && !isChecked) || (!ans.correct && isChecked)) {
-                            errorsCount++;
-                        }
-                    });
-
-                    // Barème officiel PASS / LAS :
-                    // 0 erreur = 1.0 pt
-                    // 1 erreur = 0.5 pt
-                    // >= 2 erreurs = 0.0 pt
-                    let questionPoints = 0.0;
-                    if (errorsCount === 0) {
-                        questionPoints = 1.0;
-                    } else if (errorsCount === 1) {
-                        questionPoints = 0.5;
-                    } else {
-                        questionPoints = 0.0;
-                    }
+                    const { errors: errorsCount, points: questionPoints } = getQcmScore(q.answers, selected);
 
                     totalPoints += questionPoints;
                     const isCorrect = (errorsCount === 0);
@@ -226361,7 +226355,7 @@ const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
                                                         if ((ans.correct && !isChecked) || (!ans.correct && isChecked)) errs++;
                                                     });
                                                     dpTotalErrs += errs;
-                                                    dpTotalPts += (errs === 0 ? 1.0 : (errs === 1 ? 0.5 : 0.0));
+                                                    dpTotalPts += getQcmScore(q.answers, sel).points;
                                                 });
                                                 const maxPts = dpIndices.length;
 
@@ -226400,7 +226394,7 @@ const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
                                                         const isChecked = subSelected.includes(aIdx);
                                                         if ((ans.correct && !isChecked) || (!ans.correct && isChecked)) subErrors++;
                                                     });
-                                                    const subPoints = subErrors === 0 ? 1.0 : (subErrors === 1 ? 0.5 : 0.0);
+                                                    const subPoints = getQcmScore(subQ.answers, subSelected).points;
 
                                                     return (
                                                         <div key={subQ.id || qIdx} className="bg-slate-900/70 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-6 shadow-2xl">
@@ -226859,10 +226853,10 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                             <h1 className="text-xl md:text-2xl font-bold text-white whitespace-pre-line leading-relaxed">{currentQ.statement}</h1>
                                             <p className="text-xs text-slate-400 italic">
                                                 {isExamMode 
-                                                    ? "Cochez la ou les proposition(s) vraie(s). Barème officiel : Sans faute = 1 pt • 1 erreur = 0,5 pt • ≥ 2 erreurs = 0 pt. La correction détaillée s'affiche à la fin de l'épreuve."
+                                                    ? "Cochez la ou les proposition(s) vraie(s). Barème officiel : Sans faute = 1 pt • 1 erreur = 0,5 pt • ≥ 2 erreurs = 0 pt. Les coches incorrectes et les oublis s’additionnent. La correction détaillée s'affiche à la fin de l'épreuve."
                                                     : isValidated 
                                                         ? "Correction détaillée du QCM affichée ci-dessous. Consultez les explications item par item."
-                                                        : "Cochez la ou les proposition(s) vraie(s). Barème officiel : Sans faute = 1 pt • 1 erreur = 0,5 pt • ≥ 2 erreurs = 0 pt. Cliquez sur « Valider ma réponse » pour afficher la correction immédiate."}
+                                                        : "Cochez la ou les proposition(s) vraie(s). Barème officiel : Sans faute = 1 pt • 1 erreur = 0,5 pt • ≥ 2 erreurs = 0 pt. Les coches incorrectes et les oublis s’additionnent. Cliquez sur « Valider ma réponse » pour afficher la correction immédiate."}
                                             </p>
                                         </div>
 
@@ -227113,13 +227107,8 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
 
                                         {/* IMMEDIATE CORRECTION BANNER & EXPLANATIONS */}
                                         {isValidated && (() => {
-                                            let curErrors = 0;
                                             const sel = userChoices[currentQuizIndex] || [];
-                                            currentQ.answers.forEach((ans, aIdx) => {
-                                                const isChecked = sel.includes(aIdx);
-                                                if ((ans.correct && !isChecked) || (!ans.correct && isChecked)) curErrors++;
-                                            });
-                                            const qPoints = curErrors === 0 ? 1.0 : (curErrors === 1 ? 0.5 : 0.0);
+                                            const { errors: curErrors, points: qPoints, wrongChecks, omissions } = getQcmScore(currentQ.answers, sel);
                                             const isGameOver = activeQuizMode === 'crashtest' && remainingHearts <= 0;
 
                                             return (
@@ -227145,7 +227134,8 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                                                             : `${curErrors} erreurs commises sur ce QCM.`}
                                                                 </div>
                                                                 <div className="text-xs opacity-80 mt-0.5">
-                                                                    Barème officiel PASS : {qPoints === 1 ? '+1,0 pt' : qPoints === 0.5 ? '0,5 pt' : '+0,0 pt'}
+                                                                    Erreurs = coches incorrectes + oublis. Barème : {qPoints === 1 ? '+1,0 pt' : qPoints === 0.5 ? '0,5 pt' : '+0,0 pt'}
+                                                                    <div>{wrongChecks} coche(s) incorrecte(s) + {omissions} oubli(s) = {curErrors} erreur(s).</div>
                                                                     {activeQuizMode === 'crashtest' && (
                                                                         curErrors === 0 
                                                                             ? ' • ❤️ Aucun cœur perdu' 
