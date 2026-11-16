@@ -259779,6 +259779,127 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                         })}
                                     </div>
 
+                                    {/* 📋 BILAN DES ERREURS — RÉCAP COMPLET COPIABLE */}
+                                    {(() => {
+                                        const wrongOnes = userAnswersHistory.filter(h => (h.points ?? 0) < 1);
+                                        const letterOf = (i) => String.fromCharCode(65 + i);
+                                        const fmtPt = (p) => (p ?? 0).toString().replace('.', ',');
+                                        const buildErrorText = (h, qIdx) => {
+                                            const q = h.question;
+                                            const sel = h.selectedAnswerIndices || [];
+                                            const errs = h.errorsCount ?? 0;
+                                            const isReverseQ = /fausse/i.test(String(q.subStatement || q.statement || ''));
+                                            const lines = [];
+                                            lines.push('QCM ' + (qIdx + 1) + ' — Note : ' + fmtPt(h.points) + '/1 (' + errs + ' erreur' + (errs !== 1 ? 's' : '') + ')');
+                                            lines.push('Chapitre : ' + (q.chapter || '') + (q.dpTitle ? ' — ' + q.dpTitle : ''));
+                                            lines.push('');
+                                            if (q.commonStatement) {
+                                                lines.push('ÉNONCÉ COMMUN :');
+                                                lines.push(q.commonStatement);
+                                                lines.push('');
+                                            }
+                                            lines.push('ÉNONCÉ :');
+                                            lines.push(q.subStatement || q.statement);
+                                            lines.push('');
+                                            q.answers.forEach((ans, aIdx) => {
+                                                const isCorrect = Boolean(ans.correct);
+                                                const chosen = sel.includes(aIdx);
+                                                let mark = '';
+                                                if (isCorrect && chosen) mark = '   ← bonne réponse (sélectionnée)';
+                                                else if (isCorrect && !chosen) mark = '   ← OUBLIÉE (bonne réponse non cochée)';
+                                                else if (!isCorrect && chosen) mark = '   ← cochée À TORT';
+                                                lines.push(letterOf(aIdx) + '. ' + ans.text + mark);
+                                            });
+                                            lines.push('');
+                                            lines.push('Votre réponse : ' + (sel.length ? sel.map(letterOf).join(', ') : '(aucune)'));
+                                            lines.push('Bonne réponse : ' + q.answers.map((a, i) => (a.correct ? letterOf(i) : null)).filter(Boolean).join(', '));
+                                            if (q.image) lines.push('🖼️ Note : ce QCM comportait une figure (non copiable dans le texte).');
+                                            if (isReverseQ) lines.push('⚠️ Question inversée : il fallait cocher les propositions FAUSSES.');
+                                            const exps = q.answers.map((ans, aIdx) => getItemExplanation(q, ans, aIdx)).filter(x => x && x.trim());
+                                            if (exps.length) {
+                                                lines.push('');
+                                                lines.push('EXPLICATIONS :');
+                                                exps.forEach(e => lines.push(e));
+                                            }
+                                            return lines.join('\n');
+                                        };
+                                        const fallbackCopy = (text) => {
+                                            const ta = document.createElement('textarea');
+                                            ta.value = text;
+                                            ta.style.position = 'fixed';
+                                            ta.style.opacity = '0';
+                                            document.body.appendChild(ta);
+                                            ta.select();
+                                            try { document.execCommand('copy'); } catch (err) {}
+                                            document.body.removeChild(ta);
+                                        };
+                                        const copyToClipboard = (text, e) => {
+                                            const btn = e.currentTarget;
+                                            const prev = btn.innerHTML;
+                                            const done = () => {
+                                                btn.innerHTML = '✅ Copié !';
+                                                setTimeout(() => { btn.innerHTML = prev; }, 1800);
+                                            };
+                                            if (navigator.clipboard && navigator.clipboard.writeText) {
+                                                navigator.clipboard.writeText(text).then(done).catch(() => { fallbackCopy(text); done(); });
+                                            } else { fallbackCopy(text); done(); }
+                                        };
+                                        const allErrorsText = wrongOnes.length
+                                            ? '📋 MES ERREURS — ' + wrongOnes.length + ' QCM raté(s) sur ' + userAnswersHistory.length + ' traité(s)\n\n'
+                                              + wrongOnes.map(h => buildErrorText(h, userAnswersHistory.indexOf(h))).join('\n\n──────────────────────────────\n\n')
+                                            : '';
+                                        return (
+                                            <div className="p-6 rounded-3xl bg-slate-900 border border-slate-800 space-y-4 shadow-xl text-left">
+                                                <div className="flex items-center justify-between gap-3 flex-wrap pb-3 border-b border-slate-800">
+                                                    <div className="flex items-center gap-2.5">
+                                                        <div className="w-8 h-8 rounded-xl bg-red-950/60 border border-red-500/40 flex items-center justify-center text-sm">📋</div>
+                                                        <div>
+                                                            <h3 className="text-sm font-black text-white uppercase tracking-wider">
+                                                                {wrongOnes.length > 0 ? 'Mes Erreurs (' + wrongOnes.length + ') — Copier pour analyser' : 'Mes Erreurs'}
+                                                            </h3>
+                                                            <p className="text-[11px] text-slate-400">
+                                                                {wrongOnes.length > 0
+                                                                    ? 'QCM complet : énoncé, options marquées, vos réponses, les bonnes réponses et les explications'
+                                                                    : 'Aucune erreur sur cette série'}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    {wrongOnes.length > 0 && (
+                                                        <button onClick={(e) => copyToClipboard(allErrorsText, e)} className="px-3.5 py-1.5 bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-500 hover:to-indigo-400 text-white font-bold rounded-xl text-xs shadow-md transition-all flex items-center gap-1.5">
+                                                            <span>📋 Copier toutes mes erreurs</span>
+                                                        </button>
+                                                    )}
+                                                </div>
+                                                {wrongOnes.length === 0 ? (
+                                                    <div className="p-4 rounded-2xl bg-emerald-950/30 border border-emerald-500/40 text-emerald-300 text-sm font-semibold text-center">🏆 Sans faute : aucune erreur à analyser, bravo !</div>
+                                                ) : (
+                                                    <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2 scrollbar-thin">
+                                                        {wrongOnes.map((h, wIdx) => {
+                                                            const q = h.question;
+                                                            const qIdx = userAnswersHistory.indexOf(h);
+                                                            const errText = buildErrorText(h, qIdx);
+                                                            return (
+                                                                <div key={q.id || wIdx} className="p-4 rounded-2xl bg-slate-950/70 border border-slate-800/80 space-y-2.5">
+                                                                    <div className="flex items-center justify-between gap-3 flex-wrap">
+                                                                        <div className="flex items-center gap-2 min-w-0">
+                                                                            <span className="text-[11px] font-extrabold px-2 py-0.5 rounded-md bg-red-950/80 text-red-300 border border-red-800/60 shrink-0">✕ QCM {qIdx + 1}</span>
+                                                                            <span className="text-[11px] text-slate-400 truncate">{(q.chapter || '') + (q.dpTitle ? ' — ' + q.dpTitle : '')}</span>
+                                                                        </div>
+                                                                        <div className="flex items-center gap-2 shrink-0">
+                                                                            <span className="text-[11px] font-bold text-amber-300 bg-amber-950/60 px-2 py-0.5 rounded-md border border-amber-800/50">Note : {fmtPt(h.points)}/1</span>
+                                                                            <button onClick={(e) => copyToClipboard(errText, e)} className="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 rounded-lg text-[11px] font-bold transition-all">📋 Copier</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <pre className="whitespace-pre-wrap font-mono text-[11px] leading-relaxed text-slate-300 bg-slate-900/80 border border-slate-800 rounded-xl p-3 max-h-80 overflow-y-auto scrollbar-thin">{errText}</pre>
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        );
+                                    })()}
+
                                     <div className="flex gap-3 pt-2">
                                         <button 
                                             onClick={() => setActiveQuizMode(null)} 
