@@ -255453,6 +255453,20 @@
             const [useCustomChapterCounts, setUseCustomChapterCounts] = useState(false);
             const [useCustomFicheWeights, setUseCustomFicheWeights] = useState(false);
             const [selectedChaptersForGlobal, setSelectedChaptersForGlobal] = useState([]);
+            // No-Fault : historique des séries d'examen (taux de fautes global + par fiche)
+            const [noFaultMode, setNoFaultMode] = useState(false);
+            const [noFaultInfo, setNoFaultInfo] = useState({ summary: [], sessionCount: 0, questionsCount: 0 });
+            const examRecordedRef = useRef(false);
+            const [examHistory, setExamHistory] = useState(() => {
+                try {
+                    const raw = localStorage.getItem('med_prep_exam_history_v1');
+                    if (raw) {
+                        const parsed = JSON.parse(raw);
+                        if (Array.isArray(parsed.sessions)) return parsed.sessions;
+                    }
+                } catch (e) {}
+                return [];
+            });
 
             const difficultyCounts = useMemo(() => {
                 let pool = selectedSubjectForQuiz ? questions.filter(q => q.subjectId === selectedSubjectForQuiz.id) : [...questions];
@@ -255975,6 +255989,8 @@
 
             const openUEConfig = (subject, chapter = null, difficulty = 'all') => {
                 setSelectedSubjectForQuiz(subject);
+                setNoFaultMode(false);
+                setNoFaultInfo({ summary: [], sessionCount: 0, questionsCount: 0 });
                 setSelectedChapterForQuiz(chapter);
                 setSelectedDifficultyForQuiz(difficulty);
                 setQuizQuestionLimit('all');
@@ -256012,6 +256028,94 @@
                 }
 
                 setShowUEConfigModal(true);
+            };
+
+            // No-Fault : calcule une répartition des % par fiche à partir des fautes des séries d'examen passées
+            const computeNoFaultAdjustment = (subject, activeChaps, basePercentages) => {
+                const sessions = examHistory.filter(s => s.subjectId === subject.id).slice(-10);
+                const agg = {};
+                sessions.forEach(sess => {
+                    Object.entries(sess.perChapter || {}).forEach(([ch, st]) => {
+                        if (!agg[ch]) agg[ch] = { total: 0, wrong: 0 };
+                        agg[ch].total += (st.total || 0);
+                        agg[ch].wrong += (st.wrong || 0);
+                    });
+                });
+                const nb = activeChaps.length;
+                const baseSum = activeChaps.reduce((acc, ch) => acc + (Number(basePercentages[ch]) || 0), 0);
+                const rows = activeChaps.map(ch => {
+                    const st = agg[ch];
+                    const rate = st && st.total > 0 ? st.wrong / st.total : 0;
+                    const base = baseSum > 0 ? (Number(basePercentages[ch]) || 0) : (100 / nb);
+                    const weight = (base > 0 ? base : 0.5) * (1 + 1.5 * rate);
+                    return { chapter: ch, rate, base, weight, total: st ? st.total : 0, wrong: st ? st.wrong : 0 };
+                });
+                const totalWeight = rows.reduce((acc, r) => acc + r.weight, 0) || 1;
+                let allocs = rows.map(r => Math.max(1, Math.round((100 * r.weight) / totalWeight)));
+                let sumAlloc = allocs.reduce((acc, a) => acc + a, 0);
+                let guard = 0;
+                while (sumAlloc !== 100 && guard < 500) {
+                    let idx = 0;
+                    if (sumAlloc > 100) {
+                        allocs.forEach((a, i) => { if (a > 1 && a > allocs[idx]) idx = i; });
+                        if (allocs[idx] > 1) { allocs[idx] -= 1; sumAlloc -= 1; }
+                    } else {
+                        allocs.forEach((a, i) => { if (a < allocs[idx]) idx = i; });
+                        allocs[idx] += 1; sumAlloc += 1;
+                    }
+                    guard += 1;
+                }
+                const percentages = {};
+                rows.forEach((r, i) => { percentages[r.chapter] = allocs[i]; });
+                const summary = rows.map((r, i) => ({
+                    chapter: r.chapter,
+                    rate: Math.round(r.rate * 100),
+                    pct: allocs[i],
+                    total: r.total,
+                    wrong: r.wrong
+                })).sort((a, b) => b.rate - a.rate);
+                return { percentages, summary, sessionCount: sessions.length, questionsCount: sessions.reduce((acc, s) => acc + (s.total || 0), 0) };
+            };
+
+            const toggleNoFault = () => {
+                if (noFaultMode) {
+                    setNoFaultMode(false);
+                    setNoFaultInfo({ summary: [], sessionCount: 0, questionsCount: 0 });
+                    // Retour à une répartition neutre (égalitaire) sur les fiches cochées
+                    const active = selectedChaptersForGlobal || [];
+                    if (active.length > 0 && selectedSubjectForQuiz) {
+                        const eq = Math.floor(100 / active.length);
+                        let rem = 100 - eq * active.length;
+                        const reset = {};
+                        (selectedSubjectForQuiz.chapters || []).forEach(ch => {
+                            if (active.includes(ch)) {
+                                reset[ch] = eq + (rem > 0 ? 1 : 0);
+                                if (rem > 0) rem -= 1;
+                            } else {
+                                reset[ch] = 0;
+                            }
+                        });
+                        setChapterPercentages(reset);
+                    }
+                    return;
+                }
+                const subject = selectedSubjectForQuiz;
+                if (!subject) return;
+                const activeChaps = (selectedChaptersForGlobal || []).filter(ch => (subject.chapters || []).includes(ch));
+                if (activeChaps.length === 0) {
+                    alert("Cochez au moins une fiche pour activer le mode No-Fault.");
+                    return;
+                }
+                const result = computeNoFaultAdjustment(subject, activeChaps, chapterPercentages);
+                if (result.sessionCount === 0) {
+                    alert("Aucun historique d'examen pour cette UE. Lancez d'abord une série d'examen standard : le mode No-Fault s'appuiera ensuite sur vos fautes par fiche.");
+                    return;
+                }
+                setChapterPercentages(prev => ({ ...prev, ...result.percentages }));
+                setUseCustomFicheWeights(true);
+                setUseCustomChapterCounts(false);
+                setNoFaultMode(true);
+                setNoFaultInfo({ summary: result.summary, sessionCount: result.sessionCount, questionsCount: result.questionsCount });
             };
 
             const launchConfiguredQuiz = () => {
@@ -256196,6 +256300,22 @@
                             }
                         }
 
+                        // Garantir au moins 1 QCM par fiche pondérée (jamais 0 QCM pour une fiche cochée)
+                        if (finalLimit >= chapsWithWeights.length) {
+                            chapsWithWeights.forEach(ch => {
+                                if ((targetCounts[ch] || 0) < 1) {
+                                    let donor = null;
+                                    chapsWithWeights.forEach(c2 => {
+                                        if (c2 !== ch && (targetCounts[c2] || 0) > 1 && (!donor || targetCounts[c2] > targetCounts[donor])) donor = c2;
+                                    });
+                                    if (donor) {
+                                        targetCounts[donor] = targetCounts[donor] - 1;
+                                        targetCounts[ch] = 1;
+                                    }
+                                }
+                            });
+                        }
+
                         const pickedIds = new Set();
                         chapsWithWeights.forEach(ch => {
                             const needed = targetCounts[ch] || 0;
@@ -256274,6 +256394,7 @@
                 setQuizTimerSeconds(0);
                 setUserAnswersHistory([]);
                 setValidatedQuestions({});
+                examRecordedRef.current = false;
                 setIsCrash70Eliminated(false);
                 setEliminatedAtQuestionIndex(null);
                 setEliminatedStats(null);
@@ -256326,6 +256447,7 @@
                 setQuizTimerSeconds(0);
                 setUserAnswersHistory([]);
                 setValidatedQuestions({});
+                examRecordedRef.current = false;
                 setActiveQuizMode(mode);
                 if (mode === 'crashtest') {
                     setRemainingHearts(3);
@@ -256478,6 +256600,41 @@ const finishQuiz = (overrideHearts = null, forceCrash70 = false) => {
                 const finalScore = parseFloat(totalPoints.toFixed(1));
                 setQuizScore(finalScore);
                 setUserAnswersHistory(history);
+
+                // Enregistrement de la session d'examen (taux de fautes global + par fiche) pour le mode No-Fault
+                if (activeQuizMode === 'exam' && !examRecordedRef.current && history.length > 0) {
+                    examRecordedRef.current = true;
+                    const chapterStats = {};
+                    history.forEach(h => {
+                        const ch = h.question.chapter || 'Général';
+                        if (!chapterStats[ch]) chapterStats[ch] = { total: 0, wrong: 0 };
+                        chapterStats[ch].total += 1;
+                        if (!h.isCorrect) chapterStats[ch].wrong += 1;
+                    });
+                    const wrongCount = history.filter(h => !h.isCorrect).length;
+                    const questionSubjectIds = Array.from(new Set(history.map(h => h.question.subjectId).filter(Boolean)));
+                    const singleSubjectId = questionSubjectIds.length === 1 ? questionSubjectIds[0] : null;
+                    const singleSubject = singleSubjectId ? subjects.find(s => s.id === singleSubjectId) : null;
+                    const sessionRecord = {
+                        id: 'ex-' + Date.now(),
+                        date: new Date().toISOString(),
+                        subjectId: singleSubjectId || 'multi',
+                        subjectName: singleSubject ? singleSubject.name : 'Multi-UE',
+                        subMode: examSubMode,
+                        total: history.length,
+                        wrong: wrongCount,
+                        faultPct: Math.round((wrongCount / history.length) * 100),
+                        points: finalScore,
+                        maxPoints: history.length,
+                        perChapter: chapterStats
+                    };
+                    setExamHistory(prev => {
+                        const next = [...prev, sessionRecord].slice(-200);
+                        try { localStorage.setItem('med_prep_exam_history_v1', JSON.stringify({ sessions: next })); } catch (e) {}
+                        return next;
+                    });
+                }
+
                 setQuizFinished(true);
                 setUser(prev => ({ ...prev, xp: prev.xp + Math.round(finalScore * 15) + 50 }));
             };
@@ -258017,6 +258174,30 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                             </div>
                                         </div>
 
+                                        {activeQuizMode === 'exam' && (() => {
+                                            const examSubjIds = Array.from(new Set((quizQuestions || []).map(q => q.subjectId).filter(Boolean)));
+                                            const examSubjId = examSubjIds.length === 1 ? examSubjIds[0] : null;
+                                            const sess = examHistory.filter(s => (examSubjId ? s.subjectId === examSubjId : true)).slice(-5).reverse();
+                                            if (sess.length === 0) return null;
+                                            const lastSession = sess[0];
+                                            return (
+                                                <div className="p-3.5 rounded-2xl bg-cyan-950/40 border border-cyan-800/60 text-left space-y-1.5">
+                                                    <div className="flex items-center justify-between flex-wrap gap-2">
+                                                        <span className="text-xs font-bold text-cyan-300">🛡️ Session d'examen enregistrée — {lastSession.faultPct} % de fautes</span>
+                                                        <span className="text-[10px] text-slate-400">{lastSession.wrong}/{lastSession.total} QCM fautifs · {lastSession.points}/{lastSession.maxPoints} pts</span>
+                                                    </div>
+                                                    <div className="flex flex-wrap gap-1.5">
+                                                        {sess.map(s => (
+                                                            <span key={s.id} className="text-[10px] px-1.5 py-0.5 rounded-md bg-slate-950/80 border border-slate-800 text-slate-300">
+                                                                {new Date(s.date).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' })} · <b className={s.faultPct >= 40 ? 'text-rose-300' : s.faultPct >= 20 ? 'text-amber-300' : 'text-emerald-300'}>{s.faultPct} %</b>
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                    <div className="text-[10px] text-cyan-200/70">Le mode No-Fault utilisera ces résultats pour pondérer tes prochaines séries d'examen.</div>
+                                                </div>
+                                            );
+                                        })()}
+
                                         {/* 3 STATS BOXES MATCHING EXACT PASS BAREME */}
                                         <div className="grid grid-cols-3 gap-3 pt-2 text-left">
                                             <div className="bg-emerald-950/40 border border-emerald-500/40 rounded-2xl p-3.5 space-y-1">
@@ -259503,6 +259684,66 @@ const isValidated = !isExamMode && Boolean(validatedQuestions[currentQuizIndex])
                                                     ? "🎓 Concours Standard : compte à rebours (1m30/QCM), navigation libre, correction intégrale à la fin de l'épreuve." 
                                                     : "💥 Sous-mode Crash 70% : vous devez maintenir au minimum 70% de QCMs Sans Faute (1,0 pt). Dès 3 QCMs, si votre taux de sans-faute tombe sous 70%, vous êtes éliminé (Crash) et l'examen s'arrête net !"}
                                             </div>
+                                        </div>
+                                    )}
+
+                                    {/* 1.75 No-Fault : ajustement auto des % selon les fautes d'examen */}
+                                    {quizLaunchMode === 'exam' && !selectedChapterForQuiz && (
+                                        <div className="p-3.5 rounded-2xl bg-cyan-950/40 border border-cyan-800/60 space-y-2.5">
+                                            <div className="flex justify-between items-center gap-2">
+                                                <div>
+                                                    <label className="block text-xs font-bold text-cyan-300">🛡️ Mode No-Fault</label>
+                                                    <span className="text-[10px] text-cyan-200/70">Répartition ciblée sur tes fautes aux examens précédents</span>
+                                                </div>
+                                                <button
+                                                    type="button"
+                                                    onClick={toggleNoFault}
+                                                    className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all shrink-0 cursor-pointer ${noFaultMode ? 'bg-cyan-600 border-cyan-400 text-white shadow-md ring-2 ring-cyan-500/30' : 'bg-slate-950 border-slate-800 text-slate-400 hover:bg-slate-800'}`}
+                                                >
+                                                    {noFaultMode ? '✓ No-Fault actif' : 'Activer'}
+                                                </button>
+                                            </div>
+                                            {noFaultMode ? (
+                                                <div className="space-y-1.5">
+                                                    <div className="text-[11px] text-cyan-200/90">
+                                                        Basé sur {noFaultInfo.sessionCount} série{noFaultInfo.sessionCount > 1 ? 's' : ''} d'examen ({noFaultInfo.questionsCount || 0} QCM) : les fiches les plus fautives reçoivent plus de QCM, avec au moins 1 QCM par fiche cochée.
+                                                    </div>
+                                                    <div className="space-y-1 max-h-32 overflow-y-auto pr-1">
+                                                        {noFaultInfo.summary.slice(0, 8).map(row => (
+                                                            <div key={row.chapter} className="flex items-center justify-between gap-2 text-[10px]">
+                                                                <span className="text-slate-300 truncate" title={row.chapter}>{row.chapter.replace(/\.pdf$/i, '')}</span>
+                                                                <span className="shrink-0 text-slate-400">
+                                                                    <span className={row.rate >= 40 ? 'text-rose-300' : row.rate >= 20 ? 'text-amber-300' : 'text-emerald-300'}>{row.rate} % fautes</span>
+                                                                    {' → '}<b className="text-cyan-300">{row.pct} %</b>
+                                                                </span>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                <div className="text-[11px] text-slate-400 leading-relaxed">
+                                                    Chaque série d'examen est enregistrée (taux de fautes global et par fiche). Le No-Fault renforce automatiquement les fiches où tu fais le plus d'erreurs — sans jamais mettre une fiche cochée à 0 QCM.
+                                                </div>
+                                            )}
+                                            {(() => {
+                                                const subj = selectedSubjectForQuiz;
+                                                const sess = examHistory.filter(s => subj && s.subjectId === subj.id).slice(-5).reverse();
+                                                if (sess.length === 0) {
+                                                    return <div className="text-[10px] text-slate-500 italic">Aucune série d'examen enregistrée pour cette UE.</div>;
+                                                }
+                                                return (
+                                                    <div className="pt-1.5 border-t border-cyan-900/50">
+                                                        <div className="text-[10px] font-bold text-slate-400 mb-1">Historique examens ({sess.length} dernière{sess.length > 1 ? 's' : ''})</div>
+                                                        <div className="flex flex-wrap gap-1.5">
+                                                            {sess.map(s => (
+                                                                <span key={s.id} className="text-[10px] px-1.5 py-0.5 rounded-md bg-slate-950/80 border border-slate-800 text-slate-300">
+                                                                    {new Date(s.date).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' })} · <b className={s.faultPct >= 40 ? 'text-rose-300' : s.faultPct >= 20 ? 'text-amber-300' : 'text-emerald-300'}>{s.faultPct} %</b>
+                                                                </span>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                );
+                                            })()}
                                         </div>
                                     )}
 
